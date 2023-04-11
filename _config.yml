@@ -1,0 +1,29 @@
+# Theme settings
+theme:
+  baseurl:
+  color_theme: blue # Available themes: blue (default), green, purple, red and yellow
+  header:
+    logo:
+      text: joystick.tv Help &amp; Support
+    nav:
+      - item_name: Main Site
+        item_url: 'https://joystick.tv'
+  footer:
+    content:
+      logo:
+        text: joystick.tv
+      copyright: Copyright &copy; 2020 - joystick.tv <br>All rights reserved.
+    social_list:
+      - network_name: github
+        profile_url: '#'
+
+# SASS settings
+sass:
+  sass_dir: ./theme/_sass
+  style: :compressed
+
+# Jekyll settings
+layouts_dir: ./theme/_layouts
+includes_dir: ./theme/_includes
+exclude: [ 'README.md', 'CHANGELOG.md' ]
+permalink: /:title/
