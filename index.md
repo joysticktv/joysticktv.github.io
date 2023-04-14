@@ -24,4 +24,9 @@ grid_navigation:
     excerpt: If you're having trouble with your account or need assistance navigating the site, our knowledgeable support team is here to help. You can reach out to us via email, phone, or through our live chat feature, and we'll do our best to resolve any issues as quickly as possible.
     cta: Read more
     url: '/general_support'
+
+  - title: Viewer Support
+    excerpt: New to JoystickTV and looking for the best way to enjoy the site? Read up on information about how to get the most enjoyment from joystick.tv
+    cta: Read more
+    url: '/viewer_support'
 ---
