@@ -9,6 +9,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+	align-items: center;
   font-size: 0.75em;
 
 	li {
@@ -17,11 +18,21 @@
 
 		+ li {
 			margin-left: 1.25rem;
-			margin-bottom: 1.25rem;
 		}
 
 		&::before {
 			display: none;
+		}
+
+		a {
+			color: $color-footer-copyright;
+			font-family: $font-family-secondary;
+			font-size: $font-size-h6;
+			text-decoration: none;
+
+			&:hover {
+				color: $color-dark;
+			}
 		}
 	}
 }
