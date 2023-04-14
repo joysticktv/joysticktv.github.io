@@ -29,4 +29,9 @@ grid_navigation:
     excerpt: New to JoystickTV and looking for the best way to enjoy the site? Read up on information about how to get the most enjoyment from joystick.tv
     cta: Read more
     url: '/viewer_support'
+
+  - title: Streamer Support
+    excerpt: Are you a streamer on joystick.tv looking for more information? Find everything you need to know about your account from payment information, business and taxes, to more of the creative side like connecting your lovense devices and configuring direct message campaigns.
+    cta: Read more
+    url: '/streamer_support'
 ---
