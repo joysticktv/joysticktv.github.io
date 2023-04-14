@@ -17,6 +17,9 @@ No. Even though we like to focus on gaming, if you just want to knit, paint, do 
 ## Can I have my partner on stream with me?
 Yes, however, they must be approved on your account before they can appear on stream. Go to your stream settings page and add a new Stream Approval with their information.
 
+If they're already an approved streamer, you can invite them to appear on stream through
+streamer invitations on your stream settings page.
+
 ## I want to play a game with friends. Can their voices be on my stream?
 As long as you know they are all over the age of 18, and do not show their faces/body, it’s ok.
 
@@ -34,5 +37,10 @@ Checks are mailed through the standard U.S. Postal Service (USPS). These take ro
 
 ## Do you allow playing (INSERT ANY RANDOM INDIE GAME) on stream?
 Games are constantly coming out, and older games get updated frequently. Keeping up with a solid list is very difficult. As long as the game doesn’t violate our Terms of Service or Community Guidelines, it should be ok, but will be evaluated on a case-by-case basis. If you have further questions, please ask.
+
+## How much are tokens worth?
+Token values are variable based on how much was spent buying them. We factor in discounts that
+may be given, or affiliate revenue share, and other factors in this. A token's value will be
+between $0.02 and $0.12 with the average value being around $0.07 each.
 
 If your question hasn’t been answered, feel free to email support@joystick.tv or ask in our Discord support channel for further clarification

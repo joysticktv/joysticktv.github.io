@@ -19,4 +19,9 @@ grid_navigation:
     excerpt: Still have questions? Don't worry, we've got you covered! Check out our comprehensive Frequently Asked Questions section for answers to any additional inquiries you may have. We're committed to providing you with all the information you need to make the most of your experience on joystick.tv
     cta: Read more
     url: '/faq'
+
+  - title: General Support
+    excerpt: If you're having trouble with your account or need assistance navigating the site, our knowledgeable support team is here to help. You can reach out to us via email, phone, or through our live chat feature, and we'll do our best to resolve any issues as quickly as possible.
+    cta: Read more
+    url: '/general_support'
 ---
