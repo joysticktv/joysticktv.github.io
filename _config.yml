@@ -1,3 +1,7 @@
+url: https://support.joystick.tv
+plugins:
+  - jekyll-sitemap
+
 # Theme settings
 theme:
   baseurl:
