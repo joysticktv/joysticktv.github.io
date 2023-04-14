@@ -1,0 +1,27 @@
+/**
+ * Links list (components/_links-list.scss)
+ */
+
+/* ----- General ----- */
+.links-list {
+	margin-bottom: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 0.75em;
+
+	li {
+		display: inline-block;
+		padding: 0;
+
+		+ li {
+			margin-left: 1.25rem;
+			margin-bottom: 1.25rem;
+		}
+
+		&::before {
+			display: none;
+		}
+	}
+}

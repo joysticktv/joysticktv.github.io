@@ -11,6 +11,17 @@
 						</a><!-- /.site-footer__logo -->
 					{% endif %}
 					<hr>
+					<div class="">
+						<ul class="links-list">
+							{% for item in site.theme.footer.links %}
+								<li>
+									<a href="{{ item.url }}" target="_blank" class="">
+										{{ item.text }}
+									</a>
+								</li>
+							{% endfor %}
+						</ul><!-- /.social-list -->
+					</div><!-- /.col -->
 					<p class="site-footer__copyright">Copyright &copy; {{ site.time | date: '%Y' }} - joystick.tv <br>All rights reserved.</p>
 				</div><!-- /.col -->
 				{% if site.theme.footer.social_list %}

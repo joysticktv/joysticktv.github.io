@@ -4,7 +4,7 @@ plugins:
 
 # Theme settings
 theme:
-  baseurl:
+  baseurl: https://support.joystick.tv
   color_theme: blue # Available themes: blue (default), green, purple, red and yellow
   header:
     logo:
@@ -15,10 +15,25 @@ theme:
   footer:
     content:
       logo:
-        text: joystick.tv
+        image: yes
     social_list:
       - network_name: github
         profile_url: 'https://github.com/joysticktv'
+    links:
+      - url: https://joystick.tv/terms
+        text: Terms &amp; Conditions
+      - url: https://joystick.tv/community-guidelines
+        text: Community Guidelines
+      - url: https://joystick.tv/trademark-policy
+        text: Trademark Policy
+      - url: https://joystick.tv/privacy
+        text: Privacy Policy
+      - url: https://joystick.tv/law-enforcement
+        text: Law Enforcement
+      - url: https://joystick.tv/dmca
+        text: DCMA
+      - url: https://joystick.tv/2257
+        text: 18 U.S.C. § 2257
 
 # SASS settings
 sass:
