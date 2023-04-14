@@ -6,16 +6,15 @@ theme:
     logo:
       text: joystick.tv Help &amp; Support
     nav:
-      - item_name: Main Site
+      - item_name: JoystickTV
         item_url: 'https://joystick.tv'
   footer:
     content:
       logo:
         text: joystick.tv
-      copyright: Copyright &copy; 2020 - joystick.tv <br>All rights reserved.
     social_list:
       - network_name: github
-        profile_url: '#'
+        profile_url: 'https://github.com/joysticktv'
 
 # SASS settings
 sass:

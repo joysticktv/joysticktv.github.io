@@ -10,10 +10,8 @@
 							<img src="{% if jekyll.environment == 'production' %}{{ site.theme.baseurl }}{% endif %}/theme/assets/images/layout/logo-footer.png">
 						</a><!-- /.site-footer__logo -->
 					{% endif %}
-					{% if site.theme.footer.content.copyright %}
-						<hr>
-						<p class="site-footer__copyright">{{ site.theme.footer.content.copyright }}</p>
-					{% endif %}
+					<hr>
+					<p class="site-footer__copyright">Copyright &copy; {{ site.time | date: '%Y' }} - joystick.tv <br>All rights reserved.</p>
 				</div><!-- /.col -->
 				{% if site.theme.footer.social_list %}
 					<div class="col-sm-6 align-right">
