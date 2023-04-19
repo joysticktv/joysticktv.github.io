@@ -46,9 +46,163 @@ The government issued ID _must_ include a birthdate, photo of your face, and exp
 
 ## Required Software
 
-## OBS Guides
+In order to start streaming, you'll need to install streaming
+software on your device. The streaming software will allow you
+to customize what you stream, and how your stream looks when people
+watch your live streams.
+
+We recommend using [OBS](https://obsproject.com/); however, you
+may use any streaming software that allows you to stream RTMP.
+
+Here's a few examples of other streaming software.
+
+* StreamLabs - [https://streamlabs.com/](https://streamlabs.com/)
+* XSplit - [https://www.xsplit.com/](https://www.xsplit.com/)
+* SplitCam - [https://splitcam.com/](https://splitcam.com/)
+* Larix - [https://softvelum.com/larix/](https://softvelum.com/larix/)
+* OBS - [https://obsproject.com/](https://obsproject.com/)
 
 ## Connecting to joystick.tv
 
-## Streaming Tips
+Connecting to JoystickTV is pretty simple. Your streaming software
+will ask for two bits of information that you can get from your [Stream Settings](https://joystick.tv/stream-settings) page on Joystick; the `Server URL`, and `Stream Key`.
 
+The `Stream Key` is your password to connect to joystick, so be sure to keep
+this private.
+
+1. Visit your [Stream Settings](https://joystick.tv/stream-settings), and copy your `Server URL`.
+1. Open the settings page for your stream software. For OBS, you'll go to the "Stream" tab.
+1. From the stream software, search for "JoystickTV" in the provided list.
+
+> NOTE: JoystickTV has not been integrated in all streaming software. If you do not see us listed, try searching for "Custom"
+
+1. If your server asks for a URL, this is where you'll paste your `Server URL` value.
+1. Next, go back to your [Stream Settings](https://joystick.tv/stream-settings) on joystick, and copy your `Stream Key`.
+1. Paste this value in your stream software.
+
+That's it! From here, you should be able to connect and go live to test your stream.
+You may need to change your default settings as some softare assumes you want to stream
+the absolute maximum video quality, and that can lead to issues.
+
+Below we will go over some guides on configuring OBS. For the most part, these settings
+will work similar on other streaming software, but you may need to find additional guides
+online for configuring your software.
+
+## OBS Guides
+
+Streaming from your PC can be quite intensive. There's many different
+factors that can affect the quality of your stream.
+
+* CPU / GPU / RAM / Resources
+* Internet upload speeds
+* Encoder Performance
+* OBS configurations
+
+### CPU / GPU / RAM / Resources
+
+In order to stream, your computer needs to generate pictures
+of your stream and upload those pictures as fast as possible.
+Depending on your computer, this may be handled by your computer's
+CPU or GPU (if you have a really nice graphics card).
+
+If you're also recording your stream through OBS, this will
+consume additional resources on your computer. Now add in your
+camera, and the game you're playing through Steam all while
+you have Discord open for your chat and you may be reaching
+the limits of your machine.
+
+Keep in mind that every computer will handle these tasks
+differently based on your operating system (Windows 10/11, MacOS, Linux, etc...), the type of CPU or GPU you have, as well as
+how much and how fast your RAM is. Should you decide to make
+live streaming a full time job, you will want to invest in
+these areas to ensure a smooth stream.
+
+### Internet upload speeds
+
+Ususally when we talk about internet speeds, we're talking
+about "download" speeds. This is because we generally want
+to know how fast can we pull down content like watching a video.
+However, when it comes to streaming, you need faster upload speeds.
+This is because as you stream, your computer is generating video
+on the fly and uploading to JoystickTV. Since this is done in
+small chunks, it can happen at a really fast rate, but not all
+streams are the same size. A 720p stream at 30FPS will be smaller
+than a 1080p stream at 60FPS.
+
+The higher the bitrate, the more bandwidth you consume. The video quality can be improved by increasing the bitrate, but only up to a certain point; the bitrate settings we recommend have been tested to maximize video quality without wasting bandwidth.
+
+If you know your internet upload speeds aren't that fast, you
+can use this information to configure OBS at a lower scale.
+
+To top it all off, your home network also plays in to all of this!
+Some network routers will allow you to prioritze streaming on the
+network when there's a lot of other devices connected and in use.
+
+Our [Discord](https://discord.gg/zKvCf8hrGP) is full of knowledgable people that can give recommendations.
+
+
+### Encoder Performance
+Encoding can be difficult on your computer. x264 will use a lot of your CPU, which can cause a lower frame rate. On the other hand, GPU encoding, such as NVIDIA NVENC, makes use of a separate encoder in the GPU. As a result, you can play and stream without sacrificing performance. Start with the veryfast preset if you want to use x264, and then adjust to find the best setting.
+
+### OBS configurations
+
+OBS is a very advanced software, and can feel pretty overwhelming
+for a newcomer to streaming. A single setting being off can mean
+the difference between a smooth and clear stream, and a fuzzy
+stream. We will provide some common settings that work for others.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PimigxU4H1s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+**Software Encoding**
+
+Software encoding will use more of your CPU. This is a great option
+if your computer does not have a high-end GPU, or if you're playing
+a very intensive GPU based game, and have limited graphics memory.
+
+For this option, you'll see `x264`. Here's some general settings to
+help you get started:
+
+|   | 1080p 60fps  | 1080p 30fps | 720p 60fps | 720p 30fps |
+|---|---|---|---|---|
+| Resolution  | 1920×1080  | 1920×1080 | 1280×720 | 1280×720 |
+| Bitrate  | 6000 kbps  | 4500 kbps | 4500 kbps | 3000 kbps |
+| Rate Control  | CBR  | CBR | CBR | CBR |
+| Framerate  | 60 or 50 fps  | 25 or 30 fps | 60 or 50 fps | 25 or 30 fps |
+| Keyframe Interval  | 2 seconds  | 2 seconds | 2 seconds | 2 seconds |
+| Preset  | veryfast ~ medium  | veryfast ~ medium | veryfast ~ medium | veryfast ~ medium |
+| Profile  | Main/High  | Main/High | Main/High | Main/High |
+
+
+**Hardware Encoding**
+
+Hardware encoding will use more of your GPU. This is a great option
+if your computer has a high-end graphics card. It allows your computer
+to do many more things by freeing up your CPU. This is the preferred
+option if your computer has the ability.
+
+There's different types of hardware encoding, but here's some general
+settings related to the `NVIDIA NVENC` encoding.
+
+|   | 1080p 60fps  | 1080p 30fps | 720p 60fps | 720p 30fps |
+|---|---|---|---|---|
+| Resolution  | 1920×1080  | 1920×1080 | 1280×720 | 1280×720 |
+| Bitrate  | 6000 kbps  | 4500 kbps | 4500 kbps | 3000 kbps |
+| Rate Control  | CBR  | CBR | CBR | CBR |
+| Framerate  | 60 or 50 fps  | 25 or 30 fps | 60 or 50 fps | 25 or 30 fps |
+| Keyframe Interval  | 2 seconds  | 2 seconds | 2 seconds | 2 seconds |
+| Preset  | Quality  | Quality | Quality | Quality |
+| B-frames  | 2  | 2 | 2 | 2 |
+
+## Troubleshooting
+
+If you are currently having trouble connecting, here are a few things you can check:
+
+* Check your Bitrate under “Output”. Set it between 2500Kbps – 8500Kbps
+* If you’re set to 60fps, give 30fps a try. We do support 60, but if your connection is low, dropping to 30 may help.
+* Try setting your Encoder to x264. Hardware encoding can be tricky if you’re not familiar with it.
+* Try using “Advanced” configuration and set your “Keyframe Interval” to 2
+* Make sure your software is updated. There may have been a bug fix recently to fix your issue
+* Close additional programs that are not needed for your stream.
+* Try rebooting your computer and/or your internet router.
+
+After trying these, if you’re still having issues streaming, join our [Discord](https://discord.gg/zKvCf8hrGP), and let us know in the Support channel.
