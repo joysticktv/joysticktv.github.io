@@ -38,5 +38,5 @@ grid_navigation:
   - title: Affiliate Support
     excerpt: By joining our affiliate program, you can easily share your love for our site with your friends , and earn a commission on purchases they make through your unique affiliate link. Here we can answer the most common questions about the program.
     cta: Read more
-    url: '/streamer_support'
+    url: '/affiliate_support'
 ---
