@@ -34,4 +34,9 @@ grid_navigation:
     excerpt: Are you a streamer on joystick.tv looking for more information? Find everything you need to know about your account from payment information, business and taxes, to more of the creative side like connecting your lovense devices and configuring direct message campaigns.
     cta: Read more
     url: '/streamer_support'
+
+  - title: Affiliate Support
+    excerpt: By joining our affiliate program, you can easily share your love for our site with your friends , and earn a commission on purchases they make through your unique affiliate link. Here we can answer the most common questions about the program.
+    cta: Read more
+    url: '/streamer_support'
 ---
