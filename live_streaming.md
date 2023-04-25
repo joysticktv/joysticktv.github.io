@@ -193,6 +193,62 @@ settings related to the `NVIDIA NVENC` encoding.
 | Preset  | Quality  | Quality | Quality | Quality |
 | B-frames  | 2  | 2 | 2 | 2 |
 
+## Multistreaming
+
+Multistreaming is when you stream to multiple sites at the same time. This is actually something that we encourage on joystick.tv as it is the best way to reach a wider audience. There are several programs that have the ability to do this, though each program also does have it's pros and cons.
+
+### OBS with a Plugin
+
+OBS does not have the ability out of the box to be able to multistream. After installing the [OBS Multi RTMP Plugin](https://github.com/sorayuki/obs-multi-rtmp/releases/) you can easily stream to multiple sites. This plugin offers the best and most customizable feature set of all available options.
+
+If you are not familiar with GitHub, look for the **"Assets"** section of the latest release by scrolling down the page a little bit. Click on the package that matches your operating system to download it. Once it's downloaded, open it and follow the instructions.
+
+![OBS Multi RTMP GitHub Releases Download](/assets/obs-multi-rtmp-github-download.png)
+
+After installing, you can open the settings in the the Docks menu of OBS under the **"Multiple Output"** option.
+
+![OBS Multi RTMP Dock Menu](/assets/obs-multi-rtmp-docks-menu.png)
+
+You will then see a dockable window for the multistream settings.
+
+![OBS Multi RTMP](/assets/obs-multi-rtmp-first-screen.png)
+
+Click **"Add New Target"** to add a new site that you would like to stream to.
+
+![OBS Multi RTMP Add New Target Window](/assets/obs-multi-rtmp-add-new-target-window.png)
+
+At a minimum you will have to fill in the RTMP Server & Key information. The rest of the settings will pull from your default OBS settings. The assumption here is that you have already setup your OBS configruation to stream to one site already. If you haven't done that, please refer to the rest of this guide to set that up first, then you can add a second site to stream to.
+
+#### Different Scenes per Stream
+
+This plugin offers the feature of being able to stream different scenes to different sites. 
+
+![OBS Multi RTMP Scene Settings](/assets/obs-multi-rtmp-scene-settings.png)
+
+Please note that when you do this, you will have to select an encoder for each stream you do this for. Like it says in the warning, your computer will be doing extra work for each scene. Something to keep in mind if you are also playing very CPU/GPU intensive game.
+
+### Lovense Stream Master
+
+Stream Master from Lovense is a nicely bundled package of software that gets your stream up and running pretty quickly. You can download the software [here](https://www.lovense.com/stream-master). The even better part is that it bundle OBS right into the software along with the OBS Multi RTMP plugin described above.
+
+First you need to open OBS from Stream Master.
+
+![Stream Master Open OBS](/assets/stream-master-open-obs.png)
+
+By deafult, you will see the **"Multi-Streaming"** window already docked for you inside OBS.
+
+![Stream Master Multi Streaming Dock](/assets/stream-master-multistreaming-dock.png)
+
+Click on **"Add new cam site"** and add the other site that you want to stream too. If you want to customize the settings or stream different scenes, see the documentation above for OBS for more details.
+
+### SplitCam
+
+SplitCam makes it very easy to stream to multiple sites as well. Just click on the **"Stream Settings"** menu on the top right, then the **"Add Channel"** button on the bottom. From there you can select an existing site or add a custom one.
+
+![SplitCam Stream Settings](/assets/splitcam-stream-settings.png)
+
+SplitCam is the least customizeable option out of all of them. It's very easy to setup but you will stream the exact same video to all sites.
+
 ## Troubleshooting
 
 If you are currently having trouble connecting, here are a few things you can check:
