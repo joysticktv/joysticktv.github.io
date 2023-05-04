@@ -3,6 +3,8 @@ layout: default
 keywords:
 
 title: Live Streaming
+redirect_from:
+  - /support/creator-support/setting-up-your-stream/
 ---
 
 ## Getting Started
