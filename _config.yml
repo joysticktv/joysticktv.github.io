@@ -1,6 +1,7 @@
 url: https://support.joystick.tv
 plugins:
   - jekyll-sitemap
+  - jekyll-redirect-from
 
 # Theme settings
 theme:
