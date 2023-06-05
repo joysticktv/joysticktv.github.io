@@ -39,4 +39,9 @@ grid_navigation:
     excerpt: By joining our affiliate program, you can easily share your love for our site with your friends , and earn a commission on purchases they make through your unique affiliate link. Here we can answer the most common questions about the program.
     cta: Read more
     url: '/affiliate_support'
+
+  - title: Developer Support
+    excerpt: Get the documentation and code samples you need to integrate your bot with our site.
+    cta: Read more
+    url: '/developer_support'
 ---
