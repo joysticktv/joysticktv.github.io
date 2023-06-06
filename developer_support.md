@@ -5,11 +5,9 @@ keywords:
 title: Developer Support
 ---
 
-**Notice**: The API is currently still in beta. You will need to be given access to it in order to use the API. The API is not currently stable, and may change without notice.
-
 ## Overview
 
-The chat API uses the Rails [Actioncable](https://guides.rubyonrails.org/action_cable_overview.html) protocol, and all data is transmitted over Websockets. We use OAuth2 for estabishing authorization.
+The chat API uses the Rails [Actioncable](https://guides.rubyonrails.org/action_cable_overview.html) protocol, and all data is transmitted over Websockets or uses the REST API for certain endpoints. We use OAuth2 for estabishing authorization.
 
 Here's a general flow of how the install and setup process works:
 
@@ -59,6 +57,7 @@ Bot applications can request several different permissions from the streamers. A
 * MuteUser - Allows the bot to mute another user on that streamer's chat. The bot CANNOT mute the streamer
 * ReceiveStreamEvents - Sends all stream events to the bot. (e.g. `Tipped`, `TipGoalMet`, `SubscriberOnlyStarted`, `StreamDroppedIn`, `GiftedSubscriptions`, `DeviceConnected`, `WheelSpinClaimed`, etc...)
 * ViewUserPresence  - Tells the bot when a user has entered or left the chat
+* ManageStreamerSettings - Read and Update certain streamer settings. (See the REST API below for more info.)
 
 > More permissions may be added later as the API is expanded
 
@@ -98,21 +97,24 @@ https://joystick.tv/api/oauth/token
 
 You will need to pass the following query params
 
-`redirect_uri` - This is not currently used, but may be used in the future.
-`code` - The authorization code we sent back through the query string.
-`grant_type` - "authorization_code"
+* `redirect_uri` - This is not currently used, but may be used in the future.
+* `code` - The authorization code we sent back through the query string.
+* `grant_type` - "authorization_code"
 
 As well as the following headers
 
-`Authorization` - "Basic YOUR_BASIC_KEY". This is HTTP Basic auth using your bot's Client ID as the user, and Client Secret as the password separated by a `:` and converted to Base64. (e.g. `Base64.encode("id:secret")`)
-`Content-Type` - "application/json"
-`X-JOYSTICK-STATE` - An optional value you can use to pass through arbitrary data that will be sent back with the response.
+* `Authorization` - "Basic YOUR_BASIC_KEY". This is HTTP Basic auth using your bot's Client ID as the user, and Client Secret as the password separated by a `:` and converted to Base64. (e.g. `Base64.encode("id:secret")`)
+* `Content-Type` - "application/json"
+* `X-JOYSTICK-STATE` - An optional value you can use to pass through arbitrary data that will be sent back with the response.
 
 
 Example:
 
 ```
-curl -XPOST -H "Authorization: Basic abc123code" -H "Content-Type: application/json" https://joystick.tv/api/oauth/token?redirect_uri=unused&code=THECODE&grant_type=authorization_code
+curl -XPOST \
+  -H "Authorization: Basic abc123code" \
+  -H "Content-Type: application/json" \
+  https://joystick.tv/api/oauth/token?redirect_uri=unused&code=THECODE&grant_type=authorization_code
 ```
 
 Returns:
@@ -138,20 +140,23 @@ https://joystick.tv/api/oauth/token
 
 You will need to pass the following query params
 
-`grant_type` - "refresh_token"
-`refresh_token` - The last refresh token you received from us
+* `grant_type` - "refresh_token"
+* `refresh_token` - The last refresh token you received from us
 
 As well as the following headers
 
-`Authorization` - "Basic YOUR_BASIC_KEY". This is HTTP Basic auth using your bot's Client ID as the user, and Client Secret as the password separated by a `:` and converted to Base64. (e.g. `Base64.encode("id:secret")`)
-`Content-Type` - "application/json"
-`X-JOYSTICK-STATE` - An optional value you can use to pass through arbitrary data that will be sent back with the response.
+* `Authorization` - "Basic YOUR_BASIC_KEY". This is HTTP Basic auth using your bot's Client ID as the user, and Client Secret as the password separated by a `:` and converted to Base64. (e.g. `Base64.encode("id:secret")`)
+* `Content-Type` - "application/json"
+* `X-JOYSTICK-STATE` - An optional value you can use to pass through arbitrary data that will be sent back with the response.
 
 
 Example:
 
 ```
-curl -XPOST -H "Authorization: Basic abc123code" -H "Content-Type: application/json" https://joystick.tv/api/oauth/token?refresh_token=THELASTREFRESHTOKEN&grant_type=refresh_token
+curl -XPOST \
+  -H "Authorization: Basic abc123code" \
+  -H "Content-Type: application/json" \
+  https://joystick.tv/api/oauth/token?refresh_token=THELASTREFRESHTOKEN&grant_type=refresh_token
 ```
 
 Returns:
@@ -460,6 +465,85 @@ Send the `messageId` of the message sent in, and the author of that message will
 
 > Blocks are a very serious matter, and each block will alert joystick staff in order to investigate any potential harrasment or threats. For this reason, bots cannot unblock users. This must be done manually by the streamer.
 
+## REST API endpoints
+
+Most of the data you'll send/receive is done over the websocket during chats. There are a few endpoints available
+(more to be added later) that will give you access to additional information.
+
+These endpoints require a valid `access_token` which you get once a streamer installs your bot application.
+
+Pass these headers in with your call
+
+* `Authorization` - "Bearer THE_ACCESS_TOKEN". This is JWT you receive from the `authorization_code` or `refresh_token` oauth calls when the user installs the bot.
+* `Content-Type` - "application/json"
+* `X-JOYSTICK-STATE` - An optional value you can use to pass through arbitrary data that will be sent back with the response.
+
+### ManageStreamerSettings
+
+The `ManageStreamerSettings` permission allows the bot to fetch public streamer information, as well as update a few
+
+**`GET` Fetch Stream Settings**
+
+Returns public settings available for the specific streamer.
+
+Example:
+
+```
+curl -XGET \
+  -H "Authorization: Bearer abc123jwt" \
+  -H "Content-Type: application/json" \
+  https://joystick.tv/api/users/stream-settings
+```
+
+Returns:
+
+```json
+{
+  "username": "joysticktest",
+  "stream_title": "Playing a game",
+  "chat_welcome_message": "Welcome to my channel!",
+  "banned_chat_words": ["bleep", "bloop"],
+  "device_active": false,
+  "photo_url": "https://joystick.tv/face.png",
+  "live": true,
+  "number_of_followers": 1234,
+}
+```
+
+> More data may be added later
+
+
+**`PATCH` Update Stream Settings**
+
+This endpoint allows you to update a few of the streamer's settings.
+
+> Currently only `stream_title`, `chat_welcome_message`, and `banned_chat_words` are allowed to be updated
+
+Example:
+
+```
+curl -XPATCH \
+  -H "Authorization: Bearer abc123jwt" \
+  -H "Content-Type: application/json" \
+  https://joystick.tv/api/users/stream-settings \
+  -d '{"streamer": {"stream_title": "New Title", "chat_welcome_message": "Hey everyone", "banned_chat_words": ["new phrase or word"]}}'
+```
+
+Returns:
+
+```json
+{
+  "username": "joysticktest",
+  "stream_title": "New Title",
+  "chat_welcome_message": "Hey everyone",
+  "banned_chat_words": ["new phrase or word"],
+  "device_active": false,
+  "photo_url": "https://joystick.tv/face.png",
+  "live": true,
+  "number_of_followers": 1234,
+}
+```
+
 ### Testing your bot
 
 Testing can be a bit difficult. Only streamers have access to a chat, so if you're not a streamer, your testing options are currently limited.
@@ -474,14 +558,17 @@ https://joystick.tv/echo
 
 You will need to pass the following headers
 
-`Authorization` (required) - "Basic YOUR_BASIC_KEY". This is HTTP Basic auth using your bot's Client ID as the user, and Client Secret as the password separated by a `:` and converted to Base64. (e.g. `Base64.encode("id:secret")`)
-`Content-Type` (required) - "application/json"
+* `Authorization` (required) - "Basic YOUR_BASIC_KEY". This is HTTP Basic auth using your bot's Client ID as the user, and Client Secret as the password separated by a `:` and converted to Base64. (e.g. `Base64.encode("id:secret")`)
+* `Content-Type` (required) - "application/json"
 
 Example:
 
 ```
-curl -XPOST -H "Authorization: Basic NTliC001BRMUozcGhuMWJNZVE=" -H "Content-Type: application/json"
-https://joystick.tv/echo -d '{"sample": {"event": "SendMessage", "data": "!join"}}'
+curl -XPOST \
+  -H "Authorization: Basic NTliC001BRMUozcGhuMWJNZVE=" \
+  -H "Content-Type: application/json" \
+  https://joystick.tv/echo \
+  -d '{"sample": {"event": "SendMessage", "data": "!join"}}'
 ```
 
 The post body is a JSON structure that will determine what type of test data you want your bot to receive.
@@ -541,3 +628,8 @@ Send the `event` with `"StreamEvent"`, and the `data` with `"Tipped"` to simulat
 ```
 
 > Currently only `Tipped` is supported for `StreamEvent`.
+
+
+## Example Bots
+
+A few example bots can be found on our Github: [@joysticktv](https://github.com/joysticktv).
