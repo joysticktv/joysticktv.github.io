@@ -6,17 +6,15 @@ plugins:
 # Theme settings
 theme:
   baseurl:
-  color_theme: blue # Available themes: blue (default), green, purple, red and yellow
   header:
-    logo:
-      text: joystick.tv Help &amp; Support
     nav:
-      - item_name: JoystickTV
-        item_url: 'https://joystick.tv'
+      - item_name: API
+        item_url: '/developer_support'
+      - item_name: Affiliates
+        item_url: '/affiliate_support'
+      - item_name: Contact Us
+        item_url: '/contact_us'
   footer:
-    content:
-      logo:
-        image: yes
     social_list:
       - network_name: github
         profile_url: 'https://github.com/joysticktv'

@@ -1,5 +1,5 @@
 ---
-layout: homepage
+layout: default
 keywords:
 
 title: joystick.tv Help &amp; Support
