@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		{% include site-head.html %}
-	</head>
+<head>
+	{% include site-head.html %}
+</head>
 <body class="bg-white antialiased dark:bg-zinc-900">
-  <div id="__next">
+  <div>
     <div class="lg:ml-72 xl:ml-80">
       {% include site-header.html %}
       <div class="relative px-4 pt-14 sm:px-6 lg:px-8">
@@ -35,7 +35,7 @@
                 </svg>
               </div>
             </div>
-            {{ content }}
+            {% include anchor_headings.html html=content anchorBody="#" beforeHeading=true %}
           </article>
         </main>
 				{% include site-footer.html %}

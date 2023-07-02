@@ -3,6 +3,11 @@ layout: default
 keywords:
 
 title: Viewer Support
+type: "guide"
+subsections:
+  - chat-and-stream-interaction
+  - tipping
+  - subscriptions
 ---
 
 ## Chat and Stream interaction

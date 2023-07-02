@@ -3,6 +3,9 @@ layout: default
 keywords:
 
 title: Affiliate Support
+type: "guide"
+subsections:
+  - what-is-an-affiliate-link
 ---
 
 ## What is an Affiliate Link?

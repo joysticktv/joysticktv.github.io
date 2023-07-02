@@ -8,21 +8,16 @@ theme:
   baseurl:
   header:
     nav:
-      - item_name: API
-        item_url: '/developer_support'
-      - item_name: Affiliates
-        item_url: '/affiliate_support'
-      - item_name: Contact Us
-        item_url: '/contact_us'
-  footer:
-    social_list:
-      - network_name: github
-        profile_url: 'https://github.com/joysticktv'
-      - network_name: twitter
-        profile_url: 'https://twitter.com/Joystickxxx'
-      - network_name: discord
-        profile_url: 'https://discord.gg/zKvCf8hrGP'
-    links:
+      - text: API
+        url: '/developer_support'
+      - text: Affiliates
+        url: '/affiliate_support'
+      - text: Contact Us
+        url: '/contact_us'
+  sidebar:
+    resources:
+      - url: /faq
+        text: FAQ
       - url: https://joystick.tv/terms
         text: Terms &amp; Conditions
       - url: https://joystick.tv/community-guidelines
@@ -37,6 +32,14 @@ theme:
         text: DCMA
       - url: https://joystick.tv/2257
         text: 18 U.S.C. § 2257
+  footer:
+    social_list:
+      - network_name: github
+        profile_url: 'https://github.com/joysticktv'
+      - network_name: twitter
+        profile_url: 'https://twitter.com/Joystickxxx'
+      - network_name: discord
+        profile_url: 'https://discord.gg/zKvCf8hrGP'
 
 # SASS settings
 sass:

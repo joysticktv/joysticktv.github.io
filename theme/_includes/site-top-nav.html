@@ -3,8 +3,8 @@
     <ul role="list" class="flex items-center gap-8">
       {% for item in site.theme.header.nav %}
       <li>
-        <a class="text-sm leading-5 text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white" href="{{ item.item_url }}">
-          {{ item.item_name }}
+        <a class="text-sm leading-5 text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white" href="{{ item.url }}">
+          {{ item.text }}
         </a>
       </li>
       {% endfor %}

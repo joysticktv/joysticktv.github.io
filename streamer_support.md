@@ -3,6 +3,12 @@ layout: default
 keywords:
 
 title: Streamer Support
+type: "guide"
+subsections:
+  - earnings-and-payouts
+  - taxes-for-us-streamers
+  - uploaded-media-content
+  - direct-messaging-campaigns
 ---
 
 ## Earnings and Payouts

@@ -3,6 +3,11 @@ layout: default
 keywords:
 
 title: General Support
+type: "guide"
+subsections:
+  - unable-to-access-account
+  - deleting-your-account
+  - two-factor-authentication
 ---
 
 ## Unable to access account

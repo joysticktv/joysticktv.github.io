@@ -3,6 +3,14 @@ layout: default
 keywords:
 
 title: Live Streaming
+type: "guide"
+subsections:
+  - getting-started
+  - required-software
+  - connecting-to-joysticktv
+  - obs-guides
+  - multistreaming
+  - troubleshooting
 redirect_from:
   - /support/creator-support/setting-up-your-stream/
 ---

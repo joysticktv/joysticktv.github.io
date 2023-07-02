@@ -3,6 +3,17 @@ layout: default
 keywords:
 
 title: Developer Support
+type: "guide"
+subsections:
+  - overview
+  - public-vs-private-bots
+  - permissions
+  - installing-bot-api
+  - fetching-access_token-api
+  - fetching-refresh_token-api
+  - connecting-the-bot
+  - rest-api-endpoints
+  - example-bots
 ---
 
 ## Overview
@@ -128,7 +139,7 @@ Returns:
 }
 ```
 
-## Fetch a new access_token with a refresh_token API
+## Fetching refresh_token API
 
 The `access_token` has a limit access time, and is sure to expire. Once expired, you can request a new one by sending back the `refresh_token` you received from the previous `/token` call.
 
