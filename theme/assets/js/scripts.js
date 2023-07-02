@@ -59,7 +59,7 @@ window.onload = function() {
 
   function toggleColorTheme() {
     document.documentElement.classList.toggle('dark')
-    window.localStorage.setItem('darkTheme', !window.localStorage.darkTheme)
+    window.localStorage.setItem('darkTheme', window.localStorage.darkTheme !== 'true')
   }
 
   function disableTransitionsTemporarily() {
