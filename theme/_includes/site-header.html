@@ -14,10 +14,9 @@
 			<div class="absolute inset-x-0 top-full h-px transition bg-zinc-900/7.5 dark:bg-white/7.5"></div>
 			{% include site-search.html %}
 			<div class="flex items-center gap-5 lg:hidden">
-				<button type="button" class="flex h-6 w-6 items-center justify-center rounded-md transition hover:bg-zinc-900/5 dark:hover:bg-white/5" aria-label="Toggle navigation">
-					<svg viewBox="0 0 10 9" fill="none" stroke-linecap="round" aria-hidden="true" class="w-2.5 stroke-zinc-900 dark:stroke-white">
-						<path d="M.5 1h9M.5 8h9M.5 4.5h9"></path>
-					</svg>
+				<button id="navToggleButton" type="button" class="flex h-6 w-6 items-center justify-center rounded-md transition hover:bg-zinc-900/5 dark:hover:bg-white/5" aria-label="Toggle navigation">
+					<i class="fa-regular fa-bars visible"></i>
+					<i class="fa-regular fa-xmark hidden"></i>
 				</button>
 				<a aria-label="Home" href="/">
 					<svg width="130" height="40" class="dark:hidden">
@@ -30,7 +29,7 @@
 			</div>
 			{% include site-top-nav.html %}
 		</div>
-		<nav class="hidden lg:mt-10 lg:block">
+		<nav class="hidden lg:block mt-20 lg:mt-10 pl-4 lg:pl-0" data-target="nav">
 			<ul role="list">
 				{% for item in site.theme.header.nav %}
 				<li class="md:hidden">

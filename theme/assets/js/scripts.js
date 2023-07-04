@@ -38,6 +38,9 @@ tailwind.config = {
 };
 
 window.onload = function() {
+  const navToggleButton = document.getElementById('navToggleButton');
+  navToggleButton.addEventListener('click', toggleNavigation);
+
   const themeToggleButton = document.getElementById('themeToggleButton');
   themeToggleButton.addEventListener('click', toggleColorTheme);
 
@@ -72,5 +75,13 @@ window.onload = function() {
   function updateModeWithoutTransitions() {
     disableTransitionsTemporarily()
     toggleColorTheme()
+  }
+
+  function toggleNavigation() {
+    for (const child of this.children) {
+      child.classList.toggle('visible')
+      child.classList.toggle('hidden')
+    }
+    document.querySelector("[data-target='nav']").classList.toggle('hidden')
   }
 }
