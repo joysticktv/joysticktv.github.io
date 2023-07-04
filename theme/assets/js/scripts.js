@@ -49,6 +49,7 @@ window.onload = function() {
   window.addEventListener('storage', updateModeWithoutTransitions)
 
   setColorTheme()
+  hljs.highlightAll()
 
   function setColorTheme() {
     const prefersDark = window.localStorage.darkTheme === 'true' || darkModeMediaQuery.matches

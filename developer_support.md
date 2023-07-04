@@ -76,7 +76,7 @@ Bot applications can request several different permissions from the streamers. A
 
 Your application should redirect the user to the joystick authorize endpoint.
 
-```
+```txt
 https://joystick.tv/api/oauth/authorize
 ```
 
@@ -88,7 +88,7 @@ You will need to pass the following query params
 
 Example:
 
-```
+```txt
 https://joystick.tv/api/oauth/authorize?client_id=2134-sdf-isdf2&scope=bot&state=myspecialtoken
 ```
 
@@ -102,7 +102,7 @@ After the user has authorized the bot, and is redirected back to your applicatio
 
 Your application will send an HTTP POST request to the joystick token endpoint.
 
-```
+```txt
 https://joystick.tv/api/oauth/token
 ```
 
@@ -121,11 +121,11 @@ As well as the following headers
 
 Example:
 
-```
+```bash
 curl -XPOST \
   -H "Authorization: Basic abc123code" \
   -H "Content-Type: application/json" \
-  https://joystick.tv/api/oauth/token?redirect_uri=unused&code=THECODE&grant_type=authorization_code
+  "https://joystick.tv/api/oauth/token?redirect_uri=unused&code=THECODE&grant_type=authorization_code"
 ```
 
 Returns:
@@ -145,7 +145,7 @@ The `access_token` has a limit access time, and is sure to expire. Once expired,
 
 Your application will send an HTTP POST request to the joystick token endpoint.
 
-```
+```txt
 https://joystick.tv/api/oauth/token
 ```
 
@@ -163,11 +163,11 @@ As well as the following headers
 
 Example:
 
-```
+```bash
 curl -XPOST \
   -H "Authorization: Basic abc123code" \
   -H "Content-Type: application/json" \
-  https://joystick.tv/api/oauth/token?refresh_token=THELASTREFRESHTOKEN&grant_type=refresh_token
+  "https://joystick.tv/api/oauth/token?refresh_token=THELASTREFRESHTOKEN&grant_type=refresh_token"
 ```
 
 Returns:
@@ -499,11 +499,11 @@ Returns public settings available for the specific streamer.
 
 Example:
 
-```
+```bash
 curl -XGET \
   -H "Authorization: Bearer abc123jwt" \
   -H "Content-Type: application/json" \
-  https://joystick.tv/api/users/stream-settings
+  "https://joystick.tv/api/users/stream-settings"
 ```
 
 Returns:
@@ -532,11 +532,11 @@ This endpoint allows you to update a few of the streamer's settings.
 
 Example:
 
-```
+```bash
 curl -XPATCH \
   -H "Authorization: Bearer abc123jwt" \
   -H "Content-Type: application/json" \
-  https://joystick.tv/api/users/stream-settings \
+  "https://joystick.tv/api/users/stream-settings" \
   -d '{"streamer": {"stream_title": "New Title", "chat_welcome_message": "Hey everyone", "banned_chat_words": ["new phrase or word"]}}'
 ```
 
@@ -563,7 +563,7 @@ We do have a special API endpoint you can use for testing.
 
 Your application will send an HTTP POST request to the joystick token endpoint.
 
-```
+```txt
 https://joystick.tv/echo
 ```
 
@@ -574,11 +574,11 @@ You will need to pass the following headers
 
 Example:
 
-```
+```bash
 curl -XPOST \
   -H "Authorization: Basic NTliC001BRMUozcGhuMWJNZVE=" \
   -H "Content-Type: application/json" \
-  https://joystick.tv/echo \
+  "https://joystick.tv/echo" \
   -d '{"sample": {"event": "SendMessage", "data": "!join"}}'
 ```
 
