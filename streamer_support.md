@@ -51,7 +51,8 @@ Payments have 3 stages:
 * **Paid** – The money has left our offices, and is headed to you. Some payments may take longer to reach you than others (i.e. checks, or first-time wires, etc…)
 
 As a U.S. based company, we observe all U.S. Banking holidays. During these times, there may be slight delays which will always be conveyed via announcements the week prior or sooner.
-Checks
+
+**Checks**
 
 Checks are for North American streamers only as these are mailed through the U.S. Postal service (USPS). These are standard U.S. bank paper checks made out in USD. Once a payout request is processed, this is usually delivered to you within 3 – 5 business days.
 
