@@ -2,6 +2,11 @@ url: https://support.joystick.tv
 plugins:
   - jekyll-sitemap
   - jekyll-redirect-from
+  - jekyll-algolia
+
+algolia:
+  application_id: 'YXM67SR4Z2'
+  index_name: joystick_support
 
 # Site Layout Data
 header:

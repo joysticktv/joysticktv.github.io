@@ -48,8 +48,78 @@ window.onload = function() {
   darkModeMediaQuery.addEventListener('change', updateModeWithoutTransitions);
   window.addEventListener('storage', updateModeWithoutTransitions);
 
+  const siteSearchButtons = document.querySelectorAll('button.searchButton');
+  for(let i = 0; i < siteSearchButtons.length; i++) {
+    siteSearchButtons[i].addEventListener('click', openSearchModal);
+  }
+
+  const modal = document.querySelector("div[role='dialog']");
+
+  document.querySelector("#modalbg").addEventListener('click', function(e) {
+    if (e.target === this) {
+      modal.classList.add('hidden');
+    }
+  });
+
   setColorTheme();
   hljs.highlightAll();
+
+  const searchClient = algoliasearch(
+    'YXM67SR4Z2',
+    '9f037e1b9d62a35220f41333b4e64377'
+  );
+
+  autocomplete({
+    container: '#autocomplete',
+    placeholder: 'Find helpful information...',
+    insights: true,
+    getSources({ query }) {
+      return [
+        {
+          sourceId: 'info',
+          getItems() {
+            return getAlgoliaResults({
+              searchClient,
+              queries: [
+                {
+                  indexName: 'joystick_support',
+                  query,
+                  params: {
+                    hitsPerPage: 5,
+                    attributesToSnippet: ['title:10', 'content:35'],
+                    snippetEllipsisText: '…',
+                  },
+                },
+              ],
+            });
+          },
+          templates: {
+            noResults() {
+              return "No results";
+            },
+            item({ item, components, html }) {
+              return html`<a class="cursor-pointer block hover:bg-emerald-500 hover:text-white" href="${item.url}">
+                <div class="flex flex-col p-1">
+                  <div class="text-lg mb-1">
+                    ${components.Highlight({
+                      hit: item,
+                      attribute: 'title',
+                    })}
+                  </div>
+                  <div class="">
+                    ${components.Snippet({
+                      hit: item,
+                      attribute: 'content',
+                    })}
+                  </div>
+                </div>
+              </a>`;
+            },
+          },
+        },
+      ];
+    },
+  });
 
   function setColorTheme() {
     const prefersDark = window.localStorage.darkTheme === 'true' || darkModeMediaQuery.matches;
@@ -84,5 +154,9 @@ window.onload = function() {
       child.classList.toggle('hidden');
     }
     document.querySelector("[data-target='nav']").classList.toggle('hidden');
+  }
+
+  function openSearchModal() {
+    modal.classList.remove('hidden');
   }
 }

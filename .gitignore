@@ -8,6 +8,7 @@
 *.bak
 *.swp
 Thumbs.db
+.env
 
 # -----------------------
 # Local Development Tools
