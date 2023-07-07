@@ -97,6 +97,7 @@ When you subscribe to a streamer, you’ll get access to several different featu
 * Access to all their locked post content from your feed
 * Ability to use special chat commands like `!giphy`, and more…
 * Watch their stream when it goes in to subscriber-only mode
+* Tip from sub-only tip menus
 * Access to new subscriber-only features as we add them!
 
 ### Gifting subscriptions
