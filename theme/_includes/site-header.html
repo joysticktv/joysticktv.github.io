@@ -3,10 +3,10 @@
 		<div class="hidden lg:flex">
 			<a aria-label="Home" href="/">
 				<svg width="240" height="40" class="dark:hidden">
-					<image xlink:href="{% if jekyll.environment == 'production' %}{{ site.theme.baseurl }}{% endif %}/theme/assets/images/joysticktv-logo-light-background.svg" src="" width="240" height="40"/>
+					<image xlink:href="{% if jekyll.environment == 'production' %}{{ site.url }}{% endif %}/theme/assets/images/joysticktv-logo-light-background.svg" src="" width="240" height="40"/>
 		 		</svg>
 				 <svg width="240" height="40" class="hidden dark:inline">
-					<image xlink:href="{% if jekyll.environment == 'production' %}{{ site.theme.baseurl }}{% endif %}/theme/assets/images/joysticktv-logo-dark-background.svg" src="" width="240" height="40"/>
+					<image xlink:href="{% if jekyll.environment == 'production' %}{{ site.url }}{% endif %}/theme/assets/images/joysticktv-logo-dark-background.svg" src="" width="240" height="40"/>
 		 		</svg>
 			</a>
 		</div>
@@ -20,10 +20,10 @@
 				</button>
 				<a aria-label="Home" href="/">
 					<svg width="130" height="40" class="dark:hidden">
-						<image xlink:href="{% if jekyll.environment == 'production' %}{{ site.theme.baseurl }}{% endif %}/theme/assets/images/joysticktv-logo-light-background.svg" src="" width="130" height="40"/>
+						<image xlink:href="{% if jekyll.environment == 'production' %}{{ site.url }}{% endif %}/theme/assets/images/joysticktv-logo-light-background.svg" src="" width="130" height="40"/>
 					 </svg>
 					 <svg width="130" height="40" class="hidden dark:inline">
-						<image xlink:href="{% if jekyll.environment == 'production' %}{{ site.theme.baseurl }}{% endif %}/theme/assets/images/joysticktv-logo-dark-background.svg" src="" width="130" height="40"/>
+						<image xlink:href="{% if jekyll.environment == 'production' %}{{ site.url }}{% endif %}/theme/assets/images/joysticktv-logo-dark-background.svg" src="" width="130" height="40"/>
 					 </svg>
 				</a>
 			</div>
@@ -31,7 +31,7 @@
 		</div>
 		<nav class="hidden lg:block mt-20 lg:mt-10 pl-4 lg:pl-0" data-target="nav">
 			<ul role="list">
-				{% for item in site.theme.header.nav %}
+				{% for item in site.header.nav %}
 				<li class="md:hidden">
 					<a class="block py-1 text-sm text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white" href="{{ item.url }}">
 						{{ item.text }}
@@ -69,7 +69,7 @@
 					<div class="relative mt-3 pl-2">
 						<div class="absolute inset-y-0 left-2 w-px bg-zinc-900/10 dark:bg-white/5"></div>
 						<ul role="list" class="border-l border-transparent">
-							{% for item in site.theme.sidebar.resources %}
+							{% for item in site.sidebar.resources %}
 							<li class="relative">
 								<a class="flex justify-between gap-2 py-1 pr-3 text-sm transition pl-4 text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white" href="{{ item.url }}">
 									<span class="truncate">{{ item.text }}</span>

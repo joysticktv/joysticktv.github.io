@@ -3,43 +3,41 @@ plugins:
   - jekyll-sitemap
   - jekyll-redirect-from
 
-# Theme settings
-theme:
-  baseurl:
-  header:
-    nav:
-      - text: API
-        url: '/developer_support'
-      - text: Affiliates
-        url: '/affiliate_support'
-      - text: Contact Us
-        url: '/contact_us'
-  sidebar:
-    resources:
-      - url: /faq
-        text: FAQ
-      - url: https://joystick.tv/terms
-        text: Terms &amp; Conditions
-      - url: https://joystick.tv/community-guidelines
-        text: Community Guidelines
-      - url: https://joystick.tv/trademark-policy
-        text: Trademark Policy
-      - url: https://joystick.tv/privacy
-        text: Privacy Policy
-      - url: https://joystick.tv/law-enforcement
-        text: Law Enforcement
-      - url: https://joystick.tv/dmca
-        text: DCMA
-      - url: https://joystick.tv/2257
-        text: 18 U.S.C. § 2257
-  footer:
-    social_list:
-      - network_name: github
-        profile_url: 'https://github.com/joysticktv'
-      - network_name: twitter
-        profile_url: 'https://twitter.com/Joystickxxx'
-      - network_name: discord
-        profile_url: 'https://discord.gg/zKvCf8hrGP'
+# Site Layout Data
+header:
+  nav:
+    - text: API
+      url: '/developer_support'
+    - text: Affiliates
+      url: '/affiliate_support'
+    - text: Contact Us
+      url: '/contact_us'
+sidebar:
+  resources:
+    - url: /faq
+      text: FAQ
+    - url: https://joystick.tv/terms
+      text: Terms &amp; Conditions
+    - url: https://joystick.tv/community-guidelines
+      text: Community Guidelines
+    - url: https://joystick.tv/trademark-policy
+      text: Trademark Policy
+    - url: https://joystick.tv/privacy
+      text: Privacy Policy
+    - url: https://joystick.tv/law-enforcement
+      text: Law Enforcement
+    - url: https://joystick.tv/dmca
+      text: DCMA
+    - url: https://joystick.tv/2257
+      text: 18 U.S.C. § 2257
+footer:
+  social_list:
+    - network_name: github
+      profile_url: 'https://github.com/joysticktv'
+    - network_name: twitter
+      profile_url: 'https://twitter.com/Joystickxxx'
+    - network_name: discord
+      profile_url: 'https://discord.gg/zKvCf8hrGP'
 
 # SASS settings
 sass:

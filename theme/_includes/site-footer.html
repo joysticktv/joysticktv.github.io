@@ -4,7 +4,7 @@
 			Copyright &copy; {{ site.time | date: '%Y' }} &mdash; Joystick.TV &mdash; All rights reserved.
 		</p>
 		<div class="flex gap-4">
-			{% for item in site.theme.footer.social_list %}
+			{% for item in site.footer.social_list %}
 			<a class="group" href="{{ item.profile_url }}" target="_blank">
 				<span class="sr-only">Find us on {{ item.network_name }}</span>
 				<i class="text-zinc-700 dark:text-gray-400 fa-brands fa-{{ item.network_name }}" title="Find us on {{ item.network_name }}"></i>
