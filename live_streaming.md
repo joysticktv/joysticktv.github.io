@@ -161,7 +161,7 @@ for a newcomer to streaming. A single setting being off can mean
 the difference between a smooth and clear stream, and a fuzzy
 stream. We will provide some common settings that work for others.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PimigxU4H1s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/PimigxU4H1s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 **Software Encoding**
 

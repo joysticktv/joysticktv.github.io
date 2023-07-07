@@ -121,7 +121,7 @@ Verified streamers are allowed to upload their own personal media content. All c
 
 Direct Message Campaigns are like Direct Messages but sent in bulk or when someone follows you.
 
-<iframe width="640" height="360" src="https://www.youtube.com/embed/GFVMzX8W60A" title="How to Create a DM Campaign on Joystick.tv" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/GFVMzX8W60A" title="How to Create a DM Campaign on Joystick.tv" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 To use this feature, visit this link [Direct Message Campaigns](https://joystick.tv/dm-campaigns). To create a new campaign, click the Create Your First Campaign button.
 
