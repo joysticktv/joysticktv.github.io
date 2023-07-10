@@ -10,7 +10,9 @@ subsections:
   - connecting-to-joysticktv
   - obs-guides
   - multistreaming
-  - troubleshooting
+  - troubleshooting-streaming
+  - lovense-integration
+  - troubleshooting-lovense
 redirect_from:
   - /support/creator-support/setting-up-your-stream/
 ---
@@ -259,7 +261,7 @@ SplitCam makes it very easy to stream to multiple sites as well. Just click on t
 
 SplitCam is the least customizeable option out of all of them. It's very easy to setup but you will stream the exact same video to all sites.
 
-## Troubleshooting
+## Troubleshooting Streaming
 
 If you are currently having trouble connecting, here are a few things you can check:
 
@@ -270,5 +272,57 @@ If you are currently having trouble connecting, here are a few things you can ch
 * Make sure your software is updated. There may have been a bug fix recently to fix your issue
 * Close additional programs that are not needed for your stream.
 * Try rebooting your computer and/or your internet router.
+
+After trying these, if you’re still having issues streaming, join our [Discord](https://discord.gg/zKvCf8hrGP), and let us know in the Support channel.
+
+## Lovense Integration
+
+JoystickTV has native support for your [Lovense](https://www.lovense.com/) devices. These are interactive sex toys that will vibrate when someone send you a tip during your live streams. The strength and length of vibration is controlled by you through the Lovense toy settings, and these values correlate to a tip amount.
+
+Add an extra level of interaction with your community during live streams by connecting your toy and encouraging users to tip!
+
+> You can also visit the [Lovense website guides](https://www.lovense.com/cam-model/guides/Video-Guides) for the most up-to-date information.
+
+### Overview
+
+There's a few ways you can integrate a Lovense device with Joystick, and with a lot of components, it can be a bit confusing. Here's a quick overview of how it works.
+
+1. Your toy uses bluetooth to connect to your mobile phone using the Mobile LovenseConnect app, or to your PC directly using a [bluetooth dongle adapter](https://www.amazon.com/LOVENSE-Lovense-USB-Bluetooth-Adapter/dp/B0711DTRR6) and the desktop Lovense Connect app.
+1. Your PC has a separate Lovense app (either Stream Master, or a browser extension "Share Link") that communicates with the Lovense Servers.
+1. Your browser must be on the Joystick [Publisher Page](https://joystick.tv/publisher) which will detect the Lovense browser extension (from Stream Master or Share Link). When this is connected, there will be a box shown on the page like this
+![Lovense Device Connected](/assets/lovense-device-active-icon.png)
+1. Or you may see a sidebar pane window that looks like this
+![Lovense Device Connected](/assets/lovense-device-active-pane.png)
+1. When you are live and receive a tip, Joystick sends the token amount to the Lovense browser extension. This will send the info to the Lovense servers which then goes to your Lovense Connect app (on mobile or desktop).
+
+### Setup using Stream Master
+
+[Lovense Stream Master](https://www.lovense.com/stream-master) is an AIO (all-in-one) software program that combines [OBS](https://obsproject.com/) and Google Chrome in to a single application complete with full lovense integration. Using this app means you have no need for a separate browser or streaming software, and all of the Lovense OBS overlays are already configured for you.
+
+* Start by reading through these guides to install: [read more](https://www.lovense.com/cam-model/guides/Stream-Master/Basic-Tutorials/Step-By-Step-Tutorial)
+* Next you will need to add JoystickTV as a cam site. Click the "Add a cam site" button on Stream Master, and search for "Joystick".
+![Lovense Add a cam site](/assets/lovense-add-cam-site.png)
+* Lastly, you will need to setup your OBS connection which you can follow our previous guides above [read more](#lovense-stream-master)
+
+At this point you should have everything connected
+
+### Setup using a Chrome extension
+
+Visit the [Lovense Extension Settings](https://extension.lovense.com/share-link/pages/dashboard.html) site from a Chromium based browser. (Chrome, Brave, OperaGX, Edge).
+
+> NOTE: If you visit this link from Firefox, or Safari, you'll see a blank page. Be sure to have Chrome or a Chromium based browser.
+
+Once you have loggeed in to your Lovense account, you'll be prompted to install the "Share Link" extension. You can also find instructions on the [Lovense Cam Extension](https://www.lovense.com/cam-model/guides/Written-Guides/Installation-Guides/Lovense-Cam-Extension) Guides.
+
+## Troubleshooting Lovense
+
+If you're still seeing issues with the device connecting, here's a few tips you can try.
+
+* Try turning the toy completely off and back on again.
+* Give the Joystick Publisher page a "hard refresh" (`ctrl-shift-R` on Windows, or `cmd-shift-R` for Mac).
+* Ensure your toy battery is charged over 50%
+* If you're using the dongle, try using your phone
+* If you're using your phone, change the sleep settings to keep it on
+* Ensure your Stream Master or Share Link and the Lovense Connect apps are all full up-to-date
 
 After trying these, if you’re still having issues streaming, join our [Discord](https://discord.gg/zKvCf8hrGP), and let us know in the Support channel.

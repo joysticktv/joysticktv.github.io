@@ -7,11 +7,11 @@ description: Explore our Knowledge Base and Community Guidelines below.
 
 guides_section:
   - title: Live Streaming
-    excerpt: Find everything you need to know about streaming on our platform, including essential software requirements and streaming tips.
+    excerpt: Get started streaming on JoystickTV, find help setting up stream software, and tips on Lovense toy integrations.
     url: '/live_streaming'
 
   - title: Streamer Support
-    excerpt: From payment information, business and taxes, to more of the creative side like connecting your lovense devices and setting up your account.
+    excerpt: From payment information, business and taxes, and reporting, to information on earning and the more advanced side of JoystickTV.
     url: '/streamer_support'
 
   - title: Affiliate Support
