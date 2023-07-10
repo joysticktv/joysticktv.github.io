@@ -1,171 +1,162 @@
-( function( $ ) {
-	'use strict';
+tailwind.config = {
+	darkMode: 'class',
+  theme: {
+    fontSize: {
+      '2xs': ['0.75rem', { lineHeight: '1.25rem' }],
+      xs: ['0.8125rem', { lineHeight: '1.5rem' }],
+      sm: ['0.875rem', { lineHeight: '1.5rem' }],
+      base: ['1rem', { lineHeight: '1.75rem' }],
+      lg: ['1.125rem', { lineHeight: '1.75rem' }],
+      xl: ['1.25rem', { lineHeight: '1.75rem' }],
+      '2xl': ['1.5rem', { lineHeight: '2rem' }],
+      '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
+      '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
+      '5xl': ['3rem', { lineHeight: '1' }],
+      '6xl': ['3.75rem', { lineHeight: '1' }],
+      '7xl': ['4.5rem', { lineHeight: '1' }],
+      '8xl': ['6rem', { lineHeight: '1' }],
+      '9xl': ['8rem', { lineHeight: '1' }],
+    },
+    extend: {
+      boxShadow: {
+        glow: '0 0 4px rgb(0 0 0 / 0.1)',
+      },
+      maxWidth: {
+        lg: '33rem',
+        '2xl': '40rem',
+        '3xl': '50rem',
+        '5xl': '66rem',
+      },
+      opacity: {
+        1: '0.01',
+        2.5: '0.025',
+        7.5: '0.075',
+        15: '0.15',
+      },
+    },
+  },
+};
 
-	// Reduce
-	$.fn.reduce = function( fnReduce, initialValue ) {
-		var values = this,
-				previousValue = initialValue;
+window.onload = function() {
+  const navToggleButton = document.getElementById('navToggleButton');
+  navToggleButton.addEventListener('click', toggleNavigation);
 
-		values.each( function( index, currentValue ) {
-			previousValue = fnReduce.call(
-				currentValue,
+  const themeToggleButton = document.getElementById('themeToggleButton');
+  themeToggleButton.addEventListener('click', toggleColorTheme);
 
-				previousValue,
-				currentValue,
-				index,
-				values
-			);
-		} );
+  const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  darkModeMediaQuery.addEventListener('change', updateModeWithoutTransitions);
+  window.addEventListener('storage', updateModeWithoutTransitions);
 
-		return previousValue;
-	};
+  const siteSearchButtons = document.querySelectorAll('button.searchButton');
+  for(let i = 0; i < siteSearchButtons.length; i++) {
+    siteSearchButtons[i].addEventListener('click', openSearchModal);
+  }
 
-	// Title sections
-	$( ':header[id]' ).each( function() {
-		var $self = $( this );
+  const modal = document.querySelector("div[role='dialog']");
 
-		$self.html(
-			'<a href="#' + $self.attr( 'id' ) + '" class="title-anchor-link">#</a> ' + $self.html()
-		);
-	} );
+  document.querySelector("#modalbg").addEventListener('click', function(e) {
+    if (e.target === this) {
+      modal.classList.add('hidden');
+    }
+  });
 
-	var getHeadingLevel = function( $el ) {
-		var tagName = $el.prop( 'tagName' ).toLowerCase();
+  setColorTheme();
+  hljs.highlightAll();
 
-		if (
-			! tagName ||
-			[ 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ].indexOf( tagName ) === -1
-		) {
-			return false;
-		}
+  const searchClient = algoliasearch(
+    'YXM67SR4Z2',
+    '9f037e1b9d62a35220f41333b4e64377'
+  );
 
-		return parseInt( tagName.replace( 'h', '' ), 10 );
-	};
+  autocomplete({
+    container: '#autocomplete',
+    placeholder: 'Find helpful information...',
+    insights: true,
+    getSources({ query }) {
+      return [
+        {
+          sourceId: 'info',
+          getItems() {
+            return getAlgoliaResults({
+              searchClient,
+              queries: [
+                {
+                  indexName: 'joystick_support',
+                  query,
+                  params: {
+                    hitsPerPage: 5,
+                    attributesToSnippet: ['title:10', 'content:35'],
+                    snippetEllipsisText: '…',
+                  },
+                },
+              ],
+            });
+          },
+          templates: {
+            noResults() {
+              return "No results";
+            },
+            item({ item, components, html }) {
+              return html`<a class="cursor-pointer block hover:bg-emerald-500 hover:text-white" href="${item.url}">
+                <div class="flex flex-col p-1">
+                  <div class="text-lg mb-1">
+                    ${components.Highlight({
+                      hit: item,
+                      attribute: 'title',
+                    })}
+                  </div>
+                  <div class="">
+                    ${components.Snippet({
+                      hit: item,
+                      attribute: 'content',
+                    })}
+                  </div>
+                </div>
+              </a>`;
+            },
+          },
+        },
+      ];
+    },
+  });
 
-	var headings = $( ':header[id]' ).reduce( function( previousValue, currentValue ) {
-		var currentHeading = {
-			childrens: [],
-		};
+  function setColorTheme() {
+    const prefersDark = window.localStorage.darkTheme === 'true' || darkModeMediaQuery.matches;
+    if (prefersDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    window.localStorage.setItem('darkTheme', prefersDark);
+  }
 
-		currentHeading.$el = $( currentValue );
-		currentHeading.level = getHeadingLevel( currentHeading.$el );
+  function toggleColorTheme() {
+    document.documentElement.classList.toggle('dark');
+    window.localStorage.setItem('darkTheme', window.localStorage.darkTheme !== 'true');
+  }
 
-		if ( ! currentHeading.$el.length || currentHeading.level === false ) {
-			return previousValue;
-		}
+  function disableTransitionsTemporarily() {
+    document.documentElement.classList.add('[&_*]:!transition-none');
+    window.setTimeout(() => {
+      document.documentElement.classList.remove('[&_*]:!transition-none');
+    }, 0)
+  }
 
-		previousValue.push( currentHeading );
+  function updateModeWithoutTransitions() {
+    disableTransitionsTemporarily();
+    toggleColorTheme();
+  }
 
-		return previousValue;
-	}, [] );
+  function toggleNavigation() {
+    for (const child of this.children) {
+      child.classList.toggle('visible');
+      child.classList.toggle('hidden');
+    }
+    document.querySelector("[data-target='nav']").classList.toggle('hidden');
+  }
 
-	var majik = function( previousValue, currentHeading ) {
-		if ( ! currentHeading.$el.length || currentHeading.level === false ) {
-			return previousValue;
-		}
-
-		if ( previousValue.length < 1 ) {
-			return [ currentHeading ];
-		}
-
-		var previousHeadingLevel = previousValue[ previousValue.length - 1 ].level;
-
-		if ( currentHeading.level > previousHeadingLevel ) {
-			previousValue[ previousValue.length - 1 ].childrens.push( currentHeading );
-		} else {
-			previousValue.push( currentHeading );
-		}
-
-		return previousValue;
-	};
-
-	var reduceLevels = function( list ) {
-		list = list.reduce( majik, [] );
-
-		var i;
-		for ( i = 0; i < list.length; i += 1 ) {
-			if ( ! list[ i ].childrens || ! list[ i ].childrens.length ) {
-				continue;
-			}
-
-			list[ i ].childrens = reduceLevels( list[ i ].childrens );
-		}
-
-		return list;
-	};
-
-	var generateList = function( list, isFirstLevel ) {
-		var $ul = $( '<ul></ul>' );
-		$ul.addClass( 'level-' + list[ 0 ].level );
-
-		if ( true === isFirstLevel ) {
-			$ul.addClass( 'nav' );
-		}
-
-		var i, $li;
-		for ( i = 0; i < list.length; i += 1 ) {
-			$li = $( '<li></li>' );
-			$li.append(
-				'<a href="#' + list[ i ].$el.attr( 'id' ) + '">' +
-					list[ i ].$el.text().replace( /^#\ /, '' ) +
-				'</a>'
-			);
-
-			if ( list[ i ].childrens && list[ i ].childrens.length ) {
-				$li.append( generateList( list[ i ].childrens ) );
-				$li.addClass( 'has-submenu' );
-			}
-
-			$ul.append( $li );
-		}
-
-		return $ul;
-	};
-
-	if ( headings.length ) {
-		headings = reduceLevels( headings );
-
-		generateList( headings, true ).appendTo( '.js-sections' );
-	}
-
-	// Smooth anchor scrolling
-	var $jsSmoothScroll = $( '.js-smooth-scroll' );
-
-	$jsSmoothScroll.click( function() {
-		$( 'html, body' ).animate( {
-			scrollTop: $( $( this ).attr( 'href' ) ).offset().top
-		}, 1200 );
-
-		return false;
-	} );
-
-	var handleSectionsListSize = function() {
-		$( '.sections-list' ).css( 'width', $( '.sections-list-wrapper' ).width() );
-	};
-
-	handleSectionsListSize();
-	$( window ).on( 'resize', handleSectionsListSize );
-
-	// Affix init
-	$( window ).on( 'load', function() {
-		$( '.js-affix' ).affix( {
-			offset: {
-				top: function() {
-					return (
-						this.top = $( '.hero-subheader' ).outerHeight( true ) + 100
-					);
-				},
-				bottom: function() {
-					return (
-						this.bottom = $( '.js-footer-area' ).outerHeight( true ) + 80
-					);
-				}
-			}
-		} );
-	} );
-
-	// Offcanvas
-	$( '.offcanvas-toggle' ).on( 'click', function() {
-		$( 'body' ).toggleClass( 'offcanvas-expanded' );
-	} );
-}( jQuery ) );
+  function openSearchModal() {
+    modal.classList.remove('hidden');
+  }
+}

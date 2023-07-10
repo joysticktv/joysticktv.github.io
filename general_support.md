@@ -3,6 +3,11 @@ layout: default
 keywords:
 
 title: General Support
+type: "guide"
+subsections:
+  - unable-to-access-account
+  - deleting-your-account
+  - two-factor-authentication
 ---
 
 ## Unable to access account
@@ -31,7 +36,7 @@ Your account cannot be restored, and you will have to create a new one.
 
 We highly recommend that you enable Two-Factor Authentication (2FA) on your account. 2FA helps to ensure that you are the only person accessing your account. After enabling 2FA on your account you will be prompted for a second level of authentation after logging with your username and password.
 
-To enable 2FA please visit your account settings at https://joystick.tv/settings. Look for the Security section and check Enable 2FA.
+To enable 2FA please visit your account settings at [Account Settings](https://joystick.tv/settings). Look for the Security section and check Enable 2FA.
 
 After you have enabled it, you have two options on how you would prefer to provide the second level of authentation. You can scan the QR code and enter that into an app like Google Authenticator or Authy. Or if you would prefer to be texted your authentication code when you login, enter a phone number. Make sure to hit save further down the page to keep your settings.
 

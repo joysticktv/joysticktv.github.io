@@ -3,6 +3,12 @@ layout: default
 keywords:
 
 title: Streamer Support
+type: "guide"
+subsections:
+  - earnings-and-payouts
+  - taxes-for-us-streamers
+  - uploaded-media-content
+  - direct-messaging-campaigns
 ---
 
 ## Earnings and Payouts
@@ -45,7 +51,8 @@ Payments have 3 stages:
 * **Paid** – The money has left our offices, and is headed to you. Some payments may take longer to reach you than others (i.e. checks, or first-time wires, etc…)
 
 As a U.S. based company, we observe all U.S. Banking holidays. During these times, there may be slight delays which will always be conveyed via announcements the week prior or sooner.
-Checks
+
+**Checks**
 
 Checks are for North American streamers only as these are mailed through the U.S. Postal service (USPS). These are standard U.S. bank paper checks made out in USD. Once a payout request is processed, this is usually delivered to you within 3 – 5 business days.
 
@@ -115,7 +122,7 @@ Verified streamers are allowed to upload their own personal media content. All c
 
 Direct Message Campaigns are like Direct Messages but sent in bulk or when someone follows you.
 
-<iframe width="640" height="360" src="https://www.youtube.com/embed/GFVMzX8W60A" title="How to Create a DM Campaign on Joystick.tv" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/GFVMzX8W60A" title="How to Create a DM Campaign on Joystick.tv" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 To use this feature, visit this link [Direct Message Campaigns](https://joystick.tv/dm-campaigns). To create a new campaign, click the Create Your First Campaign button.
 

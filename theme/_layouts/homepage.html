@@ -1,92 +1,139 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		{% include site-head.html %}
-	</head>
-	<body class="{{ site.theme.color_theme }}">
-		<div class="hero-subheader{% if page.grid_navigation %} hero-subheader--before-out{% endif %}">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-7">
-						<div class="align-container" data-mh>
-							<div class="align-inner">
-								{% if page.title %}
-									<h1 class="hero-subheader__title">{{ page.title }}</h1>
-								{% endif %}
-								{% if page.description %}
-									<p class="hero-subheader__desc">{{ page.description }}</p>
-								{% endif %}
-								{% for button in page.buttons %}
-									{% if button.external_url == true %}
-									<a href="{{ button.url }}" class="btn btn--dark btn--rounded btn--w-icon">
-										{% if button.icon %}<i class="icon icon--{{ button.icon }}"></i>{% endif %}
-										{{ button.content }}
-									</a>
-									{% else %}
-									<a href="{% if jekyll.environment == 'production' %}{{ site.theme.baseurl }}{% endif %}{{ button.url }}" class="btn btn--dark btn--rounded btn--w-icon">
-										{% if button.icon %}<i class="icon icon--{{ button.icon }}"></i>{% endif %}
-										{{ button.content }}
-									</a>
-									{% endif %}
-								{% endfor %}
-							</div><!-- /.align-inner -->
-						</div><!-- /.align-container -->
-					</div><!-- /.col -->
-					{% if page.author.title and page.author.description and page.author.title_url %}
-						<div class="col-md-4 col-md-offset-1 hidden-xs hidden-sm">
-							<div class="align-container" data-mh>
-								<div class="align-inner">
-									<div class="hero-subheader__author">
-										<p class="hero-subheader__author-title">
-											{% if button.external_url == true %}
-											<a href="{{ page.author.title_url }}" class="btn btn--read-more">
-												{{ page.author.title }}
-												<i class="icon icon--arrow-right"></i>
-											</a>
-											{% else %}
-											<a href="{% if jekyll.environment == 'production' %}{{ site.theme.baseurl }}{% endif %}{{ page.author.title_url }}" class="btn btn--read-more">
-												{{ page.author.title }}
-												<i class="icon icon--arrow-right"></i>
-											</a>
-											{% endif %}
-										</p><!-- /.hero-subheader__author-title -->
-										<p>{{ page.author.description }}</p>
-									</div><!-- /.hero-subheader__author -->
-								</div><!-- /.align-inner -->
-							</div><!-- /.align-container -->
-						</div><!-- /.col -->
-					{% endif %}
-				</div><!-- /.row -->
-			</div><!-- /.container -->
-		</div><!-- /.hero-subheader -->
-		{% if page.grid_navigation %}
-			<div class="section section--darker-theme-color-bg">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="nav-grid nav-grid--out">
-								<div class="row">
-									{% for item in page.grid_navigation %}
-										<div class="col-sm-6 col-lg-4">
-											<a href="{% if jekyll.environment == 'production' %}{{ site.theme.baseurl }}{% endif %}{{ item.url }}" class="nav-grid__item">
-												<div class="nav-grid__content" data-mh>
-													<h2 class="nav-grid__title">{{ item.title }}</h2>
-													<p>{{ item.excerpt }}</p>
-												</div><!-- /.nav-grid__content -->
-												<p class="nav-grid__btn">
-													{{ item.cta }}
-													<i class="icon icon--arrow-right"></i>
-												</p>
-											</a><!-- /.nav-grid__item -->
-										</div><!-- /.col -->
-									{% endfor %}
-								</div><!-- /.row -->
-							</div><!-- /.nav-grid -->
-						</div><!-- /.col -->
-					</div><!-- /.row -->
-				</div><!-- /.container -->
-			</div><!-- /.section -->
-		{% endif %}
-		{% include site-footer.html %}
-	</body>
+<html lang="en">
+<head>
+	{% include site-head.html %}
+</head>
+<body class="bg-white antialiased dark:bg-zinc-900">
+  <div>
+    <div class="lg:ml-72 xl:ml-80">
+      {% include site-header.html %}
+      <div class="relative px-4 pt-14 sm:px-6 lg:px-8">
+        <main class="py-16">
+          <article class="prose dark:prose-invert text-zinc-800 dark:text-gray-300">
+            <div class="absolute inset-0 -z-10 mx-0 max-w-none overflow-hidden">
+              <div class="absolute left-1/2 top-0 ml-[-38rem] h-[25rem] w-[81.25rem] dark:[mask-image:linear-gradient(white,transparent)]">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#0affff] to-[#09abab] opacity-20 [mask-image:radial-gradient(farthest-side_at_top,white,transparent)] dark:from-[#09abab]/30 dark:to-[#182a36]/30 dark:opacity-100"></div>
+                <svg viewBox="0 0 1113 440" aria-hidden="true" class="absolute left-1/2 top-0 ml-[-19rem] w-[69.5625rem] fill-white blur-[26px] dark:hidden"><path d="M.016 439.5s-9.5-300 434-300S882.516 20 882.516 20V0h230.004v439.5H.016Z"></path></svg>
+              </div>
+            </div>
+            
+            <h1>Get Started Streaming</h1>
+            <p class="lead">Are you a streamer or looking to stream for your first time? Use these guides to find answers
+              about streaming on Joystick.TV and getting started.
+            </p>
+            <div class="not-prose mb-16 mt-6 flex gap-3">
+              <a
+                class="inline-flex gap-0.5 justify-center overflow-hidden text-sm font-medium transition rounded-full bg-zinc-900 py-1 px-3 text-white hover:bg-zinc-700 dark:bg-emerald-400/10 dark:text-emerald-400 dark:ring-1 dark:ring-inset dark:ring-emerald-400/20 dark:hover:bg-emerald-400/10 dark:hover:text-emerald-300 dark:hover:ring-emerald-300"
+                href="/live_streaming">Quickstart<svg viewBox="0 0 20 20" fill="none" aria-hidden="true"
+                  class="mt-0.5 h-5 w-5 -mr-1">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                    d="m11.5 6.5 3 3.5m0 0-3 3.5m3-3.5h-9"></path>
+                </svg>
+              </a>
+              <a
+                class="inline-flex gap-0.5 justify-center overflow-hidden text-sm font-medium transition rounded-full py-1 px-3 text-zinc-700 ring-1 ring-inset ring-zinc-900/10 hover:bg-zinc-900/2.5 hover:text-zinc-900 dark:text-zinc-400 dark:ring-white/10 dark:hover:bg-white/5 dark:hover:text-white"
+                href="https://discord.gg/zKvCf8hrGP">Join Discord</a>
+            </div>
+            <h2 class="scroll-mt-24">Developer API</h2>
+            <p class="lead">To get started, create a new application from our <a href="https://joystick.tv/applications" target="_blank" class="text-emerald-500 hover:text-emerald-600 dark:text-emerald-400 dark:hover:text-emerald-500">application marketplace</a>, then
+              read about how to make requests for the resources you need to access using our APIs. When your integration is ready to go live,
+              publish it to our marketplace to reach the community.</p>
+            <div class="not-prose">
+              <a
+                class="inline-flex gap-0.5 justify-center overflow-hidden text-sm font-medium transition text-emerald-500 hover:text-emerald-600 dark:text-emerald-400 dark:hover:text-emerald-500"
+                href="/developer_support">API Docs<svg viewBox="0 0 20 20" fill="none" aria-hidden="true"
+                  class="mt-0.5 h-5 w-5 relative top-px -mr-1">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                    d="m11.5 6.5 3 3.5m0 0-3 3.5m3-3.5h-9"></path>
+                </svg>
+              </a>
+            </div>
+            <div class="my-16 xl:max-w-none">
+              <h2 id="guides" class="scroll-mt-24">Guides</h2>
+              <div class="not-prose mt-4 grid grid-cols-1 gap-8 border-t border-zinc-900/5 pt-10 dark:border-white/5 sm:grid-cols-2 xl:grid-cols-4">
+
+                {% for item in page.guides_section %}
+                <div class="group relative flex rounded-2xl bg-zinc-50 transition-shadow hover:shadow-md hover:shadow-zinc-900/5 dark:bg-white/2.5 dark:hover:shadow-black/5">
+                  <div class="pointer-events-none">
+                    <div class="absolute inset-0 rounded-2xl transition duration-300 [mask-image:linear-gradient(white,transparent)] group-hover:opacity-50">
+                      <svg aria-hidden="true" class="absolute inset-x-0 inset-y-[-30%] h-[160%] w-full skew-y-[-18deg] fill-black/[0.02] stroke-black/5 dark:fill-white/1 dark:stroke-white/2.5">
+                        <defs>
+                          <pattern id=":R56hd6:" width="72" height="56" patternUnits="userSpaceOnUse" x="50%" y="16">
+                            <path d="M.5 56V.5H72" fill="none"></path>
+                          </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" stroke-width="0" fill="url(#:R56hd6:)"></rect>
+                        <svg x="50%"
+                          y="16" class="overflow-visible">
+                          <rect stroke-width="0" width="73" height="57" x="0" y="56"></rect>
+                          <rect stroke-width="0" width="73" height="57" x="72" y="168"></rect>
+                        </svg>
+                      </svg>
+                    </div>
+                    <div
+                      class="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#D7EDEA] to-[#F4FBDF] opacity-0 transition duration-300 group-hover:opacity-100 dark:from-[#202D2E] dark:to-[#303428]"
+                      style="mask-image:radial-gradient(180px at 0px 0px, white, transparent);-webkit-mask-image:radial-gradient(180px at 0px 0px, white, transparent)">
+                    </div>
+                    <div
+                      class="absolute inset-0 rounded-2xl opacity-0 mix-blend-overlay transition duration-300 group-hover:opacity-100"
+                      style="mask-image:radial-gradient(180px at 0px 0px, white, transparent);-webkit-mask-image:radial-gradient(180px at 0px 0px, white, transparent)">
+                      <svg aria-hidden="true"
+                        class="absolute inset-x-0 inset-y-[-30%] h-[160%] w-full skew-y-[-18deg] fill-black/50 stroke-black/70 dark:fill-white/2.5 dark:stroke-white/10">
+                        <defs>
+                          <pattern id=":R1d6hd6:" width="72" height="56" patternUnits="userSpaceOnUse" x="50%" y="16">
+                            <path d="M.5 56V.5H72" fill="none"></path>
+                          </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" stroke-width="0" fill="url(#:R1d6hd6:)"></rect><svg x="50%"
+                          y="16" class="overflow-visible">
+                          <rect stroke-width="0" width="73" height="57" x="0" y="56"></rect>
+                          <rect stroke-width="0" width="73" height="57" x="72" y="168"></rect>
+                        </svg>
+                      </svg>
+                    </div>
+                  </div>
+                  <div
+                    class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-zinc-900/7.5 group-hover:ring-zinc-900/10 dark:ring-white/10 dark:group-hover:ring-white/20">
+                  </div>
+                  <div class="relative rounded-2xl px-4 pb-4 pt-10">
+                    <h3 class="mt-4 text-sm font-semibold leading-7 text-zinc-900 dark:text-white">
+                      <a href="{{ item.url }}" class="text-zinc-800 dark:text-white">
+                        <span class="absolute inset-0 rounded-2xl"></span>
+                        {{ item.title }}
+                      </a>
+                    </h3>
+                    <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">{{ item.excerpt }}</p>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="my-16 xl:max-w-none">
+              <h2 id="resources" class="scroll-mt-24">Resources</h2>
+              <div class="not-prose mt-4 grid grid-cols-1 gap-8 border-t border-zinc-900/5 pt-10 dark:border-white/5 sm:grid-cols-2 xl:grid-cols-4">
+                {% for item in page.resources_section %}
+                <div>
+                  <h3 class="text-sm font-semibold text-zinc-900 dark:text-white">{{ item.title }}</h3>
+                  <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">{{ item.excerpt }}</p>
+                  <p class="mt-4">
+                    <a
+                      class="inline-flex gap-0.5 justify-center overflow-hidden text-sm font-medium transition text-emerald-500 hover:text-emerald-600 dark:text-emerald-400 dark:hover:text-emerald-500"
+                      href="{{ item.url }}">Read more<svg viewBox="0 0 20 20" fill="none" aria-hidden="true"
+                        class="mt-0.5 h-5 w-5 relative top-px -mr-1">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                          d="m11.5 6.5 3 3.5m0 0-3 3.5m3-3.5h-9"></path>
+                      </svg>
+                    </a>
+                  </p>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </article>
+        </main>
+				{% include site-footer.html %}
+      </div>
+    </div>
+  </div>
+</body>
 </html>

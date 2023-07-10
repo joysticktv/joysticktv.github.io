@@ -4,44 +4,38 @@ keywords:
 
 title: joystick.tv Help &amp; Support
 description: Explore our Knowledge Base and Community Guidelines below.
-buttons:
-  - content: Get Help Starting Your Stream
-    url: '/live_streaming'
-    external_url: false
 
-grid_navigation:
+guides_section:
   - title: Live Streaming
-    excerpt: Here, you'll find everything you need to know about streaming on our platform, including essential software requirements and professional streaming tips. Whether you're a novice or an experienced streamer, this section is designed to guide you towards a successful streaming experience on joystick.tv
-    cta: Read more
+    excerpt: Find everything you need to know about streaming on our platform, including essential software requirements and streaming tips.
     url: '/live_streaming'
-
-  - title: FAQ
-    excerpt: Still have questions? Don't worry, we've got you covered! Check out our comprehensive Frequently Asked Questions section for answers to any additional inquiries you may have. We're committed to providing you with all the information you need to make the most of your experience on joystick.tv
-    cta: Read more
-    url: '/faq'
-
-  - title: General Support
-    excerpt: If you're having trouble with your account or need assistance navigating the site, our knowledgeable support team is here to help. You can reach out to us via email, phone, or through our live chat feature, and we'll do our best to resolve any issues as quickly as possible.
-    cta: Read more
-    url: '/general_support'
-
-  - title: Viewer Support
-    excerpt: New to JoystickTV and looking for the best way to enjoy the site? Read up on information about how to get the most enjoyment from joystick.tv
-    cta: Read more
-    url: '/viewer_support'
 
   - title: Streamer Support
-    excerpt: Are you a streamer on joystick.tv looking for more information? Find everything you need to know about your account from payment information, business and taxes, to more of the creative side like connecting your lovense devices and configuring direct message campaigns.
-    cta: Read more
+    excerpt: From payment information, business and taxes, to more of the creative side like connecting your lovense devices and setting up your account.
     url: '/streamer_support'
 
   - title: Affiliate Support
-    excerpt: By joining our affiliate program, you can easily share your love for our site with your friends , and earn a commission on purchases they make through your unique affiliate link. Here we can answer the most common questions about the program.
-    cta: Read more
+    excerpt: Here you can find the most common questions about our affiliate program, and learn how to get started earning right away.
     url: '/affiliate_support'
 
   - title: Developer Support
     excerpt: Get the documentation and code samples you need to integrate your bot with our site.
-    cta: Read more
     url: '/developer_support'
+
+resources_section:
+  - title: FAQ
+    excerpt: Check out our comprehensive Frequently Asked Questions section for answers to any additional inquiries you may have.
+    url: '/faq'
+
+  - title: Terms & Conditions
+    excerpt: As an adult based platform, be sure to look over our terms and conditions
+    url: 'https://joystick.tv/terms'
+
+  - title: Community Guidelines
+    excerpt: These guidelines will help you to better understand our community and what we allow on our site
+    url: 'https://joystick.tv/community-guidelines'
+
+  - title: Contact Us
+    excerpt: If you still have more questions, feel free to contact us directly
+    url: '/contact_us'
 ---

@@ -25,3 +25,15 @@ You'll need Ruby (3.1.x or later).
 1. Visit [jekyll docs](https://jekyllrb.com/docs/) to understand the structure
 1. Boot the app with `jekyll serve`
 1. Open the site in your browser http://localhost:4000
+
+### Updating Search index
+
+The site is not crawled since it's on the free plan, currently. When content is added and/or changed, we need to reindex the site.
+
+Run this command with the appropriate key:
+
+```
+ALGOLIA_API_KEY=admin_api_key bundle exec jekyll algolia
+```
+
+> Only Joystick staff will have access to this key

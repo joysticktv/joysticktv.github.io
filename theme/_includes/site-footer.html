@@ -1,49 +1,27 @@
-{% if site.theme.footer.content.logo.image or site.theme.footer.content.logo.text or site.theme.footer.content.copyright or site.theme.footer.social_list %}
-	<footer class="site-footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-6">
-					{% if site.theme.footer.content.logo.text %}
-						<a href="{% if jekyll.environment == 'production' %}{{ site.theme.baseurl }}{% endif %}/" class="site-footer__logo">{{ site.theme.footer.content.logo.text }}</a>
-					{% elsif site.theme.footer.content.logo.image %}
-						<a href="{% if jekyll.environment == 'production' %}{{ site.theme.baseurl }}{% endif %}/" class="site-footer__logo">
-							<img src="{% if jekyll.environment == 'production' %}{{ site.theme.baseurl }}{% endif %}/theme/assets/images/layout/logo-footer.png">
-						</a><!-- /.site-footer__logo -->
-					{% endif %}
-					<hr>
-					<p class="site-footer__copyright">Copyright &copy; {{ site.time | date: '%Y' }} - joystick.tv <br>All rights reserved.</p>
-				</div><!-- /.col -->
-				{% if site.theme.footer.social_list %}
-					<div class="col-sm-6 align-right">
-						<ul class="social-list">
-							{% for item in site.theme.footer.social_list %}
-								<li>
-									<a href="{{ item.profile_url }}" target="_blank" class="social-list__item social-list__item--{{ item.network_name }}">
-										<i class="fa-brands fa-{{ item.network_name }}" title="Find us on {{ item.network_name }}"></i>
-									</a>
-								</li>
-							{% endfor %}
-						</ul><!-- /.social-list -->
-					</div><!-- /.col -->
-				{% endif %}
-			</div><!-- /.row -->
-			<div class="row">
-				<ul class="links-list">
-					{% for item in site.theme.footer.links %}
-						<li>
-							<a href="{{ item.url }}" target="_blank" class="">
-								{{ item.text }}
-							</a>
-						</li>
-					{% endfor %}
-				</ul><!-- /.social-list -->
-			</div><!-- /.col -->
-		</div><!-- /.container -->
-	</footer><!-- /.site-footer -->
-{% endif %}
+<footer class="mx-auto max-w-2xl space-y-10 pb-16 lg:max-w-5xl">
+	<div class="flex flex-col items-center justify-between gap-5 border-t border-zinc-900/5 pt-8 dark:border-white/5 sm:flex-row">
+		<p class="text-xs text-zinc-600 dark:text-zinc-400">
+			Copyright &copy; {{ site.time | date: '%Y' }} &mdash; Joystick.TV &mdash; All rights reserved.
+		</p>
+		<div class="flex gap-4">
+			{% for item in site.footer.social_list %}
+			<a class="group" href="{{ item.profile_url }}" target="_blank">
+				<span class="sr-only">Find us on {{ item.network_name }}</span>
+				<i class="text-zinc-700 dark:text-gray-400 fa-brands fa-{{ item.network_name }}" title="Find us on {{ item.network_name }}"></i>
+			</a>
+			{% endfor %}
+		</div>
+	</div>
+</footer>
 
-<script src="{% if jekyll.environment == 'production' %}{{ site.theme.baseurl }}{% endif %}/theme/assets/js/vendor/jquery.min.js"></script>
-<script type="text/javascript" src="{% if jekyll.environment == 'production' %}{{ site.theme.baseurl }}{% endif %}/theme/assets/js/vendor/bootstrap/affix.min.js"></script>
-<script type="text/javascript" src="{% if jekyll.environment == 'production' %}{{ site.theme.baseurl }}{% endif %}/theme/assets/js/vendor/bootstrap/scrollspy.min.js"></script>
-<script type="text/javascript" src="{% if jekyll.environment == 'production' %}{{ site.theme.baseurl }}{% endif %}/theme/assets/js/vendor/matchHeight.min.js"></script>
-<script type="text/javascript" src="{% if jekyll.environment == 'production' %}{{ site.theme.baseurl }}{% endif %}/theme/assets/js/scripts.min.js"></script>
+<div class="hidden" role="dialog" aria-modal="true">
+  <div class="fixed inset-0 bg-gray-500 bg-opacity-25 transition-opacity"></div>
+  <div id="modalbg" class="fixed inset-0 overflow-y-auto p-4 sm:p-6 md:p-20">
+    <div class="mx-auto max-w-xl transform divide-y divide-gray-100 rounded-xl bg-white shadow-2xl ring-1 ring-black ring-opacity-5 transition-all">
+			<p class="text-sm text-gray-400 text-right p-2">Search provided by <i class="fa-brands fa-algolia text-blue-400"></i></p>
+      <div class="relative">
+				<div id="autocomplete"></div>
+      </div>
+    </div>
+  </div>
+</div>
