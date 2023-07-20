@@ -15,10 +15,10 @@ Becoming an affiliate on Joystick.TV is easy! Just sign up for a regular account
 > Approvals may take up-to 24 hours to be reviewed
 
 ## What is an Affiliate Link?
-This is a URL with a special code that links back to you. When someone visits this URL they will be tracked as a "click" in your reporting. If they signup for a new account, you'll see this as a "join". Once they make any purchase, you'll receive a bonus of 30%.
+This is a URL with a special code that links back to you. When someone visits this URL they will be tracked as a "click" in your reporting. If they signup for a new account, you'll see this as a "join". Once they make any purchase, you'll receive a bonus of 20%.
 
 ## How much do I earn?
-You'll earn 30% on each purchase a user makes.
+You'll earn 20% on each purchase a user makes.
 
 ## If I refer a streamer, do I earn money on their streaming earnings?
 No, you earn money from users signing up and making purchases.

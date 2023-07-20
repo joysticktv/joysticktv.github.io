@@ -55,6 +55,17 @@ We have several chat commands to make your viewing experience even that more fun
 
 `!wishlist` - This command will put a link in the chat to show your wishlist link. As a streamer, you can fill this in on your stream settings page.
 
+## Buying Tokens
+
+You can purchase tokens at any time. When you tip a streamer, you are spending your tokens. The streamer earns 80% from these tips.
+
+To purchase tokens, you can use
+
+* Credit / Debit / Bank card
+* PayPal
+* Joystick Wallet (For streamers only)
+
+The higher token packages will have discounted rates for the number of tokens you are purchasing. If you want to really show your support, you can choose the "Super Supporter" packages. These cost a little more, but guarantee that the streamer earns the most value for the tokens you are purchasing.
 
 ## Tipping
 

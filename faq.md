@@ -41,6 +41,12 @@ Games are constantly coming out, and older games get updated frequently. Keeping
 ## How much are tokens worth?
 Token values are variable based on how much was spent buying them. We factor in discounts that
 may be given, or affiliate revenue share, and other factors in this. A token's value will be
-between $0.02 and $0.12 with the average value being around $0.07 each.
+between $0.03 and $0.11 with the average value being around $0.07 each.
+
+## How much do affiliates make?
+An affiliate will earn 20% of each purchase made for users that they have signed up; however, this amount may vary based on factors like token coupons given to a user, or the price value of subscriptions as set by the streamer. See the [Affiliate Support](/affiliate_support) guides for more info.
+
+## How much do streamers make?
+A streamer earns 80% of each purchase made; however, this amount may vary based on factors like token coupons given to the user, or users that joined through another streamer's link. See the [Streamer Support](/streamer_support) guides for more info.
 
 If your question hasn’t been answered, feel free to email support@joystick.tv or ask in our Discord support channel for further clarification

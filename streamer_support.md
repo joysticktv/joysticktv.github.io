@@ -22,11 +22,63 @@ Multiple ways to earn.
 * **Direct Messaging** - Send direct messages, videos, and images for an amount of tokens you set.
 * **Post Content** - Share posts with exclusive content for your subscribers or set a token amount to unlock.
 
+### Revenue Share
+
+Streamers earn 80% revenue share. No prerequisites to start earning.
+
+The amount is calcuated based on the purchase amount that a user makes. If a user spends $100 to purchase tokens, and tips you all of those tokens, you earn $80. Keep in mind that some users may be given discount coupons to encourage more spending, or joined through an [affiliate link](/affiliate_support) other than yours. If they are given 20% off, then their purcahse price is $80. Instead of earning 80% on $100 purchase, you're earning 80% on an $80 purchase.
+
+> Purchases made by streamers using their Joystick Wallet will retain the full 100% value. A $100 token spend using the Joystick Wallet will earn you the full $100
+
+We provide extensive analytics and reporting to help you keep track of your money.
+
+For other questions or help, please email support@joystick.tv, or contact us on Discord. You can also visit our [FAQ page](/faq) for more info.
+
+### Token Values
+
+Every token tipped on Joystick will have a monetary value. Sometimes tokens may be given away for free as promotional tokens, but these will still have some monetary value to the streamer. They may range from $0.03 to $0.11 cents per token.
+
+The value of a token is calculated by taking the purchase amount, and removing 20% for Joystick's cut. The remaining 80% is used to get the PTV (Per Token Value).
+
+We use the formula `(token_price * (1 - 0.2)) / number_of_tokens` where `token_price` is the amount the user spends after discounts and fees are applied, and `number_of_tokens` is the number of tokens being purchased. Because this involves splitting fractions of $0.01, we round amount to the thousandths place.
+
+> The exception to this rule is when a token package is purchased using the Joystick Wallet. That formula is `token_price / number_of_tokens`. These tokens will retain 100% of their value.
+
+**Scenario 1**
+
+The user buys the lowest token package without a coupon, or affiliate fee. The package is $10.99 for 100 tokens.
+
+`(10.99 * (1 - 0.2) / 100)` is a PTV of `0.088`
+
+**Scenario 2**
+
+The user buys the highest package using a special promotion 30% coupon, as well as having signed up by an affiliate with 20% revshare. The package is normally $79.99 for 1000 tokens.
+
+30% off $79.99 is $55.99. The affiliate fee in this case is 20% of $55.99. This makes the `token_price` $44.79.
+
+`(44.79 * (1 - 0.2)) / 1000` is a PTV of `0.036`
+
+> Note that all streamers are also affiliates. If the user used your affiliate link and tips you, then you are earning $0.03 per token, but you also earned the affiliate fee (i.e. 20% of $55.99 = $11.20)
+
+**Scenario 3**
+
+A streamer uses their Joystick Wallet to purchase a [super supporter token package](/viewer_support) of 1000 tokens for $100.
+
+`100.0 / 1000` is a PTV of `0.10`
+
+### PTV & PTA
+
+**PTV**
+
+This is the "Per Token Value". The PTV is the amount calculated when the tokens are acquired, and each token is given this value.
+
+**PTA**
+
+This is the "Per Token Average". The PTA is the overall average value of the tokens. A user could purchase the 100 token package, tip out 90 tokens, then purchase the 200 token package. They would now have a total of 210 tokens, but at different values. If they tipped you 15 tokens, you would earn 10 tokens at one value, and 5 at a different value. We take the average of these and display the PTA for you.
+
 ### Payouts
 
-80% Revenue Share. No prerequisites to start earning.
-
-Payouts can be requested once you have earned the minimum withdrawal amount in available funds. All funds received are considered unavailable for 30 days from the day you receive the money. You can think of your earnings like a sliding window. If you receive $1 on July 1st, that $1 will be available to you on July 31st. We do this in order to protect us and you from fraud.
+Payouts can be requested once you have earned the minimum withdrawal amount in available funds. All funds received are considered "pending" for 30 days from the day you receive the money. You can think of your earnings like a sliding window. If you receive $1 on July 1st, that $1 will be available to you on July 31st. We do this in order to protect us and you from fraud.
 
 *Payout Options*
 * **Check** ($50 min / $2 fee)
@@ -36,8 +88,6 @@ Payouts can be requested once you have earned the minimum withdrawal amount in a
 * **Joystick Wallet** ($0 min / $0 fee)
 
 > Please note that with Wire payouts, the first time you receive a payout there will be a slight delay for us to setup your account. After the first payout, there will be no more delay.
-
-Tokens have an assigned value based on their purchase price. Promotional / Free tokens are worth $0.02.
 
 Your payout breakdown is available from the menu, under payouts.
 
@@ -82,7 +132,9 @@ Note: We will also ask for the bank’s address for verification. If you have an
 
 You are never required to request a payout. Though, the money is still yours, you have control over how you want to use it. The Joystick wallet allows you to use your funds to purchase tokens, subscriptions, or gifting subscriptions to other streamers. There are no fees or minimums to use funds in your wallet.
 
-For other questions or help, please email support@joystick.tv, or contact us on Discord. You can also visit our FAQ page for more info.
+The best part is when you make a purchase using your Joystick Wallet, 100% of the proceeds go to the other streamers you are supporting!
+
+For other questions or help, please email support@joystick.tv, or contact us on Discord. You can also visit our [FAQ page](/faq) for more info.
 
 
 ## Taxes for U.S. Streamers
