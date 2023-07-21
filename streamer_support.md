@@ -9,7 +9,12 @@ subsections:
   - taxes-for-us-streamers
   - uploaded-media-content
   - direct-messaging-campaigns
+  - moderating-streams
 ---
+
+# Streamer Support
+
+Find information you need to know about being a streamer on JoystickTV
 
 ## Earnings and Payouts
 
@@ -183,3 +188,42 @@ When creating a campaign, you have to fill in the first two fields. Campaign Nam
 There are also several filtering options you can select when sending the message. You can use these filters to help target specific people who follow you.
 
 When you’re done and push the Send Now button, your campaign will be sent within just a few minutes. If you would like to schedule the send for later, you can check the Send Message Later box and select the date and time.
+
+## Moderating Streams
+
+Streaming content while also moderating your own community can be quite time consuming and daunting. In order to keep your streams orderly, we have several tools you can use for moderating your stream.
+
+### Why moderate?
+
+Unfortunately, we live in a world where not everyone has the best of intentions, and some that do may not be able to "read the room". You may be sensitive to certain words, or want to avoid specific individuals. This is when moderation comes in handy. Moderation tools include things like...
+
+* Muting users
+* Blocking users
+* Adding banned words or phrases
+* Changing stream and chat states
+
+But moderation doesn't always have to be negative! You may also need a way to keep track of users in chat that you're unable to get to, and get back to them at a later point. Maybe someone asked a question, and you're in middle of a heavy raid in WoW. JoystickTV gives you the option to add trusted users in to your moderation team to help keep your stream moving.
+
+### Moderating Tools
+
+**Muting** When you "mute" a user, they are unable to chat in your stream; however, they are still able to watch your stream. You may want to mute someone that has broken a rule to give them a chance to read your stream rules. When you're ready for them to talk in chat again, you can unmute them.
+
+To mute a user, you'll see an icon appear to the left of their username in chat. Click this icon to reveal a menu item to mute the user. You can unmute them from your stream configuration menu under the "muted users" section.
+
+**Blocking** A "block" is a full lockout of your profile. Users that are blocked are muted first, then removed from your stream. They are no longer able to see or visit your profile, nor able to interact with you in any capacity on JoystickTV. Keep in mind that blocks are never a full-proof solution. If you ever feel harassed by a user, please contact support immediately.
+
+To block a user, you can use the same context menu from chat as muting, or you can go to your [Blocked Users](https://joystick.tv/blocked-users) page. You'll also see a button to block a streamer from their profile page, from within your DMs, or on any post comments.
+
+**Banned Words** These are words or phrases you do not want to see in your chat. Joystick has several words and phrases that are commonly known to be hate speech already, but you can extend this list with additonal words or phrases.
+
+To add a banned word, you can go to your [Stream Settings](https://joystick.tv/stream-settings) or from your stream configuration menu during a live stream.
+
+**Stream States** By default, your stream is fully public. Anyone can just come in and start chatting, and watching you. You may not want this all of the time though. Joystick currently offers a verified user state which only allows `verified` users in your chat, as well as a subscriber-only state which requires a user to subscribe to you in order to watch. When you change the state, this alters the permissions of who is allowed to chat or watch your stream.
+
+From your publisher view, you'll see the buttons to change this state while you're live.
+
+**Moderators** Moderators (or mods) are individuals you know and trust to help you keep your streams in order. Mods have limited abilities to control your stream such as muting users, or adding banned words, as well as updating your tip goals! Mods are also given additional chat commands that allow you to "whisper" to your mods during a chat and keep conversations private and inconspicuous.
+
+Adding a moderator is simple! From your stream settings page, you can click [Moderators](https://joystick.tv/stream-moderators), then type in the username of the person you want to make a mod.
+
+> Moderators must be `verified` users that follow you.
