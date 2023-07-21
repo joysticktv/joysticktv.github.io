@@ -10,6 +10,7 @@ subsections:
   - uploaded-media-content
   - direct-messaging-campaigns
   - moderating-streams
+  - media-library
 ---
 
 # Streamer Support
@@ -227,3 +228,58 @@ From your publisher view, you'll see the buttons to change this state while you'
 Adding a moderator is simple! From your stream settings page, you can click [Moderators](https://joystick.tv/stream-moderators), then type in the username of the person you want to make a mod.
 
 > Moderators must be `verified` users that follow you.
+
+## Media Library
+
+Every streamer has access to their own private [Media Library](https://joystick.tv/media) on Joystick. This is where you can upload any images you may use; for example, profile photos, emotes, or sexy photos; or any videos you you'd like to show to your community such as short clips, or highlights of past streams.
+
+All media uploaded must be approved by Joystick staff before you can use it for your purposes. Media that is reviewed must follow our strict guidelines for what is allowed and what isn't.
+
+* All media must adhere to our [Community Guidelines](https://joystick.tv/community-guidelines).
+* All media can only contain individuals approved on your account. They must either have a stream approval, or be invited through [Stream Invites](https://joystick.tv/stream-approvals/invite).
+* Profile picture, online, and offline banners must be labled as "SFW" (safe for work). More info below.
+* Emotes should be smaller in size, and square. See emotes below.
+* Images must be in the formats `.jpg`, `.jpeg`, `.png`, `.gif`.
+* Videos must be in the formats `.mkv`, `.mp4`, `.mov`.
+* Images should never be larger than 20MB in size.
+* Videos should never be larger than 3GB in size.
+
+> We are moving to a tiered media system, and increasing video size for streamers. This guide will be updated once that is available.
+
+### SFW vs NSFW
+
+It may seem a bit counterintuitive that a site based around "NSFW" (not safe for work) content would even have a policy for what constitues "SFW" or not. We do this for a few reasons; one of which is reducing what adult based content is displayed while users are logged out. This also gives users the ability to capture images of our home page to post on other social media sites without the fear of being banned. We feel that we can create a healthy balance between what other non-adult-based sites do, and full on porn sites.
+
+When reviewing media, we will mark each media as "SFW" or "NSFW". When you're selecting your profile image from your media library, you will only be allowed to choose from the images that have been marked as "SFW".
+
+Here's a noncomprehensive list of what we may look for to mark images as "NSFW".
+
+* Bare chests, nipple, areola, including see-through tops.
+* Genitalia.
+* Bare and/or spread butt cheeks.
+* Erections, outlines, or "prints".
+* Adult toys designed to look like human anatomy.
+* Drawings, digital or CGI of any of these items.
+
+> If we are ever unsure, we will tend to mark as NSFW as a fallback.
+
+### Emotes
+
+Emotes are images used in your chat to help express emotion. As a streamer you have the ability to upload your own custom emotes. Subscribers of your stream are allowed to use your emotes on any live stream chat on Joystick.
+
+Emotes are allowed to be NSFW, but as with all media, they must be approved first before you can use them.
+
+For the optimal emote image, a `.gif`, or transparent `.png` work the best. The file dimensions should be between `64x64` and `250x250` with a max filesize of 1MB.
+
+You can have a max of 50 emotes.
+
+### Posts and DMs
+
+With your uploaded content, you can create Posts, or send Direct Messages (DMs) for users to purchase your content using tokens. This is a chance to earn additional money when you're not streaming. Set your locked price, or give away teaser content for free!
+
+
+### VODs
+
+VODs (videos on demand) are videos of your previously recorded streams. These videos are only accessible to users that subscribe to you.
+
+> We are currently reworking our VODs system, and will update this guide once that is available.
