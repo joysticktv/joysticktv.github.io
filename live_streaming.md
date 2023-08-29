@@ -34,10 +34,10 @@ redirect_from:
 
 *Requirements:*
 
-A valid government-issued identification card is required. You will need to upload 3 photos. This is to ensure that you’re over the age of 18, and you are who you say you are.
+A valid government-issued identification card or passport is required. You will need to upload 3 photos. This is to ensure that you’re over the age of 18, and you are who you say you are.
 
-* The front of your government issued ID.
-* The back of your government issued ID.
+* The front of your government issued ID (or inside of passport).
+* The back of your government issued ID (or outside of password).
 * A picture of you holding your ID, and a piece of paper with joystick.tv/u/YOURUSERNAME on it in your handwriting. Make sure that your face is clearly visible.
 
 The government issued ID _must_ include a birthdate, photo of your face, and expiration date.
@@ -55,6 +55,7 @@ The government issued ID _must_ include a birthdate, photo of your face, and exp
 * File must me .png or .jpg
 * Must be under 15MB in size.
 * ID must be valid and not expired.
+* Passports should have the inside taken for the "Front", and outside for "Back".
 
 ## Required Software
 
