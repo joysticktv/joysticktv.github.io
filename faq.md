@@ -50,3 +50,7 @@ An affiliate will earn 20% of each purchase made for users that they have signed
 A streamer earns 80% of each purchase made; however, this amount may vary based on factors like token coupons given to the user, or users that joined through another streamer's link. See the [Streamer Support](/streamer_support) guides for more info.
 
 If your question hasn’t been answered, feel free to email support@joystick.tv or ask in our Discord support channel for further clarification
+
+## Why are my view counts different from users in chat?
+
+View counts are the number video players that are playing your live stream. This also includes yourself, and users that may be logged out previewing your stream. It's also possible that someone in your chat has your video stream paused. They would count as a user in chat, but not as a view count.
