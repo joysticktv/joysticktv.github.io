@@ -89,7 +89,7 @@ Payouts can be requested once you have earned the minimum withdrawal amount in a
 *Payout Options*
 * **Check** ($50 min / $2 fee)
 * **ACH** ($100 min / $2 fee)
-* **Paxum** ($100 min / $2 fee)
+* **Masspay** ($100 min / $2 fee)
 * **Wire** ($400 min / $45 fee)
 * **Joystick Wallet** ($0 min / $0 fee)
 
@@ -120,11 +120,11 @@ ACH (automatic clearing house) is similar to a Wire transfer where we use your b
 
 > A $5 fee may be added if we’re unable to process your ACH deposit due to incorrect information.
 
-**Paxum**
+**Masspay**
 
-Paxum is a service you sign up for https://paxum.com/ that works like a bank account. We can transfer funds directly to your Paxum account account. Once a payout request is processed, this is sent within 1 business day.
+Masspay [https://www.masspay.io/](https://www.masspay.io/) is a service for receiving funds that works like a bank account. You only need an email address, and your account is automatically setup by us. We can transfer funds directly to your Masspay account. Once a payout request is processed, this is sent within 1 business day.
 
-** Your Paxum account must be approved and verified in order to receive funds. If it’s not, they will reject the money we send you which will delay payment.
+Once you've received the funds in Masspay, you'll have the option to withdraw the funds in several different ways. This could be a direct deposit to your local bank, cash out using crypto currency (e.g. Bitcoin, Etherium, etc...), or many other options depending on your country. Each option will have a different fee associated, but many options have no additional fees. The fee will be listed next to the option.
 
 **Wire**
 
@@ -151,7 +151,7 @@ Streamers outside of the United States are not required to fill out any tax or b
 
 ### Tax Documents 1099-NEC
 
-As of this writing, the minimum threshold to receive a 1099 is $600 for the entire tax year. If you made this amount, or more, during the previous year, a tax document will be created for you and sent during January of the current year. If you use Paxum as your payout option, Paxum will handle sending you tax documents instead.
+As of this writing, the minimum threshold to receive a 1099 is $600 for the entire tax year. If you made this amount, or more, during the previous year, a tax document will be created for you and sent during January of the current year.
 
 
 ## Uploaded Media Content
