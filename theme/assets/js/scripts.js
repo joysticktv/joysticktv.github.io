@@ -46,7 +46,6 @@ window.onload = function() {
 
   const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
   darkModeMediaQuery.addEventListener('change', updateModeWithoutTransitions);
-  window.addEventListener('storage', updateModeWithoutTransitions);
 
   const siteSearchButtons = document.querySelectorAll('button.searchButton');
   for(let i = 0; i < siteSearchButtons.length; i++) {
