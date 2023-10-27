@@ -293,7 +293,7 @@ Being a websocket API, everything you get from the API will be a message. Each m
     "type": "enter_stream",
     "text": "joystickuser",
     "channelId": "fhaiu3whwai3fhaedifhaesiruyh39",
-    "created_at": "2023-04-21T18:29:49Z",
+    "createdAt": "2023-04-21T18:29:49Z",
   }
 }
 ```
@@ -312,7 +312,7 @@ The `type` will be either `enter_stream` or `leave_stream`
     "event": "StreamEvent",
     "type": "Started",
     "text": "joystickuser started streaming",
-    "created_at": "2023-04-21T18:29:49Z",
+    "createdAt": "2023-04-21T18:29:49Z",
     "channelId": "fhaiu3whwai3fhaedifhaesiruyh39"
   }
 }
@@ -329,7 +329,7 @@ The `type` will be either `enter_stream` or `leave_stream`
       \"how_much\": 2,
       \"tip_menu_item\": \"Hydrate\"
     }",
-    "created_at": "2023-04-21T18:29:49Z",
+    "createdAt": "2023-04-21T18:29:49Z",
     "channelId": "fhaiu3whwai3fhaedifhaesiruyh39"
   }
 }
@@ -346,7 +346,7 @@ The `type` will be either `enter_stream` or `leave_stream`
       \"how_much\": 32,
       \"prize\": \"Jiggles\"
     }",
-    "created_at": "2023-04-21T18:29:49Z",
+    "createdAt": "2023-04-21T18:29:49Z",
     "channelId": "fhaiu3whwai3fhaedifhaesiruyh39"
   }
 }
@@ -361,7 +361,7 @@ The `type` will be either `enter_stream` or `leave_stream`
       \"who\": \"joystickuser\",
       \"what\": \"Followed\"
     }",
-    "created_at": "2023-04-21T18:29:49Z",
+    "createdAt": "2023-04-21T18:29:49Z",
     "channelId": "fhaiu3whwai3fhaedifhaesiruyh39"
   }
 }
@@ -373,7 +373,7 @@ The `type` will be either `enter_stream` or `leave_stream`
     "type": "DeviceConnected",
     "text": "Device turned on",
     "metadata": "{}",
-    "created_at": "2023-04-21T18:29:49Z",
+    "createdAt": "2023-04-21T18:29:49Z",
     "channelId": "fhaiu3whwai3fhaedifhaesiruyh39"
   }
 }
