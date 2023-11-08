@@ -94,7 +94,7 @@ this private.
 1. Paste this value in your stream software.
 
 That's it! From here, you should be able to connect and go live to test your stream.
-You may need to change your default settings as some softare assumes you want to stream
+You may need to change your default settings as some software assumes you want to stream
 the absolute maximum video quality, and that can lead to issues.
 
 Below we will go over some guides on configuring OBS. For the most part, these settings
