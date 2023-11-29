@@ -8,6 +8,7 @@ subsections:
   - getting-started
   - required-software
   - connecting-to-joysticktv
+  - recommended-settings
   - obs-guides
   - multistreaming
   - troubleshooting-streaming
@@ -101,6 +102,67 @@ Below we will go over some guides on configuring OBS. For the most part, these s
 will work similar on other streaming software, but you may need to find additional guides
 online for configuring your software.
 
+## Recommended Settings
+
+If you're looking to get setup quick with minimal effort, we recommend starting with these
+settings on OBS (or your streaming software). Fine-tuning your settings can take quite a
+bit, and may be daunting at times. Once your stream looks crisp, you can come back and
+try some more advanced settings for even better performance.
+
+### First, gather information
+
+1. Find the max resolution of your camera, and write that down somewhere.
+1. Visit <a href="https://www.speedtest.net/" rel="nofollow" target="_blank">SpeedTest.net</a> and get your **upload** speed, and write that down.
+1. Make sure you know what stream software you're using (e.g. OBS, Lovense StreamMaster)
+1. Know your operating system (e.g. Windows 11, MacOS)
+
+### OBS Basic Setup
+
+Avoid using the "OBS Configuration Wizard". We will walk you through the settings.
+
+1. Open your OBS settings, and select the "Stream" tab
+1. Select "Joystick.TV" as the service.
+1. Your stream key is located in your Joystick [stream settings](https://joystick.tv/stream-settings)
+![OBS Service Setup](/assets/obs-setup-stream-service.png)
+
+
+1. Select the "Video" tab.
+1. Set your "Output (Scaled) Resolution" based on the max resolution of your camera and upload speed. Use the following table.
+
+| Resolution | Minimum Upload Speed Required |
+|---|---|
+| 853x480 | 5mbps |
+| 1280x720 | 10mbps |
+| 1920x1080 | 15mbps |
+| 2560x1440 | 20mbps |
+| 3840x2160 | 50mbps |
+
+1. Unless you plan on playing high-action FPS games in full screen, we recommend using 30 FPS.
+
+![OBS Video Setup](/assets/obs-setup-video-settings.png)
+
+
+1. Select the "Output" tab.
+1. Set "Output Mode" to "Simple"
+1. Set "Video Bitrate" and "Audio Bitrate" according to your resolution and upload speed. Use the following table.
+
+| Resolution | Video Bitrate | Audio Bitrate |
+|---|---|
+| 853x480 | 1500 kbps | 96 kbps |
+| 1024x576 | 2000 kbps | 96 kbps |
+| 1280x720 | 2500 kbps | 128 kbps |
+| 1920x1080 | 3500 kbps | 160 kbps |
+| 2560x1440 | 4500 kbps | 160 kbps |
+| 3840x2160 | 6000 kbps | 192 kbps |
+
+1. Set "Video Encoder" to "Software (x264)"
+1. Set "Encoder Preset" to "veryfast"
+![OBS Output Setup](/assets/obs-setup-output-settings.png)
+
+
+> If you have any issues, you can refer to our [Troubleshooting Steps](#troubleshooting-streaming)
+> or join us in our Discord for more help
+
 ## OBS Guides
 
 Streaming from your PC can be quite intensive. There's many different
@@ -163,8 +225,6 @@ OBS is a very advanced software, and can feel pretty overwhelming
 for a newcomer to streaming. A single setting being off can mean
 the difference between a smooth and clear stream, and a fuzzy
 stream. We will provide some common settings that work for others.
-
-<iframe src="https://www.youtube.com/embed/PimigxU4H1s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 **Software Encoding**
 
