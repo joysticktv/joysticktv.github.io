@@ -116,62 +116,124 @@ try some more advanced settings for even better performance.
 1. Make sure you know what stream software you're using (e.g. OBS, Lovense StreamMaster)
 1. Know your operating system (e.g. Windows 11, MacOS)
 
-### OBS Basic Setup
+### OBS Basic Setup - Recommended for Non-Advanced Users
 
-Avoid using the "OBS Configuration Wizard". We will walk you through the settings.
+**Avoid using the "OBS Configuration Wizard".** We believe that if you use the OBS Configuration Wizard, it can lead to poor stream quality and impact your audience and monetization on the site. We will walk you through the settings.
 
 1. Open your OBS settings, and select the "Stream" tab
-1. Select "Joystick.TV" as the service.
+1. Select `Joystick.TV` as the service.
 1. Your stream key is located in your Joystick [stream settings](https://joystick.tv/stream-settings)
 ![OBS Service Setup](/assets/obs-setup-stream-service.png)
 
-
 1. Select the "Video" tab.
-1. Set your "Output (Scaled) Resolution" based on the max resolution of your camera and upload speed. Use the following table.
-
-| Resolution | Minimum Upload Speed Required |
-|---|---|
-| 853x480 | 5mbps |
-| 1280x720 | 10mbps |
-| 1920x1080 | 15mbps |
-| 2560x1440 | 20mbps |
-| 3840x2160 | 50mbps |
-
-1. Unless you plan on playing high-action FPS games in full screen, we recommend using 30 FPS.
-
+1. Set your "Base (Canvas) Resolution" to your monitor's screen size.
+1. Set your "Output (Scaled) Resolution" to `1280x720`.
+1. Set "Downscale Filter" to `Lanczos`
+1. Set "Common FPS Values" to `30`.
 ![OBS Video Setup](/assets/obs-setup-video-settings.png)
 
+1. Select the "Output" tab.
+1. Set "Output Mode" to `Simple`
+1. Set "Video Bitrate" to `3500 kbps`
+1. Set "Audio Bitrate" to `128`.
+1. Set "Video Encoder" to `Software (x264)`.
+1. Set "Encoder Preset" to `veryfast`.
+![OBS Output Setup](/assets/obs-setup-output-settings.png)
+
+No other setting updates should be needed in order to go-live for your first stream.
+If you're more familiar with OBS and customizing stream settings, skip to the next
+section to help customizing more of the advanced configuration.
+
+> If you have any issues, you can refer to our [Troubleshooting Steps](#troubleshooting-streaming)
+> or join us in our [Discord](https://discord.gg/zKvCf8hrGP) for more help
+
+### OBS Custom Setup - Recommended for Advanced Users
+
+OBS is a very advanced software, and can feel pretty overwhelming
+at times. A single setting being off can mean the difference between a
+smooth and clear stream, and a fuzzy stream. If you're not familiar with these
+options, we recommend starting with the non-advanced settings above first.
+
+Use your camera's max resolution, and internet upload speed to help you
+decide which settings will work best. Be sure to not select any resolution
+or setting that's higher than your computer can handle.
 
 1. Select the "Output" tab.
-1. Set "Output Mode" to "Simple"
-1. Set "Video Bitrate" and "Audio Bitrate" according to your resolution and upload speed. Use the following table.
+1. Set "Output Mode" to `Advanced`
+1. Set your audio codec to use `AAC`.
+1. Your video encoding will depend on your computer's graphics card. A powerful GPU can use "Hardware Encoding". If you're unsure, then start with "Software Encoding".
+1. Use the following tables to adjust other settings based on your camera's max resolution, and internet upload speed as taken from SpeedTest.net.
 
-| Resolution | Video Bitrate | Audio Bitrate |
-|---|---|
-| 853x480 | 1500 kbps | 96 kbps |
-| 1024x576 | 2000 kbps | 96 kbps |
-| 1280x720 | 2500 kbps | 128 kbps |
-| 1920x1080 | 3500 kbps | 160 kbps |
-| 2560x1440 | 4500 kbps | 160 kbps |
-| 3840x2160 | 6000 kbps | 192 kbps |
+**Software Encoding**
 
-1. Set "Video Encoder" to "Software (x264)"
-1. Set "Encoder Preset" to "veryfast"
-![OBS Output Setup](/assets/obs-setup-output-settings.png)
+Software encoding will use more of your CPU. This is a great option
+if your computer does not have a high-end GPU, or if you're playing
+a very intensive GPU based game, and have limited graphics memory.
+
+For this option, you'll see `x264`. Here's some general settings to
+help you get started:
+
+|   | 3840x2160  | 2560x1440 | 1920x1080 | 1280x720 | 853x480 |
+|---|---|---|---|---|---|
+| Video Bitrate  | 6000 kbps  | 4500 kbps | 3500 kbps | 2500 kbps | 1500 kbps |
+| Audio Bitrate | 192 kbps | 160 kbps | 160 kbps | 128 kbps | 96 kbps |
+| Rate Control  | CBR  | CBR | CBR | CBR | CBR |
+| Framerate  | 60 fps | 60 fps | 30 fps | 30 fps | 30 fps |
+| Keyframe Interval  | 2s  | 2s | 2s | 2s | 2s |
+| Preset  | veryfast ~ medium  | veryfast ~ medium | veryfast ~ medium | veryfast ~ medium | veryfast ~ medium |
+| Profile  | Main/High  | Main/High | Main/High | Main/High | Main/High |
+| Tune | (None) | (None) | (None) | (None) | (None) |
+| Upload Speed | 50mbps | 20mbps | 15mbps | 10mbps | 5mbps |
+
+------------------------------------
+**Hardware Encoding**
+
+Hardware encoding will use more of your GPU. This is a great option
+if your computer has a high-end graphics card. It allows your computer
+to do many more things by freeing up your CPU. This is the preferred
+option if your computer has the ability.
+
+There's different types of hardware encoding, but here's some general
+settings related to the `NVIDIA NVENC` encoding.
+
+|   | 3840x2160  | 2560x1440 | 1920x1080 | 1280x720 | 853x480 |
+|---|---|---|---|---|---|
+| Video Bitrate  | 6000 kbps  | 4500 kbps | 3500 kbps | 2500 kbps | 1500 kbps |
+| Audio Bitrate | 192 kbps | 160 kbps | 160 kbps | 128 kbps | 96 kbps |
+| Rate Control  | CBR  | CBR | CBR | CBR | CBR |
+| Framerate  | 60 fps | 60 fps | 30 fps | 30 fps | 30 fps |
+| Keyframe Interval  | 2s  | 2s | 2s | 2s | 2s |
+| Preset  | Quality  | Quality | Quality | Quality | Quality |
+| B-frames  | 2 | 2  | 2 | 2 | 2 |
+| Upload Speed | 50mbps | 20mbps | 15mbps | 10mbps | 5mbps |
 
 
 > If you have any issues, you can refer to our [Troubleshooting Steps](#troubleshooting-streaming)
-> or join us in our Discord for more help
+> or join us in our [Discord](https://discord.gg/zKvCf8hrGP) for more help
 
-## OBS Guides
 
-Streaming from your PC can be quite intensive. There's many different
+**Multistreaming Considerations**
+
+These settings assume you're only streaming to Joystick.TV. If you do plan on doing multistreaming,
+your internet upload speed should increase by the recommended amount for each site you stream to.
+
+For example, if you're streaming to Joystick, and 2 other sites each at 1080p you should have a minimum
+internet upload speed of 45mbps (15mbps for each site).
+
+## Streaming Guides
+
+Streaming from your PC can be quite intensive. There are many different
 factors that can affect the quality of your stream.
 
 * CPU / GPU / RAM / Resources
 * Internet upload speeds
 * Encoder Performance
 * OBS configurations
+* WiFi / Ethernet
+* Network Router
+
+Here is some general knowledge information to help you become an advanced streamer,
+so you can pass along the knowledge and help others!
 
 ### CPU / GPU / RAM / Resources
 
@@ -209,62 +271,51 @@ The higher the bitrate, the more bandwidth you consume. The video quality can be
 If you know your internet upload speeds aren't that fast, you
 can use this information to configure OBS at a lower scale.
 
-To top it all off, your home network also plays in to all of this!
+### Encoder Performance
+Encoding can be difficult on your computer. x264 will use a lot of your CPU, which can cause a lower frame rate. On the other hand, GPU encoding, such as NVIDIA NVENC, makes use of a separate encoder in the GPU. As a result, you can play and stream without sacrificing performance. Start with the veryfast preset if you want to use x264, and then adjust to find the best setting.
+
+### WiFi / Ethernet / Network
+
+Your home network plays a huge roll in all of this.
 Some network routers will allow you to prioritze streaming on the
 network when there's a lot of other devices connected and in use.
+
+If you have the ability to use a "hard-wired" connection (i.e. Ethernet), this
+is highly recommended. WiFi can become "spotty" at times especially with more
+devices connected to your WiFi.
+
+Try restarting your network router from time to time when you notice connection
+issues, or dropped frames. Sometimes a restart can solve many issues.
 
 Our [Discord](https://discord.gg/zKvCf8hrGP) is full of knowledgable people that can give recommendations.
 
 
-### Encoder Performance
-Encoding can be difficult on your computer. x264 will use a lot of your CPU, which can cause a lower frame rate. On the other hand, GPU encoding, such as NVIDIA NVENC, makes use of a separate encoder in the GPU. As a result, you can play and stream without sacrificing performance. Start with the veryfast preset if you want to use x264, and then adjust to find the best setting.
+### FPS and Keyframe Interval
 
-### OBS configurations
+As mentioned above, when you stream, your computer generates static images of your stream
+at a really fast rate. These images are uploaded and converted in to motion pictures or video.
+Your FPS (frames per second) tells your computer to generate these many pictures in 1 second.
+The difference between 30 FPS and 60 FPS can be very slight or sometimes not noticable at all
+depending on what you're streaming.
 
-OBS is a very advanced software, and can feel pretty overwhelming
-for a newcomer to streaming. A single setting being off can mean
-the difference between a smooth and clear stream, and a fuzzy
-stream. We will provide some common settings that work for others.
+For example, say your OBS scene layout has your camera at full screen with no other motion around
+you. The video game you're playing is in a much smaller size window, and you're playing a slower
+pace game like a city builder / simulation game. Because there's not a ton of movement on your scene,
+using 60FPS will use unecessary resources from your computer with almost no extra gain to stream quality.
 
-**Software Encoding**
+Now say that you are using a green screen, and your camera is the smaller window. You're playing a
+first-person shooter in full screen with high action. In this case you have a lot of movement on screen.
+At 30FPS your stream may look a bit "choppy" and not as smooth as you would like.
 
-Software encoding will use more of your CPU. This is a great option
-if your computer does not have a high-end GPU, or if you're playing
-a very intensive GPU based game, and have limited graphics memory.
+This is also where your "Keyframe Interval" comes in to play. Each image generated in your stream is a frame.
+At 30 FPS, you are generating 30 frames per second. A "keyframe" tells the video where to start and end
+these blocks of frames to be rendered. A Keyframe Interval of "2 seconds" tells OBS every 60 frames is
+a video chunk. A Keyframe Interval of "1 second" would say 30 frames is a video chunk. For OBS, setting
+to "0" means "auto" and this requires a lot more processing on both your end and ours.
 
-For this option, you'll see `x264`. Here's some general settings to
-help you get started:
-
-|   | 1080p 60fps  | 1080p 30fps | 720p 60fps | 720p 30fps |
-|---|---|---|---|---|
-| Resolution  | 1920×1080  | 1920×1080 | 1280×720 | 1280×720 |
-| Bitrate  | 6000 kbps  | 4500 kbps | 4500 kbps | 3000 kbps |
-| Rate Control  | CBR  | CBR | CBR | CBR |
-| Framerate  | 60 or 50 fps  | 25 or 30 fps | 60 or 50 fps | 25 or 30 fps |
-| Keyframe Interval  | 2 seconds  | 2 seconds | 2 seconds | 2 seconds |
-| Preset  | veryfast ~ medium  | veryfast ~ medium | veryfast ~ medium | veryfast ~ medium |
-| Profile  | Main/High  | Main/High | Main/High | Main/High |
-
-
-**Hardware Encoding**
-
-Hardware encoding will use more of your GPU. This is a great option
-if your computer has a high-end graphics card. It allows your computer
-to do many more things by freeing up your CPU. This is the preferred
-option if your computer has the ability.
-
-There's different types of hardware encoding, but here's some general
-settings related to the `NVIDIA NVENC` encoding.
-
-|   | 1080p 60fps  | 1080p 30fps | 720p 60fps | 720p 30fps |
-|---|---|---|---|---|
-| Resolution  | 1920×1080  | 1920×1080 | 1280×720 | 1280×720 |
-| Bitrate  | 6000 kbps  | 4500 kbps | 4500 kbps | 3000 kbps |
-| Rate Control  | CBR  | CBR | CBR | CBR |
-| Framerate  | 60 or 50 fps  | 25 or 30 fps | 60 or 50 fps | 25 or 30 fps |
-| Keyframe Interval  | 2 seconds  | 2 seconds | 2 seconds | 2 seconds |
-| Preset  | Quality  | Quality | Quality | Quality |
-| B-frames  | 2  | 2 | 2 | 2 |
+First-person shooter type games with high action generally want higher FPS and lower keyframe intervals
+to maximize the lowest latency and smoothest video. Streams with less motion and action should have a lower
+FPS and higher keyframe interval to reduce strain on the computer and have a clearer picture.
 
 ## Multistreaming
 
