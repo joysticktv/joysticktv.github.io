@@ -109,13 +109,6 @@ settings on OBS (or your streaming software). Fine-tuning your settings can take
 bit, and may be daunting at times. Once your stream looks crisp, you can come back and
 try some more advanced settings for even better performance.
 
-### First, gather information
-
-1. Find the max resolution of your camera, and write that down somewhere.
-1. Visit <a href="https://www.speedtest.net/" rel="nofollow" target="_blank">SpeedTest.net</a> and get your **upload** speed, and write that down.
-1. Make sure you know what stream software you're using (e.g. OBS, Lovense StreamMaster)
-1. Know your operating system (e.g. Windows 11, MacOS)
-
 ### OBS Basic Setup - Recommended for Non-Advanced Users
 
 **Avoid using the "OBS Configuration Wizard".** We believe that if you use the OBS Configuration Wizard, it can lead to poor stream quality and impact your audience and monetization on the site. We will walk you through the settings.
@@ -154,6 +147,13 @@ at times. A single setting being off can mean the difference between a
 smooth and clear stream, and a fuzzy stream. If you're not familiar with these
 options, we recommend starting with the non-advanced settings above first.
 
+### First, gather information
+
+1. Find the max resolution of your camera, and write that down somewhere.
+1. Visit <a href="https://www.speedtest.net/" rel="nofollow" target="_blank">SpeedTest.net</a> and get your **upload** speed, and write that down.
+1. Make sure you know what stream software you're using (e.g. OBS, Lovense StreamMaster)
+1. Know your operating system (e.g. Windows 11, MacOS)
+
 Use your camera's max resolution, and internet upload speed to help you
 decide which settings will work best. Be sure to not select any resolution
 or setting that's higher than your computer can handle.
@@ -173,17 +173,17 @@ a very intensive GPU based game, and have limited graphics memory.
 For this option, you'll see `x264`. Here's some general settings to
 help you get started:
 
-|   | 3840x2160  | 2560x1440 | 1920x1080 | 1280x720 | 853x480 |
+| | 853x480 | 1280x720 | 1920x1080 | 2560x1440 | 3840x2160 |
 |---|---|---|---|---|---|
-| Video Bitrate  | 6000 kbps  | 4500 kbps | 3500 kbps | 2500 kbps | 1500 kbps |
-| Audio Bitrate | 192 kbps | 160 kbps | 160 kbps | 128 kbps | 96 kbps |
+| **Your Upload Speed** | **5 ~ 10mbps** | **10 ~ 15mbps** | **15 ~ 25mbps** | **25 ~ 50mbps** | **50mbps+** |
+| Video Bitrate | 1500 kbps | 2500 kbps | 3500 kbps | 4500 kbps | 6000 kbps |
+| Audio Bitrate | 96 kbps | 128 kbps | 160 kbps | 160 kbps | 192 kbps |
 | Rate Control  | CBR  | CBR | CBR | CBR | CBR |
-| Framerate  | 60 fps | 60 fps | 30 fps | 30 fps | 30 fps |
+| Framerate  | 25 ~ 30 fps | 25 ~ 30 fps | 25 ~ 30 fps | 30 ~ 60 fps | 30 ~ 60 fps |
 | Keyframe Interval  | 2s  | 2s | 2s | 2s | 2s |
 | Preset  | veryfast ~ medium  | veryfast ~ medium | veryfast ~ medium | veryfast ~ medium | veryfast ~ medium |
 | Profile  | Main/High  | Main/High | Main/High | Main/High | Main/High |
 | Tune | (None) | (None) | (None) | (None) | (None) |
-| Upload Speed | 50mbps | 20mbps | 15mbps | 10mbps | 5mbps |
 
 ------------------------------------
 **Hardware Encoding**
@@ -196,16 +196,16 @@ option if your computer has the ability.
 There's different types of hardware encoding, but here's some general
 settings related to the `NVIDIA NVENC` encoding.
 
-|   | 3840x2160  | 2560x1440 | 1920x1080 | 1280x720 | 853x480 |
+| | 853x480 | 1280x720 | 1920x1080 | 2560x1440 | 3840x2160 |
 |---|---|---|---|---|---|
-| Video Bitrate  | 6000 kbps  | 4500 kbps | 3500 kbps | 2500 kbps | 1500 kbps |
-| Audio Bitrate | 192 kbps | 160 kbps | 160 kbps | 128 kbps | 96 kbps |
+| **Your Upload Speed** | **5 ~ 10mbps** | **10 ~ 15mbps** | **15 ~ 25mbps** | **25 ~ 50mbps** | **50mbps+** |
+| Video Bitrate | 1500 kbps | 2500 kbps | 3500 kbps | 4500 kbps | 6000 kbps |
+| Audio Bitrate | 96 kbps | 128 kbps | 160 kbps | 160 kbps | 192 kbps |
 | Rate Control  | CBR  | CBR | CBR | CBR | CBR |
-| Framerate  | 60 fps | 60 fps | 30 fps | 30 fps | 30 fps |
+| Framerate  | 25 ~ 30 fps | 25 ~ 30 fps | 25 ~ 30 fps | 30 ~ 60 fps | 30 ~ 60 fps |
 | Keyframe Interval  | 2s  | 2s | 2s | 2s | 2s |
 | Preset  | Quality  | Quality | Quality | Quality | Quality |
 | B-frames  | 2 | 2  | 2 | 2 | 2 |
-| Upload Speed | 50mbps | 20mbps | 15mbps | 10mbps | 5mbps |
 
 
 > If you have any issues, you can refer to our [Troubleshooting Steps](#troubleshooting-streaming)
