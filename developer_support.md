@@ -26,7 +26,7 @@ Here's a general flow of how the install and setup process works:
 
 As a bot developer...
 
-1. You will go to joystick.tv and visit the bots application section (hidden until given access)
+1. You will go to joystick.tv and visit the bots application section
 1. Select to create a new bot application and fill in the details
 1. You will be given OAuth credentials for your bot to use in your code
 1. You can decide if your bot is private (can only be installed by you), or public (can be installed by any streamer)
