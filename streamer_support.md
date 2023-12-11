@@ -61,7 +61,7 @@ Your payout breakdown is available from the menu, under payouts.
 
 ### Receiving Payout
 
-Payouts are sent weekly with the cutoff day being Tuesday. Payouts requested before Tuesday will be sent that Friday. Payouts requested after Tuesday will be sent out the following week. A payout may take 3 to 7 business days to process. Once processed, they are generally sent on Fridays.
+Payouts are sent weekly with the cutoff day being Tuesday night (23:59 UTC). Payouts requested before the cut-off will be sent that Friday. Payouts requested after the cut-off will be sent out the following week. A payout may take 3 to 7 business days to process. Once processed, they are generally sent on Fridays.
 
 Payments have 3 stages:
 * **Unpaid** – Your payout has not been received by our accounting department to be processed, yet.
