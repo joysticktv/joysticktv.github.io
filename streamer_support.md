@@ -212,10 +212,12 @@ When reviewing media, we will mark each media as "SFW" or "NSFW". When you're se
 Here's a noncomprehensive list of what we may look for to mark images as "NSFW".
 
 * Bare chests, nipple, areola, including see-through tops.
-* Genitalia.
+* Genitalia, pubic region.
 * Bare and/or spread butt cheeks.
 * Erections, outlines, or "prints".
 * Adult toys designed to look like human anatomy.
+* Simulated or depictions of sex/sex acts.
+* Appliances or devices used for the purposes of smoking.
 * Drawings, digital or CGI of any of these items.
 
 > If we are ever unsure, we will tend to mark as NSFW as a fallback.
