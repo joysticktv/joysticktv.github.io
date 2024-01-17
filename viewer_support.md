@@ -101,6 +101,7 @@ and must be cancelled before the next billing cycle to avoid being charged again
 When you subscribe to a streamer, you’ll get access to several different features and options
 
 * Use the streamers emotes on any channel
+* Send Direct Messages to the streamer
 * Change your username color in their channel to a custom color
 * Set a custom nickname for that channel
 * A special chat badge to denote you’re a subscriber
