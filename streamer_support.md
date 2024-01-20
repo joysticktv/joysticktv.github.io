@@ -11,6 +11,7 @@ subsections:
   - direct-messaging-campaigns
   - moderating-streams
   - media-library
+  - tip-goals
 ---
 
 # Streamer Support
@@ -242,3 +243,43 @@ content must be purchased by everyone including subscribers.
 ### VODs
 
 VODs (videos on demand) are videos of your previously recorded streams. These videos are only accessible to users that subscribe to you.
+
+## Tip Goals
+
+A tip goal is used to incentivize your viewers to tip. The goal should be your end-goal for the stream, or something large you're working towards. This could be something like "Buy a new game", or "Upgrade camera", or even just "Get real hot and steamy 😏".
+
+Your goal may carry across multiple streams if you want, or it can be reset before each stream. We will go over each option so you have a better understanding of how they work.
+
+To create a new goal, or edit your existing one, you will click the "Stream Configuration" button from your Joystick Publisher page.
+
+> Moderators can manage your tip goal. They will do this from the moderator panel located above the chat on desktop, and by the mod button on mobile.
+
+### Setting up Tip Goals
+
+The setup is simple. Give your tip goal a title, and the total amount of tokens it will take to reach that goal. 
+
+> Since token values are variable, there is a "Token Calculator" link above these fields you can use to help price your goal.
+
+![Setup Tip Goal](/assets/configure-tip-goal.png)
+
+Once these fields are filled in, just click the "Save TipGoal" button.
+
+### Tip Goal options
+
+You will see two checkbox options for starting a new tip goal, or clearning your milestones.
+
+![Setup Tip Goal](/assets/tip-goal-options.png)
+
+Checking the "Start new goal?" option will clear any existing tips the goal has earned. Use this option if you want to start your tip goal fresh at the start of each stream.
+
+Checking the "Clear all Milestones?" option will **delete** all of the milestones you have created. Use this option if you want to create a different tip goal and want to start from scratch.
+
+### Milestones
+
+On top of your end goal, you may also set mini-goals called "milestones". A milestone is also a goal, but set at specific token values. These give your viewers something to shoot for that's more attainable in the short term. For example, a milestone could be "Stand and Stretch", "Toast the Chat", or maybe "Get a little more comfortable".
+
+![Setup Milestones](/assets/configure-milestones.png)
+
+Each milestone is like a mini-tip goal and only requires a title and amount. The amount should be the number of tokens on the main tip goal at which this milestone is reached. The milestone amount should never be higher than the main tip goal.
+
+> Tip: Try to space out your milestones. Setting milestones too close will make things confusing and difficult for your viewers to see them.
