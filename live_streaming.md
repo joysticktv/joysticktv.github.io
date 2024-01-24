@@ -9,7 +9,8 @@ subsections:
   - required-software
   - connecting-to-joysticktv
   - recommended-settings
-  - obs-guides
+  - streaming-guides
+  - mobile-streaming
   - multistreaming
   - troubleshooting-streaming
   - lovense-integration
@@ -316,6 +317,44 @@ to "0" means "auto" and this requires a lot more processing on both your end and
 First-person shooter type games with high action generally want higher FPS and lower keyframe intervals
 to maximize the lowest latency and smoothest video. Streams with less motion and action should have a lower
 FPS and higher keyframe interval to reduce strain on the computer and have a clearer picture.
+
+## Mobile Streaming
+
+If you're looking to take your stream on the-go (or maybe just your backyard / kitchen, etc...), you may need to use a mobile device. With D desktops/L laptops you can just setup OBS, however, there's no official OBS app for iOS and Android.
+
+There are a few apps, but the main thing to look for is "Custom RTMP Stream". As long as the app can publish an RTMP stream, you can use it to stream to JoystickTV from your mobile device.
+
+### Streamlabs Mobile
+
+Streamslabs has a desktop app that you may already be familiar with. You can download this app from your app store, then once installed, follow these steps.
+
+![Streamlabs Logo](/assets/streamlabs-mobile.jpg)
+
+Find the menu button. This is located in the upper left corner, and may be a little tricky to see at first if you're camera is active. Once in the settings menu, tap on the "Account Settings"
+
+![Streamlabs Settings](/assets/streamlabs-setup.jpg)
+
+On the next screen, you're presented with several streaming services that have been pre-built in to Streamlabs. Unfortunately, JoystickTV is not one of those.
+
+Find the "Custom RTMP Server" setup at the bottom of this list.
+
+On the RTMP setup screen, you will enter in a bit of information. The RTMP server, and your stream key. Both of these can be found from your [Joystick Stream Settings](https://joystick.tv/stream-settings).
+
+![Streamlabs Account Info](/assets/streamlabs-account.jpg)
+
+### Larix Broadcaster
+
+This is another great mobile app that comes with built-in overlays, and lots of fancy things. Setup is fairly easy too!
+
+![Larix Broadcaster Logo](/assets/larix-mobile.jpg)
+
+Once you've downloaded the app and opened it, find the settings gear icon in the bottom right. From the settings page, you'll tap on "Connections"
+
+![Larix Broadcaster Settings](/assets/larix-setup.jpg)
+
+Unlike Streamlabs mobile, Larix doesn't require a separate input field for your stream key. Instead, you will just join your server URL and stream key together as one long string.
+
+![Larix Broadcaster Info](/assets/larix-account.jpg)
 
 ## Multistreaming
 
