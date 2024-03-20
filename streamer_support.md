@@ -85,7 +85,7 @@ ACH (automatic clearing house) is similar to a Wire transfer where we use your b
 
 **Masspay**
 
-Masspay [https://www.masspay.io/](https://www.masspay.io/) is a service for receiving funds that works like a bank account. Your **do not** need to create a MassPay account. We create the account for you when you request a payout. We transfer funds directly to your Masspay account. Once a payout request is processed, this is sent within 1 business day.
+Masspay [https://www.masspay.io/](https://www.masspay.io/) is a service for receiving funds that works like a bank account. You **do not** need to create a MassPay account. We create the account for you when you request a payout. We transfer funds directly to your Masspay account. Once a payout request is processed, this is sent within 1 business day.
 
 On your first payout, you receive an email from MassPay to complete your account setup. After that,
 you will receive an email each time you receive money from us.
