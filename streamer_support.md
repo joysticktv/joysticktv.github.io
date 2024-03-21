@@ -52,7 +52,8 @@ Payouts can be requested once you have earned the minimum withdrawal amount in a
 *Payout Options*
 * **Check** ($50 min / $2 fee)
 * **ACH** ($100 min / $2 fee)
-* **Masspay** ($100 min / $2 fee)
+* **MassPay** ($100 min / $2 fee)
+* **Yoursafe** ($100 min / $2 fee)
 * **Wire** ($400 min / $35 fee)
 * **Joystick Wallet** ($0 min / $0 fee)
 
@@ -83,14 +84,20 @@ ACH (automatic clearing house) is similar to a Wire transfer where we use your b
 
 > A $5 fee may be added if we’re unable to process your ACH deposit due to incorrect information.
 
-**Masspay**
+**MassPay**
 
-Masspay [https://www.masspay.io/](https://www.masspay.io/) is a service for receiving funds that works like a bank account. Your **do not** need to create a MassPay account. We create the account for you when you request a payout. We transfer funds directly to your Masspay account. Once a payout request is processed, this is sent within 1 business day.
+MassPay [https://www.masspay.io/](https://www.masspay.io/) is a service for receiving funds that works like a bank account. Your **do not** need to create a MassPay account. We create the account for you when you request a payout. We transfer funds directly to your MassPay account. Once a payout request is processed, this is sent within 1 business day.
 
 On your first payout, you receive an email from MassPay to complete your account setup. After that,
 you will receive an email each time you receive money from us.
 
-Once you've received the funds in Masspay, you'll have the option to withdraw the funds in several different ways. This could be a direct deposit to your local bank, cash out using crypto currency (e.g. Bitcoin, Etherium, etc...), or many other options depending on your country. Each option will have a different fee associated, but many options have no additional fees. The fee will be listed next to the option.
+Once you've received the funds in MassPay, you'll have the option to withdraw the funds in several different ways. This could be a direct deposit to your local bank, cash out using crypto currency (e.g. Bitcoin, Etherium, etc...), or many other options depending on your country. Each option will have a different fee associated, but many options have no additional fees. The fee will be listed next to the option.
+
+**Yoursafe**
+
+Yoursafe [https://www.yoursafe.com](https://www.yoursafe.com) offers a payment account that is issued from the Netherlands. While yoursafe offers SEPA, Wire, ACH, and US checks, Joystick is only utilizing the SEPA option as we already offer the other options separately. You will need to create an account at Yoursafe, and obtain an IBAN from them before requesting your payout.
+
+Single Euro Payments Area (SEPA) is a safe and fast way to transfer funds electronically between banks within the European Union, as well as a number of non-EU countries. The SEPA option for Yoursafe will only be available to selected countries that have SEPA options available.
 
 **Wire**
 
