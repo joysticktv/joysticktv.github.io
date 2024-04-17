@@ -56,4 +56,4 @@ If your question hasn’t been answered, feel free to email support@joystick.tv 
 View counts are the number video players that are playing your live stream. This also includes yourself, and users that may be logged out previewing your stream. It's also possible that someone in your chat has your video stream paused. They would count as a user in chat, but not as a view count.
 
 ## How do I get featured as a streamer?
-As a site focused around video games, you can look at being featured as an acheivement. In order to get to this level, you must play the game! Be active on the site, stream often, utilize all of the features the site has to offer, and build your following. The more you do, the higher your score. Streamer scores are reset and recalculated every Friday.
+As a site focused around video games, you can look at being featured as an achievement. In order to get to this level, you must play the game! Be active on the site, stream often, utilize all of the features the site has to offer, and build your following. The more you do, the higher your score. Streamer scores are reset and recalculated every Friday.
