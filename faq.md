@@ -39,9 +39,7 @@ Checks are mailed through the standard U.S. Postal Service (USPS). These take ro
 Games are constantly coming out, and older games get updated frequently. Keeping up with a solid list is very difficult. As long as the game doesn’t violate our Terms of Service or Community Guidelines, it should be ok, but will be evaluated on a case-by-case basis. If you have further questions, please ask.
 
 ## How much are tokens worth?
-Token values are variable based on how much was spent buying them. We factor in discounts that
-may be given, or affiliate revenue share, and other factors in this. A token's value will be
-between $0.03 and $0.11 with the average value being around $0.07 each.
+This depends on the earnings plan you choose when you sign up to be a streamer. The Fixed-Rate plan offer every token at $0.055. The Variable-Rate plan token values are based on how much was spent buying them. We factor in discounts that may be given, or affiliate revenue share, and other factors in this. A token's value will be between $0.03 and $0.10 with the average value being about $0.07 each.
 
 ## How much do affiliates make?
 An affiliate will earn 20% of each purchase made for users that they have signed up; however, this amount may vary based on factors like token coupons given to a user, or the price value of subscriptions as set by the streamer. See the [Affiliate Support](/affiliate_support) guides for more info.
@@ -52,7 +50,6 @@ A streamer earns 80% of each purchase made; however, this amount may vary based 
 If your question hasn’t been answered, feel free to email support@joystick.tv or ask in our Discord support channel for further clarification
 
 ## Why are my view counts different from users in chat?
-
 View counts are the number video players that are playing your live stream. This also includes yourself, and users that may be logged out previewing your stream. It's also possible that someone in your chat has your video stream paused. They would count as a user in chat, but not as a view count.
 
 ## How do I get featured as a streamer?
