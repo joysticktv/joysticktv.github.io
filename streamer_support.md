@@ -28,31 +28,55 @@ Multiple ways to earn.
 * **Live Streaming** - Receive tokens live with the option to set tip goals.
 * **Direct Messaging** - Send direct messages, videos, and images for an amount of tokens you set.
 * **Post Content** - Share posts with exclusive content for your subscribers or set a token amount to unlock.
+* **Affiliate Links** - Use your affiliate link to drive traffic. Earn 20% on every purchase they make.
 
-### Revenue Share
+Start earning on day 1. Request a payout any time once you've reached the minimum threshold.
+We offer many options for payouts, and we're adding more in the future.
 
-Streamers earn 80% revenue share. No prerequisites to start earning.
+## Earning Plans
 
-The amount is calcuated based on the purchase amount that a user makes. If a user spends $100 to purchase tokens, and tips you all of those tokens, you earn $80. Keep in mind that some users may be given discount coupons to encourage more spending, or joined through an [affiliate link](/affiliate_support) other than yours. If they are given 20% off, then their purcahse price is $80. Instead of earning 80% on $100 purchase, you're earning 80% on an $80 purchase.
+We offer 2 different plans for new streamers to choose from. You will select your plan
+when you apply to become a streamer. Choose the plan that best fits your needs.
 
 We provide extensive analytics and reporting to help you keep track of your money.
 
 For other questions or help, please email support@joystick.tv, or contact us on Discord. You can also visit our [FAQ page](/faq) for more info.
 
-### Token Values
+> Be sure the plan you choose is the one that best suits you. Once chosen, you are not able to change later.
 
-Every token tipped on Joystick will have a monetary value. Sometimes tokens may be given away for free as promotional tokens, but these will still have some monetary value to the streamer. They may range from $0.03 to $0.10 cents per token.
+### Fixed-Rate Plan
 
-The value of a token is calculated by taking the purchase amount (excluding fees), and removing 20% for Joystick's cut. The remaining 80% is used to get the value of each token.
+Our fixed-rate plan allows for simplified accounting. Never worry about pricing tip menu items,
+posts, or any locked content. You will always know how much you are earning with each token
+tipped.
 
-### Payouts
+Each token tipped is worth **5.5¢** USD. From tips during live streams, to purchsaes of your locked content, no matter how you're tipped, those tokens are locked in to a fixed value.
 
-Payouts can be requested once you have earned the minimum withdrawal amount in available funds. All funds received are considered "pending" for 30 days from the day you receive the money. You can think of your earnings like a sliding window. If you receive $1 on July 1st, that $1 will be available to you on July 31st. We do this in order to protect us and you from fraud.
+As a streamer, you can set your subscription price starting at $3.99. With the Fixed-Rate plan,
+you will always earn **80%**. This also includes subscriptions gifted to you by the community.
+
+All funds earned take up-to 30 days to mature before you can request the payout.
+
+### Variable-Rate Plan
+
+Our variable-rate plan gives you a much higher chance at earning more. Tokens tipped to you
+may be worth anywhere between 3¢ and 10¢ USD depending on their original purchase value.
+This may fluctuate based on if the user was given a coupon to purchase tokens at a discount,
+or if the user signed up using another streamer's [affiliate link](/affiliate_support).
+
+Your subscription value also may vary depending on a few factors. This is generally 80%, but
+may go up or down based on the user signing up under another streamer's [affiliate link](/affiliate_support), or another streamer using their joystick wallet.
+
+All funds earned take up-to 30 days to mature before you can request the payout.
+
+## Payouts
+
+Payouts can be requested once you have earned the minimum withdrawal amount in available funds. All funds received are considered "pending" for up-to 30 days from the day you receive the money. You can think of your earnings like a sliding window. If you receive $1 on July 1st, that $1 will be available to you on July 31st. We do this in order to help protect us and you from fraud.
 
 *Payout Options*
 * **Check** ($50 min / $2 fee)
 * **ACH** ($100 min / $2 fee)
-* **MassPay** ($100 min / $2 fee)
+* **MassPay** (currently unavailable)
 * **Yoursafe** ($100 min / $2 fee)
 * **Wire** ($400 min / $35 fee)
 * **Joystick Wallet** ($0 min / $0 fee)
@@ -85,6 +109,8 @@ ACH (automatic clearing house) is similar to a Wire transfer where we use your b
 > A $5 fee may be added if we’re unable to process your ACH deposit due to incorrect information.
 
 **MassPay**
+
+> NOTE: our MassPay option is currently unavailable.
 
 MassPay [https://www.masspay.io/](https://www.masspay.io/) is a service for receiving funds that works like a bank account. You **do not** need to create a MassPay account. We create the account for you when you request a payout. We transfer funds directly to your MassPay account. Once a payout request is processed, this is sent within 1 business day.
 
