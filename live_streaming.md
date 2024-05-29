@@ -86,8 +86,8 @@ The `Stream Key` is your password to connect to joystick, so be sure to keep
 this private.
 
 1. Visit your [Stream Settings](https://joystick.tv/stream-settings), and copy your `Server URL`.
-1. Open the settings page for your stream software. For OBS, you'll go to the "Stream" tab.
-1. From the stream software, search for "JoystickTV" in the provided list.
+1. Open the settings page for your stream software. For OBS, you'll go to the "Stream" tab under "Settings".
+1. From the stream software, search for "JoystickTV" in the provided list. (If you would like to use a server outside of the U.S. select "Custom")
 
 > NOTE: JoystickTV has not been integrated in all streaming software. If you do not see us listed, try searching for "Custom"
 
