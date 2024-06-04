@@ -320,7 +320,7 @@ FPS and higher keyframe interval to reduce strain on the computer and have a cle
 
 ## Mobile Streaming
 
-If you're looking to take your stream on the-go (or maybe just your backyard / kitchen, etc...), you may need to use a mobile device. With D desktops/L laptops you can just setup OBS, however, there's no official OBS app for iOS and Android.
+If you're looking to take your stream on the-go (or maybe just your backyard / kitchen, etc...), you may need to use a mobile device. With desktops/laptops you can just setup OBS, however, there's no official OBS app for iOS and Android.
 
 There are a few apps, but the main thing to look for is "Custom RTMP Stream". As long as the app can publish an RTMP stream, you can use it to stream to JoystickTV from your mobile device.
 
