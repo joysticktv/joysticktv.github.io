@@ -116,8 +116,11 @@ try some more advanced settings for even better performance.
 
 1. Open your OBS settings, and select the "Stream" tab
 1. Select `Joystick.TV` as the service.
+1. Select the server region nearest to your location (we are adding more servers later)
 1. Your stream key is located in your Joystick [stream settings](https://joystick.tv/stream-settings)
 ![OBS Service Setup](/assets/obs-setup-stream-service.png)
+
+> If your version of OBS shows "RTMP" for Server, this is the old North American server. To use another server, select "Custom" from the Service list, and enter in the Server URL from your Joystick "Stream Settings" page.
 
 1. Select the "Video" tab.
 1. Set your "Base (Canvas) Resolution" to your monitor's screen size.
@@ -125,6 +128,11 @@ try some more advanced settings for even better performance.
 1. Set "Downscale Filter" to `Lanczos`
 1. Set "Common FPS Values" to `30`.
 ![OBS Video Setup](/assets/obs-setup-video-settings.png)
+
+1. Select the "Audio" tab.
+1. Set your "Sample Rate" to `48 kHz`.
+1. Set your "Channels" to `Stereo`.
+![OBS Aduio Setup](/assets/obs-setup-audio-settings.png)
 
 1. Select the "Output" tab.
 1. Set "Output Mode" to `Simple`
@@ -414,8 +422,9 @@ SplitCam is the least customizeable option out of all of them. It's very easy to
 
 ## Troubleshooting Streaming
 
-If you are currently having trouble connecting, here are a few things you can check:
+If you are currently having trouble connecting, or experiencing a high delay in your stream, here are a few things you can check:
 
+* Run a [Speed Test](https://www.speedtest.net/). Is your ping under 15ms and your upload over 15Mbps?
 * Check your Bitrate under “Output”. Set it between 2500Kbps – 8500Kbps
 * If you’re set to 60fps, give 30fps a try. We do support 60, but if your connection is low, dropping to 30 may help.
 * Try setting your Encoder to x264. Hardware encoding can be tricky if you’re not familiar with it.
