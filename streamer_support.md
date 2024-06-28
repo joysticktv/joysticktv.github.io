@@ -234,9 +234,10 @@ All media uploaded must be approved by Joystick staff before you can use it for 
 * Profile picture, online, and offline banners must be labled as "SFW" (safe for work). More info below.
 * Emotes should be smaller in size, and square. See emotes below.
 * Images must be in the formats `.jpg`, `.jpeg`, `.png`, `.gif`.
-* Videos must be in the formats `.mkv`, `.mp4`, `.mov`.
-* Images should never be larger than 20MB in size.
-* Videos should never be larger than 3GB in size.
+* Videos must be in the formats `.mkv`, `.mp4`, `.mov`. (h264 encoded)
+* Max Image size is 20MB.
+* Max Video size is 3GB.
+* Max Video length is 4.5 hours
 
 > We are moving to a tiered media system, and increasing video size for streamers. This guide will be updated once that is available.
 
