@@ -54,3 +54,6 @@ View counts are the number video players that are playing your live stream. This
 
 ## How do I get featured as a streamer?
 As a site focused around video games, you can look at being featured as an achievement. In order to get to this level, you must play the game! Be active on the site, stream often, utilize all of the features the site has to offer, and build your following. The more you do, the higher your score. Streamer scores are reset and recalculated every Friday.
+
+## Does Joystick have any "new" tag for new streamers?
+Yes! Once your application is approved, we will add you to our "New" streamers section for 30 days; however, you must complete your profile to 100% before being displayed, so make sure to get your profile setup right away.
