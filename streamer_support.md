@@ -76,6 +76,7 @@ Payouts can be requested once you have earned the minimum withdrawal amount in a
 *Payout Options*
 * **Check** ($50 min / $2 fee)
 * **ACH** ($100 min / $2 fee)
+* **Paxum** ($100 min / $2 fee)
 * **MassPay** (currently unavailable)
 * **Yoursafe** ($100 min / $2 fee)
 * **Wire** ($400 min / $35 fee)
@@ -107,6 +108,12 @@ Checks are for North American streamers only as these are mailed through the U.S
 ACH (automatic clearing house) is similar to a Wire transfer where we use your bank details to automatically deposit funds in to your bank account. We process ACH deposits as next-day (next business day). If your payment is sent Friday, then you’ll receive the funds Monday unless Monday is a bank holiday. ACH is only available for streamers in the United States as the process required only works with U.S. banks
 
 > A $5 fee may be added if we’re unable to process your ACH deposit due to incorrect information.
+
+**Paxum**
+
+Paxum is a service you sign up for https://paxum.com/ that works like a bank account. We can transfer funds directly to your Paxum account account. Once a payout request is processed, this is sent within 1 business day.
+
+** Your Paxum account must be approved and verified by Paxum in order to receive funds. If it’s not, they will reject the money we send you which will delay payment. Contact Paxum support if you have questions.
 
 **MassPay**
 
