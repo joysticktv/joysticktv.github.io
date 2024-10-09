@@ -8,6 +8,7 @@ subsections:
   - chat-and-stream-interaction
   - tipping
   - subscriptions
+  - verified-users
 ---
 
 ## Chat and Stream interaction
@@ -120,3 +121,24 @@ random people.
 
 Unlike normal subscriptions, gifted subscriptions do not auto renew. When
 you gift subscriptions, these will be a one-time purchase.
+
+## Verified Users
+
+Verified users on JoystickTV are users we have high confidence in them being an actual
+adult person. By being verified, you also give more confidece to the streamers as someone
+they should be willing to interact with.
+
+Users that purchase tokens and/or a subscription will become "verified" on JoystickTV.
+Verified users have an advantage on the site by gaining a few extra features and visibility.
+
+By being verified you...
+* Can chat in Verified-Only chat streams
+* Can watch streams in Verified-Only stream mode
+* Are identified as "verified" to the streamers
+* Can watch streams with ultra low-latency
+* Can become a moderator for a streamer
+
+If you're unable to make a purchase, but would still like to be verified, you may [apply to be
+a streamer](https://joystick.tv/stream-approvals/new). All approved streamers are automatically verified.
+
+> Note: Approved stream applications do not require you to ever stream on the site.
