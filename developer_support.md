@@ -13,6 +13,7 @@ subsections:
   - fetching-refresh_token-api
   - connecting-the-bot
   - rest-api-endpoints
+  - testing-your-bot
   - example-bots
 ---
 
@@ -555,11 +556,11 @@ Returns:
 }
 ```
 
-### Testing your bot
+## Testing Your Bot
 
 Testing can be a bit difficult. Only streamers have access to a chat, so if you're not a streamer, your testing options are currently limited.
 
-We do have a special API endpoint you can use for testing.
+We have a special API endpoint you can use for testing.
 
 Your application will send an HTTP POST request to the joystick token endpoint.
 
@@ -569,7 +570,7 @@ https://joystick.tv/echo
 
 You will need to pass the following headers
 
-* `Authorization` (required) - "Basic YOUR_BASIC_KEY". This is HTTP Basic auth using your bot's Client ID as the user, and Client Secret as the password separated by a `:` and converted to Base64. (e.g. `Base64.encode("id:secret")`)
+* `Authorization` (required) - "Basic YOUR_BASIC_KEY". This is HTTP Basic auth using your bot's Client ID as the user, and Client Secret as the password separated by a `:` and converted to Base64. (e.g. `Base64.encode("client_id:client_secret")`)
 * `Content-Type` (required) - "application/json"
 
 Example:
@@ -601,6 +602,8 @@ Send the `event` with `"SendMessage"`, and `data` as the text for a standard mes
 }
 ```
 
+This can be used for any random message including specific tips like `!tip 123`
+
 **EnterStream**
 
 Send the `event` with `"EnterStream"`. This will simulate someone entering the chat.
@@ -627,8 +630,9 @@ Send the `event` with `"LeaveStream"`. This will simulate someone leaving the ch
 
 **StreamEvent**
 
-Send the `event` with `"StreamEvent"`, and the `data` with `"Tipped"` to simulate a tip in chat.
+Send the `event` with `"StreamEvent"`. The `data` will determine the type of event.
 
+Set `data` to `Tipped` to simulate a normal tip
 ```json
 {
   "sample": {
@@ -638,7 +642,17 @@ Send the `event` with `"StreamEvent"`, and the `data` with `"Tipped"` to simulat
 }
 ```
 
-> Currently only `Tipped` is supported for `StreamEvent`.
+Set `data` to `TipMenu` to simulate a tip from a tip menu item
+```json
+{
+  "sample": {
+    "event": "StreamEvent",
+    "data": "TipMenu"
+  }
+}
+```
+
+> Currently only `Tipped`, and `TipMenu` are supported for `StreamEvent`. More will be added in the future
 
 
 ## Example Bots
