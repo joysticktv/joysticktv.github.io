@@ -65,7 +65,7 @@ window.onload = function() {
 
   const searchClient = algoliasearch(
     'YXM67SR4Z2',
-    '9f037e1b9d62a35220f41333b4e64377'
+    'b697891ff5942e611bd0aa8cfe545d09'
   );
 
   autocomplete({
