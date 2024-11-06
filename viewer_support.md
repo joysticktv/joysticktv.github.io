@@ -28,23 +28,25 @@ By enabling sounds on your chat you can hear when certain things happen. Turn on
 
 We have several chat commands to make your viewing experience even that more fun.
 
+`!tip amount` - Tip `amount` tokens to the streamer. (e.g. `!tip 10` to tip 10 tokens)
+
 `!tokens` - This command will show you your current token balance. No else in the chat can see this message.
 
 `!cleartimers` - Clear all timers that are currently set on a stream. This is only available to streamers and their moderators.
 
-`!uptime` - Use this command to see how long you’ve been streaming for.
+`!uptime` - Use this command to see how long the stream has been live.
 
 `!giphy Search Text` - Add some funny images and gifs to your chat! For the search text, get creative and see what comes back. The results are random and get really fun! Only streamers and their subscribers have access to this command.
 
-`!dropin @username` - When your stream is done, pass on the love by sending your viewers to another streamer that is live. After you send this command, all of your viewers will be sent to the other streamer and a welcome message will let everyone know that you have arrived.
+`!dropin @username` - When your stream is done, pass on the love by sending your viewers to another streamer that is live. After you send this command, all of your viewers will be sent to the other streamer and a welcome message will let everyone know that you have arrived. This command is for the streamer only.
 
-`!so @username` - Give a shoutout to another streamer! Type their username, and the chat will be updated with that streamer’s information and a link to their profile.
+`!so @username` - Give a shoutout to another streamer! Type their username, and the chat will be updated with that streamer’s information and a link to their profile. The streamer and their moderators may use this command.
 
-`!social` - This command will put a link in the chat to show all of the streamers social links. Make sure you add all of your social links so no one misses out.
+`!social` - This command will put a link in the chat to show all of the streamers social links. Make sure you add all of your social links so no one misses out. Note that this link will render as `[Link Hidden]` when you're unable to chat in the current stream mode. (i.e. non-subscribers when the stream is in subscriber-only chat)
 
 `!timers` - Show a list of current active timers the streamer has set.
 
-`!timer Time Timer Name` - Need a timer to keep track of a goal or something else? No problem, we got several ways to do it.
+`!timer Time Timer Name` - Need a timer to keep track of a goal or something else? No problem, there's several ways to do it.
 
 ```
 !timer 10s
@@ -54,7 +56,11 @@ We have several chat commands to make your viewing experience even that more fun
 !timer 5minutes Whatever you'd like to name it
 ```
 
-`!wishlist` - This command will put a link in the chat to show your wishlist link. As a streamer, you can fill this in on your stream settings page.
+`!wishlist` - This command will put a link in the chat to show your wishlist link. As a streamer, you can fill this in on your stream settings page. Note that this link will render as `[Link Hidden]` when you're unable to chat in the current stream mode. (i.e. non-subscribers when the stream is in subscriber-only chat)
+
+`!whisper @username Your Secret Message` - Use this command to send a private chat message to another user. This command only works for the streamer and moderators.
+
+`!highlight My Message` - Subscribers can highlight their chat message to make it more prominent than all of the other chat messages.
 
 ## Buying Tokens
 
