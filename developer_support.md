@@ -260,7 +260,7 @@ Being a websocket API, everything you get from the API will be a message. Each m
       "slug": "joystickuser",
       "username": "joystickuser",
       "usernameColor": null,
-      "displayNameWithFlair": "{{{moderatorBadge}}} joystickuser",
+      "displayNameWithFlair": {% raw %}"{{{moderatorBadge}}} joystickuser",{% endraw %}
       "signedPhotoUrl": "...",
       "signedPhotoThumbUrl": "...",
       "isStreamer": true,
