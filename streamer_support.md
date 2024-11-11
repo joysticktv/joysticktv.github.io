@@ -77,7 +77,7 @@ Payouts can be requested once you have earned the minimum withdrawal amount in a
 * **Check** ($50 min / $2 fee)
 * **ACH** ($100 min / $2 fee)
 * **Paxum** ($100 min / $2 fee)
-* **MassPay** (currently unavailable)
+* **MassPay** ($100 min / $2 fee)
 * **Yoursafe** ($100 min / $2 fee)
 * **Wire** ($400 min / $35 fee)
 * **Joystick Wallet** ($0 min / $0 fee)
@@ -116,8 +116,6 @@ Paxum is a service you sign up for https://paxum.com/ that works like a bank acc
 ** Your Paxum account must be approved and verified by Paxum in order to receive funds. If it’s not, they will reject the money we send you which will delay payment. Contact Paxum support if you have questions.
 
 **MassPay**
-
-> NOTE: our MassPay option is currently unavailable.
 
 MassPay [https://www.masspay.io/](https://www.masspay.io/) is a service for receiving funds that works like a bank account. You **do not** need to create a MassPay account. We create the account for you when you request a payout. We transfer funds directly to your MassPay account. Once a payout request is processed, this is sent within 1 business day.
 
