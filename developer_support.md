@@ -29,7 +29,7 @@ As a bot developer...
 
 1. You will go to joystick.tv and visit the bots application section
 1. Select to create a new bot application and fill in the details
-1. You will be given OAuth credentials for your bot to use in your code
+1. You will be given OAuth2 credentials for your bot to use in your code
 1. You can decide if your bot is private (can only be installed by you), or public (can be installed by any streamer)
 
 ### Installing the bot application
@@ -85,7 +85,7 @@ You will need to pass the following query params
 
 `client_id` - Your bot's Client ID
 `scope` - "bot"
-`state` - This is an optional string value you can use for validation to ensure data has not been tampered with between oauth transactions.
+`state` - This is an optional string value you can use for validation to ensure data has not been tampered with between OAuth2 transactions.
 
 Example:
 
@@ -110,7 +110,7 @@ https://joystick.tv/api/oauth/token
 You will need to pass the following query params
 
 * `redirect_uri` - This is not currently used, but may be used in the future.
-* `code` - The authorization code we sent back through the query string.
+* `code` - The short-lived authorization code we sent back through the query string.
 * `grant_type` - "authorization_code"
 
 As well as the following headers
@@ -124,19 +124,19 @@ Example:
 
 ```bash
 curl -XPOST \
-  -H "Authorization: Basic abc123code" \
+  -H "Authorization: Basic YOUR_BASIC_KEY" \
   -H "Content-Type: application/json" \
-  "https://joystick.tv/api/oauth/token?redirect_uri=unused&code=THECODE&grant_type=authorization_code"
+  "https://joystick.tv/api/oauth/token?redirect_uri=unused&code=YOUR_OAUTH_CODE&grant_type=authorization_code"
 ```
 
 Returns:
 
 ```json
 {
-  "access_token": "jwtaccesstoken",
+  "access_token": "JSON_WEB_TOKEN",
   "token_type": "Bearer",
   "expires_in": 1682098467,
-  "refresh_token": "afreshtoken"
+  "refresh_token": "REFRESH_TOKEN"
 }
 ```
 
@@ -166,19 +166,19 @@ Example:
 
 ```bash
 curl -XPOST \
-  -H "Authorization: Basic abc123code" \
+  -H "Authorization: Basic YOUR_BASIC_KEY" \
   -H "Content-Type: application/json" \
-  "https://joystick.tv/api/oauth/token?refresh_token=THELASTREFRESHTOKEN&grant_type=refresh_token"
+  "https://joystick.tv/api/oauth/token?refresh_token=YOUR_REFRESH_TOKEN&grant_type=refresh_token"
 ```
 
 Returns:
 
 ```json
 {
-  "access_token": "jwtaccesstoken",
+  "access_token": "JSON_WEB_TOKEN",
   "token_type": "Bearer",
   "expires_in": 1682098467,
-  "refresh_token": "anewfreshtoken"
+  "refresh_token": "NEW_REFRESH_TOKEN"
 }
 ```
 
@@ -249,7 +249,7 @@ Being a websocket API, everything you get from the API will be a message. Each m
   "message": {
     "event": "ChatMessage",
     "createdAt": "2023-04-21T18:29:49Z",
-    "messageId": "sdfj-124f-iksdfj1-123fh",
+    "messageId": "UUID",
     "type": "new_message",
     "visibility": "public",
     "text": "!timer 5m code",
@@ -271,17 +271,18 @@ Being a websocket API, everything you get from the API will be a message. Each m
       "slug": "joystickuser",
       "username": "joystickuser",
       "usernameColor": null,
-      "signedPhotoUrl": "...",
-      "signedPhotoThumbUrl": "..."
+      "signedPhotoUrl": "Uri",
+      "signedPhotoThumbUrl": "Uri"
     },
-    "channelId": "fhaiu3whwai3fhaedifhaesiruyh39",
+    "channelId": "Hash",
     "mention": false,
-    "mentionedUsername": null
+    "mentionedUsername": null,
+    "highlight": false
   }
 }
 ```
 
-> NOTE: The `channelId` will be uniuqe to each streamer, and will not change even if the streamer changes their username. This value will be used to send messages to that channel
+> NOTE: The `channelId` is a unique hash for each streamer, and will not change even if the streamer changes their username. This value will be used to send messages to that channel.
 
 **USER PRESENCE** - These are messages your bot receives when a user enters or leaves the chat.
 
@@ -289,11 +290,11 @@ Being a websocket API, everything you get from the API will be a message. Each m
 {
   "identifier": "{\"channel\":\"GatewayChannel\"}",
   "message": {
-    "id": "sdfj-124f-iksdfj1-123fh",
+    "id": "UUID",
     "event": "UserPresence",
     "type": "enter_stream",
     "text": "joystickuser",
-    "channelId": "fhaiu3whwai3fhaedifhaesiruyh39",
+    "channelId": "Hash",
     "createdAt": "2023-04-21T18:29:49Z",
   }
 }
@@ -309,18 +310,18 @@ The `type` will be either `enter_stream` or `leave_stream`
 {
   "identifier": "{\"channel\":\"GatewayChannel\"}",
   "message": {
-    "id": "sdfj-124f-iksdfj1-123fh",
+    "id": "UUID",
     "event": "StreamEvent",
     "type": "Started",
     "text": "joystickuser started streaming",
     "createdAt": "2023-04-21T18:29:49Z",
-    "channelId": "fhaiu3whwai3fhaedifhaesiruyh39"
+    "channelId": "Hash"
   }
 }
 {
   "identifier": "{\"channel\":\"GatewayChannel\"}",
   "message": {
-    "id": "sdfj-124f-iksdfj1-123fh",
+    "id": "UUID",
     "event": "StreamEvent",
     "type": "Tipped",
     "text": "joystickuser tipped 2 tokens for <strong class='text-verdigris'>Hydrate</strong>",
@@ -331,13 +332,13 @@ The `type` will be either `enter_stream` or `leave_stream`
       \"tip_menu_item\": \"Hydrate\"
     }",
     "createdAt": "2023-04-21T18:29:49Z",
-    "channelId": "fhaiu3whwai3fhaedifhaesiruyh39"
+    "channelId": "Hash"
   }
 }
 {
   "identifier": "{\"channel\":\"GatewayChannel\"}",
   "message": {
-    "id": "sdfj-124f-iksdfj1-123fh",
+    "id": "UUID",
     "event": "StreamEvent",
     "type": "WheelSpinClaimed",
     "text": "joystickuser won Jiggles",
@@ -348,13 +349,13 @@ The `type` will be either `enter_stream` or `leave_stream`
       \"prize\": \"Jiggles\"
     }",
     "createdAt": "2023-04-21T18:29:49Z",
-    "channelId": "fhaiu3whwai3fhaedifhaesiruyh39"
+    "channelId": "Hash"
   }
 }
 {
   "identifier": "{\"channel\":\"GatewayChannel\"}",
   "message": {
-    "id": "sdfj-124f-iksdfj1-123fh",
+    "id": "UUID",
     "event": "StreamEvent",
     "type": "Followed",
     "text": "joystickuser followed you",
@@ -363,19 +364,19 @@ The `type` will be either `enter_stream` or `leave_stream`
       \"what\": \"Followed\"
     }",
     "createdAt": "2023-04-21T18:29:49Z",
-    "channelId": "fhaiu3whwai3fhaedifhaesiruyh39"
+    "channelId": "Hash"
   }
 }
 {
   "identifier": "{\"channel\":\"GatewayChannel\"}",
   "message": {
-    "id": "sdfj-124f-iksdfj1-123fh",
+    "id": "UUID",
     "event": "StreamEvent",
     "type": "DeviceConnected",
     "text": "Device turned on",
     "metadata": "{}",
     "createdAt": "2023-04-21T18:29:49Z",
-    "channelId": "fhaiu3whwai3fhaedifhaesiruyh39"
+    "channelId": "Hash"
   }
 }
 ```
@@ -393,7 +394,7 @@ To send a message, you will send a JSON formatted object
   "data": "{
     \"action\": \"send_message\",
     \"text\": \"Hello World\",
-    \"channelId\": \"fhaiu3whwai3fhaedifhaesiruyh39\"
+    \"channelId\": \"Hash\"
   }"
 }
 ```
@@ -408,7 +409,7 @@ To send a message, you will send a JSON formatted object
     \"action\": \"send_whisper\",
     \"username\": \"joystickdev\",
     \"text\": \"this is a secret\",
-    \"channelId\": \"fhaiu3whwai3fhaedifhaesiruyh39\"
+    \"channelId\": \"Hash\"
   }"
 }
 ```
@@ -421,8 +422,8 @@ To send a message, you will send a JSON formatted object
   "identifier": "{\"channel\":\"GatewayChannel\"}",
   "data": "{
     \"action\": \"delete_message\",
-    \"messageId\": \"sdfj-124f-iksdfj1-123fh\",
-    \"channelId\": \"fhaiu3whwai3fhaedifhaesiruyh39\"
+    \"messageId\": \"UUID\",
+    \"channelId\": \"Hash\"
   }"
 }
 ```
@@ -437,8 +438,8 @@ Send the `messageId` of the message sent in, and the author of that message will
   "identifier": "{\"channel\":\"GatewayChannel\"}",
   "data": "{
     \"action\": \"mute_user\",
-    \"messageId\": \"sdfj-124f-iksdfj1-123fh\",
-    \"channelId\": \"fhaiu3whwai3fhaedifhaesiruyh39\"
+    \"messageId\": \"UUID\",
+    \"channelId\": \"Hash\"
   }"
 }
 ```
@@ -454,7 +455,7 @@ Send the `username` of the user to unmute.
   "data": "{
     \"action\": \"unmute_user\",
     \"username\": \"joystickuser\",
-    \"channelId\": \"fhaiu3whwai3fhaedifhaesiruyh39\"
+    \"channelId\": \"Hash\"
   }"
 }
 ```
@@ -469,8 +470,8 @@ Send the `messageId` of the message sent in, and the author of that message will
   "identifier": "{\"channel\":\"GatewayChannel\"}",
   "data": "{
     \"action\": \"block_user\",
-    \"messageId\": \"sdfj-124f-iksdfj1-123fh\",
-    \"channelId\": \"fhaiu3whwai3fhaedifhaesiruyh39\"
+    \"messageId\": \"UUID\",
+    \"channelId\": \"Hash\"
   }"
 }
 ```
@@ -482,11 +483,11 @@ Send the `messageId` of the message sent in, and the author of that message will
 Most of the data you'll send/receive is done over the websocket during chats. There are a few endpoints available
 (more to be added later) that will give you access to additional information.
 
-These endpoints require a valid `access_token` which you get once a streamer installs your bot application.
+These endpoints require a valid `access_token` (The JSON Web Token) which you get once a streamer installs your bot application.
 
 Pass these headers in with your call
 
-* `Authorization` - "Bearer THE_ACCESS_TOKEN". This is JWT you receive from the `authorization_code` or `refresh_token` oauth calls when the user installs the bot.
+* `Authorization` - "Bearer THE_ACCESS_TOKEN". This is JWT you receive from the `authorization_code` or `refresh_token` oauth2 calls when the user installs the bot.
 * `Content-Type` - "application/json"
 * `X-JOYSTICK-STATE` - An optional value you can use to pass through arbitrary data that will be sent back with the response.
 
@@ -498,11 +499,11 @@ The `ManageStreamerSettings` permission allows the bot to fetch public streamer 
 
 Returns public settings available for the specific streamer.
 
-Example:
+Example (Where `JWT` is the token you got from authorization):
 
 ```bash
 curl -XGET \
-  -H "Authorization: Bearer abc123jwt" \
+  -H "Authorization: Bearer JWT" \
   -H "Content-Type: application/json" \
   "https://joystick.tv/api/users/stream-settings"
 ```
@@ -512,9 +513,9 @@ Returns:
 ```json
 {
   "username": "joysticktest",
-  "stream_title": "Playing a game",
-  "chat_welcome_message": "Welcome to my channel!",
-  "banned_chat_words": ["bleep", "bloop"],
+  "stream_title": "This is a stream title, also it can be nullable!",
+  "chat_welcome_message": "This is the greeting message when people enter your chat, also it can be nullable!",
+  "banned_chat_words": ["bleep", "bloop", "nullable"],
   "device_active": false,
   "photo_url": "https://joystick.tv/face.png",
   "live": true,
@@ -535,7 +536,7 @@ Example:
 
 ```bash
 curl -XPATCH \
-  -H "Authorization: Bearer abc123jwt" \
+  -H "Authorization: Bearer JWT" \
   -H "Content-Type: application/json" \
   "https://joystick.tv/api/users/stream-settings" \
   -d '{"streamer": {"stream_title": "New Title", "chat_welcome_message": "Hey everyone", "banned_chat_words": ["new phrase or word"]}}'
