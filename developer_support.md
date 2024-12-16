@@ -282,7 +282,7 @@ Being a websocket API, everything you get from the API will be a message. Each m
 }
 ```
 
-> NOTE: The `channelId` is unique hash for each streamer, and will not change even if the streamer changes their username. This value will be used to send messages to that channel.
+> NOTE: The `channelId` is a unique hash for each streamer, and will not change even if the streamer changes their username. This value will be used to send messages to that channel.
 
 **USER PRESENCE** - These are messages your bot receives when a user enters or leaves the chat.
 
