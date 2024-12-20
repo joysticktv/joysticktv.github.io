@@ -84,15 +84,15 @@ https://joystick.tv/api/oauth/authorize
 
 You will need to pass the following query params
 
-`response_type` - Required &mdash; the value must be set to `code`
-`client_id` - Required &mdash; Your bot's Client ID
-`scope` - "bot" &mdash; Not used currently.
+`response_type` - Required &mdash; the value must be set to `code`<br />
+`client_id` - Required &mdash; Your bot's Client ID<br />
+`scope` - "bot" &mdash; Not used currently.<br />
 `state` - This is an optional string value you can use for validation to ensure data has not been tampered with between OAuth2 transactions.
 
 Example:
 
 ```txt
-https://joystick.tv/api/oauth/authorize?client_id=2134-sdf-isdf2&scope=bot&state=myspecialtoken
+https://joystick.tv/api/oauth/authorize?response_type=code&client_id=00000000-0000-0000-0000-000000000000&scope=bot&state=myspecialtoken
 ```
 
 ## Fetching access_token API
