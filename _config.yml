@@ -39,6 +39,8 @@ footer:
   social_list:
     - network_name: github
       profile_url: 'https://github.com/joysticktv'
+    - network_name: bluesky
+      profile_url: 'https://bsky.app/profile/joystick.tv'
     - network_name: twitter
       profile_url: 'https://twitter.com/Joystickxxx'
     - network_name: discord
