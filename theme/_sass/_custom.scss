@@ -1,0 +1,22 @@
+ /*!
+  Description: Add layout tweaks to the support site here.
+  Author: Adachi Sakurai
+  License: CC0 1.0
+  Touched: 2024
+*/
+
+@media only screen and (min-width: 1024px) {
+main article {
+        h1 {
+            margin-bottom: 2.5rem;
+        }
+        
+        h2 {
+          margin-top: 2rem;
+        }
+
+        .pt-14 {
+            margin-top: 1.4rem !important;
+        } /* overwrite margin for content body. !import because I don't know tailwind load order. */ 
+    }
+}
