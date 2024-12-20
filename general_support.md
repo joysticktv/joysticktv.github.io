@@ -10,6 +10,8 @@ subsections:
   - two-factor-authentication
 ---
 
+# General Support
+
 ## Unable to access account
 
 Please check your email to see if your account has been flagged as suspicious or restricted. If you have a TOS (terms of service) violation, your account may be closed.

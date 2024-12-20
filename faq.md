@@ -5,6 +5,8 @@ keywords:
 title: Frequently Asked Questions
 ---
 
+# Frequently Asked Questions
+
 ## Do I have to stream NSFW content?
 Nope! Stream whatever you’re comfortable with. If anyone in your chat asks you to do anything you’re not comfortable with, please notify us immediately.
 

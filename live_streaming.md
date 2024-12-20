@@ -19,6 +19,8 @@ redirect_from:
   - /support/creator-support/setting-up-your-stream/
 ---
 
+# Live Streaming
+
 ## Getting Started
 
 ### Creating an Account

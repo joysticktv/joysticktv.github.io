@@ -11,6 +11,8 @@ subsections:
   - verified-users
 ---
 
+# Viewer Support
+
 ## Chat and Stream interaction
 
 ### Chat Settings
