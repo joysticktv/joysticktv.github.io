@@ -83,8 +83,9 @@ https://joystick.tv/api/oauth/authorize
 
 You will need to pass the following query params
 
-`client_id` - Your bot's Client ID
-`scope` - "bot"
+`response_type` - Required &mdash; the value must be set to `code`
+`client_id` - Required &mdash; Your bot's Client ID
+`scope` - "bot" &mdash; Not used currently.
 `state` - This is an optional string value you can use for validation to ensure data has not been tampered with between OAuth2 transactions.
 
 Example:
