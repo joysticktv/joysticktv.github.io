@@ -8,7 +8,9 @@ subsections:
   - what-is-an-affiliate-link
 ---
 
-# Overview
+# Affiliate Support
+
+## Overview
 
 Becoming an affiliate on Joystick.TV is easy! Just sign up for a regular account, then click the "Become an affiliate" link. Fill in a bit of information, then submit for approval. Once approved, you can start sharing your affiliate link and getting paid.
 
