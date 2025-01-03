@@ -84,9 +84,9 @@ https://joystick.tv/api/oauth/authorize
 
 You will need to pass the following query params
 
-* `response_type` - Required &mdash; the value must be set to `code`<br />
-* `client_id` - Required &mdash; Your bot's Client ID<br />
-* `scope` - "bot" &mdash; Not used currently.<br />
+* `response_type` - Required &mdash; the value must be set to `code`
+* `client_id` - Required &mdash; Your bot's Client ID
+* `scope` - "bot" &mdash; Not used currently.
 * `state` - This is an optional string value you can use for validation to ensure data has not been tampered with between OAuth2 transactions.
 
 Example:
@@ -118,7 +118,7 @@ You will need to pass the following query params
 As well as the following headers
 
 * `Authorization` - "Basic YOUR_BASIC_KEY". This is HTTP Basic auth using your bot's Client ID as the user, and Client Secret as the password separated by a `:` and converted to Base64. (e.g. `Base64.encode("id:secret")`)
-* `Content-Type` - "application/json"
+* `Content-Type` - "application/x-www-form-urlencoded"
 * `X-JOYSTICK-STATE` - An optional value you can use to pass through arbitrary data that will be sent back with the response.
 
 
@@ -127,7 +127,7 @@ Example:
 ```bash
 curl -XPOST \
   -H "Authorization: Basic YOUR_BASIC_KEY" \
-  -H "Content-Type: application/json" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
   "https://joystick.tv/api/oauth/token?redirect_uri=unused&code=YOUR_OAUTH_CODE&grant_type=authorization_code"
 ```
 
@@ -160,7 +160,7 @@ You will need to pass the following query params
 As well as the following headers
 
 * `Authorization` - "Basic YOUR_BASIC_KEY". This is HTTP Basic auth using your bot's Client ID as the user, and Client Secret as the password separated by a `:` and converted to Base64. (e.g. `Base64.encode("id:secret")`)
-* `Content-Type` - "application/json"
+* `Content-Type` - "application/x-www-form-urlencoded"
 * `X-JOYSTICK-STATE` - An optional value you can use to pass through arbitrary data that will be sent back with the response.
 
 
@@ -169,7 +169,7 @@ Example:
 ```bash
 curl -XPOST \
   -H "Authorization: Basic YOUR_BASIC_KEY" \
-  -H "Content-Type: application/json" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
   "https://joystick.tv/api/oauth/token?refresh_token=YOUR_REFRESH_TOKEN&grant_type=refresh_token"
 ```
 
