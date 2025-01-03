@@ -120,6 +120,7 @@ As well as the following headers
 * `Authorization` - "Basic YOUR_BASIC_KEY". This is HTTP Basic auth using your bot's Client ID as the user, and Client Secret as the password separated by a `:` and converted to Base64. (e.g. `Base64.encode("id:secret")`)
 * `Content-Type` - "application/x-www-form-urlencoded"
 * `X-JOYSTICK-STATE` - An optional value you can use to pass through arbitrary data that will be sent back with the response.
+* `Accept` - Header indicating that the client expects a response in the `application/json` format.
 
 
 Example:
@@ -128,6 +129,7 @@ Example:
 curl -XPOST \
   -H "Authorization: Basic YOUR_BASIC_KEY" \
   -H "Content-Type: application/x-www-form-urlencoded" \
+  -H "Accept: application/json" \
   "https://joystick.tv/api/oauth/token?redirect_uri=unused&code=YOUR_OAUTH_CODE&grant_type=authorization_code"
 ```
 
@@ -162,6 +164,7 @@ As well as the following headers
 * `Authorization` - "Basic YOUR_BASIC_KEY". This is HTTP Basic auth using your bot's Client ID as the user, and Client Secret as the password separated by a `:` and converted to Base64. (e.g. `Base64.encode("id:secret")`)
 * `Content-Type` - "application/x-www-form-urlencoded"
 * `X-JOYSTICK-STATE` - An optional value you can use to pass through arbitrary data that will be sent back with the response.
+* `Accept` - Header indicating that the client expects a response in the `application/json` format.
 
 
 Example:
@@ -170,6 +173,7 @@ Example:
 curl -XPOST \
   -H "Authorization: Basic YOUR_BASIC_KEY" \
   -H "Content-Type: application/x-www-form-urlencoded" \
+  -H "Accept: application/json" \
   "https://joystick.tv/api/oauth/token?refresh_token=YOUR_REFRESH_TOKEN&grant_type=refresh_token"
 ```
 
