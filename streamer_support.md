@@ -55,7 +55,7 @@ Each token tipped is worth **5.5¢** USD. From tips during live streams, to purc
 As a streamer, you can set your subscription price starting at $3.99. With the Fixed-Rate plan,
 you will always earn **80%**. This also includes subscriptions gifted to you by the community.
 
-All funds earned take up-to 30 days to mature before you can request the payout.
+All funds earned are held based on your payout maturity hold. For new users this is 30 days, but may be lowered once established.
 
 ### Variable-Rate Plan
 
@@ -67,15 +67,18 @@ or if the user signed up using another streamer's [affiliate link](/affiliate_su
 Your subscription value also may vary depending on a few factors. This is generally 80%, but
 may go up or down based on the user signing up under another streamer's [affiliate link](/affiliate_support), or another streamer using their joystick wallet.
 
-All funds earned take up-to 30 days to mature before you can request the payout.
+All funds earned are held based on your payout maturity hold. For new users this is 30 days, but may be lowered once established.
 
 ## Payouts
 
-Payouts can be requested once you have earned the minimum withdrawal amount in available funds. All funds received are considered "pending" for up-to 30 days from the day you receive the money. You can think of your earnings like a sliding window. If you receive $1 on July 1st, that $1 will be available to you on July 31st. We do this in order to help protect us and you from fraud.
+Payouts can be requested once you have earned the minimum withdrawal amount in available funds. All funds received are considered "pending" for up-to 30 days from the day you receive the money. The timeframe will depend on your
+payout maturity hold which may be adjusted once you have established your account.
+
+You can think of your earnings like a sliding window. If you receive $1 on July 1st, that $1 will be available to you on July 31st. We do this in order to help protect us and you from fraud.
 
 *Payout Options*
 * **Check** ($50 min / $2 fee)
-* **ACH** ($100 min / $2 fee)
+* **ACH** ($50 min / $2 fee)
 * **Paxum** ($100 min / $2 fee)
 * **MassPay** ($100 min / $2 fee)
 * **Yoursafe** ($100 min / $2 fee)
