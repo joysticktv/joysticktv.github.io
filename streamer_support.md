@@ -89,6 +89,19 @@ You can think of your earnings like a sliding window. If you receive $1 on July 
 
 Your payout breakdown is available from the menu, under payouts.
 
+
+### Payment Holds
+
+As a new user, your account will hold all funds received for 30 days. Each token tip and subscription you earn will
+become available right at 00:00 UTC on the 30th day after the money was received.
+
+After you have requested at least 3 payouts, and your account has been active for over 90 days, we will
+consider your account "well established" and drop your payment hold to 15 days. Funds received before the
+change will stay on their 30 day hold, but funds received after will now be held for only 15 days.
+
+> Should there ever be a need for us to increase your payment hold, we will first discuss the matter
+> directly with you before making any changes.
+
 ### Receiving Payout
 
 Payouts are sent weekly with the cutoff day being Tuesday night (23:59 UTC). Payouts requested before the cut-off will be sent that Friday. Payouts requested after the cut-off will be sent out the following week. A payout may take 3 to 7 business days to process. Once processed, they are generally sent on Fridays.
