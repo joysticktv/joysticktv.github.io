@@ -147,6 +147,11 @@ html.dark {
       border-left-color: #dfeaff;
     }
   }
+
+  .language-plaintext.highlighter-rouge {
+    background-color: rgba(9, 171, 171, 0.36);
+    color: #e9e9ea;
+  }
 }
 
 @media only screen
