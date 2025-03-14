@@ -385,6 +385,42 @@ The `type` will be either `enter_stream` or `leave_stream`
     "channelId": "Hash"
   }
 }
+{
+  "identifier": "{\"channel\":\"GatewayChannel\"}",
+  "message":{
+    "event":"StreamEvent",
+    "id":"UUID",
+    "type":"StreamEnding",
+    "text":"Stream Ending Soon",
+    "metadata":"{}",
+    "createdAt":"2024-02-28T01:58:55Z",
+    "channelId":"Hash"
+  }
+}
+{
+  "identifier": "{\"channel\":\"GatewayChannel\"}",
+  "message": {
+    "event": "StreamEvent",
+    "id": "UUID",
+    "type": "Ended",
+    "text": "Stream Ended",
+    "channelId": "Hash",
+    "metadata": "{}",
+    "createdAt": "2024-11-05T15:28:23Z"
+  }
+}
+{
+  "identifier":"{\"channel\":\"GatewayChannel\"}",
+  "message": {
+    "event":"StreamEvent",
+    "id":"UUID",
+    "type":"StreamResuming",
+    "metadata":"{}",
+    "createdAt":"2025-03-14T03:22:50Z",
+    "text":"Stream Starting Soon",
+    "channelId":"Hash",
+  }
+}
 ```
 
 ### Sending messages
