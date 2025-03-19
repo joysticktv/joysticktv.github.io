@@ -161,7 +161,7 @@ options, we recommend starting with the non-advanced settings above first.
 ### First, gather information
 
 1. Find the max resolution of your camera, and write that down somewhere.
-1. Visit <a href="https://www.speedtest.net/" rel="nofollow" target="_blank">SpeedTest.net</a> and get your **upload** speed, and write that down.
+1. Visit <a href="https://speed.cloudflare.com/" rel="nofollow noreffer noopener" target="_blank">Cloudflare Speedtest</a> and record your **upload** speed, and make note of it. (This is also hand to keep bookmarked for troubleshooting internet connection issues)
 1. Make sure you know what stream software you're using (e.g. OBS, Lovense StreamMaster)
 1. Know your operating system (e.g. Windows 11, MacOS)
 
@@ -370,6 +370,8 @@ Unlike Streamlabs mobile, Larix doesn't require a separate input field for your 
 
 Multistreaming is when you stream to multiple sites at the same time. This is actually something that we encourage on joystick.tv as it is the best way to reach a wider audience. There are several programs that have the ability to do this, though each program also does have it's pros and cons.
 
+{% include _accordions/multistreaming.html %}
+
 ### OBS with a Plugin
 
 OBS does not have the ability out of the box to be able to multistream. After installing the [OBS Multi RTMP Plugin](https://github.com/sorayuki/obs-multi-rtmp/releases/) you can easily stream to multiple sites. This plugin offers the best and most customizable feature set of all available options.
@@ -424,18 +426,13 @@ SplitCam is the least customizeable option out of all of them. It's very easy to
 
 ## Troubleshooting Streaming
 
-If you are currently having trouble connecting, or experiencing a high delay in your stream, here are a few things you can check:
+{% include _accordions/troubleshootstream.html %}
 
-* Run a [Speed Test](https://www.speedtest.net/). Is your ping under 15ms and your upload over 15Mbps?
-* Check your Bitrate under “Output”. Set it between 2500Kbps – 8500Kbps
-* If you’re set to 60fps, give 30fps a try. We do support 60, but if your connection is low, dropping to 30 may help.
-* Try setting your Encoder to x264. Hardware encoding can be tricky if you’re not familiar with it.
-* Try using “Advanced” configuration and set your “Keyframe Interval” to 2
-* Make sure your software is updated. There may have been a bug fix recently to fix your issue
-* Close additional programs that are not needed for your stream.
+Still haviing issues? Try Support Channel on [Discord](https://discord.gg/zKvCf8hrGP), there are many people willing to help.
+
+
 * Try rebooting your computer and/or your internet router.
 
-After trying these, if you’re still having issues streaming, join our [Discord](https://discord.gg/zKvCf8hrGP), and let us know in the Support channel.
 
 ## Lovense Integration
 
@@ -446,6 +443,8 @@ Add an extra level of interaction with your community during live streams by con
 > You can also visit the [Lovense website guides](https://www.lovense.com/cam-model/guides/Video-Guides) for the most up-to-date information.
 
 ### Overview
+
+{% include _accordions/lovense_setup.html %}
 
 There's a few ways you can integrate a Lovense device with Joystick, and with a lot of components, it can be a bit confusing. Here's a quick overview of how it works.
 
@@ -488,3 +487,23 @@ If you're still seeing issues with the device connecting, here's a few tips you 
 * Ensure your Stream Master or Share Link and the Lovense Connect apps are all full up-to-date
 
 After trying these, if you’re still having issues streaming, join our [Discord](https://discord.gg/zKvCf8hrGP), and let us know in the Support channel.
+
+{% capture test_content %}
+{% include accordion.html id="ffee" label="This is a test" content="
+blah
+
+blah
+
+`Sometimes code blocks appear?ffff`
+
+Hopefully they do `not` get parsed improperly
+
+* One
+* Two
+* Three
+* Four
+* Five
+" %}
+{% endcapture %}
+
+{% include accordion_group.html content=test_content %}
