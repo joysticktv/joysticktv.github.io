@@ -8,8 +8,7 @@ subsections:
   - getting-started
   - required-software
   - connecting-to-joysticktv
-  - recommended-settings
-  - streaming-guides
+  - streaming-setup-guides
   - mobile-streaming
   - multistreaming
   - troubleshooting-streaming
@@ -26,27 +25,28 @@ redirect_from:
 ### Creating an Account
 
 1. Sign up for an account on joystick.tv.
-1. Confirm your email from the email that we send to your email address. (You may need to search your email for "joystick". Some emails end up in boxes other than inbox/spam/junk, etc...)
+1. Check for the confirmation email we sent you. (You may need to search your email for "joystick". Some emails end up in boxes other than inbox/spam/junk, etc...)
 1. Log in and you’re ready to explore.
 
 ### Becoming a Streamer
 
 1. After you confirm your email, you may apply to be a streamer. From the website on a desktop, click "More" from the main menu on the left. From mobile, click the profile icon on the bottom right.
-1. Find and click the large red box to begin your streamer verification. If you can not find the box, you can go directly to [https://joystick.tv/stream-approvals/new](https://joystick.tv/stream-approvals/new).
+1. Find and click the large red box to begin your streamer verification. If you can not find the box, you can go directly to [https://joystick.tv/stream-approvals/new](https://joystick.tv/stream-approvals/new){:target="_blank"}.
 
 ### ID Verification
 
 *Requirements:*
+To verify that you are 18 years of age or older, and that you are who you say you are, 
+you'll need a valid government-issued ID card or passport.
 
-A valid government-issued identification card or passport is required. You will need to upload 3 photos. This is to ensure that you’re over the age of 18, and you are who you say you are.
-
-* The front of your government issued ID (or inside of passport).
-* The back of your government issued ID (or outside of password).
+You must upload three photos:
+* The **front** of your government issued ID (or inside of passport).
+* The **back** of your government issued ID (or outside of passport).
 * A picture of you holding your ID, and a piece of paper with joystick.tv/u/YOURUSERNAME on it in your handwriting. Make sure that your face is clearly visible.
 
 The government issued ID _must_ include a birthdate, photo of your face, and expiration date.
 
-> We understand that some IDs do not expire, and we take this in to consideration
+> We understand that some IDs do not expire, and we take this into consideration
 
 *Approval Tips:*
 
@@ -55,10 +55,10 @@ The government issued ID _must_ include a birthdate, photo of your face, and exp
 * Must be in color.
 * Text must be clearly visible, and easily readable.
 * Background must be minimal.
-* Image should not be edited, resized, or rotated.
-* File must me .png or .jpg
-* Must be under 15MB in size.
-* ID must be valid and not expired.
+* Image _should not_ be edited, resized, or rotated.
+* File must be **.png** or **.jpg**
+* Must be _under_ **15MB** in size.
+* ID _must be valid_ and **not** expired.
 * Passports should have the inside taken for the "Front", and outside for "Back".
 
 ## Required Software
@@ -68,36 +68,35 @@ software on your device. The streaming software will allow you
 to customize what you stream, and how your stream looks when people
 watch your live streams.
 
-We recommend using [OBS](https://obsproject.com/); however, you
+We recommend using [OBS](https://obsproject.com/){:rel="nofollow noreferrer" target="_blank"}; however, you
 may use any streaming software that allows you to stream RTMP.
 
-Here's a few examples of other streaming software.
+Here are a few examples of other streaming software.
 
-* StreamLabs - [https://streamlabs.com/](https://streamlabs.com/)
-* XSplit - [https://www.xsplit.com/](https://www.xsplit.com/)
-* SplitCam - [https://splitcam.com/](https://splitcam.com/)
-* Larix - [https://softvelum.com/larix/](https://softvelum.com/larix/)
-* OBS - [https://obsproject.com/](https://obsproject.com/)
+* StreamLabs - [https://streamlabs.com/](https://streamlabs.com/){:rel="nofollow noreferrer" target="_blank"}
+* XSplit - [https://www.xsplit.com/](https://www.xsplit.com/){:rel="nofollow noreferrer" target="_blank"}
+* SplitCam - [https://splitcam.com/](https://splitcam.com/){:rel="nofollow noreferrer" target="_blank"}
+* Larix - [https://softvelum.com/larix/](https://softvelum.com/larix/){:rel="nofollow noreferrer" target="_blank"}
+* OBS - [https://obsproject.com/](https://obsproject.com/){:rel="nofollow noreferrer" target="_blank"}
 
 ## Connecting to joystick.tv
+Connecting to JoystickTV is pretty simple, your streaming software will ask for two pieces of information:
+* `Server URL`
+* `Stream Key`
 
-Connecting to JoystickTV is pretty simple. Your streaming software
-will ask for two bits of information that you can get from your [Stream Settings](https://joystick.tv/stream-settings) page on Joystick; the `Server URL`, and `Stream Key`.
+You can find these in your [Stream Settings](https://joystick.tv/stream-settings){:target="_blank"} page - keep it open while you set up your stream.
 
-The `Stream Key` is your password to connect to joystick, so be sure to keep
-this private.
+⚠️ The `Stream Key` is your password to connect to joystick, so be sure to keep this private. ⚠️
 
-1. Visit your [Stream Settings](https://joystick.tv/stream-settings), and copy your `Server URL`.
-1. Open the settings page for your stream software. For OBS, you'll go to the "Stream" tab under "Settings".
-1. From the stream software, search for "JoystickTV" in the provided list. (If you would like to use a server outside of the U.S. select "Custom")
+1. While on your Stream Settings page, select the server closest to you from the **"Server Selection"** dropdown menu, and copy the `Server URL`.
+1. Open the settings for your streaming software. For OBS, go to the **"Stream"** tab under **"Settings"**.
+1. In your streaming software, search for **"JoystickTV"** in the service list.
+1. _(Optional)_ If you're in Europe/Asia, or JoystickTV is not listed, select **"Custom"** and enter the `Server URL` you copied earlier.
+1. Next copy your `Stream Key` from your **Stream Settings** page.
+1. Paste this value into the **Stream Key** field in your software.
+> **Note:** JoystickTV has not yet been integrated into all streaming software. If you do not see us listed, use the **"Custom"** option.
 
-> NOTE: JoystickTV has not been integrated in all streaming software. If you do not see us listed, try searching for "Custom"
-
-1. If your server asks for a URL, this is where you'll paste your `Server URL` value.
-1. Next, go back to your [Stream Settings](https://joystick.tv/stream-settings) on joystick, and copy your `Stream Key`.
-1. Paste this value in your stream software.
-
-That's it! From here, you should be able to connect and go live to test your stream.
+That's it! You're now ready to go live and test your stream.
 You may need to change your default settings as some software assumes you want to stream
 the absolute maximum video quality, and that can lead to issues.
 
@@ -105,375 +104,631 @@ Below we will go over some guides on configuring OBS. For the most part, these s
 will work similar on other streaming software, but you may need to find additional guides
 online for configuring your software.
 
-## Recommended Settings
+## Streaming Setup Guides
 
-If you're looking to get setup quick with minimal effort, we recommend starting with these
-settings on OBS (or your streaming software). Fine-tuning your settings can take quite a
+If you're looking to get set up quick with minimal effort, we recommend starting with **Basic Setup** 
+settings guide for OBS (or your streaming software). Fine-tuning your settings can take quite a
 bit, and may be daunting at times. Once your stream looks crisp, you can come back and
 try some more advanced settings for even better performance.
 
-### OBS Basic Setup - Recommended for Non-Advanced Users
+{% capture OBS_Basic_Setup_body %}
+**Avoid using the "OBS Configuration Wizard".** Using it can lead to poor stream quality, negatively impacting your audience and monetization. Follow these steps instead:
 
-**Avoid using the "OBS Configuration Wizard".** We believe that if you use the OBS Configuration Wizard, it can lead to poor stream quality and impact your audience and monetization on the site. We will walk you through the settings.
+### **1. Stream Settings**
+1. Open OBS settings and go to the **"Stream"** tab.
+1. Select **`Joystick.TV`** as the service.
+1. Choose the **server region nearest to your location**.
+1. Your **stream key** is located in your [Joystick Stream Settings](https://joystick.tv/stream-settings){:target="_blank"}.
 
-1. Open your OBS settings, and select the "Stream" tab
-1. Select `Joystick.TV` as the service.
-1. Select the server region nearest to your location (we are adding more servers later)
-1. Your stream key is located in your Joystick [stream settings](https://joystick.tv/stream-settings)
-![OBS Service Setup](/assets/obs-setup-stream-service.png)
+{% include lazy_image.html src="/assets/png/obs-setup-stream-service.png" srcset="/assets/webp/obs-setup-stream-service.webp" caption="OBS Service Setup" loading="lazy" %}
 
-> If your version of OBS shows "RTMP" for Server, this is the old North American server. To use another server, select "Custom" from the Service list, and enter in the Server URL from your Joystick "Stream Settings" page.
+> **Note:** If you see "RTMP" for Server, you're Joystick's **older North American server**. To use another server, select **"Custom"** from the Service list and enter the **Server URL** from your Joystick Stream Settings page.
 
-1. Select the "Video" tab.
-1. Set your "Base (Canvas) Resolution" to your monitor's screen size.
-1. Set your "Output (Scaled) Resolution" to `1280x720`.
-1. Set "Downscale Filter" to `Lanczos`
-1. Set "Common FPS Values" to `30`.
-![OBS Video Setup](/assets/obs-setup-video-settings.png)
+---
 
-1. Select the "Audio" tab.
-1. Set your "Sample Rate" to `48 kHz`.
-1. Set your "Channels" to `Stereo`.
-![OBS Aduio Setup](/assets/obs-setup-audio-settings.png)
+### **2. Video Settings**
+1. Select the **"Video"** tab.
+1. Set **Base (Canvas) Resolution** to your monitor's screen size.
+1. Set **Output (Scaled) Resolution** to **1280x720**.
+1. Set **Downscale Filter** to **Lanczos**.
+1. Set **Common FPS Values** to **30**.
 
-1. Select the "Output" tab.
-1. Set "Output Mode" to `Simple`
-1. Set "Video Bitrate" to `3500 kbps`
-1. Set "Audio Bitrate" to `128`.
-1. Set "Video Encoder" to `Software (x264)`.
-1. Set "Encoder Preset" to `veryfast`.
-![OBS Output Setup](/assets/obs-setup-output-settings.png)
+{% include lazy_image.html src="/assets/png/obs-setup-video-settings.png" srcset="/assets/webp/obs-setup-video-settings.webp" caption="OBS Video Setup" loading="lazy" %}
 
-No other setting updates should be needed in order to go-live for your first stream.
-If you're more familiar with OBS and customizing stream settings, skip to the next
-section to help customizing more of the advanced configuration.
+### **3. Audio Settings**
+1. Select the **"Audio"** tab.
+1. Set **Sample Rate** to **48 kHz**.
+1. Set **Channels** to **Stereo**.
 
-> If you have any issues, you can refer to our [Troubleshooting Steps](#troubleshooting-streaming)
-> or join us in our [Discord](https://discord.gg/zKvCf8hrGP) for more help
+{% include lazy_image.html src="/assets/png/obs-setup-audio-settings.png" srcset="/assets/webp/obs-setup-audio-settings.webp" caption="OBS Audio Setup" loading="lazy" %}
 
-### OBS Custom Setup - Recommended for Advanced Users
+### **4. Output Settings**
+1. Select the **"Output"** tab.
+1. Set **Output Mode** to **Simple**.
+1. Set **Video Bitrate** to **3500 kbps**.
+1. Set **Audio Bitrate** to **128 kbps**.
+1. Set **Video Encoder** to **Software (x264)**.
+1. Set **Encoder Preset** to **veryfast**.
 
-OBS is a very advanced software, and can feel pretty overwhelming
-at times. A single setting being off can mean the difference between a
-smooth and clear stream, and a fuzzy stream. If you're not familiar with these
-options, we recommend starting with the non-advanced settings above first.
+{% include lazy_image.html src="/assets/png/obs-setup-output-settings.png" srcset="/assets/webp/obs-setup-output-settings.webp" caption="OBS Output Setup" loading="lazy" %}
 
-### First, gather information
+No further adjustments are needed to go live with your first stream. If you’re comfortable tweaking settings, continue to the **Custom Setup** section.
 
-1. Find the max resolution of your camera, and write that down somewhere.
-1. Visit <a href="https://speed.cloudflare.com/" rel="nofollow noreffer noopener" target="_blank">Cloudflare Speedtest</a> and record your **upload** speed, and make note of it. (This is also hand to keep bookmarked for troubleshooting internet connection issues)
-1. Make sure you know what stream software you're using (e.g. OBS, Lovense StreamMaster)
-1. Know your operating system (e.g. Windows 11, MacOS)
+> If you have any issues, refer to our [Troubleshooting Guide](#troubleshooting-streaming) or join our [Discord](https://discord.gg/zKvCf8hrGP){:rel="nofollow noreferrer" target="_blank"} for support.
+{% endcapture %}
 
-Use your camera's max resolution, and internet upload speed to help you
-decide which settings will work best. Be sure to not select any resolution
-or setting that's higher than your computer can handle.
+{% capture OBS_Custom_Setup_body %}
+OBS is an advanced software, and **incorrect settings can drastically impact stream quality**. If you're unfamiliar with these options, start with the **Basic Setup** before making adjustments.
 
-1. Select the "Output" tab.
-1. Set "Output Mode" to `Advanced`
-1. Set your audio codec to use `AAC`.
-1. Your video encoding will depend on your computer's graphics card. A powerful GPU can use "Hardware Encoding". If you're unsure, then start with "Software Encoding".
-1. Use the following tables to adjust other settings based on your camera's max resolution, and internet upload speed as taken from SpeedTest.net.
+### **Step 1: Gather Information**
+1. Find the **maximum resolution** of your camera.
+1. Visit **[Cloudflare Speedtest](https://speed.cloudflare.com/){:rel="nofollow noreferrer" target="_blank"}** and **record your upload speed**.
+1. Identify the **streaming software** you're using (e.g., OBS, Lovense StreamMaster).
+1. Confirm your **operating system** (e.g., Windows 11, macOS).
 
-**Software Encoding**
+> Use your camera's **max resolution** and **internet upload speed** to determine the best settings. Avoid selecting **higher** settings than your system can handle.
 
-Software encoding will use more of your CPU. This is a great option
-if your computer does not have a high-end GPU, or if you're playing
-a very intensive GPU based game, and have limited graphics memory.
+### **Step 2: Output Settings**
+1. Select the **"Output"** tab.
+1. Set **Output Mode** to **Advanced**.
+1. Set **Audio Codec** to **AAC**.
+1. Choose the appropriate **video encoding** method:
+   * If you have a powerful **GPU**, use **Hardware Encoding**.
+   * If unsure, start with **Software Encoding**.
 
-For this option, you'll see `x264`. Here's some general settings to
-help you get started:
+### **Software Encoding (x264)**
+**Best for: Older PCs, CPU-heavy tasks (e.g., gaming while streaming).**
+Software encoding relies on your **CPU** for video processing.
 
-| | 853x480 | 1280x720 | 1920x1080 | 2560x1440 | 3840x2160 |
-|---|---|---|---|---|---|
-| **Your Upload Speed** | **5 ~ 10mbps** | **10 ~ 15mbps** | **15 ~ 25mbps** | **25 ~ 50mbps** | **50mbps+** |
-| Video Bitrate | 1500 kbps | 2500 kbps | 3500 kbps | 4500 kbps | 6000 kbps |
-| Audio Bitrate | 96 kbps | 128 kbps | 160 kbps | 160 kbps | 192 kbps |
-| Rate Control  | CBR  | CBR | CBR | CBR | CBR |
-| Framerate  | 25 ~ 30 fps | 25 ~ 30 fps | 25 ~ 30 fps | 30 ~ 60 fps | 30 ~ 60 fps |
-| Keyframe Interval  | 2s  | 2s | 2s | 2s | 2s |
-| Preset  | veryfast ~ medium  | veryfast ~ medium | veryfast ~ medium | veryfast ~ medium | veryfast ~ medium |
-| Profile  | Main/High  | Main/High | Main/High | Main/High | Main/High |
-| Tune | (None) | (None) | (None) | (None) | (None) |
+| Resolution  | 853x480  | 1280x720 | 1920x1080 | 2560x1440 | 3840x2160 |
+|------------|----------|----------|----------|----------|----------|
+| **Upload Speed (Mbps)** | 5 | 10 | 15 | 20 | 25 |
+| **Video Bitrate (Kbps)** | 2500 | 4000-5000 | 6000-8500 | 8500 | 8500 |
+| **Audio Bitrate (Kbps)** | 128 | 128 | 192 | 192 | 256 |
+| **Rate Control** | CBR | CBR | CBR | CBR | CBR |
+| **Framerate (FPS)** | 30-60 | 30-60 | 30-60 | 30-60 | 30-60 |
+| **Keyframe Interval** | 2s | 2s | 2s | 2s | 2s |
+| **Preset** | veryfast-medium | veryfast-medium | fast-medium | fast-medium | fast-medium |
+| **Profile** | Main/High | Main/High | High | High | High |
+| **Tune** | None | None | None | None | None |
 
-------------------------------------
-**Hardware Encoding**
+### **Hardware Encoding (NVIDIA NVENC, AMD AVC)**
+**Best for: High-end GPUs, maximizing CPU performance.**
+Hardware encoding shifts the workload to your **GPU**, improving overall system efficiency.
 
-Hardware encoding will use more of your GPU. This is a great option
-if your computer has a high-end graphics card. It allows your computer
-to do many more things by freeing up your CPU. This is the preferred
-option if your computer has the ability.
+| Resolution  | 853x480  | 1280x720 | 1920x1080 | 2560x1440 | 3840x2160 |
+|------------|----------|----------|----------|----------|----------|
+| **Upload Speed (Mbps)** | 5 | 10 | 15 | 20 | 25 |
+| **Video Bitrate (Kbps)** | 2500 | 4000-5000 | 6000-8500 | 8500 | 8500 |
+| **Audio Bitrate (Kbps)** | 128 | 128 | 192 | 192 | 256 |
+| **Rate Control** | CBR | CBR | CBR | CBR | CBR |
+| **Framerate (FPS)** | 30-60 | 30-60 | 30-60 | 30-60 | 30-60 |
+| **Keyframe Interval** | 2s | 2s | 2s | 2s | 2s |
+| **Preset** | Quality | Quality | Quality | Quality | Quality |
+| **B-frames** | 2 | 2 | 2 | 2 | 2 |
 
-There's different types of hardware encoding, but here's some general
-settings related to the `NVIDIA NVENC` encoding.
+> If you need help, check our [Troubleshooting Guide](#troubleshooting-streaming) or join our [Discord](https://discord.gg/zKvCf8hrGP){:rel="nofollow noreferrer" target="_blank"}.
+{% endcapture %}
 
-| | 853x480 | 1280x720 | 1920x1080 | 2560x1440 | 3840x2160 |
-|---|---|---|---|---|---|
-| **Your Upload Speed** | **5 ~ 10mbps** | **10 ~ 15mbps** | **15 ~ 25mbps** | **25 ~ 50mbps** | **50mbps+** |
-| Video Bitrate | 1500 kbps | 2500 kbps | 3500 kbps | 4500 kbps | 6000 kbps |
-| Audio Bitrate | 96 kbps | 128 kbps | 160 kbps | 160 kbps | 192 kbps |
-| Rate Control  | CBR  | CBR | CBR | CBR | CBR |
-| Framerate  | 25 ~ 30 fps | 25 ~ 30 fps | 25 ~ 30 fps | 30 ~ 60 fps | 30 ~ 60 fps |
-| Keyframe Interval  | 2s  | 2s | 2s | 2s | 2s |
-| Preset  | Quality  | Quality | Quality | Quality | Quality |
-| B-frames  | 2 | 2  | 2 | 2 | 2 |
+{% capture Streaming_Optimization_body %}
+**Streaming Optimization & Key Considerations**
+
+Streaming from your PC can be intensive, and many factors affect the quality of your stream, including:
+
+- **CPU, GPU, and RAM performance**
+- **Internet upload speeds**
+- **Encoder efficiency**
+- **OBS settings**
+- **WiFi vs. Ethernet**
+- **Network stability and router performance**
+
+This guide will help you **optimize your stream** and avoid common issues.
+
+---
+&nbsp;  
+**Scene Complexity & Bitrate Correlation**
+
+Not all content compresses the same way. **More movement = more bitrate required.**
+
+- **Simple scenes** (e.g., talking head, static background) require a lower bitrate.
+- **Fast-motion scenes** (e.g., FPS games, action-heavy streams) require a higher bitrate.
+
+> If your **scene complexity is high** but your bitrate is too low, compression artifacts will appear.
+
+---
+&nbsp;  
+**CPU, GPU, and RAM Considerations**
+
+Streaming requires **real-time video encoding**, which is **CPU or GPU intensive**.  
+
+- **CPU-based encoding (x264):** Uses more CPU, better quality at low bitrates.
+- **GPU-based encoding (NVENC, QuickSync, AMD HW):** Uses GPU, better for high-action streams.
+- **More applications = more resources used.**  
+  - If running OBS + game + Discord + camera → **Expect performance strain**.
+- **If also recording while streaming**, expect additional CPU/GPU load.
+
+💡 **Tip:** If live streaming is your goal, consider **hardware upgrades** for a smoother experience.
+
+---
+&nbsp;  
+**Internet Upload Speeds & Overhead**
+
+Streaming isn’t just about download speeds—**upload speed is key.**  
+
+- A **1080p 60fps** stream **requires significantly more upload bandwidth** than a **720p 30fps** stream.
+- The higher the **bitrate**, the more bandwidth is used.
+- **Recommended upload speed buffer:** Always leave **20-30% headroom** for stability.
+
+| Stream Resolution | Upload Speed Needed |
+|-------------------|--------------------|
+| **720p @ 30fps** | **5 Mbps** |
+| **1080p @ 30fps** | **10 Mbps** |
+| **1080p @ 60fps** | **15+ Mbps** |
+
+> **Overhead matters!** Bitrate isn’t the only thing using your bandwidth.  
+> RTMP streaming adds **5-10% additional network overhead** beyond your set bitrate.
+
+💡 **Tip:** If your **upload speed is 10 Mbps**, do not exceed **8 Mbps total bitrate**.
+
+---
+&nbsp;  
+**Exceeding Maximum Allowed Bitrate (8500 Kbps)**
+
+Most streaming platforms **cap bitrate**.  
+For **Joystick.TV**, the limit is **8500 Kbps**.
+
+> Exceeding this will **cause dropped frames, stuttering, or forced bitrate reductions**.
+
+To prevent issues:
+- **Keep total video + audio bitrate under 8500 Kbps.**
+
+Some platforms enforce **hard bitrate caps**, while others **throttle quality dynamically**—check platform guidelines.
+
+---
+&nbsp;  
+**Encoder Performance (Software vs. Hardware)**
+
+Encoding is **one of the most demanding tasks** during streaming.
+
+- **x264 (CPU encoding)** → Higher quality at lower bitrates but **very CPU-intensive**.
+- **NVENC, QuickSync, AMD HW (AVC)** → Offloads encoding to GPU, better for **fast-motion** streams.
+- If using x264, **start with the "veryfast" preset** and adjust for balance between quality and performance.
+
+💡 **Tip:** **CPU-bound streamers should use a strong CPU with sufficient cooling.**  
+💡 **Tip:** **GPU-bound streamers should have a high-end GPU with sufficient VRAM.**
+
+---
+&nbsp;  
+**WiFi vs. Ethernet & Network Optimization**
+
+Your home network plays a large role in streaming stability.
+
+- **Use Ethernet instead of WiFi** whenever possible.
+- If on WiFi, use **5GHz** over **2.4GHz** for less interference.
+- **Prioritize streaming traffic** if your router supports QoS.
+- Restart your modem occasionally if you **notice dropped frames**.
+
+💡 **Tip:** **If using WiFi, keep background devices off the network** to prevent bandwidth congestion.
+
+---
+&nbsp;  
+**FPS, Keyframe Interval & Motion Impact**
+
+Your **FPS (frames per second)** affects how smooth your stream appears.  
+
+- **30fps is easier to encode and uses less bandwidth.**
+- **60fps requires more bitrate** but offers smoother playback.
+
+| **Scenario** | **Recommended FPS** |
+|-------------|------------------|
+| **Low-motion streams (static cam, just chatting, city-builders, turn-based games)** | **30 FPS** |
+| **Medium-motion (RPGs, casual shooters, moderate action)** | **30-60 FPS** |
+| **Fast-motion (FPS, racing games, high-action content)** | **60 FPS** |
+
+&nbsp;  
+**Keyframe Interval**
+- **Set to 2s** for smoother playback.
+- Higher = Buffering issues.
+- Lower = Unnecessary data usage.
+
+---
+&nbsp;  
+**Network Jitter & Packet Loss**
+
+Network **jitter** is the **variation in latency**, causing **choppy streams, stutters, and lag spikes**.
+
+To check for jitter:
+- Look at the **jitter value** in your [Speedtest](/#troubleshooting-stream) or [Bufferbloat test](/#troubleshooting-stream).
+- Alternatively, use **[PingPlotter](https://www.pingplotter.com/){:rel="nofollow noreferrer" target="_blank"}** (Free trial).
+
+✅ **Good Jitter:** Under **10-15 ms**  
+❌ **Bad Jitter:** Higher than **20 ms**
+
+**Reducing Jitter & Packet Loss**  
+- **Use wired Ethernet instead of WiFi**.
+- **Restart your router/modem** to refresh your connection.
+- **Check for background uploads (e.g., cloud sync, Windows updates).**
+- **Contact your ISP** if packet loss exceeds **10%**.
+
+---
+&nbsp;  
+**Final Tips for Beginners & Intermediate Streamers**
+
+**Start with conservative settings** and adjust as needed.  
+**Monitor stream health (OBS stats, dropped frames, bitrate stability).**  
+**Use test streams to tweak settings before going live.**  
+**Check your ISP's policies on bandwidth throttling.**  
+**Join our [Discord](https://discord.gg/zKvCf8hrGP){:rel="nofollow noreferrer" target="_blank"} there are plenty of knowledgeable people that can give recommendations.**
+{% endcapture %}
+
+{% capture OBS_Setup_Accordions %}
+  {% include accordion.html id="obs-basic-setup" label="OBS Basic Setup (Recommended)" content=OBS_Basic_Setup_body %}
+  {% include accordion.html id="obs-custom-setup" label="OBS Custom Setup (Advanced)" content=OBS_Custom_Setup_body %}
+  {% include accordion.html id="optimize" label="Streaming Guide & Tips" content=Streaming_Optimization_body %}
+{% endcapture %}
+
+{% include accordion_group.html content=OBS_Setup_Accordions %}
 
 
-> If you have any issues, you can refer to our [Troubleshooting Steps](#troubleshooting-streaming)
-> or join us in our [Discord](https://discord.gg/zKvCf8hrGP) for more help
+**Multistreaming Considerations**  
+These settings assume **you are only streaming to Joystick.TV**, for **multistreaming**, **increase your upload speed accordingly**.
 
-
-**Multistreaming Considerations**
-
-These settings assume you're only streaming to Joystick.TV. If you do plan on doing multistreaming,
-your internet upload speed should increase by the recommended amount for each site you stream to.
-
-For example, if you're streaming to Joystick, and 2 other sites each at 1080p you should have a minimum
-internet upload speed of 45mbps (15mbps for each site).
-
-## Streaming Guides
-
-Streaming from your PC can be quite intensive. There are many different
-factors that can affect the quality of your stream.
-
-* CPU / GPU / RAM / Resources
-* Internet upload speeds
-* Encoder Performance
-* OBS configurations
-* WiFi / Ethernet
-* Network Router
-
-Here is some general knowledge information to help you become an advanced streamer,
-so you can pass along the knowledge and help others!
-
-### CPU / GPU / RAM / Resources
-
-In order to stream, your computer needs to generate pictures
-of your stream and upload those pictures as fast as possible.
-Depending on your computer, this may be handled by your computer's
-CPU or GPU (if you have a really nice graphics card).
-
-If you're also recording your stream through OBS, this will
-consume additional resources on your computer. Now add in your
-camera, and the game you're playing through Steam all while
-you have Discord open for your chat and you may be reaching
-the limits of your machine.
-
-Keep in mind that every computer will handle these tasks
-differently based on your operating system (Windows 10/11, MacOS, Linux, etc...), the type of CPU or GPU you have, as well as
-how much and how fast your RAM is. Should you decide to make
-live streaming a full time job, you will want to invest in
-these areas to ensure a smooth stream.
-
-### Internet upload speeds
-
-Ususally when we talk about internet speeds, we're talking
-about "download" speeds. This is because we generally want
-to know how fast can we pull down content like watching a video.
-However, when it comes to streaming, you need faster upload speeds.
-This is because as you stream, your computer is generating video
-on the fly and uploading to JoystickTV. Since this is done in
-small chunks, it can happen at a really fast rate, but not all
-streams are the same size. A 720p stream at 30FPS will be smaller
-than a 1080p stream at 60FPS.
-
-The higher the bitrate, the more bandwidth you consume. The video quality can be improved by increasing the bitrate, but only up to a certain point; the bitrate settings we recommend have been tested to maximize video quality without wasting bandwidth.
-
-If you know your internet upload speeds aren't that fast, you
-can use this information to configure OBS at a lower scale.
-
-### Encoder Performance
-Encoding can be difficult on your computer. x264 will use a lot of your CPU, which can cause a lower frame rate. On the other hand, GPU encoding, such as NVIDIA NVENC, makes use of a separate encoder in the GPU. As a result, you can play and stream without sacrificing performance. Start with the veryfast preset if you want to use x264, and then adjust to find the best setting.
-
-### WiFi / Ethernet / Network
-
-Your home network plays a huge roll in all of this.
-Some network routers will allow you to prioritze streaming on the
-network when there's a lot of other devices connected and in use.
-
-If you have the ability to use a "hard-wired" connection (i.e. Ethernet), this
-is highly recommended. WiFi can become "spotty" at times especially with more
-devices connected to your WiFi.
-
-Try restarting your network router from time to time when you notice connection
-issues, or dropped frames. Sometimes a restart can solve many issues.
-
-Our [Discord](https://discord.gg/zKvCf8hrGP) is full of knowledgable people that can give recommendations.
-
-
-### FPS and Keyframe Interval
-
-As mentioned above, when you stream, your computer generates static images of your stream
-at a really fast rate. These images are uploaded and converted in to motion pictures or video.
-Your FPS (frames per second) tells your computer to generate these many pictures in 1 second.
-The difference between 30 FPS and 60 FPS can be very slight or sometimes not noticable at all
-depending on what you're streaming.
-
-For example, say your OBS scene layout has your camera at full screen with no other motion around
-you. The video game you're playing is in a much smaller size window, and you're playing a slower
-pace game like a city builder / simulation game. Because there's not a ton of movement on your scene,
-using 60FPS will use unecessary resources from your computer with almost no extra gain to stream quality.
-
-Now say that you are using a green screen, and your camera is the smaller window. You're playing a
-first-person shooter in full screen with high action. In this case you have a lot of movement on screen.
-At 30FPS your stream may look a bit "choppy" and not as smooth as you would like.
-
-This is also where your "Keyframe Interval" comes in to play. Each image generated in your stream is a frame.
-At 30 FPS, you are generating 30 frames per second. A "keyframe" tells the video where to start and end
-these blocks of frames to be rendered. A Keyframe Interval of "2 seconds" tells OBS every 60 frames is
-a video chunk. A Keyframe Interval of "1 second" would say 30 frames is a video chunk. For OBS, setting
-to "0" means "auto" and this requires a lot more processing on both your end and ours.
-
-First-person shooter type games with high action generally want higher FPS and lower keyframe intervals
-to maximize the lowest latency and smoothest video. Streams with less motion and action should have a lower
-FPS and higher keyframe interval to reduce strain on the computer and have a clearer picture.
+Example:
+- Streaming at **1080p@60** to **Joystick + 2 other platforms** requires **a minimum of 30 Mbps upload** (~8 Mbps per site).
 
 ## Mobile Streaming
 
-If you're looking to take your stream on the-go (or maybe just your backyard / kitchen, etc...), you may need to use a mobile device. With desktops/laptops you can just setup OBS, however, there's no official OBS app for iOS and Android.
-
+If you want to stream on the go — whether from your backyard, kitchen, or anywhere else — you’ll need a mobile streaming app. While OBS is available for desktops and laptops, there’s currently no official OBS app for iOS or Android.
 There are a few apps, but the main thing to look for is "Custom RTMP Stream". As long as the app can publish an RTMP stream, you can use it to stream to JoystickTV from your mobile device.
 
-### Streamlabs Mobile
 
+{% capture Streamlabs_Mobile_body %}
 Streamslabs has a desktop app that you may already be familiar with. You can download this app from your app store, then once installed, follow these steps.
 
-![Streamlabs Logo](/assets/streamlabs-mobile.jpg)
+{% include lazy_image.html src="/assets/jpg/streamlabs-mobile.jpg" srcset="/assets/webp/streamlabs-mobile.webp" loading="lazy" %}
 
-Find the menu button. This is located in the upper left corner, and may be a little tricky to see at first if you're camera is active. Once in the settings menu, tap on the "Account Settings"
+Find the menu button. This is located in the upper left corner, and may be a little tricky to see at first if your camera is active. Once in the settings menu, tap on the **"Account Settings"**.
 
-![Streamlabs Settings](/assets/streamlabs-setup.jpg)
+{% include lazy_image.html src="/assets/jpg/streamlabs-setup.jpg" srcset="/assets/webp/streamlabs-setup.webp" caption="Streamlabs Settings" loading="lazy" %}
 
-On the next screen, you're presented with several streaming services that have been pre-built in to Streamlabs. Unfortunately, JoystickTV is not one of those.
+On the next screen, you're presented with several streaming services that have been pre-built into Streamlabs. Unfortunately, JoystickTV is not one of those.
 
-Find the "Custom RTMP Server" setup at the bottom of this list.
+Find the **"Custom RTMP Server"** setup at the bottom of this list.
 
-On the RTMP setup screen, you will enter in a bit of information. The RTMP server, and your stream key. Both of these can be found from your [Joystick Stream Settings](https://joystick.tv/stream-settings).
+On the RTMP setup screen, you will enter in a bit of information: the **RTMP server** and your **stream key**. Both of these can be found in your [Joystick Stream Settings](https://joystick.tv/stream-settings){:target="_blank"}.
 
-![Streamlabs Account Info](/assets/streamlabs-account.jpg)
+{% include lazy_image.html src="/assets/jpg/streamlabs-account.jpg" srcset="/assets/webp/streamlabs-account.webp" caption="Streamlabs RTMP Setup" loading="lazy" %}
+{% endcapture %}
 
-### Larix Broadcaster
 
+{% capture Larix_Broadcaster_body %}
 This is another great mobile app that comes with built-in overlays, and lots of fancy things. Setup is fairly easy too!
 
-![Larix Broadcaster Logo](/assets/larix-mobile.jpg)
+{% include lazy_image.html src="/assets/jpg/larix-mobile.jpg" srcset="/assets/webp/larix-mobile.webp" loading="lazy" %}
 
-Once you've downloaded the app and opened it, find the settings gear icon in the bottom right. From the settings page, you'll tap on "Connections"
+Once you've downloaded the app and opened it, find the settings gear icon in the bottom right. From the settings page, tap on **"Connections"**.
 
-![Larix Broadcaster Settings](/assets/larix-setup.jpg)
+{% include lazy_image.html src="/assets/jpg/larix-setup.jpg" srcset="/assets/webp/larix-setup.webp" caption="Larix Broadcaster Settings" loading="lazy" %}
 
-Unlike Streamlabs mobile, Larix doesn't require a separate input field for your stream key. Instead, you will just join your server URL and stream key together as one long string.
+Unlike Streamlabs mobile, Larix doesn't require a separate input field for your stream key. Instead, you will just **join your server URL and stream key together as one long string**.
 
-![Larix Broadcaster Info](/assets/larix-account.jpg)
+{% include lazy_image.html src="/assets/jpg/larix-account.jpg" srcset="/assets/webp/larix-account.webp" caption="Larix RTMP Setup" loading="lazy" %}
+{% endcapture %}
+
+
+{% capture mobile_streaming %}
+  {% include accordion.html id="mslabs" label="Streamlabs Mobile" content=Streamlabs_Mobile_body %}
+  {% include accordion.html id="mlarix" label="Larix Broadcaster" content=Larix_Broadcaster_body %}
+{% endcapture %}
+
+{% include accordion_group.html content=mobile_streaming %}
 
 ## Multistreaming
 
 Multistreaming is when you stream to multiple sites at the same time. This is actually something that we encourage on joystick.tv as it is the best way to reach a wider audience. There are several programs that have the ability to do this, though each program also does have it's pros and cons.
 
-{% include _accordions/multistreaming.html %}
+**Solutions:**
+{% capture OBS_MultiRTMP_body %}
+OBS supports **multi-RTMP streaming**, allowing you to broadcast to multiple platforms simultaneously without relying on third-party services.
 
-### OBS with a Plugin
+### **How to Set Up Multi-RTMP in OBS**
+1. Download and install the **[OBS Multiple RTMP Output Plugin](https://github.com/sorayuki/obs-multi-rtmp){:rel="nofollow noreferrer" target="_blank"}**.
+1. Open OBS and go to **Docks > Multiple RTMP Output**.
+1. Click **Add New Target**, then enter the `stream key` and `RTMP URL` for each platform.
+1. Adjust bitrate and encoder settings to match the platform requirements.
+1. Start streaming! OBS will broadcast to all configured destinations at once.
 
-OBS does not have the ability out of the box to be able to multistream. After installing the [OBS Multi RTMP Plugin](https://github.com/sorayuki/obs-multi-rtmp/releases/) you can easily stream to multiple sites. This plugin offers the best and most customizable feature set of all available options.
+**Pros:**
+* No extra costs for cloud-based services.
+* Complete control over your stream quality and bandwidth usage.
+* Allows you to send select scenes to different platforms.
 
-If you are not familiar with GitHub, look for the **"Assets"** section of the latest release by scrolling down the page a little bit. Click on the package that matches your operating system to download it. Once it's downloaded, open it and follow the instructions.
+**Cons:**
+* Requires a **powerful CPU/GPU** if encoding multiple streams at different resolutions/bitrates.
+* Uses **1x more upload bandwidth per platform**, which can cause quality issues if your internet speed is limited.
+{% endcapture %}
 
-![OBS Multi RTMP GitHub Releases Download](/assets/obs-multi-rtmp-github-download.png)
 
-After installing, you can open the settings in the the Docks menu of OBS under the **"Multiple Output"** option.
+{% capture Aitum_Multistream_body %}
+[Aitum Multistream](https://github.com/Aitum/obs-aitum-multistream){:rel="noopener nofollow noreferrer" target="_blank"} is a **simpler alternative** to multi-RTMP in OBS, offering an **easier UI** for managing multiple stream outputs.
 
-![OBS Multi RTMP Dock Menu](/assets/obs-multi-rtmp-docks-menu.png)
+### **How to Set Up Aitum Multistream**
+1. Download the latest release and install [Aitum Multistream](https://github.com/Aitum/obs-aitum-multistream){:rel="nofollow noreferrer" target="_blank"}.
+1. Open OBS and go to **Tools > Aitum Multistream**.
+1. Click **Add Destination**, then enter the `stream key` and `RTMP URL` for each platform.
+1. Configure bitrate and resolution for each stream.
+1. Click the normal **Start streaming** button in OBS. 
+1. Now click the "Stream" icons for each platform in the Aitum panel, which will turn green when active.
 
-You will then see a dockable window for the multistream settings.
+**Pros:**
+* **User-friendly interface**, reducing setup complexity.
+* Lower performance impact compared to **OBS Multi-RTMP Plugin**.
+* Supports Vertical streaming.
 
-![OBS Multi RTMP](/assets/obs-multi-rtmp-first-screen.png)
+**Cons:**
+* Still relies on **your local hardware** for encoding.
+* Uses **1x more upload bandwidth per platform**, which can affect stream quality.
+* Only the main scene is sent to all platforms.
+{% endcapture %}
 
-Click **"Add New Target"** to add a new site that you would like to stream to.
 
-![OBS Multi RTMP Add New Target Window](/assets/obs-multi-rtmp-add-new-target-window.png)
+{% capture Cloud_Multistream_body %}
+Cloud multistreaming services handle **encoding and distribution** on external servers, allowing you to stream to multiple platforms **without extra bandwidth usage** on your end.
 
-At a minimum you will have to fill in the RTMP Server & Key information. The rest of the settings will pull from your default OBS settings. The assumption here is that you have already setup your OBS configruation to stream to one site already. If you haven't done that, please refer to the rest of this guide to set that up first, then you can add a second site to stream to.
+### **Reputable Cloud Multistream Services**
+🚧 **Note:** Most mainstream multistreaming services prohibit adult content, as payment processors and financial institutions classify it as "high risk." If you know of any services that allow it, feel free to suggest them [here](https://github.com/joysticktv/joysticktv.github.io/issues){:target="_blank"}.
 
-#### Different Scenes per Stream
+* **[Streamster](https://streamster.io/products/cloud-based-multistreaming/){:rel="nofollow noreferrer" target="_blank"}** – A straightforward cloud-based solution with a free plan, but some features require a paid subscription.
 
-This plugin offers the feature of being able to stream different scenes to different sites. 
+### **Pros & Cons of Local vs. Cloud Multistreaming**
 
-![OBS Multi RTMP Scene Settings](/assets/obs-multi-rtmp-scene-settings.png)
+| Feature | Local Multi-RTMP (OBS/Aitum) | Cloud Multistreaming |
+|---|---|---|
+| **CPU Usage** | High (multiple encodings) | Low (single encoding) |
+| **Bandwidth Use** | High (multiple uploads)  | Low (one upload, multiple outputs) |
+| **Latency** | Lower (direct encoding) | Higher (server relay) |
+| **Costs** | Free (but hardware-dependent) | Paid subscription required |
+| **Platform Limit** | Depends on PC strength | Supports more platforms |
 
-Please note that when you do this, you will have to select an encoder for each stream you do this for. Like it says in the warning, your computer will be doing extra work for each scene. Something to keep in mind if you are also playing very CPU/GPU intensive game.
+&nbsp;  
+If you have **strong upload speeds and a powerful PC**, **local** multistreaming gives you **better control**.  
+If you have **limited bandwidth or a weaker PC**, **cloud-based** multistreaming is a better choice.
+{% endcapture %}
 
-### Lovense Stream Master
 
-Stream Master from Lovense is a nicely bundled package of software that gets your stream up and running pretty quickly. You can download the software [here](https://www.lovense.com/stream-master). The even better part is that it bundle OBS right into the software along with the OBS Multi RTMP plugin described above.
+{% capture Lovense_Stream_Master_body %}
+**[Download Stream Master](https://www.lovense.com/stream-master){:rel="nofollow noreferrer" target="_blank"}** from Lovense, it is a bundled software package that simplifies setting up your stream. It includes **OBS** and the **OBS Multi-RTMP plugin** for seamless multi-streaming.
 
-First you need to open OBS from Stream Master.
+### **Getting Started**
+1. Open OBS from **Stream Master**.
 
-![Stream Master Open OBS](/assets/stream-master-open-obs.png)
+{% include lazy_image.html src="/assets/png/stream-master-open-obs.png" srcset="/assets/webp/stream-master-open-obs.webp" caption="Stream Master Open OBS" loading="lazy" %}
 
-By deafult, you will see the **"Multi-Streaming"** window already docked for you inside OBS.
+1. By default, the **"Multi-Streaming"** window will already be docked inside OBS.
 
-![Stream Master Multi Streaming Dock](/assets/stream-master-multistreaming-dock.png)
+{% include lazy_image.html src="/assets/png/stream-master-multistreaming-dock.png" srcset="/assets/webp/stream-master-multistreaming-dock.webp" caption="Stream Master Multi-Streaming Dock" loading="lazy" %}
 
-Click on **"Add new cam site"** and add the other site that you want to stream too. If you want to customize the settings or stream different scenes, see the documentation above for OBS for more details.
+1. Click **"Add new cam site"** and enter your streaming platform details.
+1. If you want to customize settings or stream different scenes, refer to the **OBS Multi-RTMP plugin** documentation above.
+{% endcapture %}
 
-### SplitCam
 
-SplitCam makes it very easy to stream to multiple sites as well. Just click on the **"Stream Settings"** menu on the top right, then the **"Add Channel"** button on the bottom. From there you can select an existing site or add a custom one.
+{% capture SplitCam_body %}
+[SplitCam](https://splitcam.com/){:rel="nofollow noreferrer" target="_blank"} provides an easy way to **stream to multiple sites** without complex setup.
 
-![SplitCam Stream Settings](/assets/splitcam-stream-settings.png)
+### **How to Set Up SplitCam for Multi-Streaming**
+1. Click on the **"Stream Settings"** menu in the top right.
+1. Click the **"Add Channel"** button at the bottom.
+1. Select an existing site or enter a custom RTMP URL.
 
-SplitCam is the least customizeable option out of all of them. It's very easy to setup but you will stream the exact same video to all sites.
+{% include lazy_image.html src="/assets/png/splitcam-stream-settings.png" srcset="/assets/webp/splitcam-stream-settings.webp" caption="SplitCam Stream Settings" loading="lazy" %}
+
+**Note:** SplitCam is the **least customizable option** among multi-streaming tools. While it's easy to use, you will stream the exact **same video feed** to all platforms without per-platform scene switching.
+{% endcapture %}
+
+
+
+{% capture multistreaming %}
+  {% include accordion.html id="obs-multirtmp" label="OBS Multi-RTMP" content=OBS_MultiRTMP_body %}
+  {% include accordion.html id="aitum-multistream" label="Aitum Multistream" content=Aitum_Multistream_body %}
+  {% include accordion.html id="cloud-multistream" label="Cloud Multistreaming Services" content=Cloud_Multistream_body %}
+  {% include accordion.html id="lovense-stream-master" lblid="lovense-stream-master" label="Lovense Stream Master" content=Lovense_Stream_Master_body %}
+  {% include accordion.html id="splitcam" label="SplitCam" content=SplitCam_body %}
+{% endcapture %}
+
+{% include accordion_group.html content=multistreaming %}
+
 
 ## Troubleshooting Streaming
 
-{% include _accordions/troubleshootstream.html %}
+{% capture Speedtest_body %}
+First, visit [Cloudflare's Speedtest](https://speed.cloudflare.com/){:rel="nofollow noreferrer" target="_blank"} to check your internet speed.
 
-Still haviing issues? Try Support Channel on [Discord](https://discord.gg/zKvCf8hrGP), there are many people willing to help.
+For smooth streaming, aim for:
+
+- **Ping:** Under **60 ms**
+- **Jitter:** Under **10-15 ms**
+- **Upload Speed:** At least **10 Mbps** (See [Streaming Guide](#streaming-setup-guides) for a better overview of values)
+
+### **What is Network Jitter?**
+Network **jitter** refers to the fluctuation in your connection’s response time, causing choppy streams and lag spikes.  
+To check for jitter:
+- Look at the **jitter value** in your **Speedtest** or **Bufferbloat** test.
+- Alternatively, use **[PingPlotter](https://www.pingplotter.com/){:rel="nofollow noreferrer" target="_blank"}** (Free trial) to measure network stability.
+
+If your **jitter is too high** or you're experiencing packet loss:
+- Switch from **Wi-Fi** to a **wired Ethernet connection**.
+- Restart your **router** and **modem**.
+- Packet loss of 2-3% will start to moderately impact your streaming quality.
+- Contact your **ISP** if packet loss exceeds **5%**.
+
+### **Improving Your Stream Stability**
+If your connection is unstable or you're dropping frames, try these adjustments:
+
+- Set your `Bitrate` between **2500 - 8500 Kbps** (under **“Output” settings**).
+- If you currently stream at **60fps**, consider lowering it to **30fps** for better stability.
+- Switch your encoder to **x264 (Software Encoding)**, as hardware encoding can sometimes cause issues.
+- Use **Advanced settings** and set the **Keyframe Interval** to **2 seconds**.
+
+If problems persist, the issue may be outside your or Joystick’s control, such as **network congestion or ISP limitations**.
+{% endcapture %}
 
 
-* Try rebooting your computer and/or your internet router.
+{% capture Bufferbloat_body %}
+Visit [Waveform's bufferbloat test](https://www.waveform.com/tools/bufferbloat){:rel="nofollow noreferrer" target="_blank"}.
+
+[Bufferbloat](https://en.wikipedia.org/wiki/Bufferbloat){:rel="nofollow noreferrer" target="_blank"} occurs when your internet connection slows down or becomes unstable due to excessive buffering in network devices. Think of it like a traffic jam, where data packets are delayed or dropped before reaching their destination.
+
+Bufferbloat significantly impacts internet performance, causing lag and slower speeds. One effective way to reduce bufferbloat is by enabling the **Quality of Service (QoS)** setting on your router. After enabling QoS, run the bufferbloat test again — your results should show improvement.
+
+**Note:** Enabling QoS may show a lower upload speed than expected. This is normal — the adjusted speed represents a more **stable and realistic bandwidth** for everyday use.
+
+Bufferbloat often occurs because internet service providers (ISPs) "oversubscribe" their networks, meaning they sell more bandwidth than they can reliably provide. This is why ISPs advertise speeds as "up to X Mbps"—your actual speed fluctuates based on network congestion.
+
+When interpreting Waveform's bufferbloat results, check the **latency grades** (ranging from **A** to **F**). For optimal performance, aim for an **A** or **B** grade. Lower grades indicate network congestion issues, suggesting you should fine-tune your QoS settings or contact your ISP for further support.
+
+{% include lazy_image.html src="/assets/jpg/bufferbloat.jpg" srcset="/assets/webp/bufferbloat.webp" caption="an example of a poor bufferbloat test, showing high latency on upload." loading="lazy" %}
+{% endcapture %}
+
+{% capture Droppedframes_body %}
+Dropped frames can happen for a few reasons, including low upload speeds or bufferbloat issues. To start troubleshooting, make sure you've completed both the Speedtest and Bufferbloat tests provided in the previous sections.
+
+Windows users can also check for network routing issues using the tracert command:
+
+```Java
+US Servers:
+    tracert live.joystick.tv
+
+EU Servers:
+    tracert eu.live.joystick.tv
+```
+
+&nbsp;
+
+This command checks each server ("node") your data passes through on the way to Joystick's servers. If you see results like **40ms * *** or * 49ms 44ms, this suggests a possible issue with that specific node or network provider.
+
+Unfortunately, if a node has an issue, **only the provider responsible for that node can fix it**. The best option is to wait for them to resolve the issue.
+
+**Important**: Some nodes **intentionally** refuse to respond to ping requests, displaying timeouts (`* * *`). This is normal and doesn't indicate a problem unless you also see high latency spikes.
+
+⚠️ **Do not share your tracert results publicly**. The first few nodes often reveal your router, ISP, and IP address, which are private details.
+{% endcapture %}
+
+{% capture Missedframes_body %}
+Skipped or missed frames occur when your streaming software (e.g., OBS) struggles to **encode or render video smoothly**. This is usually caused by **hardware limitations, high CPU usage, or demanding settings**.
+
+To reduce missed frames:
+
+* **Lower your resolution:** Reduce stream output (e.g., from **1080p to 720p**) to ease the workload on your CPU/GPU.
+* **Adjust your framerate:** Lower from **60fps to 30fps** for smoother encoding.
+* **Switch encoders:** Try switching between **software encoding (x264)** and **hardware encoding (NVENC, AMD HW, QuickSync)** to see which performs better on your system.
+* **Monitor CPU usage:** If CPU usage is consistently above **80%**, lower encoding settings or close unnecessary programs.
+* **Update drivers:** Ensure your graphics drivers and streaming software are up to date.
+
+After making these adjustments, restart your stream and **monitor performance** to see if the issue improves. 
+{% endcapture %}
+
+{% capture NetworkJitter_body %}
+Network jitter and packet loss can cause choppy streams, lag spikes, and inconsistent performance.
+
+To check for jitter:
+* Check jitter under your `Speedtest` result, or `Bufferbloat` result.
+* Alternatively Try [Pingplotter](https://www.pingplotter.com/){:rel="nofollow noreferrer" target="_blank"} (Free trial) to measure network stability.
+* Aim for jitter under **10ms - 15ms** for smooth streaming.
+
+If packet loss is an issue:
+* Switch from Wi-Fi to a wired Ethernet connection.
+* Restart your router and modem.
+* Contact your ISP if packet loss exceeds **10%**.
+
+Jitter and packet loss are often caused by **unstable network conditions or ISP issues**.
+{% endcapture %}
+
+{% capture Firewall_body %}
+Firewalls and network restrictions can block streaming services.
+
+To troubleshoot:
+- **Check Windows Defender & third-party firewalls** for blocked ports.
+- **Ensure router firewall settings aren’t overly restrictive.**
+- **Whitelist streaming services in your firewall settings.**
+
+If you're behind a strict ISP firewall, a **VPN** or **contacting your ISP** may be necessary.
+{% endcapture %}
+
+{% comment %}
+  creating the accordion group, then passing it to accordion_group.html
+{% endcomment %}
+
+{% capture troubleshooting_stream %}
+  {% include accordion.html id="speedtest" label="Speedtest" content=Speedtest_body %}
+  {% include accordion.html id="bufferbloat" label="Bufferbloat" content=Bufferbloat_body %}
+  {% include accordion.html id="jitter" label="Ping Jitter" content=NetworkJitter_body %}
+  {% include accordion.html id="firewall" label="Firewall Configuration" content=Firewall_body %}
+  {% include accordion.html id="dropframes" label="Dropped Frames" content=Droppedframes_body %}
+  {% include accordion.html id="missedframes" label="Skipped/Missed Frames Explained" content=Missedframes_body %}
+{% endcapture %}
+
+{% include accordion_group.html content=troubleshooting_stream %}
+
+Still having issues? Try Support Channel on [Discord](https://discord.gg/zKvCf8hrGP){:target="_blank" rel="noreferrer nofollow"}, there are many people willing to help.
 
 
 ## Lovense Integration
 
-JoystickTV has native support for your [Lovense](https://www.lovense.com/) devices. These are interactive sex toys that will vibrate when someone send you a tip during your live streams. The strength and length of vibration is controlled by you through the Lovense toy settings, and these values correlate to a tip amount.
+JoystickTV has native support for your [Lovense](https://www.lovense.com/){:target="_blank" rel="noreferrer nofollow"} devices. These are interactive sex toys that will vibrate when someone sends you a tip during your live streams. The strength and length of vibration is controlled by you through the Lovense toy settings, and these values correlate to a tip amount.
 
 Add an extra level of interaction with your community during live streams by connecting your toy and encouraging users to tip!
 
-> You can also visit the [Lovense website guides](https://www.lovense.com/cam-model/guides/Video-Guides) for the most up-to-date information.
+> You can also visit the [Lovense website guides](https://www.lovense.com/cam-model/guides/Video-Guides){:target="_blank" rel="noreferrer nofollow"} for the most up-to-date information.
 
-### Overview
+{% capture Lovense_Overview_body %}
+There are several ways to integrate a Lovense device with Joystick. With multiple components involved, it can seem confusing at first. Here's a step-by-step overview of how it works:
 
-{% include _accordions/lovense_setup.html %}
+1. **Connecting Your Device:** Your Lovense toy connects via Bluetooth, either to your mobile phone using the LovenseConnect app, or directly to your PC using a [Bluetooth dongle adapter](https://www.amazon.com/LOVENSE-Lovense-USB-Bluetooth-Adapter/dp/B0711DTRR6){:target="_blank" rel="noreferrer nofollow"} with the Lovense Connect desktop app.
 
-There's a few ways you can integrate a Lovense device with Joystick, and with a lot of components, it can be a bit confusing. Here's a quick overview of how it works.
+1. **PC Lovense App:** Your PC needs to run a separate Lovense application (either Stream Master or the browser extension “Share Link”) to communicate with the Lovense servers.
 
-1. Your toy uses bluetooth to connect to your mobile phone using the Mobile LovenseConnect app, or to your PC directly using a [bluetooth dongle adapter](https://www.amazon.com/LOVENSE-Lovense-USB-Bluetooth-Adapter/dp/B0711DTRR6) and the desktop Lovense Connect app.
-1. Your PC has a separate Lovense app (either Stream Master, or a browser extension "Share Link") that communicates with the Lovense Servers.
-1. Your browser must be on the Joystick [Publisher Page](https://joystick.tv/publisher) which will detect the Lovense browser extension (from Stream Master or Share Link). When this is connected, there will be a box shown on the page like this
-![Lovense Device Connected](/assets/lovense-device-active-icon.png)
-1. Or you may see a sidebar pane window that looks like this
-![Lovense Device Connected](/assets/lovense-device-active-pane.png)
-1. When you are live and receive a tip, Joystick sends the token amount to the Lovense browser extension. This will send the info to the Lovense servers which then goes to your Lovense Connect app (on mobile or desktop).
+1. **Browser Detection:** Your browser must be on the Joystick [Publisher Page](https://joystick.tv/publisher){:target="_blank"}, where it will detect the Lovense browser extension (from Stream Master or Share Link). When successfully connected, you will see an indicator like this:
 
-### Setup using Stream Master
+{% include lazy_image.html src="/assets/png/lovense-device-active-icon.png" srcset="/assets/webp/lovense-device-active-icon.webp" caption="Lovense Device Connected" loading="lazy" %}
 
-[Lovense Stream Master](https://www.lovense.com/stream-master) is an AIO (all-in-one) software program that combines [OBS](https://obsproject.com/) and Google Chrome in to a single application complete with full lovense integration. Using this app means you have no need for a separate browser or streaming software, and all of the Lovense OBS overlays are already configured for you.
+1. **Sidebar Indicator:** Alternatively, you might see a sidebar pane confirming your device is connected:
 
-* Start by reading through these guides to install: [read more](https://www.lovense.com/cam-model/guides/Stream-Master/Basic-Tutorials/Step-By-Step-Tutorial)
-* Next you will need to add JoystickTV as a cam site. Click the "Add a cam site" button on Stream Master, and search for "Joystick".
-![Lovense Add a cam site](/assets/lovense-add-cam-site.png)
-* Lastly, you will need to setup your OBS connection which you can follow our previous guides above [read more](#lovense-stream-master)
+{% include lazy_image.html src="/assets/png/lovense-device-active-pane.png" srcset="/assets/webp/lovense-device-active-pane.webp" caption="Lovense Device Connected Sidebar" loading="lazy" %}
 
-At this point you should have everything connected
+1. **Live Interaction:** When live streaming, if a viewer sends you a tip, Joystick will transmit the tip amount to the Lovense browser extension. This information is sent to the Lovense servers, which then relays it to your Lovense Connect app (on mobile or desktop), triggering the toy.
+{% endcapture %}
 
-### Setup using a Chrome extension
 
-Visit the [Lovense Extension Settings](https://extension.lovense.com/share-link/pages/dashboard.html) site from a Chromium based browser. (Chrome, Brave, OperaGX, Edge).
+{% capture Lovense_StreamMaster_body %}
+[Lovense Stream Master](https://www.lovense.com/stream-master){:target="_blank" rel="noreferrer nofollow"} is an AIO (all-in-one) software program that combines [OBS](https://obsproject.com/){:target="_blank" rel="noreferrer nofollow"} and Google Chrome into a single application with full Lovense integration. Using this app means you don’t need a separate browser or streaming software, and all Lovense OBS overlays are preconfigured.
 
-> NOTE: If you visit this link from Firefox, or Safari, you'll see a blank page. Be sure to have Chrome or a Chromium based browser.
+- Start by reading through these guides to install: [read more](https://www.lovense.com/cam-model/guides/Stream-Master/Basic-Tutorials/Step-By-Step-Tutorial){:target="_blank" rel="noreferrer nofollow"}
+- Next, add JoystickTV as a cam site. Click the **“Add a cam site”** button on Stream Master, then search for **Joystick**.
 
-Once you have loggeed in to your Lovense account, you'll be prompted to install the "Share Link" extension. You can also find instructions on the [Lovense Cam Extension](https://www.lovense.com/cam-model/guides/Written-Guides/Installation-Guides/Lovense-Cam-Extension) Guides.
+{% include lazy_image.html src="/assets/png/lovense-add-cam-site.png" srcset="/assets/webp/lovense-add-cam-site.webp" caption="Lovense Add a cam site" loading="lazy" %}
+
+- Lastly, set up your OBS connection by following our previous guides above: [read more](#tab-lovense-stream-master)
+
+At this point, you should have everything connected.
+{% endcapture %}
+
+{% capture Lovense_ShareLink_body %}
+Visit the [Lovense Extension Settings](https://extension.lovense.com/share-link/pages/dashboard.html){:target="_blank" rel="noreferrer nofollow"} site from a Chromium-based browser (Chrome, Brave, OperaGX, Edge).
+
+> **NOTE:** If you visit this link from Firefox or Safari, you’ll see a blank page. Be sure to use Chrome or a Chromium-based browser.
+
+Once you have logged into your Lovense account, you'll be prompted to install the **“Share Link”** extension. You can also find instructions on the [Lovense Cam Extension](https://www.lovense.com/cam-model/guides/Written-Guides/Installation-Guides/Lovense-Cam-Extension){:target="_blank" rel="noreferrer nofollow"} guides.
+{% endcapture %}
+
+
+{% capture Lovense_Setup_accordion %}
+  {% include accordion.html id="lovense-overview" label="Overview" content=Lovense_Overview_body %}
+  {% include accordion.html id="lovense-setup-stream-master" label="Setup using Stream Master" content=Lovense_StreamMaster_body %}
+  {% include accordion.html id="lovense-share-link" label="Setup using a Chrome extension" content=Lovense_ShareLink_body %}
+{% endcapture %}
+
+{% include accordion_group.html content=Lovense_Setup_accordion %}
 
 ## Troubleshooting Lovense
 
@@ -484,26 +739,6 @@ If you're still seeing issues with the device connecting, here's a few tips you 
 * Ensure your toy battery is charged over 50%
 * If you're using the dongle, try using your phone
 * If you're using your phone, change the sleep settings to keep it on
-* Ensure your Stream Master or Share Link and the Lovense Connect apps are all full up-to-date
+* Ensure your Stream Master or Share Link and the Lovense Connect apps are all fully up-to-date
 
-After trying these, if you’re still having issues streaming, join our [Discord](https://discord.gg/zKvCf8hrGP), and let us know in the Support channel.
-
-{% capture test_content %}
-{% include accordion.html id="ffee" label="This is a test" content="
-blah
-
-blah
-
-`Sometimes code blocks appear?ffff`
-
-Hopefully they do `not` get parsed improperly
-
-* One
-* Two
-* Three
-* Four
-* Five
-" %}
-{% endcapture %}
-
-{% include accordion_group.html content=test_content %}
+After trying these, if you’re still having issues streaming, join our [Discord](https://discord.gg/zKvCf8hrGP){:rel="nofollow noreferrer" target="_blank"}, and let us know in the Support channel.
