@@ -39,10 +39,10 @@ tailwind.config = {
 
 window.onload = function() {
   const navToggleButton = document.getElementById('navToggleButton');
-  navToggleButton.addEventListener('click', toggleNavigation);
+  navToggleButton?.addEventListener('click', toggleNavigation);
 
   const themeToggleButton = document.getElementById('themeToggleButton');
-  themeToggleButton.addEventListener('click', toggleColorTheme);
+  themeToggleButton?.addEventListener('click', toggleColorTheme);
 
   const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
   darkModeMediaQuery.addEventListener('change', updateModeWithoutTransitions);
@@ -54,9 +54,10 @@ window.onload = function() {
 
   const modal = document.querySelector("div[role='dialog']");
 
-  document.querySelector("#modalbg").addEventListener('click', function(e) {
+  document.querySelector("#modalbg")?.addEventListener('click', function(e) {
     if (e.target === this) {
-      modal.classList.add('hidden');
+      if(modal != undefined)
+        modal.classList.add('hidden');
     }
   });
 
@@ -121,18 +122,18 @@ window.onload = function() {
   });
 
   function setColorTheme() {
-    const prefersDark = window.localStorage.darkTheme === 'true' || darkModeMediaQuery.matches;
+    const prefersDark = window.localStorage.getItem('darkTheme') === null ? darkModeMediaQuery.matches : window.localStorage.getItem('darkTheme') === 'true';
     if (prefersDark) {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
-    window.localStorage.setItem('darkTheme', prefersDark);
+    window.localStorage.setItem('darkTheme', prefersDark.toString());
   }
 
   function toggleColorTheme() {
     document.documentElement.classList.toggle('dark');
-    window.localStorage.setItem('darkTheme', window.localStorage.darkTheme !== 'true');
+    window.localStorage.setItem('darkTheme', (window.localStorage.getItem('darkTheme') !== 'true').toString());
   }
 
   function disableTransitionsTemporarily() {
@@ -152,10 +153,27 @@ window.onload = function() {
       child.classList.toggle('visible');
       child.classList.toggle('hidden');
     }
-    document.querySelector("[data-target='nav']").classList.toggle('hidden');
+    document.querySelector("[data-target='nav']")?.classList.toggle('hidden');
   }
 
   function openSearchModal() {
-    modal.classList.remove('hidden');
+    if(modal != undefined)
+      modal.classList.remove('hidden');
   }
 }
+
+function accordionAnchorJump() {
+  const a = window.location.hash;
+  if (a) {
+    const input = document.querySelector(a);
+    if (input instanceof HTMLInputElement && input.type === "checkbox") {
+      input.checked = true;
+      setTimeout(() => {
+        input.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+    }
+  }
+} 
+
+document.addEventListener("DOMContentLoaded", accordionAnchorJump);
+window.addEventListener("hashchange", accordionAnchorJump);

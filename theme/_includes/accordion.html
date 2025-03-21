@@ -1,0 +1,12 @@
+<input type="checkbox" id="tab-{{ include.id }}">
+<label
+  {% if include.lblid %}
+  id="{{ include.lblid }}"
+  {% endif %}
+  for="tab-{{ include.id }}"
+>
+  {{ include.label }}
+</label>
+<div class="tab-content">
+  {{ include.content | markdownify }}
+</div>
