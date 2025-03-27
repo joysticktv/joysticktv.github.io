@@ -80,7 +80,7 @@ Here are a few examples of other streaming software.
 * OBS - [https://obsproject.com/](https://obsproject.com/){:rel="nofollow noreferrer" target="_blank"}
 
 ## Connecting to joystick.tv
-Connecting to JoystickTV is pretty simple, your streaming software will ask for two pieces of information:
+Connecting to Joystick is pretty simple, your streaming software will ask for two pieces of information:
 * `Server URL`
 * `Stream Key`
 
@@ -90,11 +90,11 @@ You can find these in your [Stream Settings](https://joystick.tv/stream-settings
 
 1. While on your Stream Settings page, select the server closest to you from the **"Server Selection"** dropdown menu, and copy the `Server URL`.
 1. Open the settings for your streaming software. For OBS, go to the **"Stream"** tab under **"Settings"**.
-1. In your streaming software, search for **"JoystickTV"** in the service list.
-1. _(Optional)_ If you're in Europe/Asia, or JoystickTV is not listed, select **"Custom"** and enter the `Server URL` you copied earlier.
+1. In your streaming software, search for **"Joystick.TV"** in the service list.
+1. _(Optional)_ If you're in Europe/Asia, or Joystick.TV is not listed, select **"Custom"** and enter the `Server URL` you copied earlier.
 1. Next copy your `Stream Key` from your **Stream Settings** page.
 1. Paste this value into the **Stream Key** field in your software.
-> **Note:** JoystickTV has not yet been integrated into all streaming software. If you do not see us listed, use the **"Custom"** option.
+> **Note:** Joystick has not yet been integrated into all streaming software. If you do not see us listed, use the **"Custom"** option.
 
 That's it! You're now ready to go live and test your stream.
 You may need to change your default settings as some software assumes you want to stream
@@ -273,7 +273,7 @@ Streaming isn’t just about download speeds—**upload speed is key.**
 **Exceeding Maximum Allowed Bitrate (8500 Kbps)**
 
 Most streaming platforms **cap bitrate**.  
-For **Joystick.TV**, the limit is **8500 Kbps**.
+For **Joystick**, the limit is **8500 Kbps**.
 
 > Exceeding this will **cause dropped frames, stuttering, or forced bitrate reductions**.
 
@@ -388,7 +388,7 @@ This is the simplest way to start streaming from your PC.
 
 
 **Multistreaming Considerations**  
-These settings assume **you are only streaming to Joystick.TV**, for **multistreaming**, **increase your upload speed accordingly**.
+These settings assume **you are only streaming to Joystick**, for **multistreaming**, **increase your upload speed accordingly**.
 
 Example:
 - Streaming at **1080p@60** to **Joystick + 2 other platforms** requires **a minimum of 30 Mbps upload** (~8 Mbps per site).
@@ -396,7 +396,7 @@ Example:
 ## Mobile Streaming
 
 If you want to stream on the go — whether from your backyard, kitchen, or anywhere else — you’ll need a mobile streaming app. While OBS is available for desktops and laptops, there’s currently no official OBS app for iOS or Android.
-There are a few apps, but the main thing to look for is "Custom RTMP Stream". As long as the app can publish an RTMP stream, you can use it to stream to JoystickTV from your mobile device.
+There are a few apps, but the main thing to look for is "Custom RTMP Stream". As long as the app can publish an RTMP stream, you can use it to stream to Joystick from your mobile device.
 
 {% comment %}
   ---------
@@ -437,7 +437,7 @@ Find the menu button. This is located in the upper left corner, and may be a lit
 
 {% include lazy_image.html src="/assets/jpg/streamlabs-setup.jpg" srcset="/assets/webp/streamlabs-setup.webp" caption="Streamlabs Settings" loading="lazy" %}
 
-On the next screen, you're presented with several streaming services that have been pre-built into Streamlabs. Unfortunately, JoystickTV is not one of those.
+On the next screen, you're presented with several streaming services that have been pre-built into Streamlabs. Unfortunately, Joystick is not one of those.
 
 Find the **"Custom RTMP Server"** setup at the bottom of this list.
 
@@ -472,7 +472,7 @@ Unlike Streamlabs mobile, Larix doesn't require a separate input field for your 
 
 ## Multistreaming
 
-Multistreaming is when you stream to multiple sites at the same time. This is actually something that we encourage on joystick.tv as it is the best way to reach a wider audience. There are several programs that have the ability to do this, though each program also does have it's pros and cons.
+Multistreaming is when you stream to multiple sites at the same time. This is actually something that we encourage on Joystick as it is the best way to reach a wider audience. There are several programs that have the ability to do this, though each program also does have it's pros and cons.
 
 **Solutions:**
 {% capture OBS_MultiRTMP_body %}
@@ -723,7 +723,7 @@ Still having issues? Try Support Channel on [Discord](https://discord.gg/zKvCf8h
 
 ## Lovense Integration
 
-JoystickTV has native support for your [Lovense](https://www.lovense.com/){:target="_blank" rel="noreferrer nofollow"} devices. These are interactive sex toys that will vibrate when someone sends you a tip during your live streams. The strength and length of vibration is controlled by you through the Lovense toy settings, and these values correlate to a tip amount.
+Joystick has native support for your [Lovense](https://www.lovense.com/){:target="_blank" rel="noreferrer nofollow"} devices. These are interactive sex toys that will vibrate when someone sends you a tip during your live streams. The strength and length of vibration is controlled by you through the Lovense toy settings, and these values correlate to a tip amount.
 
 Add an extra level of interaction with your community during live streams by connecting your toy and encouraging users to tip!
 
@@ -752,7 +752,7 @@ There are several ways to integrate a Lovense device with Joystick. With multipl
 [Lovense Stream Master](https://www.lovense.com/stream-master){:target="_blank" rel="noreferrer nofollow"} is an AIO (all-in-one) software program that combines [OBS](https://obsproject.com/){:target="_blank" rel="noreferrer nofollow"} and Google Chrome into a single application with full Lovense integration. Using this app means you don’t need a separate browser or streaming software, and all Lovense OBS overlays are preconfigured.
 
 - Start by reading through these guides to install: [read more](https://www.lovense.com/cam-model/guides/Stream-Master/Basic-Tutorials/Step-By-Step-Tutorial){:target="_blank" rel="noreferrer nofollow"}
-- Next, add JoystickTV as a cam site. Click the **“Add a cam site”** button on Stream Master, then search for **Joystick**.
+- Next, add Joystick as a cam site. Click the **“Add a cam site”** button on Stream Master, then search for **Joystick**.
 
 {% include lazy_image.html src="/assets/png/lovense-add-cam-site.png" srcset="/assets/webp/lovense-add-cam-site.webp" caption="Lovense Add a cam site" loading="lazy" %}
 
