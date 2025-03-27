@@ -398,20 +398,6 @@ Example:
 If you want to stream on the go — whether from your backyard, kitchen, or anywhere else — you’ll need a mobile streaming app. While OBS is available for desktops and laptops, there’s currently no official OBS app for iOS or Android.
 There are a few apps, but the main thing to look for is "Custom RTMP Stream". As long as the app can publish an RTMP stream, you can use it to stream to Joystick from your mobile device.
 
-{% comment %}
-  ---------
-  In-browser streaming section.
-  ---------
-
-  Fairly simple to deploy, with face cam, or even a virtual cam setup.
-
-  -> x264? h264? (CPU dropped the mostest, but GPU dropped 10% given that it's stronger it might be HW Accell)
-
- Super simple to, go live on both desktop and mobile.
-
-TODO BEFORE DELETE: Continuity of TLD and FQDN
-TLD should always ben lowercase, FQDN should either be capitalized or lowercase.
-{% endcomment %}
 
 {% capture Mobile_Browser_Streaming_body %}
 If you don’t want to use a mobile app, you can go live directly from your browser — no downloads needed.
@@ -518,11 +504,7 @@ OBS supports **multi-RTMP streaming**, allowing you to broadcast to multiple pla
 * Only the main scene is sent to all platforms.
 {% endcapture %}
 
-{% comment %}
-  ---------
-  Update link to suggest in discord instead of github issues.
-  ---------
-{% endcomment %}
+
 {% capture Cloud_Multistream_body %}
 Cloud multistreaming services handle **encoding and distribution** on external servers, allowing you to stream to multiple platforms **without extra bandwidth usage** on your end.
 
