@@ -6,7 +6,7 @@ title: Live Streaming
 type: "guide"
 subsections:
   - getting-started
-  - required-software
+  - streaming-software
   - connecting-to-joysticktv
   - streaming-setup-guides
   - mobile-streaming
@@ -24,7 +24,7 @@ redirect_from:
 
 ### Creating an Account
 
-1. Sign up for an account on joystick.tv.
+1. Sign up for an account on [joystick.tv](joystick.tv){:target="_blank"}.
 1. Check for the confirmation email we sent you. (You may need to search your email for "joystick". Some emails end up in boxes other than inbox/spam/junk, etc...)
 1. Log in and you’re ready to explore.
 
@@ -61,15 +61,15 @@ The government issued ID _must_ include a birthdate, photo of your face, and exp
 * ID _must be valid_ and **not** expired.
 * Passports should have the inside taken for the "Front", and outside for "Back".
 
-## Required Software
+## Streaming Software
 
-In order to start streaming, you'll need to install streaming
-software on your device. The streaming software will allow you
-to customize what you stream, and how your stream looks when people
-watch your live streams.
+For the best streaming experience, we recommend using dedicated streaming software.  
+However, you can stream directly from your [desktop browser](#tab-desktop-browser-streaming), or [mobile browser](#tab-mobile-browser-streaming) with fewer steps.
 
-We recommend using [OBS](https://obsproject.com/){:rel="nofollow noreferrer" target="_blank"}; however, you
-may use any streaming software that allows you to stream RTMP.
+Streaming software gives you full control over your broadcast - letting you customize what's
+shown on screen, such as multiple video sources, overlays, managing audio sources, and more.
+
+We recommend using [OBS](https://obsproject.com/){:rel="nofollow noreferrer" target="_blank"}; however, you may use any streaming software that allows you to stream RTMP.
 
 Here are a few examples of other streaming software.
 
@@ -120,9 +120,7 @@ try some more advanced settings for even better performance.
 1. Choose the **server region nearest to your location**.
 1. Your **stream key** is located in your [Joystick Stream Settings](https://joystick.tv/stream-settings){:target="_blank"}.
 
-{% include lazy_image.html src="/assets/png/obs-setup-stream-service.png" srcset="/assets/webp/obs-setup-stream-service.webp" caption="OBS Service Setup" loading="lazy" %}
-
-> **Note:** If you see "RTMP" for Server, you're Joystick's **older North American server**. To use another server, select **"Custom"** from the Service list and enter the **Server URL** from your Joystick Stream Settings page.
+{% include lazy_image.html src="/assets/png/obs-setup-stream-service.png" srcset="/assets/webp/obs-setup-stream-service.webp" caption="OBS Server Selection" loading="lazy" %}
 
 ---
 
@@ -361,10 +359,29 @@ To check for jitter:
 **Join our [Discord](https://discord.gg/zKvCf8hrGP){:rel="nofollow noreferrer" target="_blank"} there are plenty of knowledgeable people that can give recommendations.**
 {% endcapture %}
 
+
+{% capture Desktop_Streaming_body %}
+If you don’t want to setup software right away, you can go live directly from your browser — no downloads needed.
+
+**On Desktop:** 
+
+1. Go to your [Publisher View](https://joystick.tv/publisher){:target="_blank"}.
+1. Click the button **Use Your Webcam**.
+1. if your browser asks for permission to use your Webcam and Microphone, select **allow**.
+1. You'll see a **live preview** — you are **not live just yet**.
+1. Once everything looks good, click the **Play button (▶)** to start your stream.
+
+> Note: You can also screenshare by clicking the **Monitor** icon.
+
+This is the simplest way to start streaming from your PC.
+{% endcapture %}
+
+
 {% capture OBS_Setup_Accordions %}
   {% include accordion.html id="obs-basic-setup" label="OBS Basic Setup (Recommended)" content=OBS_Basic_Setup_body %}
   {% include accordion.html id="obs-custom-setup" label="OBS Custom Setup (Advanced)" content=OBS_Custom_Setup_body %}
   {% include accordion.html id="optimize" label="Streaming Guide & Tips" content=Streaming_Optimization_body %}
+  {% include accordion.html id="desktop-browser-streaming" lblid="desktop-browser-streaming" label="Stream From Browser" content=Desktop_Streaming_body %}
 {% endcapture %}
 
 {% include accordion_group.html content=OBS_Setup_Accordions %}
@@ -381,6 +398,35 @@ Example:
 If you want to stream on the go — whether from your backyard, kitchen, or anywhere else — you’ll need a mobile streaming app. While OBS is available for desktops and laptops, there’s currently no official OBS app for iOS or Android.
 There are a few apps, but the main thing to look for is "Custom RTMP Stream". As long as the app can publish an RTMP stream, you can use it to stream to JoystickTV from your mobile device.
 
+{% comment %}
+  ---------
+  In-browser streaming section.
+  ---------
+
+  Fairly simple to deploy, with face cam, or even a virtual cam setup.
+
+  -> x264? h264? (CPU dropped the mostest, but GPU dropped 10% given that it's stronger it might be HW Accell)
+
+ Super simple to, go live on both desktop and mobile.
+
+TODO BEFORE DELETE: Continuity of TLD and FQDN
+TLD should always ben lowercase, FQDN should either be capitalized or lowercase.
+{% endcomment %}
+
+{% capture Mobile_Browser_Streaming_body %}
+If you don’t want to use a mobile app, you can go live directly from your browser — no downloads needed.
+
+**On mobile:**
+
+1. Go to [Joystick.tv](https://joystick.tv){:target="_blank"}, make sure you're signed in.
+1. At the buttom of the screen tap the **Plus Sign** (`(+)`) button.
+1. Select **“Start Streaming.”**
+1. If your phone asks for permission to use your **camera** and **microphone**, tap **“Allow.”**
+1. You'll see a **live preview** — you are **not live just yet**.
+1. Once everything looks good, tap the **Play button (▶)** to start your stream.
+
+This is the **simplest way to start streaming from your phone**, especially if you're on the go or just want a quick setup.
+{% endcapture %}
 
 {% capture Streamlabs_Mobile_body %}
 Streamslabs has a desktop app that you may already be familiar with. You can download this app from your app store, then once installed, follow these steps.
@@ -419,6 +465,7 @@ Unlike Streamlabs mobile, Larix doesn't require a separate input field for your 
 {% capture mobile_streaming %}
   {% include accordion.html id="mslabs" label="Streamlabs Mobile" content=Streamlabs_Mobile_body %}
   {% include accordion.html id="mlarix" label="Larix Broadcaster" content=Larix_Broadcaster_body %}
+  {% include accordion.html id="mobile-browser-streaming" lblid="mobile-browser-streaming" label="Stream From Your Browser" content=Mobile_Browser_Streaming_body %}
 {% endcapture %}
 
 {% include accordion_group.html content=mobile_streaming %}
@@ -450,7 +497,7 @@ OBS supports **multi-RTMP streaming**, allowing you to broadcast to multiple pla
 
 
 {% capture Aitum_Multistream_body %}
-[Aitum Multistream](https://github.com/Aitum/obs-aitum-multistream){:rel="noopener nofollow noreferrer" target="_blank"} is a **simpler alternative** to multi-RTMP in OBS, offering an **easier UI** for managing multiple stream outputs.
+[Aitum Multistream](https://github.com/Aitum/obs-aitum-multistream){:rel="nofollow noreferrer" target="_blank"} is a **simpler alternative** to multi-RTMP in OBS, offering an **easier UI** for managing multiple stream outputs.
 
 ### **How to Set Up Aitum Multistream**
 1. Download the latest release and install [Aitum Multistream](https://github.com/Aitum/obs-aitum-multistream){:rel="nofollow noreferrer" target="_blank"}.
@@ -471,12 +518,16 @@ OBS supports **multi-RTMP streaming**, allowing you to broadcast to multiple pla
 * Only the main scene is sent to all platforms.
 {% endcapture %}
 
-
+{% comment %}
+  ---------
+  Update link to suggest in discord instead of github issues.
+  ---------
+{% endcomment %}
 {% capture Cloud_Multistream_body %}
 Cloud multistreaming services handle **encoding and distribution** on external servers, allowing you to stream to multiple platforms **without extra bandwidth usage** on your end.
 
 ### **Reputable Cloud Multistream Services**
-🚧 **Note:** Most mainstream multistreaming services prohibit adult content, as payment processors and financial institutions classify it as "high risk." If you know of any services that allow it, feel free to suggest them [here](https://github.com/joysticktv/joysticktv.github.io/issues){:target="_blank"}.
+🚧 **Note:** Most mainstream multistreaming services prohibit adult content, as payment processors and financial institutions classify it as "high risk." If you know of any services that allow it, feel free to suggest them in our [discord](https://discord.gg/zKvCf8hrGP){:target="_blank" rel="nofollow noreferrer"} under **suggestions**.
 
 * **[Streamster](https://streamster.io/products/cloud-based-multistreaming/){:rel="nofollow noreferrer" target="_blank"}** – A straightforward cloud-based solution with a free plan, but some features require a paid subscription.
 
@@ -655,9 +706,6 @@ To troubleshoot:
 If you're behind a strict ISP firewall, a **VPN** or **contacting your ISP** may be necessary.
 {% endcapture %}
 
-{% comment %}
-  creating the accordion group, then passing it to accordion_group.html
-{% endcomment %}
 
 {% capture troubleshooting_stream %}
   {% include accordion.html id="speedtest" label="Speedtest" content=Speedtest_body %}
