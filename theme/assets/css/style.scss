@@ -78,7 +78,7 @@ main article {
     li {
       &:before {
         content: '\2014';
-        margin-right: 2px;
+        margin-right: 6px;
         font-weight: 400;
       }
     }
@@ -152,6 +152,130 @@ html.dark {
     background-color: rgba(9, 171, 171, 0.36);
     color: #e9e9ea;
   }
+}
+
+
+/* Responsive Accordions / Tabs */
+.responsive-tabs {
+  margin: 1rem 0 2rem 0;
+  overflow: hidden;
+}
+
+.responsive-tabs input[type="checkbox"] {
+  position: relative;
+  z-index: -1;
+  width: 1px;
+  height: 0px;
+  opacity: 0;
+}
+
+.responsive-tabs label {
+  display: flex;
+  background: transparent;
+  padding: 0.75rem 1.4rem;
+  cursor: pointer;
+  border-bottom: 1px solid #10b77f;
+  position: relative;
+  user-select: none;
+  margin-bottom: 1rem;
+}
+
+.responsive-tabs label:hover {
+  background: #10ae7a96;
+}
+
+/* Expansion indicator v32
+  https://stackoverflow.com/a/34626007
+*/
+.responsive-tabs label::before,
+.responsive-tabs label::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  width: 14px;
+  height: 4px;
+  margin-top: -2px;
+  background-color: #10b77f;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+/* Horizontal line */
+.responsive-tabs label::before {
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  opacity: 1;
+}
+
+/* Vertical line */
+.responsive-tabs label::after {
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+.responsive-tabs input[type="checkbox"]:checked + label::after {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  opacity: 0;
+}
+
+.responsive-tabs input[type="checkbox"]:checked + label {
+  border: none;
+}
+
+.responsive-tabs .tab-content {
+  max-height: 0;
+  opacity: 0;
+  border: 1px solid #10b77f;
+  border-bottom: 1px solid #10b77f;
+  overflow: hidden;
+  transition: max-height 200ms ease-out,opacity 150ms ease-out,padding 150ms ease-out;
+  padding: 0 1.3rem 0 1.3rem;
+  overflow-x:auto;
+}
+
+.tab-content figure {
+  margin-bottom: 1.5rem;
+}
+
+.responsive-tabs input[type="checkbox"]:checked + label + .tab-content {
+  max-height: 100%;
+  opacity: 1;
+  padding: 1rem 1.3rem 1rem 1.3rem;
+}
+
+@media (min-width: 1280px) {
+  .responsive-tabs {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .responsive-tabs > input,
+  .responsive-tabs > label {
+    display: inline-block;
+  }
+  .responsive-tabs label {
+    margin: 0;
+  }
+
+  .responsive-tabs input[type="checkbox"]:checked + label + .tab-content {
+    max-height: none;
+    opacity: 1;
+  }
+}
+/* END RESPONSIVE ACCORDION */
+
+/* Anchor offset. */
+[id] {
+  scroll-margin-top: 4.20rem;
 }
 
 @media only screen
