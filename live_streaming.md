@@ -24,7 +24,7 @@ redirect_from:
 
 ### Creating an Account
 
-1. Sign up for an account on [joystick.tv](joystick.tv){:target="_blank"}.
+1. Sign up for an account on [joystick.tv](https://joystick.tv){:target="_blank"}.
 1. Check for the confirmation email we sent you. (You may need to search your email for "joystick". Some emails end up in boxes other than inbox/spam/junk, etc...)
 1. Log in and you’re ready to explore.
 
