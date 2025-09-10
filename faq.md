@@ -13,6 +13,9 @@ Nope! Stream whatever you’re comfortable with. If anyone in your chat asks you
 ## Are VTubers allowed?
 Definitely. We have many VTubers that stream on Joystick. Feel free to ask them in our Discord about their own experience.
 
+## As a VTuber can I have other VTuber friends on my stream?
+Yes! As long as their IRL face/body is not shown on screen, and you can validate they are over 18 years old, they can be on stream with you.
+
 ## Do I have to stream games?
 No. Even though we like to focus on gaming, if you just want to knit, paint, do wood working, workout, or whatever, we’re all here for it. Just have fun!
 
