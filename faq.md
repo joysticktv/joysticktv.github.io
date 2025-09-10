@@ -8,25 +8,27 @@ title: Frequently Asked Questions
 # Frequently Asked Questions
 
 ## Do I have to stream NSFW content?
-Nope! Stream whatever you’re comfortable with. If anyone in your chat asks you to do anything you’re not comfortable with, please notify us immediately.
-
-## Are VTubers allowed?
-Definitely. We have many VTubers that stream on Joystick. Feel free to ask them in our Discord about their own experience.
-
-## As a VTuber can I have other VTuber friends on my stream?
-Yes! As long as their IRL face/body is not shown on screen, and you can validate they are over 18 years old, they can be on stream with you.
+No. Stream whatever you’re comfortable with. If anyone in your chat asks you to do anything you’re not comfortable with, please notify us immediately.
 
 ## Do I have to stream games?
 No. Even though we like to focus on gaming, if you just want to knit, paint, do wood working, workout, or whatever, we’re all here for it. Just have fun!
 
-## Can I have my partner on stream with me?
-Yes, however, they must be approved on your account before they can appear on stream. Go to your stream settings page and add a new Stream Approval with their information.
+## Do I have to be on camera / have my voice heard?
+No. If you feel more comfortable with the camera / microphone turned off, or you're just having that kind of day, that's perfectly fine. However, you must be active in chat at the very least to let people know you are actually there on stream.
 
-If they're already an approved streamer, you can invite them to appear on stream through
-streamer invitations on your stream settings page.
+## Are VTubers / VR Chatters allowed?
+Definitely. We have many VTubers and Avatar based streamers on Joystick. Feel free to ask them in our Discord about their own experience.
+
+## As a VTuber / VR Chatter, can I have others on my stream?
+Yes! As long as their physical face/body are not shown on camera and you can validate they are over 18 years old, they can be on stream with you.
+
+## Can I have my partner / roomate, etc... on stream with me?
+Yes. If their physical IRL face/body is shown on camera at any time, then they must be approved on your account before they can appear on stream. Go to your stream settings page and add a new Stream Approval with their information.
+
+If they're already an approved streamer, you can invite them to appear on stream through streamer invitations on your stream settings page.
 
 ## I want to play a game with friends. Can their voices be on my stream?
-As long as you know they are all over the age of 18, and do not show their faces/body, it’s ok.
+As long as you know they are all over the age of 18, and their physical IRL bodies or faces are not shown, it is okay to have them voice-only or with non-irl icons / characters on stream.
 
 ## Can I stream to other sites?
 Yes! Multi streaming is awesome. There’s several options, from OBS extensions, to 3rd party services that do this.
