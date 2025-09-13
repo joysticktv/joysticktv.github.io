@@ -66,7 +66,7 @@ We have several chat commands to make your viewing experience even that more fun
 
 ## Buying Tokens
 
-You can purchase tokens at any time. When you tip a streamer, you are spending your tokens. The streamer earns 80% from these tips.
+You can purchase tokens at any time. When you tip a streamer, you are spending your tokens. The streamer then earns cash from these tokens.
 
 To purchase tokens, you can use
 
@@ -76,10 +76,12 @@ To purchase tokens, you can use
 
 The higher token packages will have discounted rates for the number of tokens you are purchasing. If you want to really show your support, you can choose the "Super Supporter" packages. These cost a little more, but guarantee that the streamer earns the most value for the tokens you are purchasing.
 
+> The streamer's earnings may vary depending on the plan they choose when signing up.
+
 ## Tipping
 
 Tipping tokens is how you can show support and appreciation to the streamers. When you
-tip a streamer, they earn 80% of the value of the tokens. Purchase tokens as a super
+tip a streamer, they earn money instantly. Purchase tokens as a super
 supporter to maximize the value of your tokens.
 
 ### Live Stream Tip Options
