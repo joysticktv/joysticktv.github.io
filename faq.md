@@ -64,3 +64,6 @@ As a site focused around video games, you can look at being featured as an achie
 
 ## Does Joystick have any "new" tag for new streamers?
 Yes! Once your application is approved, we will add you to our "New" streamers section for 30 days; however, you must complete your profile to 100% before being displayed, so make sure to get your profile setup right away.
+
+## Are sleep streams or erotic hypnosis allowed?
+Unfortunately, no. You must be awake and aware during all live streams and uploaded content.
