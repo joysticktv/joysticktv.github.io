@@ -562,6 +562,7 @@ Returns:
   "photo_url": "https://joystick.tv/face.png",
   "live": true,
   "number_of_followers": 1234,
+  "channel_id": "abc123"
 }
 ```
 
@@ -596,6 +597,7 @@ Returns:
   "photo_url": "https://joystick.tv/face.png",
   "live": true,
   "number_of_followers": 1234,
+  "channel_id": "abc123"
 }
 ```
 
