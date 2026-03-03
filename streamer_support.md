@@ -53,8 +53,7 @@ Each token tipped is worth **5.5¢** USD. From tips during live streams, to purc
 As a streamer, you can set your subscription price starting at $3.99. With the Fixed-Rate plan,
 you will always earn **80%**. This also includes subscriptions gifted to you by the community.
 
-As a new user, all funds earned will be held for 30 days before they are available. After 90 days,
-and 3 payouts, you will be able to drop down to 15 days for your payment hold.
+All funds earned will be held for 15 days before they are available. Funds become available starting at midnight UTC on the 15th day.
 
 ### Variable-Rate Plan
 
@@ -66,15 +65,12 @@ or if the user signed up using another streamer's [affiliate link](/affiliate_su
 Your subscription value also may vary depending on a few factors. This is generally 80%, but
 may go up or down based on the user signing up under another streamer's [affiliate link](/affiliate_support), or another streamer using their joystick wallet.
 
-As a new user, all funds earned will be held for 30 days before they are available. After 90 days,
-and 3 payouts, you will be able to drop down to 15 days for your payment hold.
+All funds earned will be held for 15 days before they are available. Funds become available starting at midnight UTC on the 15th day.
 
 ## Payouts
 
-Payouts can be requested once you have earned the minimum withdrawal amount in available funds. All funds received are considered "pending" for up-to 30 days from the day you receive the money. The timeframe will depend on your
-payout maturity hold which may be adjusted after 90 days with a well established account.
-
-You can think of your earnings like a sliding window. If you receive $1 on July 1st, that $1 will be available to you on July 31st. We do this in order to help protect us and you from fraud.
+Payouts can be requested once you have earned the minimum withdrawal amount in available funds. All funds received are considered "pending" for up-to 15 days from the day you receive the money.
+You can think of your earnings like a sliding window. If you receive $1 on July 1st, that $1 will be available to you on July 15th. If you earn $1 on July 2nd, that will be available to you on July 16th, and so on. We do this in order to help protect us and you from fraud.
 
 *Payout Options*
 * **Check** ($50 min / $2 fee)
@@ -92,15 +88,8 @@ Your payout breakdown is available from the menu, under payouts.
 
 ### Payment Holds
 
-As a new user, your account will hold all funds received for 30 days. Each token tip and subscription you earn will
-become available right at 00:00 UTC on the 30th day after the money was received.
-
-After you have requested at least 3 payouts, and your account has been active for over 90 days, we will
-consider your account "well established" and drop your payment hold to 15 days. Funds received before the
-change will stay on their 30 day hold, but funds received after will now be held for only 15 days.
-
-> Should there ever be a need for us to increase your payment hold, we will first discuss the matter
-> directly with you before making any changes.
+All funds received are held for 15 days before they become available to you. Each token tip and subscription you earn will
+become available right at 00:00 UTC on the 15th day after the money was received.
 
 ### Receiving Payout
 
