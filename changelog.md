@@ -145,7 +145,7 @@ This will include mentions of new features, and describe the changes to existing
 
 ## Publisher Page
 
-* UPDATE: Web browser publisher works from the main publisher page (Coming soon)
+* UPDATE: Web browser publisher works from the main publisher page
 * UPDATE: Lovense toys are no longer "automatic". They must be enabled by the "Toy Status". Toggle status instead of a "hard refresh" for fixes.
 * NEW: Filter options for Stream events
 * NEW: Publisher now includes both a "Start" and "Stop" stream button for use when the site is out of sync with OBS
