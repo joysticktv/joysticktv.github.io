@@ -106,7 +106,7 @@ After the user has authorized the bot, and is redirected back to your applicatio
 Your application will send an HTTP POST request to the joystick token endpoint.
 
 ```txt
-https://joystick.tv/api/oauth/token
+https://api.joystick.tv/api/oauth/token
 ```
 
 You will need to pass the following query params
@@ -130,7 +130,7 @@ curl -XPOST \
   -H "Authorization: Basic YOUR_BASIC_KEY" \
   -H "Content-Type: application/x-www-form-urlencoded" \
   -H "Accept: application/json" \
-  "https://joystick.tv/api/oauth/token?redirect_uri=unused&code=YOUR_OAUTH_CODE&grant_type=authorization_code"
+  "https://api.joystick.tv/api/oauth/token?redirect_uri=unused&code=YOUR_OAUTH_CODE&grant_type=authorization_code"
 ```
 
 Returns:
@@ -151,7 +151,7 @@ The `access_token` has a limit access time, and is sure to expire. Once expired,
 Your application will send an HTTP POST request to the joystick token endpoint.
 
 ```txt
-https://joystick.tv/api/oauth/token
+https://api.joystick.tv/api/oauth/token
 ```
 
 You will need to pass the following query params
@@ -174,7 +174,7 @@ curl -XPOST \
   -H "Authorization: Basic YOUR_BASIC_KEY" \
   -H "Content-Type: application/x-www-form-urlencoded" \
   -H "Accept: application/json" \
-  "https://joystick.tv/api/oauth/token?refresh_token=YOUR_REFRESH_TOKEN&grant_type=refresh_token"
+  "https://api.joystick.tv/api/oauth/token?refresh_token=YOUR_REFRESH_TOKEN&grant_type=refresh_token"
 ```
 
 Returns:
@@ -193,7 +193,7 @@ Returns:
 Your bot's access token will be different from the user's access token. The bot will use the same basic auth key
 to connect as you send in the `Authorization` header from previous calls. (e.g. `Base64.encode("id:secret")`)
 
-Create a new WebSocket object using the URL `wss://joystick.tv/cable?token=YOUR_BASIC_KEY`, and protocol `actioncable-v1-json`.
+Create a new WebSocket object using the URL `wss://api.joystick.tv/cable?token=YOUR_BASIC_KEY`, and protocol `actioncable-v1-json`.
 
 This connection should only be made once for your application. All streamers that install your bot will send messages
 over the same websocket connection with different identifiers.
@@ -547,7 +547,7 @@ Example (Where `JWT` is the token you got from authorization):
 curl -XGET \
   -H "Authorization: Bearer JWT" \
   -H "Content-Type: application/json" \
-  "https://joystick.tv/api/users/stream-settings"
+  "https://api.joystick.tv/api/users/stream-settings"
 ```
 
 Returns:
@@ -581,7 +581,7 @@ Example:
 curl -XPATCH \
   -H "Authorization: Bearer JWT" \
   -H "Content-Type: application/json" \
-  "https://joystick.tv/api/users/stream-settings" \
+  "https://api.joystick.tv/api/users/stream-settings" \
   -d '{"streamer": {"stream_title": "New Title", "chat_welcome_message": "Hey everyone", "banned_chat_words": ["new phrase or word"]}}'
 ```
 
@@ -615,7 +615,7 @@ Example (Where `JWT` is the token you got from authorization):
 curl -XGET \
   -H "Authorization: Bearer JWT" \
   -H "Content-Type: application/json" \
-  "https://joystick.tv/api/users/subscriptions?page=2&per_page=10"
+  "https://api.joystick.tv/api/users/subscriptions?page=2&per_page=10"
 ```
 
 Returns:
@@ -652,7 +652,7 @@ We have a special API endpoint you can use for testing.
 Your application will send an HTTP POST request to the joystick token endpoint.
 
 ```txt
-https://joystick.tv/echo
+https://api.joystick.tv/echo
 ```
 
 You will need to pass the following headers
@@ -666,7 +666,7 @@ Example:
 curl -XPOST \
   -H "Authorization: Basic NTliC001BRMUozcGhuMWJNZVE=" \
   -H "Content-Type: application/json" \
-  "https://joystick.tv/echo" \
+  "https://api.joystick.tv/echo" \
   -d '{"sample": {"event": "SendMessage", "data": "!join"}}'
 ```
 
