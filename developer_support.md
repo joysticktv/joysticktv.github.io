@@ -204,6 +204,8 @@ over the same websocket connection with different identifiers.
 
 Once the connection has been opened, you will send a `subscribe` message. This is a JSON formatted object.
 
+> NOTE: Key names will always start with a lowercase letter, and the value for `command` will always be lowercase.
+
 ```json
 {
   "command": "subscribe",
