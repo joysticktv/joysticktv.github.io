@@ -7,6 +7,9 @@ title: Frequently Asked Questions
 
 # Frequently Asked Questions
 
+For more information on what is or isn't allowed on the site, you can read through our [Community Guidelines](https://joystick.tv/community-guidelines) and [Terms & Conditions](https://joystick.tv/terms).
+If you're still unsure, you can email support or ask in our Discord directly.
+
 ## Do I have to stream NSFW content?
 No. Stream whatever you’re comfortable with. If anyone in your chat asks you to do anything you’re not comfortable with, please notify us immediately.
 
