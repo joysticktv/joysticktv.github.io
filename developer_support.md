@@ -6,13 +6,16 @@ title: Developer Support
 type: "guide"
 subsections:
   - overview
-  - public-vs-private-bots
-  - permissions
-  - installing-bot-api
-  - fetching-access_token-api
-  - fetching-refresh_token-api
+  - clients-public-vs-confidential
+  - scopes
+  - authorizing-your-bot
+  - refreshing-the-access-token
+  - inspecting-a-token
+  - revoking-access
   - connecting-the-bot
-  - rest-api-endpoints
+  - receiving-events
+  - sending-actions
+  - rest-api
   - testing-your-bot
   - example-bots
 ---
@@ -20,730 +23,461 @@ subsections:
 # Developer Support
 
 ## Overview
-The chat API uses the Rails [Actioncable](https://guides.rubyonrails.org/action_cable_overview.html) protocol, and all data is transmitted over Websockets or uses the REST API for certain endpoints. We use OAuth2 for estabishing authorization.
 
-Here's a general flow of how the install and setup process works:
+The Joystick bot API lets a third‑party application act on a streamer's behalf — reading and sending chat, reacting to stream events, and moderating — once that streamer has authorized it. Authorization uses **OAuth 2.0**; realtime traffic flows over a **WebSocket gateway** (the Rails [ActionCable](https://guides.rubyonrails.org/action_cable_overview.html) protocol), and a **REST API** covers everything that isn't realtime.
 
-### Creating a bot application
+Every integration is the same shape: a **bot** (your registered OAuth application) plus a **bot installation** (one streamer's grant to your bot). One streamer installing your bot creates one installation; your app holds a token per installation and acts within the scopes that streamer granted.
 
-As a bot developer...
+**Host:** all API calls go to **`api.joystick.tv`** — the OAuth token endpoints, the REST API, and the WebSocket gateway. The one exception is the **consent screen**, which lives on the main site at **`https://joystick.tv/api/oauth/authorize`** (that's the page the streamer sees and approves).
 
-1. You will go to joystick.tv and visit the bots application section
-1. Select to create a new bot application and fill in the details
-1. You will be given OAuth2 credentials for your bot to use in your code
-1. You can decide if your bot is private (can only be installed by you), or public (can be installed by any streamer)
+Here's the flow end to end:
 
-### Installing the bot application
+**As a bot developer:**
 
-As a streamer...
+1. Create a bot application at [joystick.tv](https://joystick.tv) and choose whether it's a **confidential** or **public** client (see below).
+2. You receive OAuth credentials — a **Client ID** (and, for confidential clients, a **Client Secret**).
 
-1. User goes to your bot application and requests to install
-1. Your bot application redirects the user to joystick.tv to grant permission
-1. The user authorizes the install given the permissions you've set and is redirected back to your bot application.
-1. Your bot application is given an "authorization_code" which your bot application will use to obtain an `access_token`.
-1. Your bot application is now installed on the user's account.
-1. Future API endpoints will use the `access_token` for requesting information from the user's account.
+**As a streamer installing a bot:**
 
-## Public vs Private bots
+1. The bot sends you to the Joystick consent screen listing the permissions it's requesting.
+2. You approve, and Joystick redirects back to the bot with a short‑lived **authorization code**.
+3. The bot exchanges that code for an **access token** (and a **refresh token**).
+4. The bot uses the access token to connect to the gateway and call the REST API on your behalf.
 
-Bots can be either public or private. The difference is that all bots are "private" by default.
-This means that only the creator can install this bot, and it is not viewable or searachable by
-anyone else.
+## Clients: public vs confidential
 
-A Public bot will appear in our bot marketplace allowing all streamers to install your bot. In order to have a public bot, you'll need to provide additional information about your application.
+When you create a bot you choose a **client type**. This is separate from whether your bot is listed in the marketplace (see [Public vs private bots](#public-vs-private-bots) at the end) — it determines **how your bot authenticates**.
 
-* Website - A link to your public website that details what this bot does and how to configure it
-* Terms of Service - A link to your bot's TOS allowing users that install it to know what you expect of them as they use it
-* Privacy Policy - A link to your bot's policy on how you use their data.
+| | Confidential client | Public client |
+|---|---|---|
+| Who | Server‑side bots that can keep a secret | Desktop / installed apps (e.g. Streamer.bot) that can't hide a secret |
+| Auth | **Client Secret** (HTTP Basic) | **PKCE** (RFC&nbsp;7636) — no secret |
+| Redirect URI | Exact match | Exact match, **or** a loopback (`http://127.0.0.1/…` / `http://localhost/…`) with **any port** (RFC&nbsp;8252) |
+| Access token lifetime | 10 days | 4 hours |
 
-Bots that become more popular may require additional verification by JoystickTV staff to ensure proper use.
+Refresh tokens last **30 days** for both and rotate on each use (see [Refreshing](#refreshing-the-access-token)).
 
-## Permissions
+If you're building a desktop app, you want a **public client**: you can't ship a secret in a binary, so you use PKCE and register a loopback redirect like `http://127.0.0.1/callback`. Joystick will accept that callback on whatever local port your app happens to bind.
 
-Bot applications can request several different permissions from the streamers. A streamer may choose to not install a bot based on the permissions you've requested. Once your bot is created, you cannot change your permissions. If you do need to change your permissions, you'll need to delete your current bot, and/or create a new one.
+## Scopes
 
-* SendMessage - Allows the bot to send a public chat message to the chat.
-* SendWhisper - Allows the bot to send a private chat message to a specific user.
-* ReadMessages - Allows the bot to receive all chat messages.
-* DeleteMessage - Allows the bot to delete a specific chat message.
-* BlockUser - Allows the bot to block another user from that streamer's chat. The bot CANNOT block the streamer
-* MuteUser - Allows the bot to mute another user on that streamer's chat. The bot CANNOT mute the streamer
-* ReceiveStreamEvents - Sends all stream events to the bot. (e.g. `Tipped`, `TipGoalMet`, `SubscriberOnlyStarted`, `StreamDroppedIn`, `GiftedSubscriptions`, `DeviceConnected`, `WheelSpinClaimed`, etc...)
-* ViewUserPresence  - Tells the bot when a user has entered or left the chat
-* ManageStreamerSettings - Read and Update certain streamer settings. (See the REST API below for more info.)
+A bot requests **scopes** — the specific things it wants to do. The streamer sees these on the consent screen and can decline any bot whose scopes they're not comfortable with. Some scopes are **sensitive** and are highlighted for the streamer.
 
-> More permissions may be added later as the API is expanded
+| Scope | Grants | Sensitive |
+|---|---|:---:|
+| `identity:read` | Read the streamer's profile (username, display name, avatar, ID) | |
+| `stream:read` | Read public stream state and receive stream events | |
+| `chat:read` | Receive chat messages | |
+| `chat:write` | Send chat messages | |
+| `followers:read` | List the streamer's followers (usernames only) | |
+| `moderators:read` | List the streamer's moderators (usernames only) | |
+| `subscribers:read` | List the streamer's subscribers (usernames only) | ⚠️ |
+| `chat:whisper:write` | Send whispers as the streamer | ⚠️ |
+| `chat:moderate` | Delete messages, ban, and time out users | ⚠️ |
+| `moderators:manage` | Add and remove the streamer's moderators | ⚠️ |
+| `stream:manage` | Update the streamer's stream settings | ⚠️ |
 
-## Installing bot API
+You request scopes as a space‑separated string in the `scope` parameter (e.g. `chat:read chat:write stream:read`). A token can only ever be **narrower** than what the streamer granted at install — requesting a scope the streamer didn't grant is rejected. If you omit `scope`, the token carries everything the streamer granted.
 
-Your application should redirect the user to the joystick authorize endpoint.
+> The legacy value `scope=bot` still works and means "everything this installation granted." New integrations should request explicit scopes.
+
+## Authorizing your bot
+
+### Step 1 — Send the streamer to the consent screen
+
+Redirect the streamer's browser to:
 
 ```txt
 https://joystick.tv/api/oauth/authorize
 ```
 
-You will need to pass the following query params
+Query parameters:
 
-* `response_type` - Required &mdash; the value must be set to `code`
-* `client_id` - Required &mdash; Your bot's Client ID
-* `scope` - "bot" &mdash; Not used currently.
-* `state` - This is an optional string value you can use for validation to ensure data has not been tampered with between OAuth2 transactions.
+* `response_type` — Required. Must be `code`.
+* `client_id` — Required. Your bot's Client ID.
+* `scope` — The space‑separated scopes you're requesting (see [Scopes](#scopes)).
+* `redirect_uri` — Where to send the streamer back. **Required for public clients.**
+* `state` — Optional. An opaque value echoed back to you; use it to protect against [CSRF/MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack).
 
-Example:
+**Public clients must also send a PKCE challenge:**
+
+* `code_challenge` — Base64URL of `SHA256(code_verifier)`, 43 characters, no padding.
+* `code_challenge_method` — Must be `S256`. (`plain` is not accepted.)
+
+Where `code_verifier` is a high‑entropy random string you generate and keep; you'll send it later at the token step.
+
+Example (public client):
 
 ```txt
-https://joystick.tv/api/oauth/authorize?response_type=code&client_id=00000000-0000-0000-0000-000000000000&scope=bot&state=myspecialtoken
+https://joystick.tv/api/oauth/authorize?response_type=code&client_id=00000000-0000-0000-0000-000000000000&scope=chat%3Aread%20chat%3Awrite%20stream%3Aread&redirect_uri=http%3A%2F%2F127.0.0.1%3A7395%2Fcallback&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256&state=myspecialtoken
 ```
 
-## Fetching access_token API
+After the streamer approves, Joystick redirects to your `redirect_uri` with `code` and `state` query params.
 
-After a streamer has authorized your bot, you will be given an "authorization_code" that will be used to request the `access_token`. This endpoint is the redirect URL you configured when setting up your bot.
+> If the `state` you receive doesn't match the one you sent, **stop** — treat it as a tampered request and discard the exchange.
 
-After the user has authorized the bot, and is redirected back to your application, you will receive the `code` and `state` query params. The `code` is what you will use to request your `access_token`, and `state` will be the value you originally sent.
+Authorization codes are short‑lived — they expire in **10 minutes** and are single‑use.
 
-> NOTE: If you receive the `state` back, and the value is different than you originally sent, you should immediately cancel all connections as this could be a sign of a [MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) attack on your bot.
+### Step 2 — Exchange the code for tokens
 
-Your application will send an HTTP POST request to the joystick token endpoint.
+`POST` to the token endpoint (note: **`api.joystick.tv`**):
 
 ```txt
 https://api.joystick.tv/api/oauth/token
 ```
 
-You will need to pass the following query params
+Send these as form parameters:
 
-* `redirect_uri` - This is not currently used, but may be used in the future.
-* `code` - The short-lived authorization code we sent back through the query string.
-* `grant_type` - "authorization_code"
+* `grant_type` — `authorization_code`
+* `code` — The authorization code from Step 1.
+* `redirect_uri` — The same `redirect_uri` you used in Step 1.
+* `code_verifier` — **Public clients only.** The verifier whose SHA‑256 you sent as `code_challenge`.
+* `client_id` — **Public clients only.** Your Client ID (public clients identify themselves here since they have no secret).
 
-As well as the following headers
+Headers:
 
-* `Authorization` - "Basic YOUR_BASIC_KEY". This is HTTP Basic auth using your bot's Client ID as the user, and Client Secret as the password separated by a `:` and converted to Base64. (e.g. `Base64.encode("id:secret")`)
-* `Content-Type` - "application/x-www-form-urlencoded"
-* `X-JOYSTICK-STATE` - An optional value you can use to pass through arbitrary data that will be sent back with the response.
-* `Accept` - Header indicating that the client expects a response in the `application/json` format.
+* `Content-Type` — `application/x-www-form-urlencoded`
+* `Accept` — `application/json`
+* `Authorization` — **Confidential clients only.** `Basic <base64(client_id:client_secret)>`.
+* `X-JOYSTICK-STATE` — Optional. Any value here is echoed back on the response.
 
-
-Example:
+**Confidential client example:**
 
 ```bash
 curl -XPOST \
   -H "Authorization: Basic YOUR_BASIC_KEY" \
   -H "Content-Type: application/x-www-form-urlencoded" \
   -H "Accept: application/json" \
-  "https://api.joystick.tv/api/oauth/token?redirect_uri=unused&code=YOUR_OAUTH_CODE&grant_type=authorization_code"
+  "https://api.joystick.tv/api/oauth/token" \
+  -d "grant_type=authorization_code&code=YOUR_CODE&redirect_uri=YOUR_REDIRECT_URI"
+```
+
+**Public client example (PKCE):**
+
+```bash
+curl -XPOST \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -H "Accept: application/json" \
+  "https://api.joystick.tv/api/oauth/token" \
+  -d "grant_type=authorization_code&code=YOUR_CODE&redirect_uri=http://127.0.0.1:7395/callback&client_id=YOUR_CLIENT_ID&code_verifier=YOUR_CODE_VERIFIER"
 ```
 
 Returns:
 
 ```json
 {
-  "access_token": "JSON_WEB_TOKEN",
+  "access_token": "A_JSON_WEB_TOKEN",
   "token_type": "Bearer",
-  "expires_in": 1682098467,
-  "refresh_token": "REFRESH_TOKEN"
+  "expires_in": 14400,
+  "refresh_token": "A_REFRESH_TOKEN"
 }
 ```
 
-## Fetching refresh_token API
+* `access_token` — A JWT. Present it as `Authorization: Bearer <access_token>` on REST calls, and as the `?token=` on the gateway connection.
+* `expires_in` — Lifetime **in seconds** (e.g. `14400` = 4 hours for a public client, `864000` = 10 days for a confidential client).
+* `refresh_token` — Use this to get a new access token when the current one expires.
 
-The `access_token` has a limit access time, and is sure to expire. Once expired, you can request a new one by sending back the `refresh_token` you received from the previous `/token` call.
+> `client_credentials` is **not** supported — every bot acts through a streamer's installation, so there is always an authorization‑code + refresh‑token flow.
 
-Your application will send an HTTP POST request to the joystick token endpoint.
+## Refreshing the access token
+
+Access tokens expire. When yours does, exchange your refresh token for a fresh pair. `POST` to the same token endpoint:
 
 ```txt
 https://api.joystick.tv/api/oauth/token
 ```
 
-You will need to pass the following query params
+Form parameters:
 
-* `grant_type` - "refresh_token"
-* `refresh_token` - The last refresh token you received from us
+* `grant_type` — `refresh_token`
+* `refresh_token` — Your most recent refresh token.
+* `client_id` — Public clients include their Client ID.
 
-As well as the following headers
+Headers are the same as Step 2 (Basic auth for confidential clients; none required for public clients).
 
-* `Authorization` - "Basic YOUR_BASIC_KEY". This is HTTP Basic auth using your bot's Client ID as the user, and Client Secret as the password separated by a `:` and converted to Base64. (e.g. `Base64.encode("id:secret")`)
-* `Content-Type` - "application/x-www-form-urlencoded"
-* `X-JOYSTICK-STATE` - An optional value you can use to pass through arbitrary data that will be sent back with the response.
-* `Accept` - Header indicating that the client expects a response in the `application/json` format.
+```bash
+curl -XPOST \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -H "Accept: application/json" \
+  "https://api.joystick.tv/api/oauth/token" \
+  -d "grant_type=refresh_token&refresh_token=YOUR_REFRESH_TOKEN&client_id=YOUR_CLIENT_ID"
+```
 
+The response is the same shape as before, with a **new** `access_token` **and a new `refresh_token`**.
 
-Example:
+> **Refresh tokens rotate.** Each refresh invalidates the token you just used and returns a new one — always store the newest. If a previously‑used (or revoked) refresh token is presented again, **every** outstanding token for that installation is revoked as a safety measure. Never reuse an old refresh token.
+
+## Inspecting a token
+
+Use introspection (RFC&nbsp;7662) to check whether a token is still valid — handy at startup:
 
 ```bash
 curl -XPOST \
   -H "Authorization: Basic YOUR_BASIC_KEY" \
   -H "Content-Type: application/x-www-form-urlencoded" \
-  -H "Accept: application/json" \
-  "https://api.joystick.tv/api/oauth/token?refresh_token=YOUR_REFRESH_TOKEN&grant_type=refresh_token"
+  "https://api.joystick.tv/api/oauth/introspect" \
+  -d "token=THE_TOKEN"
 ```
 
-Returns:
+(Public clients send `client_id=YOUR_CLIENT_ID` as a form param instead of the Basic header.)
+
+Returns, for a live token:
 
 ```json
 {
-  "access_token": "JSON_WEB_TOKEN",
-  "token_type": "Bearer",
-  "expires_in": 1682098467,
-  "refresh_token": "NEW_REFRESH_TOKEN"
+  "active": true,
+  "client_id": "YOUR_CLIENT_ID",
+  "username": "streamer_username",
+  "exp": 1782000000,
+  "iat": 1781985600,
+  "sub": "the_installation_id",
+  "token_type": "Bearer"
 }
 ```
+
+An expired, revoked, unknown, or another bot's token returns simply `{ "active": false }`.
+
+## Revoking access
+
+To immediately invalidate a token (RFC&nbsp;7009) — for example when a streamer uninstalls in your app:
+
+```bash
+curl -XPOST \
+  -H "Authorization: Basic YOUR_BASIC_KEY" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  "https://api.joystick.tv/api/oauth/revoke" \
+  -d "token=THE_REFRESH_TOKEN"
+```
+
+(Public clients authenticate with `client_id` alone.) The endpoint always returns `200` — pass the **refresh token** to kill the installation's tokens.
 
 ## Connecting the bot
 
-Your bot's access token will be different from the user's access token. The bot will use the same basic auth key
-to connect as you send in the `Authorization` header from previous calls. (e.g. `Base64.encode("id:secret")`)
+Realtime chat and events flow over a single WebSocket. Open a connection to:
 
-Create a new WebSocket object using the URL `wss://api.joystick.tv/cable?token=YOUR_BASIC_KEY`, and protocol `actioncable-v1-json`.
+```txt
+wss://api.joystick.tv/cable?token=YOUR_ACCESS_TOKEN
+```
 
-This connection should only be made once for your application. All streamers that install your bot will send messages
-over the same websocket connection with different identifiers.
+using the `?token=` you received from the token endpoint (the JWT access token), and the WebSocket subprotocol **`actioncable-v1-json`**.
 
-> If your library doesn't request `protocols`, you may need to just add the header `Sec-Websocket-Protocol` with the value `actioncable-v1-json`.
+> If your WebSocket library doesn't send a subprotocol automatically, set the request header `Sec-WebSocket-Protocol: actioncable-v1-json`. Sending it matters — it's how the edge recognizes the connection.
+
+One connection serves your whole application. Every streamer who installed your bot is reachable over this same socket, keyed by a `channelId` (see below).
 
 ### Subscribing
 
-Once the connection has been opened, you will send a `subscribe` message. This is a JSON formatted object.
-
-> NOTE: Key names will always start with a lowercase letter, and the value for `command` will always be lowercase.
+Once the socket is open, send a `subscribe` message (JSON). Opt into the **v2 event envelope** — the current, uniform event format — by passing `event_version`:
 
 ```json
 {
   "command": "subscribe",
-  "identifier": "{\"channel\":\"GatewayChannel\"}"
+  "identifier": "{\"channel\":\"GatewayChannel\",\"event_version\":\"v2\"}"
 }
 ```
 
-If the subscription is successful, you will receive
+On success you receive:
+
+```json
+{ "type": "confirm_subscription", "identifier": "{\"channel\":\"GatewayChannel\",\"event_version\":\"v2\"}" }
+```
+
+and on failure `type: "reject_subscription"`. If the connection is unauthorized, the socket closes with code **`4401`**.
+
+> Omitting `event_version` gives you the older v1 envelope (documented under [the legacy format](#legacy-v1-envelope)). New integrations should use **v2**.
+
+## Receiving events
+
+**PING** — a keep‑alive. `type` is `ping`, `message` is a unix timestamp. (ActionCable sends this as a message, not a protocol ping, for universal client support.)
+
+```json
+{ "type": "ping", "message": 1782000000 }
+```
+
+**Events (v2 envelope)** — every event your bot receives shares one uniform shape; only `data` differs by event type:
 
 ```json
 {
-  "type": "confirm_subscription",
-  "identifier": "{\"channel\":\"GatewayChannel\"}"
-}
-```
-
-If the subscription is rejected, you will receive
-
-```json
-{
-  "type": "reject_subscription",
-  "identifier": "{\"channel\":\"GatewayChannel\"}"
-}
-```
-
-### Receiving messages
-
-Being a websocket API, everything you get from the API will be a message. Each message will have a different structure depending on what the message is.
-
-**PING** - A "ping" is a message that lets you know the connection is still alive. It will come through with `type` of "ping" and `message` as a unix timestamp.
-
-```json
-{
-  "type":"ping",
-  "message":1682098467
-}
-```
-
-> This sends as message and not a standard ping for universal device compatibility [See Actioncable](https://github.com/rails/rails/blob/bd8aeead92c11dbd82ddb9f114ea63b0daf160b4/actioncable/lib/action_cable/connection/base.rb#L135)
-
-
-**SUBSCRIPTION** - A subscription is when you connect to a specific streamer's channel. See "Subscribing" above for details
-
-**CHAT MESSAGE** - These are each chat message that someone sends in the streamer's chat. Your most basic message will be sent with `identifier` and `message`.
-
-```json
-{
-  "identifier": "{\"channel\":\"GatewayChannel\"}",
   "message": {
-    "event": "ChatMessage",
-    "createdAt": "2023-04-21T18:29:49Z",
-    "messageId": "UUID",
-    "type": "new_message",
-    "visibility": "public",
-    "text": "!timer 5m code",
-    "botCommand": "timer",
-    "botCommandArg": "5m",
-    "emotesUsed": [],
-    "author": {
-      "slug": "joystickuser",
-      "username": "joystickuser",
-      "usernameColor": null,
-      "displayNameWithFlair": {% raw %}"{{{moderatorBadge}}} joystickuser",{% endraw %}
-      "signedPhotoUrl": "...",
-      "signedPhotoThumbUrl": "...",
-      "isStreamer": true,
-      "isModerator": true,
-      "isSubscriber": false
-    },
-    "streamer": {
-      "slug": "joystickuser",
-      "username": "joystickuser",
-      "usernameColor": null,
-      "signedPhotoUrl": "Uri",
-      "signedPhotoThumbUrl": "Uri"
-    },
-    "channelId": "Hash",
-    "mention": false,
-    "mentionedUsername": null,
-    "highlight": false
+    "v": 2,
+    "type": "chat_message",
+    "id": "a-uuid",
+    "channel_id": "the-channel-hash",
+    "occurred_at": "2026-07-15T18:29:49Z",
+    "text": "a human-readable summary",
+    "data": { }
   }
 }
 ```
 
-> NOTE: The `channelId` is a unique hash for each streamer, and will not change even if the streamer changes their username. This value will be used to send messages to that channel.
+* `type` — the event, snake_cased (`chat_message`, `tipped`, `followed`, `subscribed`, `enter_stream`, `leave_stream`, `wheel_spin_claimed`, `stream_started`, `stream_ending`, …).
+* `channel_id` — a stable hash identifying the streamer. It never changes, even if the streamer renames. **You use this value to send actions back to that channel.**
+* `occurred_at` — RFC 3339 timestamp.
+* `text` — a ready‑made display string (some count events, like follower/subscriber/viewer counts, leave this blank).
+* `data` — the event‑specific payload (a real JSON object — no double‑parsing).
 
-**USER PRESENCE** - These are messages your bot receives when a user enters or leaves the chat.
+A chat message (`type: "chat_message"`) carries the full message in `data` — author, streamer, text, emotes, moderator/subscriber flags, etc. Presence events (`enter_stream` / `leave_stream`) carry `data: { "username": "..." }`. Stream events carry their metadata in `data`.
 
-```json
-{
-  "identifier": "{\"channel\":\"GatewayChannel\"}",
-  "message": {
-    "id": "UUID",
-    "event": "UserPresence",
-    "type": "enter_stream",
-    "text": "joystickuser",
-    "channelId": "Hash",
-    "createdAt": "2023-04-21T18:29:49Z",
-  }
-}
-```
+> The list of stream event types grows over time. Treat unknown `type`s gracefully.
 
-The `type` will be either `enter_stream` or `leave_stream`
+## Sending actions
 
-**STREAM EVENTS** - These are messages your bot receives when any special event happens on the stream.
+To act on a channel, send a `message` command whose `data` names an `action` and includes the target channel's `channelId`. Everything in `data` is a JSON‑encoded string.
 
-> This list is constantly growing, and changing, and may be difficult to list all of the possible events.
-
-```json
-{
-  "identifier": "{\"channel\":\"GatewayChannel\"}",
-  "message": {
-    "id": "UUID",
-    "event": "StreamEvent",
-    "type": "Started",
-    "text": "joystickuser started streaming",
-    "createdAt": "2023-04-21T18:29:49Z",
-    "channelId": "Hash"
-  }
-}
-{
-  "identifier": "{\"channel\":\"GatewayChannel\"}",
-  "message": {
-    "id": "UUID",
-    "event": "StreamEvent",
-    "type": "Tipped",
-    "text": "joystickuser tipped 2 tokens for <strong class='text-verdigris'>Hydrate</strong>",
-    "metadata": "{
-      \"who\": \"joystickuser\",
-      \"what\": \"Tipped\",
-      \"how_much\": 2,
-      \"tip_menu_item\": \"Hydrate\"
-    }",
-    "createdAt": "2023-04-21T18:29:49Z",
-    "channelId": "Hash"
-  }
-}
-{
-  "identifier": "{\"channel\":\"GatewayChannel\"}",
-  "message": {
-    "id": "UUID",
-    "event": "StreamEvent",
-    "type": "WheelSpinClaimed",
-    "text": "joystickuser won Jiggles",
-    "metadata": "{
-      \"who\": \"joystickuser\",
-      \"what\": \"WheelSpinClaimed\",
-      \"how_much\": 32,
-      \"prize\": \"Jiggles\"
-    }",
-    "createdAt": "2023-04-21T18:29:49Z",
-    "channelId": "Hash"
-  }
-}
-{
-  "identifier": "{\"channel\":\"GatewayChannel\"}",
-  "message": {
-    "id": "UUID",
-    "event": "StreamEvent",
-    "type": "Followed",
-    "text": "joystickuser followed you",
-    "metadata": "{
-      \"who\": \"joystickuser\",
-      \"what\": \"Followed\"
-    }",
-    "createdAt": "2023-04-21T18:29:49Z",
-    "channelId": "Hash"
-  }
-}
-{
-  "identifier": "{\"channel\":\"GatewayChannel\"}",
-  "message": {
-    "id": "UUID",
-    "event": "StreamEvent",
-    "type": "DeviceConnected",
-    "text": "Device turned on",
-    "metadata": "{}",
-    "createdAt": "2023-04-21T18:29:49Z",
-    "channelId": "Hash"
-  }
-}
-{
-  "identifier": "{\"channel\":\"GatewayChannel\"}",
-  "message":{
-    "event":"StreamEvent",
-    "id":"UUID",
-    "type":"StreamEnding",
-    "text":"Stream Ending Soon",
-    "metadata":"{}",
-    "createdAt":"2024-02-28T01:58:55Z",
-    "channelId":"Hash"
-  }
-}
-{
-  "identifier": "{\"channel\":\"GatewayChannel\"}",
-  "message": {
-    "event": "StreamEvent",
-    "id": "UUID",
-    "type": "Ended",
-    "text": "Stream Ended",
-    "channelId": "Hash",
-    "metadata": "{}",
-    "createdAt": "2024-11-05T15:28:23Z"
-  }
-}
-{
-  "identifier":"{\"channel\":\"GatewayChannel\"}",
-  "message": {
-    "event":"StreamEvent",
-    "id":"UUID",
-    "type":"StreamResuming",
-    "metadata":"{}",
-    "createdAt":"2025-03-14T03:22:50Z",
-    "text":"Stream Starting Soon",
-    "channelId":"Hash",
-  }
-}
-```
-
-### Sending messages
-
-To send a message, you will send a JSON formatted object
-
-**CHAT MESSAGES**
+**Send a chat message** — needs `chat:write`:
 
 ```json
 {
   "command": "message",
   "identifier": "{\"channel\":\"GatewayChannel\"}",
-  "data": "{
-    \"action\": \"send_message\",
-    \"text\": \"Hello World\",
-    \"channelId\": \"Hash\"
-  }"
+  "data": "{\"action\":\"send_message\",\"text\":\"Hello World\",\"channelId\":\"THE_CHANNEL_ID\"}"
 }
 ```
 
-**WHISPERS**
+**Send a whisper** — needs `chat:whisper:write`:
 
 ```json
 {
   "command": "message",
   "identifier": "{\"channel\":\"GatewayChannel\"}",
-  "data": "{
-    \"action\": \"send_whisper\",
-    \"username\": \"joystickdev\",
-    \"text\": \"this is a secret\",
-    \"channelId\": \"Hash\"
-  }"
+  "data": "{\"action\":\"send_whisper\",\"username\":\"someviewer\",\"text\":\"a secret\",\"channelId\":\"THE_CHANNEL_ID\"}"
 }
 ```
 
-**DELETE MESSAGE**
+**Delete a message** — needs `chat:moderate`. Pass the `messageId`:
 
 ```json
-{
-  "command": "message",
-  "identifier": "{\"channel\":\"GatewayChannel\"}",
-  "data": "{
-    \"action\": \"delete_message\",
-    \"messageId\": \"UUID\",
-    \"channelId\": \"Hash\"
-  }"
-}
+{ "command": "message", "identifier": "{\"channel\":\"GatewayChannel\"}", "data": "{\"action\":\"delete_message\",\"messageId\":\"UUID\",\"channelId\":\"THE_CHANNEL_ID\"}" }
 ```
 
-**MUTE USER**
-
-Send the `messageId` of the message sent in, and the author of that message will be muted.
+**Mute (time out) a user** — needs `chat:moderate`. Pass the `messageId`; the message's author is muted:
 
 ```json
-{
-  "command": "message",
-  "identifier": "{\"channel\":\"GatewayChannel\"}",
-  "data": "{
-    \"action\": \"mute_user\",
-    \"messageId\": \"UUID\",
-    \"channelId\": \"Hash\"
-  }"
-}
+{ "command": "message", "identifier": "{\"channel\":\"GatewayChannel\"}", "data": "{\"action\":\"mute_user\",\"messageId\":\"UUID\",\"channelId\":\"THE_CHANNEL_ID\"}" }
 ```
 
-**UNMUTE USER**
-
-Send the `username` of the user to unmute.
+**Unmute a user** — needs `chat:moderate`. Pass the `username`:
 
 ```json
-{
-  "command": "message",
-  "identifier": "{\"channel\":\"GatewayChannel\",\"streamer\":\"joystickuser\"}",
-  "data": "{
-    \"action\": \"unmute_user\",
-    \"username\": \"joystickuser\",
-    \"channelId\": \"Hash\"
-  }"
-}
+{ "command": "message", "identifier": "{\"channel\":\"GatewayChannel\"}", "data": "{\"action\":\"unmute_user\",\"username\":\"someviewer\",\"channelId\":\"THE_CHANNEL_ID\"}" }
 ```
 
-**BLOCK USER**
-
-Send the `messageId` of the message sent in, and the author of that message will be blocked.
+**Ban (block) a user** — needs `chat:moderate`. Pass the `messageId`; the message's author is banned:
 
 ```json
-{
-  "command": "message",
-  "identifier": "{\"channel\":\"GatewayChannel\"}",
-  "data": "{
-    \"action\": \"block_user\",
-    \"messageId\": \"UUID\",
-    \"channelId\": \"Hash\"
-  }"
-}
+{ "command": "message", "identifier": "{\"channel\":\"GatewayChannel\"}", "data": "{\"action\":\"block_user\",\"messageId\":\"UUID\",\"channelId\":\"THE_CHANNEL_ID\"}" }
 ```
 
-> Blocks are a very serious matter, and each block will alert joystick staff in order to investigate any potential harrasment or threats. For this reason, bots cannot unblock users. This must be done manually by the streamer.
+> Bans are serious — each one alerts Joystick staff to investigate potential harassment. To **un**‑ban a user, use the [REST endpoint](#moderation) (`DELETE /api/v1/chat/users/:username/ban`).
 
-## REST API endpoints
+Actions succeed silently — the resulting message or moderation shows up on the gateway stream. If something goes wrong (missing permission, bad target), you receive an error frame: `{ "error": "..." }`.
 
-Most of the data you'll send/receive is done over the websocket during chats. There are a few endpoints available
-(more to be added later) that will give you access to additional information.
+## REST API
 
-These endpoints require a valid `access_token` (The JSON Web Token) which you get once a streamer installs your bot application.
+Everything that isn't realtime is REST, under **`https://api.joystick.tv/api/v1`**. Send:
 
-Pass these headers in with your call
+* `Authorization: Bearer <access_token>` — the JWT from the token endpoint.
+* `Content-Type: application/json`
 
-* `Authorization` - "Bearer THE_ACCESS_TOKEN". This is JWT you receive from the `authorization_code` or `refresh_token` oauth2 calls when the user installs the bot.
-* `Content-Type` - "application/json"
-* `X-JOYSTICK-STATE` - An optional value you can use to pass through arbitrary data that will be sent back with the response.
+Each endpoint requires a scope (shown below). All paths are relative to `https://api.joystick.tv/api/v1`.
 
-### ManageStreamerSettings
+### Identity & installation
 
-The `ManageStreamerSettings` permission allows the bot to fetch public streamer information, as well as update a few
+| Method & path | Scope | Returns |
+|---|---|---|
+| `GET /me` | — | Installation summary: `{ channel, bot, permissions: [scopes] }` |
+| `GET /me/identity` | `identity:read` | `{ channel_id, username, nickname, photo_url, live }` |
 
-**`GET` Fetch Stream Settings**
+### Stream
 
-Returns public settings available for the specific streamer.
-
-Example (Where `JWT` is the token you got from authorization):
+| Method & path | Scope | Returns |
+|---|---|---|
+| `GET /me/stream` | `stream:read` | `{ channel_id, live, live_at, stream_title, view_count, tags, online_photo_url, offline_photo_url }` |
+| `PUT /me/stream` | `stream:manage` | Update `stream_title`, `chat_welcome_message`, and/or `tags`. Returns the updated stream. |
 
 ```bash
-curl -XGET \
-  -H "Authorization: Bearer JWT" \
-  -H "Content-Type: application/json" \
-  "https://api.joystick.tv/api/users/stream-settings"
+curl -XPUT -H "Authorization: Bearer JWT" -H "Content-Type: application/json" \
+  "https://api.joystick.tv/api/v1/me/stream" \
+  -d '{"stream_title":"New title","tags":["irl","chatty"]}'
 ```
 
-Returns:
+### Chat
+
+| Method & path | Scope | Notes |
+|---|---|---|
+| `POST /chat/messages` | `chat:write` | Body `{ "text": "..." }`. Returns `{ sent, send_mode, text }`. |
+| `POST /chat/whispers` | `chat:whisper:write` | Body `{ "text": "...", "username": "..." }`. Returns `{ sent, username }`. |
+| `DELETE /chat/messages/:id` | `chat:moderate` | Soft‑deletes a message in this channel. |
+
+### Moderation
+
+| Method & path | Scope | Notes |
+|---|---|---|
+| `POST /chat/messages/:id/ban` | `chat:moderate` | Bans the message's author. |
+| `POST /chat/messages/:id/mute` | `chat:moderate` | Times out the message's author. |
+| `DELETE /chat/users/:username/ban` | `chat:moderate` | Un‑bans a user. |
+| `POST /moderators` | `moderators:manage` | Body `{ "username": "..." }`. Adds a moderator. |
+| `DELETE /moderators/:username` | `moderators:manage` | Removes a moderator. |
+
+### Lists (usernames only, paginated)
+
+Use `page` (default 1) and `per_page` (default 20, max 100).
+
+| Method & path | Scope |
+|---|---|
+| `GET /followers` | `followers:read` |
+| `GET /moderators` | `moderators:read` |
+| `GET /subscribers` | `subscribers:read` |
 
 ```json
 {
-  "username": "joysticktest",
-  "stream_title": "This is a stream title, also it can be nullable!",
-  "chat_welcome_message": "This is the greeting message when people enter your chat, also it can be nullable!",
-  "banned_chat_words": ["bleep", "bloop", "nullable"],
-  "device_active": false,
-  "photo_url": "https://joystick.tv/face.png",
-  "live": true,
-  "number_of_followers": 1234,
-  "channel_id": "abc123"
+  "items": [ { "username": "someone" }, ... ],
+  "pagination": { "next_page": "...", "previous_page": "...", "total_items": 30, "total_pages": 3 }
 }
 ```
 
-> More data may be added later
+### Banned words
 
+| Method & path | Scope | Notes |
+|---|---|---|
+| `GET /banned-words` | `stream:manage` | `{ banned_words: [...] }` |
+| `POST /banned-words` | `stream:manage` | Body `{ "word": "..." }`. Adds a banned word. |
+| `DELETE /banned-words` | `stream:manage` | Body `{ "word": "..." }`. Removes a banned word. |
 
-**`PATCH` Update Stream Settings**
+## Testing your bot
 
-This endpoint allows you to update a few of the streamer's settings.
-
-> Currently only `stream_title`, `chat_welcome_message`, and `banned_chat_words` are allowed to be updated
-
-Example:
-
-```bash
-curl -XPATCH \
-  -H "Authorization: Bearer JWT" \
-  -H "Content-Type: application/json" \
-  "https://api.joystick.tv/api/users/stream-settings" \
-  -d '{"streamer": {"stream_title": "New Title", "chat_welcome_message": "Hey everyone", "banned_chat_words": ["new phrase or word"]}}'
-```
-
-Returns:
-
-```json
-{
-  "username": "joysticktest",
-  "stream_title": "New Title",
-  "chat_welcome_message": "Hey everyone",
-  "banned_chat_words": ["new phrase or word"],
-  "device_active": false,
-  "photo_url": "https://joystick.tv/face.png",
-  "live": true,
-  "number_of_followers": 1234,
-  "channel_id": "abc123"
-}
-```
-
-### ViewSubscriptions
-
-The `ViewSubscriptions` permission allows the bot to fetch a list of the streamer's subscribers, and their subscription status.
-
-**`GET` Fetch Subscriptions**
-
-Returns a paginated list of subscriptions. Use the `page` and `per_page` query parameters to paginate the records.
-
-Example (Where `JWT` is the token you got from authorization):
-
-```bash
-curl -XGET \
-  -H "Authorization: Bearer JWT" \
-  -H "Content-Type: application/json" \
-  "https://api.joystick.tv/api/users/subscriptions?page=2&per_page=10"
-```
-
-Returns:
-
-```json
-{
-  "items": [
-    {
-      "username": "joysticktest",
-      "expires_at": "2022-01-01",
-      "renewal": true,
-      "streak": 4,
-      "total_subscribed": 5,
-      "nickname": "The G.O.A.T.",
-      "username_color": "#ffaa00",
-    },
-    ...
-  ],
-  "pagination": {
-    "next_page": "/api/users/subscriptions?page=3",
-    "previous_page": "/api/users/subscriptions?page=1",
-    "total_items": 30,
-    "total_pages": 3
-  }
-}
-```
-
-## Testing Your Bot
-
-Testing can be a bit difficult. Only streamers have access to a chat, so if you're not a streamer, your testing options are currently limited.
-
-We have a special API endpoint you can use for testing.
-
-Your application will send an HTTP POST request to the joystick token endpoint.
-
-```txt
-https://api.joystick.tv/echo
-```
-
-You will need to pass the following headers
-
-* `Authorization` (required) - "Basic YOUR_BASIC_KEY". This is HTTP Basic auth using your bot's Client ID as the user, and Client Secret as the password separated by a `:` and converted to Base64. (e.g. `Base64.encode("client_id:client_secret")`)
-* `Content-Type` (required) - "application/json"
-
-Example:
+Testing is tricky if you're not a streamer, since you need a live chat. Confidential clients can use the echo endpoint to fire sample data at their own gateway connection:
 
 ```bash
 curl -XPOST \
-  -H "Authorization: Basic NTliC001BRMUozcGhuMWJNZVE=" \
+  -H "Authorization: Basic YOUR_BASIC_KEY" \
   -H "Content-Type: application/json" \
   "https://api.joystick.tv/echo" \
-  -d '{"sample": {"event": "SendMessage", "data": "!join"}}'
+  -d '{"sample": {"event": "SendMessage", "data": "!test 123"}}'
 ```
 
-The post body is a JSON structure that will determine what type of test data you want your bot to receive.
-By sending this POST, a sample message will be sent to your bot which you can use as if you were typing in a chat.
+The sample is delivered to your bot's gateway stream as if it happened in chat. Options:
 
-Here's a few options that you can currently test:
+* `{"sample": {"event": "SendMessage", "data": "!join"}}` — a chat message (great for command testing, e.g. `!tip 123`).
+* `{"sample": {"event": "EnterStream"}}` / `{"event": "LeaveStream"}` — presence.
+* `{"sample": {"event": "StreamEvent", "data": "Tipped"}}` or `"TipMenu"` — a stream event.
 
-**SendMessage**
+## Example bots
 
-Send the `event` with `"SendMessage"`, and `data` as the text for a standard message.
+Reference implementations live on our GitHub: [@joysticktv](https://github.com/joysticktv). These demonstrate the full lifecycle — PKCE login, connecting the gateway, and calling the REST API.
 
+---
 
-```json
-{
-  "sample": {
-    "event": "SendMessage",
-    "data": "!test 123"
-  }
-}
-```
+## Public vs private bots
 
-This can be used for any random message including specific tips like `!tip 123`
+Independently of client type, a bot is **private by default** — only you (the creator) can install it, and it's not visible to anyone else. Making a bot **public** lists it in the Joystick bot marketplace so any streamer can install it; that requires providing:
 
-**EnterStream**
+* **Website** — a page describing what the bot does and how to configure it.
+* **Terms of Service** — what you expect of streamers who install it.
+* **Privacy Policy** — how you use their data.
 
-Send the `event` with `"EnterStream"`. This will simulate someone entering the chat.
+Popular bots may require additional verification by Joystick staff.
 
-```json
-{
-  "sample": {
-    "event": "EnterStream",
-  }
-}
-```
+## Legacy (v1) envelope
 
-**LeaveStream**
-
-Send the `event` with `"LeaveStream"`. This will simulate someone leaving the chat.
-
-```json
-{
-  "sample": {
-    "event": "LeaveStream",
-  }
-}
-```
-
-**StreamEvent**
-
-Send the `event` with `"StreamEvent"`. The `data` will determine the type of event.
-
-Set `data` to `Tipped` to simulate a normal tip
-```json
-{
-  "sample": {
-    "event": "StreamEvent",
-    "data": "Tipped"
-  }
-}
-```
-
-Set `data` to `TipMenu` to simulate a tip from a tip menu item
-```json
-{
-  "sample": {
-    "event": "StreamEvent",
-    "data": "TipMenu"
-  }
-}
-```
-
-> Currently only `Tipped`, and `TipMenu` are supported for `StreamEvent`. More will be added in the future
-
-
-## Example Bots
-
-A few example bots can be found on our Github: [@joysticktv](https://github.com/joysticktv).
+Bots that subscribe **without** `event_version: "v2"` receive the older per‑event envelope, where fields are camelCased (`channelId`, `createdAt`) and `metadata` is a JSON‑encoded string that must be parsed separately. For example a chat message arrives as `{ event: "ChatMessage", type: "new_message", text, author: {...}, streamer: {...}, channelId, createdAt, ... }` and a stream event as `{ event: "StreamEvent", type: "Tipped", text, metadata: "{...}", channelId, createdAt }`. New integrations should prefer the [v2 envelope](#receiving-events); v1 remains for backward compatibility.
