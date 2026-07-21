@@ -186,7 +186,7 @@ Direct Message Campaigns are like Direct Messages but sent in bulk or when someo
 
 <iframe src="https://www.youtube.com/embed/GFVMzX8W60A" title="How to Create a DM Campaign on Joystick.tv" frameborder="0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-To use this feature, visit this link [Direct Message Campaigns](https://joystick.tv/dm-campaigns). To create a new campaign, click the Create Your First Campaign button.
+To use this feature, visit this link [Direct Message Campaigns](https://joystick.tv/direct-messages/campaigns). To create a new campaign, click the Create Your First Campaign button.
 
 When creating a campaign, you have to fill in the first two fields. Campaign Name is for your use only. It can be helpful to name a campaign and see how it performed compared to other campaigns you may create. The message to send is what you would like to say in your Direct Message. You have the option to attach any previously uploaded media as well. You can set all of the content to be free or even have it be purchasable with tokens.
 
@@ -217,7 +217,7 @@ To mute a user, you'll see an icon appear to the left of their username in chat.
 
 **Blocking** A "block" is a full lockout of your profile. Users that are blocked are muted first, then removed from your stream. They are no longer able to see or visit your profile, nor able to interact with you in any capacity on JoystickTV. Keep in mind that blocks are never a full-proof solution. If you ever feel harassed by a user, please contact support immediately.
 
-To block a user, you can use the same context menu from chat as muting, or you can go to your [Blocked Users](https://joystick.tv/blocked-users) page. You'll also see a button to block a streamer from their profile page, from within your DMs, or on any post comments.
+To block a user, you can use the same context menu from chat as muting, or you can go to your [Blocked Users](https://joystick.tv/stream-settings#user-blocking) page. You'll also see a button to block a streamer from their profile page, from within your DMs, or on any post comments.
 
 **Banned Words** These are words or phrases you do not want to see in your chat. Joystick has several words and phrases that are commonly known to be hate speech already, but you can extend this list with additonal words or phrases.
 
@@ -229,7 +229,7 @@ From your publisher view, you'll see the buttons to change this state while you'
 
 **Moderators** Moderators (or mods) are individuals you know and trust to help you keep your streams in order. Mods have limited abilities to control your stream such as muting users, or adding banned words, as well as updating your tip goals! Mods are also given additional chat commands that allow you to "whisper" to your mods during a chat and keep conversations private and inconspicuous.
 
-Adding a moderator is simple! From your stream settings page, you can click [Moderators](https://joystick.tv/stream-moderators), then type in the username of the person you want to make a mod.
+Adding a moderator is simple! From your stream settings page, you can click [Moderators](https://joystick.tv/stream-settings#moderators), then type in the username of the person you want to make a mod.
 
 > Moderators must be `verified` users that follow you.
 
@@ -240,7 +240,7 @@ Every streamer has access to their own private [Media Library](https://joystick.
 All media uploaded must be approved by Joystick staff before you can use it for your purposes. Media that is reviewed must follow our strict guidelines for what is allowed and what isn't.
 
 * All media must adhere to our [Community Guidelines](https://joystick.tv/community-guidelines).
-* All media can only contain individuals approved on your account. They must either have a stream approval, or be invited through [Stream Invites](https://joystick.tv/stream-approvals/invite).
+* All media can only contain individuals approved on your account. They must either have a stream approval, or be invited through [Stream Invites](https://joystick.tv/stream-settings#stream-approvals).
 * Profile picture, online, and offline banners must be labled as "SFW" (safe for work). More info below.
 * Emotes should be smaller in size, and square. See emotes below.
 * Images must be in the formats `.jpg`, `.jpeg`, `.png`, `.gif`.
