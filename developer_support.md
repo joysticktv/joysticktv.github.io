@@ -310,19 +310,49 @@ and on failure `type: "reject_subscription"`. If the connection is unauthorized,
 }
 ```
 
-* `type` — the event, snake_cased (`chat_message`, `tipped`, `followed`, `subscribed`, `enter_stream`, `leave_stream`, `wheel_spin_claimed`, `stream_started`, `stream_ending`, …).
+* `type` — the event, snake_cased (`new_message`, `tipped`, `followed`, `subscribed`, `enter_stream`, `leave_stream`, `wheel_spin_claimed`, `stream_started`, `stream_ending`, …).
 * `channel_id` — a stable hash identifying the streamer. It never changes, even if the streamer renames. **You use this value to send actions back to that channel.**
 * `occurred_at` — RFC 3339 timestamp.
 * `text` — a ready‑made display string (some count events, like follower/subscriber/viewer counts, leave this blank).
 * `data` — the event‑specific payload (a real JSON object — no double‑parsing).
 
-A chat message (`type: "chat_message"`) carries the full message in `data` — author, streamer, text, emotes, moderator/subscriber flags, etc. Presence events (`enter_stream` / `leave_stream`) carry `data: { "username": "..." }`. Stream events carry their metadata in `data`.
+A chat message (`type: "new_message"`) carries only the message‑specific fields in `data` — `author`, `streamer`, `subscription`, `text`, `visibility`, `highlight`, `emotes`, `mentions`:
+
+```json
+{
+  "v": 2,
+  "type": "new_message",
+  "id": "a-message-uuid",
+  "channel_id": "the-channel-hash",
+  "occurred_at": "2026-07-24T06:59:45Z",
+  "text": "hello chat",
+  "data": {
+    "author": {
+      "username": "someviewer",
+      "nickname": null,
+      "color": null,
+      "badges": { "bot": false, "new": false, "streamer": false, "staff": false, "mod": false, "subscriber": true, "host": false }
+    },
+    "streamer": { "username": "thestreamer" },
+    "subscription": null,
+    "text": "hello chat",
+    "visibility": "public",
+    "highlight": false,
+    "emotes": [],
+    "mentions": []
+  }
+}
+```
+
+`data` never repeats what the envelope already holds. To moderate a message, use the envelope's top‑level **`id`** as the `message_id` in your action (see [Sending actions](#sending-actions)). Presence events (`enter_stream` / `leave_stream`) carry `data: { "username": "..." }`. Stream events carry their metadata in `data`.
 
 > The list of stream event types grows over time. Treat unknown `type`s gracefully.
 
 ## Sending actions
 
-To act on a channel, send a `message` command whose `data` names an `action` and includes the target channel's `channelId`. Everything in `data` is a JSON‑encoded string.
+To act on a channel, send a `message` command whose `data` names an `action` and includes the target channel's `channel_id`. Everything in `data` is a JSON‑encoded string.
+
+> Command keys are snake_case (`channel_id`, `message_id`) to match the rest of the API. The older camelCase forms (`channelId`, `messageId`) are still accepted but **deprecated** — prefer snake_case.
 
 **Send a chat message** — needs `chat:write`:
 
@@ -330,7 +360,7 @@ To act on a channel, send a `message` command whose `data` names an `action` and
 {
   "command": "message",
   "identifier": "{\"channel\":\"GatewayChannel\"}",
-  "data": "{\"action\":\"send_message\",\"text\":\"Hello World\",\"channelId\":\"THE_CHANNEL_ID\"}"
+  "data": "{\"action\":\"send_message\",\"text\":\"Hello World\",\"channel_id\":\"THE_CHANNEL_ID\"}"
 }
 ```
 
@@ -340,32 +370,32 @@ To act on a channel, send a `message` command whose `data` names an `action` and
 {
   "command": "message",
   "identifier": "{\"channel\":\"GatewayChannel\"}",
-  "data": "{\"action\":\"send_whisper\",\"username\":\"someviewer\",\"text\":\"a secret\",\"channelId\":\"THE_CHANNEL_ID\"}"
+  "data": "{\"action\":\"send_whisper\",\"username\":\"someviewer\",\"text\":\"a secret\",\"channel_id\":\"THE_CHANNEL_ID\"}"
 }
 ```
 
-**Delete a message** — needs `chat:moderate`. Pass the `messageId`:
+**Delete a message** — needs `chat:moderate`. Pass the `message_id` (the received event's envelope `id`):
 
 ```json
-{ "command": "message", "identifier": "{\"channel\":\"GatewayChannel\"}", "data": "{\"action\":\"delete_message\",\"messageId\":\"UUID\",\"channelId\":\"THE_CHANNEL_ID\"}" }
+{ "command": "message", "identifier": "{\"channel\":\"GatewayChannel\"}", "data": "{\"action\":\"delete_message\",\"message_id\":\"UUID\",\"channel_id\":\"THE_CHANNEL_ID\"}" }
 ```
 
-**Mute (time out) a user** — needs `chat:moderate`. Pass the `messageId`; the message's author is muted:
+**Mute (time out) a user** — needs `chat:moderate`. Pass the `message_id` (the received event's envelope `id`); the message's author is muted:
 
 ```json
-{ "command": "message", "identifier": "{\"channel\":\"GatewayChannel\"}", "data": "{\"action\":\"mute_user\",\"messageId\":\"UUID\",\"channelId\":\"THE_CHANNEL_ID\"}" }
+{ "command": "message", "identifier": "{\"channel\":\"GatewayChannel\"}", "data": "{\"action\":\"mute_user\",\"message_id\":\"UUID\",\"channel_id\":\"THE_CHANNEL_ID\"}" }
 ```
 
 **Unmute a user** — needs `chat:moderate`. Pass the `username`:
 
 ```json
-{ "command": "message", "identifier": "{\"channel\":\"GatewayChannel\"}", "data": "{\"action\":\"unmute_user\",\"username\":\"someviewer\",\"channelId\":\"THE_CHANNEL_ID\"}" }
+{ "command": "message", "identifier": "{\"channel\":\"GatewayChannel\"}", "data": "{\"action\":\"unmute_user\",\"username\":\"someviewer\",\"channel_id\":\"THE_CHANNEL_ID\"}" }
 ```
 
-**Ban (block) a user** — needs `chat:moderate`. Pass the `messageId`; the message's author is banned:
+**Ban (block) a user** — needs `chat:moderate`. Pass the `message_id` (the received event's envelope `id`); the message's author is banned:
 
 ```json
-{ "command": "message", "identifier": "{\"channel\":\"GatewayChannel\"}", "data": "{\"action\":\"block_user\",\"messageId\":\"UUID\",\"channelId\":\"THE_CHANNEL_ID\"}" }
+{ "command": "message", "identifier": "{\"channel\":\"GatewayChannel\"}", "data": "{\"action\":\"block_user\",\"message_id\":\"UUID\",\"channel_id\":\"THE_CHANNEL_ID\"}" }
 ```
 
 > Bans are serious — each one alerts Joystick staff to investigate potential harassment. To **un**‑ban a user, use the [REST endpoint](#moderation) (`DELETE /api/v1/chat/users/:username/ban`).
