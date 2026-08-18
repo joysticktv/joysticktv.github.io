@@ -17,7 +17,7 @@ You can also email support at joystick.tv. Our support emails may take longer to
 
 ## Billing Support
 
-You can call our billing support line toll free at 1-877-828-9577, or through [Discord](https://discord.gg/zKvCf8hrGP) in our `#support` channel, or by email through support at joystick.tv.
+You can call our billing support line toll free at 1-877-828-9577, or by email through support at joystick.tv.
 
 ## Legal
 

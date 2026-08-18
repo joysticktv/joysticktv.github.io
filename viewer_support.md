@@ -17,14 +17,15 @@ subsections:
 
 ### Chat Settings
 
-You can access the chat settings from the wrench icon at the top left of the chat sidebar
-on Desktop. From mobile, chat settings are currently limited.
+You can access the chat settings from the gear icon at the top right of the chat component.
 
 You have access to several settings to customize your chat.
 
 The font size can be adjust from a small size to a very large size just in case you need to see it from afar. You can also enable the timestamps on messages. The time for each message will show up underneath.
 
 By enabling sounds on your chat you can hear when certain things happen. Turn on New Chat Sound to hear a sound for every message that comes in. Turning on Chat Text to Speech will read each chat aloud. Chat Bot Text to Speech will only read messages from the joystick.tv bot. This one is useful for some streamers in cases where they can’t read the chat but need to know what is happening.
+
+There's a few other chat settings in this menu. Explore and customize chat to suit your needs.
 
 ### Chat Commands
 
@@ -37,8 +38,6 @@ We have several chat commands to make your viewing experience even that more fun
 `!cleartimers` - Clear all timers that are currently set on a stream. This is only available to streamers and their moderators.
 
 `!uptime` - Use this command to see how long the stream has been live.
-
-`!giphy Search Text` - Add some funny images and gifs to your chat! For the search text, get creative and see what comes back. The results are random and get really fun! Only streamers and their subscribers have access to this command.
 
 `!dropin @username` - When your stream is done, pass on the love by sending your viewers to another streamer that is live. After you send this command, all of your viewers will be sent to the other streamer and a welcome message will let everyone know that you have arrived. This command is for the streamer only.
 
@@ -74,7 +73,7 @@ To purchase tokens, you can use
 - PayPal
 - Joystick Wallet (For streamers only)
 
-The higher token packages will have discounted rates for the number of tokens you are purchasing. If you want to really show your support, you can choose the "Super Supporter" packages. These cost a little more, but guarantee that the streamer earns the most value for the tokens you are purchasing.
+The higher token packages will have discounted rates for the number of tokens you are purchasing. If you want to really show your support, you can choose the "Super Supporter" packages. These cost a little more, but allow streamers to earn higher amounts on tokens tipped.
 
 > The streamer's earnings may vary depending on the plan they choose when signing up.
 
