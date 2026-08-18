@@ -70,9 +70,9 @@ You can purchase tokens at any time. When you tip a streamer, you are spending y
 
 To purchase tokens, you can use
 
-* Credit / Debit / Bank card
-* PayPal
-* Joystick Wallet (For streamers only)
+- Credit / Debit / Bank card
+- PayPal
+- Joystick Wallet (For streamers only)
 
 The higher token packages will have discounted rates for the number of tokens you are purchasing. If you want to really show your support, you can choose the "Super Supporter" packages. These cost a little more, but guarantee that the streamer earns the most value for the tokens you are purchasing.
 
@@ -111,17 +111,17 @@ and must be cancelled before the next billing cycle to avoid being charged again
 
 When you subscribe to a streamer, you’ll get access to several different features and options
 
-* Use the streamers emotes on any channel
-* Send Direct Messages to the streamer
-* Change your username color in their channel to a custom color
-* Set a custom nickname for that channel
-* A special chat badge to denote you’re a subscriber
-* Access to all their uploaded VODs
-* Access to all their locked post content from your feed
-* Ability to use special chat commands like `!giphy`, and more…
-* Watch their stream when it goes in to subscriber-only mode
-* Tip from sub-only tip menus
-* Access to new subscriber-only features as we add them!
+- Use the streamers emotes on any channel
+- Send Direct Messages to the streamer
+- Change your username color in their channel to a custom color
+- Set a custom nickname for that channel
+- A special chat badge to denote you’re a subscriber
+- Access to all their uploaded VODs
+- Access to all their locked post content from your feed
+- Ability to use special chat commands like `!giphy`, and more…
+- Watch their stream when it goes in to subscriber-only mode
+- Tip from sub-only tip menus
+- Access to new subscriber-only features as we add them!
 
 ### Gifting subscriptions
 
@@ -142,13 +142,25 @@ Users that purchase tokens and/or a subscription will become "verified" on Joyst
 Verified users have an advantage on the site by gaining a few extra features and visibility.
 
 By being verified you...
-* Can chat in Verified-Only chat streams
-* Can watch streams in Verified-Only stream mode
-* Are identified as "verified" to the streamers
-* Can watch streams with ultra low-latency
-* Can become a moderator for a streamer
+
+- Can chat in Verified-Only chat streams
+- Can watch streams in Verified-Only stream mode
+- Are identified as "verified" to the streamers
+- Can watch streams with ultra low-latency
+- Can become a moderator for a streamer
 
 If you're unable to make a purchase, but would still like to be verified, you may [apply to be
 a streamer](https://joystick.tv/stream-approvals/new). All approved streamers are automatically verified.
 
 > Note: Approved stream applications do not require you to ever stream on the site.
+
+## Region-specific Age Verification
+
+Due to certain laws in different regions, additional verification may be required before viewing content.
+In these regions, getting "verified" may take an additional step. You can choose any one of these options.
+
+- Complete the live [face identification](https://joystick.tv/age-verification) process. (Only available in specific age-restricted regions)
+- Making a purchase using a valid **Credit Card** (Note: PayPal is not a valid option)
+- Complete a [streamer application](https://joystick.tv/stream-approvals/new).
+
+If you have any questions about these please feel free to [Contact Us](/contact_us) any time.
