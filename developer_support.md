@@ -48,12 +48,12 @@ Here's the flow end to end:
 
 When you create a bot you choose a **client type**. This is separate from whether your bot is listed in the marketplace (see [Public vs private bots](#public-vs-private-bots) at the end) — it determines **how your bot authenticates**.
 
-| | Confidential client | Public client |
-|---|---|---|
-| Who | Server‑side bots that can keep a secret | Desktop / installed apps (e.g. Streamer.bot) that can't hide a secret |
-| Auth | **Client Secret** (HTTP Basic) | **PKCE** (RFC&nbsp;7636) — no secret |
-| Redirect URI | Exact match | Exact match, **or** a loopback (`http://127.0.0.1/…` / `http://localhost/…`) with **any port** (RFC&nbsp;8252) |
-| Access token lifetime | 10 days | 4 hours |
+|                       | Confidential client                     | Public client                                                                                                  |
+| --------------------- | --------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Who                   | Server‑side bots that can keep a secret | Desktop / installed apps (e.g. Streamer.bot) that can't hide a secret                                          |
+| Auth                  | **Client Secret** (HTTP Basic)          | **PKCE** (RFC&nbsp;7636) — no secret                                                                           |
+| Redirect URI          | Exact match                             | Exact match, **or** a loopback (`http://127.0.0.1/…` / `http://localhost/…`) with **any port** (RFC&nbsp;8252) |
+| Access token lifetime | 10 days                                 | 4 hours                                                                                                        |
 
 Refresh tokens last **30 days** for both and rotate on each use (see [Refreshing](#refreshing-the-access-token)).
 
@@ -63,19 +63,19 @@ If you're building a desktop app, you want a **public client**: you can't ship a
 
 A bot requests **scopes** — the specific things it wants to do. The streamer sees these on the consent screen and can decline any bot whose scopes they're not comfortable with. Some scopes are **sensitive** and are highlighted for the streamer.
 
-| Scope | Grants | Sensitive |
-|---|---|:---:|
-| `identity:read` | Read the streamer's profile (username, display name, avatar, ID) | |
-| `stream:read` | Read public stream state and receive stream events | |
-| `chat:read` | Receive chat messages | |
-| `chat:write` | Send chat messages | |
-| `followers:read` | List the streamer's followers (usernames only) | |
-| `moderators:read` | List the streamer's moderators (usernames only) | |
-| `subscribers:read` | List the streamer's subscribers (usernames only) | ⚠️ |
-| `chat:whisper:write` | Send whispers as the streamer | ⚠️ |
-| `chat:moderate` | Delete messages, ban, and time out users | ⚠️ |
-| `moderators:manage` | Add and remove the streamer's moderators | ⚠️ |
-| `stream:manage` | Update the streamer's stream settings | ⚠️ |
+| Scope                | Grants                                                           | Sensitive |
+| -------------------- | ---------------------------------------------------------------- | :-------: |
+| `identity:read`      | Read the streamer's profile (username, display name, avatar, ID) |           |
+| `stream:read`        | Read public stream state and receive stream events               |           |
+| `chat:read`          | Receive chat messages                                            |           |
+| `chat:write`         | Send chat messages                                               |           |
+| `followers:read`     | List the streamer's followers (usernames only)                   |           |
+| `moderators:read`    | List the streamer's moderators (usernames only)                  |           |
+| `subscribers:read`   | List the streamer's subscribers (usernames only)                 |    ⚠️     |
+| `chat:whisper:write` | Send whispers as the streamer                                    |    ⚠️     |
+| `chat:moderate`      | Delete messages, ban, and time out users                         |    ⚠️     |
+| `moderators:manage`  | Add and remove the streamer's moderators                         |    ⚠️     |
+| `stream:manage`      | Update the streamer's stream settings                            |    ⚠️     |
 
 You request scopes as a space‑separated string in the `scope` parameter (e.g. `chat:read chat:write stream:read`). A token can only ever be **narrower** than what the streamer granted at install — requesting a scope the streamer didn't grant is rejected. If you omit `scope`, the token carries everything the streamer granted.
 
@@ -93,16 +93,16 @@ https://joystick.tv/api/oauth/authorize
 
 Query parameters:
 
-* `response_type` — Required. Must be `code`.
-* `client_id` — Required. Your bot's Client ID.
-* `scope` — The space‑separated scopes you're requesting (see [Scopes](#scopes)).
-* `redirect_uri` — Where to send the streamer back. **Required for public clients.**
-* `state` — Optional. An opaque value echoed back to you; use it to protect against [CSRF/MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack).
+- `response_type` — Required. Must be `code`.
+- `client_id` — Required. Your bot's Client ID.
+- `scope` — The space‑separated scopes you're requesting (see [Scopes](#scopes)).
+- `redirect_uri` — Where to send the streamer back. **Required for public clients.**
+- `state` — Optional. An opaque value echoed back to you; use it to protect against [CSRF/MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack).
 
 **Public clients must also send a PKCE challenge:**
 
-* `code_challenge` — Base64URL of `SHA256(code_verifier)`, 43 characters, no padding.
-* `code_challenge_method` — Must be `S256`. (`plain` is not accepted.)
+- `code_challenge` — Base64URL of `SHA256(code_verifier)`, 43 characters, no padding.
+- `code_challenge_method` — Must be `S256`. (`plain` is not accepted.)
 
 Where `code_verifier` is a high‑entropy random string you generate and keep; you'll send it later at the token step.
 
@@ -128,18 +128,18 @@ https://api.joystick.tv/api/oauth/token
 
 Send these as form parameters:
 
-* `grant_type` — `authorization_code`
-* `code` — The authorization code from Step 1.
-* `redirect_uri` — The same `redirect_uri` you used in Step 1.
-* `code_verifier` — **Public clients only.** The verifier whose SHA‑256 you sent as `code_challenge`.
-* `client_id` — **Public clients only.** Your Client ID (public clients identify themselves here since they have no secret).
+- `grant_type` — `authorization_code`
+- `code` — The authorization code from Step 1.
+- `redirect_uri` — The same `redirect_uri` you used in Step 1.
+- `code_verifier` — **Public clients only.** The verifier whose SHA‑256 you sent as `code_challenge`.
+- `client_id` — **Public clients only.** Your Client ID (public clients identify themselves here since they have no secret).
 
 Headers:
 
-* `Content-Type` — `application/x-www-form-urlencoded`
-* `Accept` — `application/json`
-* `Authorization` — **Confidential clients only.** `Basic <base64(client_id:client_secret)>`.
-* `X-JOYSTICK-STATE` — Optional. Any value here is echoed back on the response.
+- `Content-Type` — `application/x-www-form-urlencoded`
+- `Accept` — `application/json`
+- `Authorization` — **Confidential clients only.** `Basic <base64(client_id:client_secret)>`.
+- `X-JOYSTICK-STATE` — Optional. Any value here is echoed back on the response.
 
 **Confidential client example:**
 
@@ -173,9 +173,9 @@ Returns:
 }
 ```
 
-* `access_token` — A JWT. Present it as `Authorization: Bearer <access_token>` on REST calls, and as the `?token=` on the gateway connection.
-* `expires_in` — Lifetime **in seconds** (e.g. `14400` = 4 hours for a public client, `864000` = 10 days for a confidential client).
-* `refresh_token` — Use this to get a new access token when the current one expires.
+- `access_token` — A JWT. Present it as `Authorization: Bearer <access_token>` on REST calls, and as the `?token=` on the gateway connection.
+- `expires_in` — Lifetime **in seconds** (e.g. `14400` = 4 hours for a public client, `864000` = 10 days for a confidential client).
+- `refresh_token` — Use this to get a new access token when the current one expires.
 
 > `client_credentials` is **not** supported — every bot acts through a streamer's installation, so there is always an authorization‑code + refresh‑token flow.
 
@@ -189,9 +189,9 @@ https://api.joystick.tv/api/oauth/token
 
 Form parameters:
 
-* `grant_type` — `refresh_token`
-* `refresh_token` — Your most recent refresh token.
-* `client_id` — Public clients include their Client ID.
+- `grant_type` — `refresh_token`
+- `refresh_token` — Your most recent refresh token.
+- `client_id` — Public clients include their Client ID.
 
 Headers are the same as Step 2 (Basic auth for confidential clients; none required for public clients).
 
@@ -279,7 +279,10 @@ Once the socket is open, send a `subscribe` message (JSON). Opt into the **v2 ev
 On success you receive:
 
 ```json
-{ "type": "confirm_subscription", "identifier": "{\"channel\":\"GatewayChannel\",\"event_version\":\"v2\"}" }
+{
+  "type": "confirm_subscription",
+  "identifier": "{\"channel\":\"GatewayChannel\",\"event_version\":\"v2\"}"
+}
 ```
 
 and on failure `type: "reject_subscription"`. If the connection is unauthorized, the socket closes with code **`4401`**.
@@ -305,16 +308,16 @@ and on failure `type: "reject_subscription"`. If the connection is unauthorized,
     "channel_id": "the-channel-hash",
     "occurred_at": "2026-07-15T18:29:49Z",
     "text": "a human-readable summary",
-    "data": { }
+    "data": {}
   }
 }
 ```
 
-* `type` — the event, snake_cased (`new_message`, `tipped`, `followed`, `subscribed`, `enter_stream`, `leave_stream`, `wheel_spin_claimed`, `stream_started`, `stream_ending`, …).
-* `channel_id` — a stable hash identifying the streamer. It never changes, even if the streamer renames. **You use this value to send actions back to that channel.**
-* `occurred_at` — RFC 3339 timestamp.
-* `text` — a ready‑made display string (some count events, like follower/subscriber/viewer counts, leave this blank).
-* `data` — the event‑specific payload (a real JSON object — no double‑parsing).
+- `type` — the event, snake_cased (`new_message`, `tipped`, `followed`, `subscribed`, `enter_stream`, `leave_stream`, `wheel_spin_claimed`, `stream_started`, `stream_ending`, …).
+- `channel_id` — a stable hash identifying the streamer. It never changes, even if the streamer renames. **You use this value to send actions back to that channel.**
+- `occurred_at` — RFC 3339 timestamp.
+- `text` — a ready‑made display string (some count events, like follower/subscriber/viewer counts, leave this blank).
+- `data` — the event‑specific payload (a real JSON object — no double‑parsing).
 
 A chat message (`type: "new_message"`) carries only the message‑specific fields in `data` — `author`, `streamer`, `subscription`, `text`, `visibility`, `highlight`, `emotes`, `mentions`:
 
@@ -331,7 +334,15 @@ A chat message (`type: "new_message"`) carries only the message‑specific field
       "username": "someviewer",
       "nickname": null,
       "color": null,
-      "badges": { "bot": false, "new": false, "streamer": false, "staff": false, "mod": false, "subscriber": true, "host": false }
+      "badges": {
+        "bot": false,
+        "new": false,
+        "streamer": false,
+        "staff": false,
+        "mod": false,
+        "subscriber": true,
+        "host": false
+      }
     },
     "streamer": { "username": "thestreamer" },
     "subscription": null,
@@ -377,25 +388,41 @@ To act on a channel, send a `message` command whose `data` names an `action` and
 **Delete a message** — needs `chat:moderate`. Pass the `message_id` (the received event's envelope `id`):
 
 ```json
-{ "command": "message", "identifier": "{\"channel\":\"GatewayChannel\"}", "data": "{\"action\":\"delete_message\",\"message_id\":\"UUID\",\"channel_id\":\"THE_CHANNEL_ID\"}" }
+{
+  "command": "message",
+  "identifier": "{\"channel\":\"GatewayChannel\"}",
+  "data": "{\"action\":\"delete_message\",\"message_id\":\"UUID\",\"channel_id\":\"THE_CHANNEL_ID\"}"
+}
 ```
 
 **Mute (time out) a user** — needs `chat:moderate`. Pass the `message_id` (the received event's envelope `id`); the message's author is muted:
 
 ```json
-{ "command": "message", "identifier": "{\"channel\":\"GatewayChannel\"}", "data": "{\"action\":\"mute_user\",\"message_id\":\"UUID\",\"channel_id\":\"THE_CHANNEL_ID\"}" }
+{
+  "command": "message",
+  "identifier": "{\"channel\":\"GatewayChannel\"}",
+  "data": "{\"action\":\"mute_user\",\"message_id\":\"UUID\",\"channel_id\":\"THE_CHANNEL_ID\"}"
+}
 ```
 
 **Unmute a user** — needs `chat:moderate`. Pass the `username`:
 
 ```json
-{ "command": "message", "identifier": "{\"channel\":\"GatewayChannel\"}", "data": "{\"action\":\"unmute_user\",\"username\":\"someviewer\",\"channel_id\":\"THE_CHANNEL_ID\"}" }
+{
+  "command": "message",
+  "identifier": "{\"channel\":\"GatewayChannel\"}",
+  "data": "{\"action\":\"unmute_user\",\"username\":\"someviewer\",\"channel_id\":\"THE_CHANNEL_ID\"}"
+}
 ```
 
 **Ban (block) a user** — needs `chat:moderate`. Pass the `message_id` (the received event's envelope `id`); the message's author is banned:
 
 ```json
-{ "command": "message", "identifier": "{\"channel\":\"GatewayChannel\"}", "data": "{\"action\":\"block_user\",\"message_id\":\"UUID\",\"channel_id\":\"THE_CHANNEL_ID\"}" }
+{
+  "command": "message",
+  "identifier": "{\"channel\":\"GatewayChannel\"}",
+  "data": "{\"action\":\"block_user\",\"message_id\":\"UUID\",\"channel_id\":\"THE_CHANNEL_ID\"}"
+}
 ```
 
 > Bans are serious — each one alerts Joystick staff to investigate potential harassment. To **un**‑ban a user, use the [REST endpoint](#moderation) (`DELETE /api/v1/chat/users/:username/ban`).
@@ -406,24 +433,24 @@ Actions succeed silently — the resulting message or moderation shows up on the
 
 Everything that isn't realtime is REST, under **`https://api.joystick.tv/api/v1`**. Send:
 
-* `Authorization: Bearer <access_token>` — the JWT from the token endpoint.
-* `Content-Type: application/json`
+- `Authorization: Bearer <access_token>` — the JWT from the token endpoint.
+- `Content-Type: application/json`
 
 Each endpoint requires a scope (shown below). All paths are relative to `https://api.joystick.tv/api/v1`.
 
 ### Identity & installation
 
-| Method & path | Scope | Returns |
-|---|---|---|
-| `GET /me` | — | Installation summary: `{ channel, bot, permissions: [scopes] }` |
-| `GET /me/identity` | `identity:read` | `{ channel_id, username, nickname, photo_url, live }` |
+| Method & path      | Scope           | Returns                                                         |
+| ------------------ | --------------- | --------------------------------------------------------------- |
+| `GET /me`          | —               | Installation summary: `{ channel, bot, permissions: [scopes] }` |
+| `GET /me/identity` | `identity:read` | `{ channel_id, username, nickname, photo_url, live }`           |
 
 ### Stream
 
-| Method & path | Scope | Returns |
-|---|---|---|
-| `GET /me/stream` | `stream:read` | `{ channel_id, live, live_at, stream_title, view_count, tags, online_photo_url, offline_photo_url }` |
-| `PUT /me/stream` | `stream:manage` | Update `stream_title`, `chat_welcome_message`, and/or `tags`. Returns the updated stream. |
+| Method & path    | Scope           | Returns                                                                                              |
+| ---------------- | --------------- | ---------------------------------------------------------------------------------------------------- |
+| `GET /me/stream` | `stream:read`   | `{ channel_id, live, live_at, stream_title, view_count, tags, online_photo_url, offline_photo_url }` |
+| `PUT /me/stream` | `stream:manage` | Update `stream_title`, `chat_welcome_message`, and/or `tags`. Returns the updated stream.            |
 
 ```bash
 curl -XPUT -H "Authorization: Bearer JWT" -H "Content-Type: application/json" \
@@ -433,30 +460,30 @@ curl -XPUT -H "Authorization: Bearer JWT" -H "Content-Type: application/json" \
 
 ### Chat
 
-| Method & path | Scope | Notes |
-|---|---|---|
-| `POST /chat/messages` | `chat:write` | Body `{ "text": "..." }`. Returns `{ sent, send_mode, text }`. |
-| `POST /chat/whispers` | `chat:whisper:write` | Body `{ "text": "...", "username": "..." }`. Returns `{ sent, username }`. |
-| `DELETE /chat/messages/:id` | `chat:moderate` | Soft‑deletes a message in this channel. |
+| Method & path               | Scope                | Notes                                                                      |
+| --------------------------- | -------------------- | -------------------------------------------------------------------------- |
+| `POST /chat/messages`       | `chat:write`         | Body `{ "text": "..." }`. Returns `{ sent, send_mode, text }`.             |
+| `POST /chat/whispers`       | `chat:whisper:write` | Body `{ "text": "...", "username": "..." }`. Returns `{ sent, username }`. |
+| `DELETE /chat/messages/:id` | `chat:moderate`      | Soft‑deletes a message in this channel.                                    |
 
 ### Moderation
 
-| Method & path | Scope | Notes |
-|---|---|---|
-| `POST /chat/messages/:id/ban` | `chat:moderate` | Bans the message's author. |
-| `POST /chat/messages/:id/mute` | `chat:moderate` | Times out the message's author. |
-| `DELETE /chat/users/:username/ban` | `chat:moderate` | Un‑bans a user. |
-| `POST /moderators` | `moderators:manage` | Body `{ "username": "..." }`. Adds a moderator. |
-| `DELETE /moderators/:username` | `moderators:manage` | Removes a moderator. |
+| Method & path                      | Scope               | Notes                                           |
+| ---------------------------------- | ------------------- | ----------------------------------------------- |
+| `POST /chat/messages/:id/ban`      | `chat:moderate`     | Bans the message's author.                      |
+| `POST /chat/messages/:id/mute`     | `chat:moderate`     | Times out the message's author.                 |
+| `DELETE /chat/users/:username/ban` | `chat:moderate`     | Un‑bans a user.                                 |
+| `POST /moderators`                 | `moderators:manage` | Body `{ "username": "..." }`. Adds a moderator. |
+| `DELETE /moderators/:username`     | `moderators:manage` | Removes a moderator.                            |
 
 ### Lists (usernames only, paginated)
 
 Use `page` (default 1) and `per_page` (default 20, max 100).
 
-| Method & path | Scope |
-|---|---|
-| `GET /followers` | `followers:read` |
-| `GET /moderators` | `moderators:read` |
+| Method & path      | Scope              |
+| ------------------ | ------------------ |
+| `GET /followers`   | `followers:read`   |
+| `GET /moderators`  | `moderators:read`  |
 | `GET /subscribers` | `subscribers:read` |
 
 ```json
@@ -468,10 +495,10 @@ Use `page` (default 1) and `per_page` (default 20, max 100).
 
 ### Banned words
 
-| Method & path | Scope | Notes |
-|---|---|---|
-| `GET /banned-words` | `stream:manage` | `{ banned_words: [...] }` |
-| `POST /banned-words` | `stream:manage` | Body `{ "word": "..." }`. Adds a banned word. |
+| Method & path          | Scope           | Notes                                            |
+| ---------------------- | --------------- | ------------------------------------------------ |
+| `GET /banned-words`    | `stream:manage` | `{ banned_words: [...] }`                        |
+| `POST /banned-words`   | `stream:manage` | Body `{ "word": "..." }`. Adds a banned word.    |
 | `DELETE /banned-words` | `stream:manage` | Body `{ "word": "..." }`. Removes a banned word. |
 
 ## Testing your bot
@@ -488,9 +515,9 @@ curl -XPOST \
 
 The sample is delivered to your bot's gateway stream as if it happened in chat. Options:
 
-* `{"sample": {"event": "SendMessage", "data": "!join"}}` — a chat message (great for command testing, e.g. `!tip 123`).
-* `{"sample": {"event": "EnterStream"}}` / `{"event": "LeaveStream"}` — presence.
-* `{"sample": {"event": "StreamEvent", "data": "Tipped"}}` or `"TipMenu"` — a stream event.
+- `{"sample": {"event": "SendMessage", "data": "!join"}}` — a chat message (great for command testing, e.g. `!tip 123`).
+- `{"sample": {"event": "EnterStream"}}` / `{"event": "LeaveStream"}` — presence.
+- `{"sample": {"event": "StreamEvent", "data": "Tipped"}}` or `"TipMenu"` — a stream event.
 
 ## Example bots
 
@@ -502,9 +529,9 @@ Reference implementations live on our GitHub: [@joysticktv](https://github.com/j
 
 Independently of client type, a bot is **private by default** — only you (the creator) can install it, and it's not visible to anyone else. Making a bot **public** lists it in the Joystick bot marketplace so any streamer can install it; that requires providing:
 
-* **Website** — a page describing what the bot does and how to configure it.
-* **Terms of Service** — what you expect of streamers who install it.
-* **Privacy Policy** — how you use their data.
+- **Website** — a page describing what the bot does and how to configure it.
+- **Terms of Service** — what you expect of streamers who install it.
+- **Privacy Policy** — how you use their data.
 
 Popular bots may require additional verification by Joystick staff.
 

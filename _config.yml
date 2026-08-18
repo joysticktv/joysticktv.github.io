@@ -5,18 +5,18 @@ plugins:
   - jekyll-algolia
 
 algolia:
-  application_id: 'YXM67SR4Z2'
+  application_id: "YXM67SR4Z2"
   index_name: joystick_support
 
 # Site Layout Data
 header:
   nav:
     - text: API
-      url: '/developer_support'
+      url: "/developer_support"
     - text: Affiliates
-      url: '/affiliate_support'
+      url: "/affiliate_support"
     - text: Contact Us
-      url: '/contact_us'
+      url: "/contact_us"
 sidebar:
   resources:
     - url: /faq
@@ -34,19 +34,21 @@ sidebar:
     - url: https://joystick.tv/law-enforcement
       text: Law Enforcement
     - url: https://joystick.tv/dmca
-      text: DCMA
+      text: DMCA
     - url: https://joystick.tv/2257
       text: 18 U.S.C. § 2257
 footer:
   social_list:
     - network_name: github
-      profile_url: 'https://github.com/joysticktv'
+      profile_url: "https://github.com/joysticktv"
     - network_name: bluesky
-      profile_url: 'https://bsky.app/profile/joystick.tv'
-    - network_name: twitter
-      profile_url: 'https://twitter.com/Joystickxxx'
+      profile_url: "https://bsky.app/profile/joystick.tv"
+    - network_name: x
+      profile_url: "https://x.com/Joystickxxx"
+    - network_name: instagram
+      profile_url: "https://instagram.com/joystick.tv"
     - network_name: discord
-      profile_url: 'https://discord.gg/zKvCf8hrGP'
+      profile_url: "https://discord.gg/zKvCf8hrGP"
 
 # SASS settings
 sass:
@@ -56,5 +58,5 @@ sass:
 # Jekyll settings
 layouts_dir: ./theme/_layouts
 includes_dir: ./theme/_includes
-exclude: [ 'README.md', 'CHANGELOG.md' ]
+exclude: ["README.md", "CHANGELOG.md"]
 permalink: /:title/

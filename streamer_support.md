@@ -22,11 +22,11 @@ Find information you need to know about being a streamer on JoystickTV
 
 We offer multiple ways to earn.
 
-* **Subscriptions** - Set your own price, starting at $3.99/month.
-* **Live Streaming** - Receive tokens live with the option to set tip goals.
-* **Direct Messaging** - Send direct messages, videos, and images for an amount of tokens you set.
-* **Post Content** - Share posts with exclusive content for your subscribers or set a token amount to unlock.
-* **Affiliate Links** - Use your affiliate link to drive traffic. Earn 20% on every purchase they make.
+- **Subscriptions** - Set your own price, starting at $3.99/month.
+- **Live Streaming** - Receive tokens live with the option to set tip goals.
+- **Direct Messaging** - Send direct messages, videos, and images for an amount of tokens you set.
+- **Post Content** - Share posts with exclusive content for your subscribers or set a token amount to unlock.
+- **Affiliate Links** - Use your affiliate link to drive traffic. Earn 20% on every purchase they make.
 
 Start earning on day 1. Request a payout any time once you've reached the minimum threshold.
 We offer many options for payouts, and we're adding more in the future.
@@ -72,19 +72,21 @@ All funds earned will be held for 15 days before they are available. Funds becom
 Payouts can be requested once you have earned the minimum withdrawal amount in available funds. All funds received are considered "pending" for up-to 15 days from the day you receive the money.
 You can think of your earnings like a sliding window. If you receive $1 on July 1st, that $1 will be available to you on July 15th. If you earn $1 on July 2nd, that will be available to you on July 16th, and so on. We do this in order to help protect us and you from fraud.
 
-*Payout Options*
-* **Check** ($50 min / $2 fee)
-* **ACH** ($50 min / $2 fee)
-* **Paxum** ($100 min / $2 fee)
-* **MassPay** ($100 min / $2 fee)
-* **Yoursafe** ($100 min / $2 fee)
-* **Wire** ($400 min / $35 fee)
-* **Joystick Wallet** ($0 min / $0 fee)
+We have a few different payout options, but the options will vary depending on the country you live in.
+
+_Payout Options_
+
+- **Check** ($50 min / $2 fee)
+- **ACH** ($50 min / $2 fee)
+- **Paxum** ($100 min / $2 fee)
+- **MassPay** ($100 min / $2 fee)
+- **Yoursafe** ($100 min / $2 fee)
+- **Wire** ($400 min / $35 fee)
+- **Joystick Wallet** ($0 min / $0 fee)
 
 > Please note that with Wire payouts, the first time you receive a payout there will be a slight delay for us to setup your account. After the first payout, there will be no more delay.
 
 Your payout breakdown is available from the menu, under payouts.
-
 
 ### Payment Holds
 
@@ -96,9 +98,10 @@ become available right at 00:00 UTC on the 15th day after the money was received
 Payouts are sent weekly with the cutoff day being Tuesday night (23:59 UTC). Payouts requested before the cut-off will be sent that Friday. Payouts requested after the cut-off will be sent out the following week. A payout may take 3 to 7 business days to process. Once processed, they are generally sent on Fridays.
 
 Payments have 3 stages:
-* **Unpaid** – Your payout has not been received by our accounting department to be processed, yet.
-* **Processing** – Your payout has been received by our accounting department, and is currently being processed
-* **Paid** – The money has left our offices, and is headed to you. Some payments may take longer to reach you than others (i.e. checks, or first-time wires, etc…)
+
+- **Unpaid** – Your payout has not been received by our accounting department to be processed, yet.
+- **Processing** – Your payout has been received by our accounting department, and is currently being processed
+- **Paid** – The money has left our offices, and is headed to you. Some payments may take longer to reach you than others (i.e. checks, or first-time wires, etc…)
 
 As a U.S. based company, we observe all U.S. Banking holidays. During these times, there may be slight delays which will always be conveyed via announcements the week prior or sooner.
 
@@ -118,7 +121,7 @@ ACH (automatic clearing house) is similar to a Wire transfer where we use your b
 
 Paxum is a service you sign up for https://paxum.com/ that works like a bank account. We can transfer funds directly to your Paxum account account. Once a payout request is processed, this is sent within 1 business day.
 
-** Your Paxum account must be approved and verified by Paxum in order to receive funds. If it’s not, they will reject the money we send you which will delay payment. Contact Paxum support if you have questions.
+\*\* Your Paxum account must be approved and verified by Paxum in order to receive funds. If it’s not, they will reject the money we send you which will delay payment. Contact Paxum support if you have questions.
 
 **MassPay**
 
@@ -157,28 +160,27 @@ Streamers outside of the United States are not required to fill out any tax or b
 
 As of this writing, the minimum threshold to receive a 1099 is $600 for the entire tax year. If you made this amount, or more, during the previous year, a tax document will be created for you and sent during January of the current year.
 
-
 ## Uploaded Media Content
 
 Verified streamers are allowed to upload their own personal media content. All content must be approved and verified before it may be displayed on the website.
 
 ### Examples of good content
 
-* A profile photo
-* Online banner image used when your stream is live
-* Offline banner image used when your stream is offline
-* Video clips of you
-* Previously recorded streams of yours
-* Your custom emotes
-* Promotional images for your upcoming streams
+- A profile photo
+- Online banner image used when your stream is live
+- Offline banner image used when your stream is offline
+- Video clips of you
+- Previously recorded streams of yours
+- Your custom emotes
+- Promotional images for your upcoming streams
 
 ### Examples of bad content
 
-* Photos of anyone else not verified on your stream
-* Videos of anyone else not verified on your stream
-* Content that violates any terms/acceptable use
-* Illegal content
-* Any file types other than images and videos
+- Photos of anyone else not verified on your stream
+- Videos of anyone else not verified on your stream
+- Content that violates any terms/acceptable use
+- Illegal content
+- Any file types other than images and videos
 
 ## Direct Messaging Campaigns
 
@@ -202,10 +204,10 @@ Streaming content while also moderating your own community can be quite time con
 
 Unfortunately, we live in a world where not everyone has the best of intentions, and some that do may not be able to "read the room". You may be sensitive to certain words, or want to avoid specific individuals. This is when moderation comes in handy. Moderation tools include things like...
 
-* Muting users
-* Blocking users
-* Adding banned words or phrases
-* Changing stream and chat states
+- Muting users
+- Blocking users
+- Adding banned words or phrases
+- Changing stream and chat states
 
 But moderation doesn't always have to be negative! You may also need a way to keep track of users in chat that you're unable to get to, and get back to them at a later point. Maybe someone asked a question, and you're in middle of a heavy raid in WoW. JoystickTV gives you the option to add trusted users in to your moderation team to help keep your stream moving.
 
@@ -239,15 +241,15 @@ Every streamer has access to their own private [Media Library](https://joystick.
 
 All media uploaded must be approved by Joystick staff before you can use it for your purposes. Media that is reviewed must follow our strict guidelines for what is allowed and what isn't.
 
-* All media must adhere to our [Community Guidelines](https://joystick.tv/community-guidelines).
-* All media can only contain individuals approved on your account. They must either have a stream approval, or be invited through [Stream Invites](https://joystick.tv/stream-settings#stream-approvals).
-* Profile picture, online, and offline banners must be labled as "SFW" (safe for work). More info below.
-* Emotes should be smaller in size, and square. See emotes below.
-* Images must be in the formats `.jpg`, `.jpeg`, `.png`, `.gif`.
-* Videos must be in the formats `.mkv`, `.mp4`, `.mov`. (h264 encoded)
-* Max Image size is 20MB.
-* Max Video size is 3GB.
-* Max Video length is 4.5 hours
+- All media must adhere to our [Community Guidelines](https://joystick.tv/community-guidelines).
+- All media can only contain individuals approved on your account. They must either have a stream approval, or be invited through [Stream Invites](https://joystick.tv/stream-settings#stream-approvals).
+- Profile picture, online, and offline banners must be labled as "SFW" (safe for work). More info below.
+- Emotes should be smaller in size, and square. See emotes below.
+- Images must be in the formats `.jpg`, `.jpeg`, `.png`, `.gif`.
+- Videos must be in the formats `.mkv`, `.mp4`, `.mov`. (h264 encoded)
+- Max Image size is 20MB.
+- Max Video size is 3GB.
+- Max Video length is 4.5 hours
 
 > We are moving to a tiered media system, and increasing video size for streamers. This guide will be updated once that is available.
 
@@ -261,17 +263,20 @@ All media uploaded must be approved by Joystick staff before you can use it for 
 &nbsp; &nbsp;
 
 ##### Using FFProbe (FFmpeg):
-* Download [FFmpeg](https://github.com/BtbN/FFmpeg-Builds/releases/tag/latest) which will come with `ffprobe` as well, it is a video transcoding, encoding tool that is the basis for almost all video applications out there.
-> Note: You will want to select the `ffmpeg-master-latest-win64-gpl` version as it will contain all the libraries you need to run on windows.
 
-* Extract the folder, and then copy your video file to the `FFmpeg/bin` folder.
-* Go into the `FFmpeg/bin` folder, and while holding down shift, right click in an empty area, and click `Open PowerShell window here`
-* Once PowerShell is opened, type `./ffprobe myvideo_example.mp4` you will enter the actual name of your video file.
-> Note: if there are spaces in your video files name you will need to wrap the name in quotes e.g. `./ffprobe "my example video.mkv"`.
-* Copy the line `Input #0` and below, and paste it to [discord](https://discord.gg/zKvCf8hrGP) support channel.
-> 💡 Tip: before pasting type \`\`\` \`\`\` and paste your clipboard between the three backtick's at the start so that it is formatted neatly.
+- Download [FFmpeg](https://github.com/BtbN/FFmpeg-Builds/releases/tag/latest) which will come with `ffprobe` as well, it is a video transcoding, encoding tool that is the basis for almost all video applications out there.
+
+  > Note: You will want to select the `ffmpeg-master-latest-win64-gpl` version as it will contain all the libraries you need to run on windows.
+
+- Extract the folder, and then copy your video file to the `FFmpeg/bin` folder.
+- Go into the `FFmpeg/bin` folder, and while holding down shift, right click in an empty area, and click `Open PowerShell window here`
+- Once PowerShell is opened, type `./ffprobe myvideo_example.mp4` you will enter the actual name of your video file.
+  > Note: if there are spaces in your video files name you will need to wrap the name in quotes e.g. `./ffprobe "my example video.mkv"`.
+- Copy the line `Input #0` and below, and paste it to [discord](https://discord.gg/zKvCf8hrGP) support channel.
+  > 💡 Tip: before pasting type \`\`\` \`\`\` and paste your clipboard between the three backtick's at the start so that it is formatted neatly.
 
 An example would look like this:
+
 ```
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'example video.mp4':
   Metadata:
@@ -296,14 +301,14 @@ When reviewing media, we will mark each media as "SFW" or "NSFW". When you're se
 
 Here's a noncomprehensive list of what we may look for to mark images as "NSFW".
 
-* Bare chests, nipple, areola, including see-through tops.
-* Genitalia, pubic region.
-* Bare and/or spread butt cheeks.
-* Erections, outlines, or "prints".
-* Adult toys designed to look like human anatomy.
-* Simulated or depictions of sex/sex acts.
-* Appliances or devices used for the purposes of smoking.
-* Drawings, digital or CGI of any of these items.
+- Bare chests, nipple, areola, including see-through tops.
+- Genitalia, pubic region.
+- Bare and/or spread butt cheeks.
+- Erections, outlines, or "prints".
+- Adult toys designed to look like human anatomy.
+- Simulated or depictions of sex/sex acts.
+- Appliances or devices used for the purposes of smoking.
+- Drawings, digital or CGI of any of these items.
 
 > If we are ever unsure, we will tend to mark as NSFW as a fallback.
 
@@ -340,7 +345,7 @@ To create a new goal, or edit your existing one, you will click the "Stream Conf
 
 ### Setting up Tip Goals
 
-The setup is simple. Give your tip goal a title, and the total amount of tokens it will take to reach that goal. 
+The setup is simple. Give your tip goal a title, and the total amount of tokens it will take to reach that goal.
 
 > Since token values are variable, there is a "Token Calculator" link above these fields you can use to help price your goal.
 
