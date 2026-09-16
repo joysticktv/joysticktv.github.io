@@ -715,11 +715,42 @@ To troubleshoot:
 If you're behind a strict ISP firewall, a **VPN** or **contacting your ISP** may be necessary.
 {% endcapture %}
 
+{% capture DNS_body %}
+DNS servers translate website names into the network addresses used by your
+device. If your ISP's DNS is slow or stale, switching to a public DNS service
+may improve connection reliability.
+
+Cloudflare DNS uses **1.1.1.1** (primary) and **1.0.0.1** (secondary).
+Google DNS uses **8.8.8.8** (primary) and **8.8.4.4** (secondary).
+
+### Windows
+
+1. Open **Settings → Network & internet** and select your active connection.
+2. Open the connection's **DNS server assignment** and choose **Edit**.
+3. Select **Manual**, enable **IPv4**, and enter the primary and secondary DNS
+   addresses from one provider above.
+4. Save the change, then restart your browser or streaming application.
+
+### macOS
+
+1. Open **System Settings → Network** and select your active connection.
+2. Choose **Details → DNS**, then use **+** to add the primary and secondary
+   addresses from one provider above.
+3. Select **OK**, then **Apply** and restart your browser or streaming
+   application.
+
+If you can access your router, changing DNS there is usually the better option:
+it applies the setting to every device on your network. Router menus differ by
+manufacturer, so consult the router's documentation for its LAN or DHCP DNS
+settings.
+{% endcapture %}
+
 {% capture troubleshooting_stream %}
 {% include accordion.html id="speedtest" label="Speedtest" content=Speedtest_body %}
 {% include accordion.html id="bufferbloat" label="Bufferbloat" content=Bufferbloat_body %}
 {% include accordion.html id="jitter" label="Ping Jitter" content=NetworkJitter_body %}
 {% include accordion.html id="firewall" label="Firewall Configuration" content=Firewall_body %}
+{% include accordion.html id="dns" label="DNS Configuration" content=DNS_body %}
 {% include accordion.html id="dropframes" label="Dropped Frames" content=Droppedframes_body %}
 {% include accordion.html id="missedframes" label="Skipped/Missed Frames Explained" content=Missedframes_body %}
 {% endcapture %}
