@@ -188,33 +188,33 @@ OBS is an advanced software, and **incorrect settings can drastically impact str
 **Best for: Older PCs, CPU-heavy tasks (e.g., gaming while streaming).**
 Software encoding relies on your **CPU** for video processing.
 
-| Resolution               | 853x480         | 1280x720        | 1920x1080   | 2560x1440   | 3840x2160   |
-| ------------------------ | --------------- | --------------- | ----------- | ----------- | ----------- |
-| **Upload Speed (Mbps)**  | 5               | 10              | 15          | 20          | 25          |
-| **Video Bitrate (Kbps)** | 2500            | 4000-5000       | 6000-8500   | 8500        | 8500        |
-| **Audio Bitrate (Kbps)** | 128             | 128             | 192         | 192         | 256         |
-| **Rate Control**         | CBR             | CBR             | CBR         | CBR         | CBR         |
-| **Framerate (FPS)**      | 30-60           | 30-60           | 30-60       | 30-60       | 30-60       |
-| **Keyframe Interval**    | 2s              | 2s              | 2s          | 2s          | 2s          |
-| **Preset**               | veryfast-medium | veryfast-medium | fast-medium | fast-medium | fast-medium |
-| **Profile**              | Main/High       | Main/High       | High        | High        | High        |
-| **Tune**                 | None            | None            | None        | None        | None        |
+| Resolution               | 853x480   | 1280x720        | 1920x1080   |
+| ------------------------ | --------- | --------------- | ----------- |
+| **Upload Speed (Mbps)**  | 10        | 15              | 25          |
+| **Video Bitrate (Kbps)** | 1000-2000 | 2500-3500       | 3500-7500   |
+| **Audio Bitrate (Kbps)** | 128       | 160             | 192         |
+| **Rate Control**         | CBR       | CBR             | CBR         |
+| **Framerate (FPS)**      | 30        | 30-60           | 30-60       |
+| **Keyframe Interval**    | 2s        | 2s              | 2s          |
+| **Preset**               | veryfast  | veryfast-medium | fast-medium |
+| **Profile**              | None      | Main/High       | High        |
+| **Tune**                 | None      | None            | zerolatency |
 
 ### **Hardware Encoding (NVIDIA NVENC, AMD AVC)**
 
 **Best for: High-end GPUs, maximizing CPU performance.**
 Hardware encoding shifts the workload to your **GPU**, improving overall system efficiency.
 
-| Resolution               | 853x480 | 1280x720  | 1920x1080 | 2560x1440 | 3840x2160 |
-| ------------------------ | ------- | --------- | --------- | --------- | --------- |
-| **Upload Speed (Mbps)**  | 5       | 10        | 15        | 20        | 25        |
-| **Video Bitrate (Kbps)** | 2500    | 4000-5000 | 6000-8500 | 8500      | 8500      |
-| **Audio Bitrate (Kbps)** | 128     | 128       | 192       | 192       | 256       |
-| **Rate Control**         | CBR     | CBR       | CBR       | CBR       | CBR       |
-| **Framerate (FPS)**      | 30-60   | 30-60     | 30-60     | 30-60     | 30-60     |
-| **Keyframe Interval**    | 2s      | 2s        | 2s        | 2s        | 2s        |
-| **Preset**               | Quality | Quality   | Quality   | Quality   | Quality   |
-| **B-frames**             | 2       | 2         | 2         | 2         | 2         |
+| Resolution               | 853x480   | 1280x720  | 1920x1080 |
+| ------------------------ | --------- | --------- | --------- |
+| **Upload Speed (Mbps)**  | 10        | 15        | 25        |
+| **Video Bitrate (Kbps)** | 1000-2000 | 2500-3500 | 3500-7500 |
+| **Audio Bitrate (Kbps)** | 128       | 160       | 192       |
+| **Rate Control**         | CBR       | CBR       | CBR       |
+| **Framerate (FPS)**      | 30        | 30-60     | 30-60     |
+| **Keyframe Interval**    | 2s        | 2s        | 2s        |
+| **Profile**              | main      | main      | main      |
+| **B-frames**             | 2         | 2         | 2         |
 
 > If you need help, check our [Troubleshooting Guide](#troubleshooting-streaming) or join our [Discord](https://discord.gg/zKvCf8hrGP){:rel="nofollow noreferrer" target="\_blank"}.
 > {% endcapture %}
