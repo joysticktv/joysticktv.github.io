@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Suggest Feature
+    url: https://discord.gg/zKvCf8hrGP
+    about: Suggest a new site feature in our Discord server
+  - name: Ask for help
+    url: https://discord.gg/zKvCf8hrGP
+    about: Ask questions and discuss with other community members
