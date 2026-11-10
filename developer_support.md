@@ -76,6 +76,7 @@ A bot requests **scopes** — the specific things it wants to do. The streamer s
 | `chat:moderate`      | Delete messages, ban, and time out users                         |    ⚠️     |
 | `moderators:manage`  | Add and remove the streamer's moderators                         |    ⚠️     |
 | `stream:manage`      | Update the streamer's stream settings                            |    ⚠️     |
+| `tip_menus:manage`   | View, create, update, and delete the streamer's tip menus        |           |
 
 You request scopes as a space‑separated string in the `scope` parameter (e.g. `chat:read chat:write stream:read`). A token can only ever be **narrower** than what the streamer granted at install — requesting a scope the streamer didn't grant is rejected. If you omit `scope`, the token carries everything the streamer granted.
 
@@ -500,6 +501,50 @@ Use `page` (default 1) and `per_page` (default 20, max 100).
 | `GET /banned-words`    | `stream:manage` | `{ banned_words: [...] }`                        |
 | `POST /banned-words`   | `stream:manage` | Body `{ "word": "..." }`. Adds a banned word.    |
 | `DELETE /banned-words` | `stream:manage` | Body `{ "word": "..." }`. Removes a banned word. |
+
+### Tip menus
+
+| Method & path                                   | Scope              | Notes                                                                 |
+| ----------------------------------------------- | ------------------ | --------------------------------------------------------------------- |
+| `GET /tip-menus`                                | `tip_menus:manage` | Returns paginated list. Use `page` and `per_page` query params        |
+| `GET /tip-menus/:id`                            | `tip_menus:manage` | Returns a single tip menu and all its items                           |
+| `POST /tip-menus`                               | `tip_menus:manage` | Body `{ "title": "...", "active": true, "items": [{"title": ".."}] }` |
+| `PUT /tip-menus/:id`                            | `tip_menus:manage` | Same body as creating a tip menu. `id` is the tip menu id             |
+| `DELETE /tip-menus/:id`                         | `tip_menus:manage` | Delete a tip menu and all its items.                                  |
+| `POST /tip-menus/:tip_menu_id/items`            | `tip_menus:manage` | Body `{"title": "...", "amount": 50}`. Adds a new tip menu item.      |
+| `PUT /tip-menus/:tip_menu_id/items/:item_id`    | `tip_menus:manage` | Update a specific tip menu item.                                      |
+| `DELETE /tip-menus/:tip_menu_id/items/:item_id` | `tip_menus:manage` | Delete a specific tip menu item.                                      |
+
+This is a sample body for creating and updating tip menus.
+
+```json
+{
+  "title": "Stream Requests",
+  "active": true,
+  "subscriber_only": false,
+  "position": 0,
+  "items": [
+    {
+      "title": "Song request",
+      "amount": 500,
+      "cooldown": 10,
+      "position": 0
+    },
+    {
+      "title": "Shoutout",
+      "amount": 100,
+      "single_use": true,
+      "position": 1
+    },
+    {
+      "title": "Secret item",
+      "amount": 2500,
+      "active": false,
+      "position": 2
+    }
+  ]
+}
+```
 
 ## Testing your bot
 
