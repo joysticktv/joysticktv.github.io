@@ -11,6 +11,7 @@ subsections:
   - direct-messaging-campaigns
   - moderating-streams
   - media-library
+  - clips
   - tip-goals
 ---
 
@@ -229,7 +230,7 @@ To add a banned word, you can go to your [Stream Settings](https://joystick.tv/s
 
 From your publisher view, you'll see the buttons to change this state while you're live.
 
-**Moderators** Moderators (or mods) are individuals you know and trust to help you keep your streams in order. Mods have limited abilities to control your stream such as muting users, or adding banned words, as well as updating your tip goals! Mods are also given additional chat commands that allow you to "whisper" to your mods during a chat and keep conversations private and inconspicuous.
+**Moderators** Moderators (or mods) are individuals you know and trust to help you keep your streams in order. Mods have limited abilities to control your stream such as muting users, or adding banned words, as well as updating your tip goals and saving [clips](#clips) of your stream! Mods are also given additional chat commands that allow you to "whisper" to your mods during a chat and keep conversations private and inconspicuous.
 
 Adding a moderator is simple! From your stream settings page, you can click [Moderators](https://joystick.tv/stream-settings#moderators), then type in the username of the person you want to make a mod.
 
@@ -332,6 +333,80 @@ content must be purchased by everyone including subscribers.
 ### VODs
 
 VODs (videos on demand) are videos of your previously recorded streams. These videos are only accessible to users that subscribe to you.
+
+## Clips
+
+Did something great just happen on stream? Clips let you save that moment while you're still live. Pick the part you want from the last 30 minutes, give it a title, and it lands in your [Media Library](https://joystick.tv/media) as a video you can share.
+
+> Clipping is being rolled out to selected streamers. If it's turned on for your account, you'll see a Clip button while you're live.
+
+### Making a clip
+
+There are two ways to open the clip editor while you're live.
+
+**Clip button** You'll find it under your video on your stream page, next to the Subscribe button. It's also on your publisher page, next to End Stream.
+
+{% include lazy_image.html src="/assets/png/clips-button-stream-page.png" srcset="/assets/webp/clips-button-stream-page.webp" caption="The Clip button on your stream page" alt="A live stream with the Clip button under the video, next to Subscribe" loading="lazy" %}
+
+{% include lazy_image.html src="/assets/png/clips-button-publisher.png" srcset="/assets/webp/clips-button-publisher.webp" caption="The Clip button on your publisher page" alt="The Broadcast panel on the publisher page with Clip next to End Stream" loading="lazy" %}
+
+**Chat command** Type `!clip` in your chat. To start with a different length selected, add the number of seconds, like `!clip 45`. Without a number, the last 30 seconds are selected.
+
+{% include lazy_image.html src="/assets/png/clips-chat-command.png" srcset="/assets/webp/clips-chat-command.webp" caption="The !clip chat command" alt="The chat box with !clip typed and the command's description above it" loading="lazy" %}
+
+{% include lazy_image.html src="/assets/png/clips-editor.png" srcset="/assets/webp/clips-editor.webp" caption="The clip editor" alt="The clip editor with a preview of the stream, the trim strip, a title, and the Allow JSTV Marketing checkbox" loading="lazy" %}
+
+### Choosing the moment
+
+The strip under the preview covers the 30 minutes before you opened the editor, so you can grab something you just missed. Clips can be anywhere from 10 seconds to 5 minutes long, and the length you've picked shows on the right.
+
+- Drag a blue handle to move where the clip starts or ends.
+- Drag the shaded part to slide the whole clip.
+- With a keyboard, select a handle and use the arrow keys. Hold Shift to move 5 seconds at a time.
+
+The preview jumps to whichever edge you move, so you can check exactly where your clip starts and ends. Click the `?` next to Trim any time you need a reminder.
+
+{% include lazy_image.html src="/assets/png/clips-editor-trim.png" srcset="/assets/webp/clips-editor-trim.webp" caption="A 2 minute clip picked from the middle of the last 30 minutes" alt="The trim strip with a 2 minute selection in the middle" loading="lazy" %}
+
+> Your saved clip may run a few seconds longer than what you selected.
+
+### Title and saving
+
+Give your clip a title of up to 80 characters. The title names the clip in your media library, so make it something you'll recognize later. Then click **Save clip**, or press Enter.
+
+**Allow JSTV Marketing** This box is checked for you. Leaving it checked gives Joystick permission to use the clip for marketing. If you'd rather we didn't, uncheck it before you save. See our [Terms & Conditions](https://joystick.tv/independent-broadcaster-terms) for details.
+
+{% include lazy_image.html src="/assets/png/clips-saved.png" srcset="/assets/webp/clips-saved.webp" caption="Your clip is saved" alt="Clip saved confirmation with Open media library and Done buttons" loading="lazy" %}
+
+### After you save
+
+Your clip shows up in your [Media Library](https://joystick.tv/media) right away, named after its title. For example, "Love this intro!" becomes `love-this-intro.mp4`. It's tagged `clip`, plus `JSTV` if you allowed marketing, so you can find all of your clips with the tag filter.
+
+While it's being processed and reviewed, the clip shows as **In review**. Just like any other video you upload, clips are reviewed by Joystick staff before you can use them, and they follow the same rules as the rest of your media. Once approved, you can use your clip like any other video in your library: post it, or send it in a DM.
+
+{% include lazy_image.html src="/assets/png/clips-media-library.png" srcset="/assets/webp/clips-media-library.webp" caption="An approved clip in your media library" alt="A media library card for love-this-intro.mp4, 2 minutes 7 seconds long, marked SFW with 2 tags" loading="lazy" %}
+
+### Moderators can clip too
+
+Your moderators see the same Clip button on your stream, and they can use `!clip` in your chat. Clips your mods save always go to **your** media library, not theirs. Mods don't see the Allow JSTV Marketing option, because only you can give that permission for your content.
+
+{% include lazy_image.html src="/assets/png/clips-editor-moderator.png" srcset="/assets/webp/clips-editor-moderator.webp" caption="What your moderators see" alt="The clip editor as a moderator, saying the clip goes to the streamer's media library, with no marketing checkbox" loading="lazy" %}
+
+Viewers can't clip your stream. If someone else types `!clip`, our chat bot privately lets them know that only you or a moderator can clip.
+
+{% include lazy_image.html src="/assets/png/clips-viewer-refused.png" srcset="/assets/webp/clips-viewer-refused.webp" caption="What a viewer sees if they try !clip" alt="A private chat bot message: Only russ or a moderator can clip." loading="lazy" %}
+
+### Troubleshooting Clips
+
+**I don't see the Clip button.** The button only shows while you're live and clipping is turned on for your account. If clipping was just turned on for you, it starts with your next stream.
+
+**The preview says "Preview isn't available."** You can still save your clip. It's cut from the recording when you save it. If the preview never loads, close the editor and open it again.
+
+**"Clips aren't available on this stream right now."** Your stream isn't being recorded at the moment, for example because it has just ended. Clips can only be made while you're live.
+
+**My clip says Rejected.** If the message says "We couldn't export this clip. Please try again.", something went wrong while cutting it from the recording. Save it again while it's still within the last 30 minutes. If it keeps happening, let us know in the #support channel in our Discord.
+
+<small>Screenshots in this section show *Sprite Fright* by Blender Studio ([studio.blender.org](https://studio.blender.org)), licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).</small>
 
 ## Tip Goals
 
