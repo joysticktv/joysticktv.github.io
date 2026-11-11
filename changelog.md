@@ -5,6 +5,24 @@ keywords:
 title: CHANGELOG
 ---
 
+# 2026-11-11
+
+## Profile Page
+
+* NEW: Clip button for streamers and their moderators while live. Save a moment from the last 30 minutes of the stream, between 10 seconds and 5 minutes long. Being rolled out to selected streamers. See [Clips](/streamer_support#clips).
+
+## Publisher Page
+
+* NEW: Clip button next to End Stream while you're live
+
+## Chat Component
+
+* NEW: `!clip seconds` command opens the clip editor for streamers and moderators
+
+## Media Page
+
+* NEW: Clips are saved to the streamer's media library, tagged `clip`
+
 # 2026-04-06
 
 This file is a description of all the differences to expect from Joystick v1 to v2.

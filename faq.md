@@ -89,3 +89,11 @@ Yes! Once your application is approved, we will add you to our "New" streamers s
 ## Are sleep streams or erotic hypnosis allowed?
 
 Unfortunately, no. You must be awake and aware during all live streams and uploaded content.
+
+## Can I clip someone else's stream?
+
+Only if you're one of their moderators. Clips can be saved by the streamer and their moderators, and every clip goes to the streamer's media library. If you type `!clip` in someone else's chat, our chat bot will privately let you know.
+
+## Why don't I see the Clip button on my stream?
+
+Clipping is being rolled out to selected streamers, and the Clip button only shows while you're live. If clipping was just turned on for you, it starts with your next stream. See [Clips](/streamer_support#clips) for more.

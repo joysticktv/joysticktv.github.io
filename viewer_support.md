@@ -37,6 +37,8 @@ We have several chat commands to make your viewing experience even that more fun
 
 `!cleartimers` - Clear all timers that are currently set on a stream. This is only available to streamers and their moderators.
 
+`!clip seconds` - Open the clip editor to save a moment from the stream. Add the number of seconds to start with, like `!clip 45`, or leave it off for the last 30 seconds. This is only available to streamers and their moderators, on streams where clipping is turned on. See [Clips](/streamer_support#clips) for more.
+
 `!uptime` - Use this command to see how long the stream has been live.
 
 `!dropin @username` - When your stream is done, pass on the love by sending your viewers to another streamer that is live. After you send this command, all of your viewers will be sent to the other streamer and a welcome message will let everyone know that you have arrived. This command is for the streamer only.
