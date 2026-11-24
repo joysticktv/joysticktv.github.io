@@ -77,6 +77,7 @@ A bot requests **scopes** — the specific things it wants to do. The streamer s
 | `moderators:manage`  | Add and remove the streamer's moderators                         |    ⚠️     |
 | `stream:manage`      | Update the streamer's stream settings                            |    ⚠️     |
 | `tip_menus:manage`   | View, create, update, and delete the streamer's tip menus        |           |
+| `tip_goals:manage`   | View, create, update, and delete the streamer's tip goals        |           |
 
 You request scopes as a space‑separated string in the `scope` parameter (e.g. `chat:read chat:write stream:read`). A token can only ever be **narrower** than what the streamer granted at install — requesting a scope the streamer didn't grant is rejected. If you omit `scope`, the token carries everything the streamer granted.
 
@@ -541,6 +542,47 @@ This is a sample body for creating and updating tip menus.
       "amount": 2500,
       "active": false,
       "position": 2
+    }
+  ]
+}
+```
+
+### Tip goals / milestones
+
+| Method & path                                   | Scope              | Notes                                                                      |
+| ----------------------------------------------- | ------------------ | -------------------------------------------------------------------------- |
+| `GET /tip-goals`                                | `tip_goals:manage` | Returns paginated list. Use `page` and `per_page` query params             |
+| `GET /tip-goals/:id`                            | `tip_goals:manage` | Returns a single tip goal and all its milestones                           |
+| `POST /tip-goals`                               | `tip_goals:manage` | Body `{ "title": "...", "active": true, "milestones": [{"title": ".."}] }` |
+| `PUT /tip-goals/:id`                            | `tip_goals:manage` | Same body as creating a tip goal. `id` is the tip goal id                  |
+| `DELETE /tip-goals/:id`                         | `tip_goals:manage` | Delete a tip goal and all its milestones.                                  |
+| `POST /tip-goals/:id/reset`                     | `tip_goals:manage` | Reset the goal amount and unlock all milestones                            |
+| `POST /tip-goals/:tip_goal_id/milestones`       | `tip_goals:manage` | Body `{"title": "...", "amount": 50}`. Adds a new milestone.               |
+| `PUT /tip-goals/:tip_goal_id/milestones/:id`    | `tip_goals:manage` | Update a specific milestone.                                               |
+| `DELETE /tip-goals/:tip_goal_id/milestones/:id` | `tip_goals:manage` | Delete a specific milestone.                                               |
+
+This is a sample body for creating and updating tip goals.
+
+```json
+{
+  "title": "Big Party",
+  "active": true,
+  "amount": 10000,
+  "milestones": [
+    {
+      "title": "Stretch break",
+      "amount": 500,
+      "active": true
+    },
+    {
+      "title": "Mini dance",
+      "amount": 2500,
+      "active": true
+    },
+    {
+      "title": "Halfway to the goal",
+      "amount": 5000,
+      "active": true
     }
   ]
 }
