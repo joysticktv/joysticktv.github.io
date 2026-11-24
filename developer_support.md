@@ -46,7 +46,7 @@ Here's the flow end to end:
 
 ## Clients: public vs confidential
 
-When you create a bot you choose a **client type**. This is separate from whether your bot is listed in the marketplace (see [Public vs private bots](#public-vs-private-bots) at the end) — it determines **how your bot authenticates**.
+When you create a bot you choose a **client type**. This determines **how your bot authenticates**.
 
 |                       | Confidential client                     | Public client                                                                                                  |
 | --------------------- | --------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
@@ -77,6 +77,7 @@ A bot requests **scopes** — the specific things it wants to do. The streamer s
 | `moderators:manage`  | Add and remove the streamer's moderators                         |    ⚠️     |
 | `stream:manage`      | Update the streamer's stream settings                            |    ⚠️     |
 | `tip_menus:manage`   | View, create, update, and delete the streamer's tip menus        |           |
+| `tip_goals:manage`   | View, create, update, and delete the streamer's tip goals        |           |
 
 You request scopes as a space‑separated string in the `scope` parameter (e.g. `chat:read chat:write stream:read`). A token can only ever be **narrower** than what the streamer granted at install — requesting a scope the streamer didn't grant is rejected. If you omit `scope`, the token carries everything the streamer granted.
 
@@ -467,6 +468,14 @@ curl -XPUT -H "Authorization: Bearer JWT" -H "Content-Type: application/json" \
 | `POST /chat/whispers`       | `chat:whisper:write` | Body `{ "text": "...", "username": "..." }`. Returns `{ sent, username }`. |
 | `DELETE /chat/messages/:id` | `chat:moderate`      | Soft‑deletes a message in this channel.                                    |
 
+### Emotes
+
+| Method & path | Scope        | Notes                                                          |
+| ------------- | ------------ | -------------------------------------------------------------- |
+| `GET /emotes` | `chat:write` | Returns paginated list. Use `page` and `per_page` query params |
+
+> Bots may only use the emotes of the streamer that installed the bot.
+
 ### Moderation
 
 | Method & path                      | Scope               | Notes                                           |
@@ -546,6 +555,47 @@ This is a sample body for creating and updating tip menus.
 }
 ```
 
+### Tip goals / milestones
+
+| Method & path                                   | Scope              | Notes                                                                      |
+| ----------------------------------------------- | ------------------ | -------------------------------------------------------------------------- |
+| `GET /tip-goals`                                | `tip_goals:manage` | Returns paginated list. Use `page` and `per_page` query params             |
+| `GET /tip-goals/:id`                            | `tip_goals:manage` | Returns a single tip goal and all its milestones                           |
+| `POST /tip-goals`                               | `tip_goals:manage` | Body `{ "title": "...", "active": true, "milestones": [{"title": ".."}] }` |
+| `PUT /tip-goals/:id`                            | `tip_goals:manage` | Same body as creating a tip goal. `id` is the tip goal id                  |
+| `DELETE /tip-goals/:id`                         | `tip_goals:manage` | Delete a tip goal and all its milestones.                                  |
+| `POST /tip-goals/:id/reset`                     | `tip_goals:manage` | Reset the goal amount and unlock all milestones                            |
+| `POST /tip-goals/:tip_goal_id/milestones`       | `tip_goals:manage` | Body `{"title": "...", "amount": 50}`. Adds a new milestone.               |
+| `PUT /tip-goals/:tip_goal_id/milestones/:id`    | `tip_goals:manage` | Update a specific milestone.                                               |
+| `DELETE /tip-goals/:tip_goal_id/milestones/:id` | `tip_goals:manage` | Delete a specific milestone.                                               |
+
+This is a sample body for creating and updating tip goals.
+
+```json
+{
+  "title": "Big Party",
+  "active": true,
+  "amount": 10000,
+  "milestones": [
+    {
+      "title": "Stretch break",
+      "amount": 500,
+      "active": true
+    },
+    {
+      "title": "Mini dance",
+      "amount": 2500,
+      "active": true
+    },
+    {
+      "title": "Halfway to the goal",
+      "amount": 5000,
+      "active": true
+    }
+  ]
+}
+```
+
 ## Testing your bot
 
 Testing is tricky if you're not a streamer, since you need a live chat. Confidential clients can use the echo endpoint to fire sample data at their own gateway connection:
@@ -570,9 +620,14 @@ Reference implementations live on our GitHub: [@joysticktv](https://github.com/j
 
 ---
 
-## Public vs private bots
+## Listing in the Marketplace
 
-Independently of client type, a bot is **private by default** — only you (the creator) can install it, and it's not visible to anyone else. Making a bot **public** lists it in the Joystick bot marketplace so any streamer can install it; that requires providing:
+When you first create your bot, it is only visible to you. No one will have access to install your bot, but you have two options:
+
+1. List your bot in the marketplace. This allows any streamer to install your bot and makes it discoverable in the Bot Marketplace.
+2. Add beta-testers. You can choose up-to 25 streamers to beta-test your bot. Alternatively, you can use this as a way to give access to specific streamers without listing the bot in the marketplace.
+
+In order to list your bot in the marketplace, you will need to provide some additional information to ensure full transparency.
 
 - **Website** — a page describing what the bot does and how to configure it.
 - **Terms of Service** — what you expect of streamers who install it.
