@@ -46,7 +46,7 @@ Here's the flow end to end:
 
 ## Clients: public vs confidential
 
-When you create a bot you choose a **client type**. This is separate from whether your bot is listed in the marketplace (see [Public vs private bots](#public-vs-private-bots) at the end) — it determines **how your bot authenticates**.
+When you create a bot you choose a **client type**. This determines **how your bot authenticates**.
 
 |                       | Confidential client                     | Public client                                                                                                  |
 | --------------------- | --------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
@@ -612,9 +612,14 @@ Reference implementations live on our GitHub: [@joysticktv](https://github.com/j
 
 ---
 
-## Public vs private bots
+## Listing in the Marketplace
 
-Independently of client type, a bot is **private by default** — only you (the creator) can install it, and it's not visible to anyone else. Making a bot **public** lists it in the Joystick bot marketplace so any streamer can install it; that requires providing:
+When you first create your bot, it is only visible to you. No one will have access to install your bot, but you have two options:
+
+1. List your bot in the marketplace. This allows any streamer to install your bot and makes it discoverable in the Bot Marketplace.
+2. Add beta-testers. You can choose up-to 25 streamers to beta-test your bot. Alternatively, you can use this as a way to give access to specific streamers without listing the bot in the marketplace.
+
+In order to list your bot in the marketplace, you will need to provide some additional information to ensure full transparency.
 
 - **Website** — a page describing what the bot does and how to configure it.
 - **Terms of Service** — what you expect of streamers who install it.
