@@ -468,6 +468,14 @@ curl -XPUT -H "Authorization: Bearer JWT" -H "Content-Type: application/json" \
 | `POST /chat/whispers`       | `chat:whisper:write` | Body `{ "text": "...", "username": "..." }`. Returns `{ sent, username }`. |
 | `DELETE /chat/messages/:id` | `chat:moderate`      | Soft‑deletes a message in this channel.                                    |
 
+### Emotes
+
+| Method & path | Scope        | Notes                                                          |
+| ------------- | ------------ | -------------------------------------------------------------- |
+| `GET /emotes` | `chat:write` | Returns paginated list. Use `page` and `per_page` query params |
+
+> Bots may only use the emotes of the streamer that installed the bot.
+
 ### Moderation
 
 | Method & path                      | Scope               | Notes                                           |
